@@ -17,7 +17,7 @@ By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
 
 == Introduction
 
-TaskBook is for those who *prefer to use a desktop app for keeping track of their tasks and priorities*. More importantly, TaskBook is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TaskBook can get your tasks and priorities organised faster than traditional GUI apps. Interested? Jump to the Section 2, “Quick Start” to get started. Enjoy!
+Organizer is for those who *prefer to use a desktop app for keeping track of their tasks and priorities*. More importantly, Organizer is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Organizer can get your tasks and priorities organised faster than traditional GUI apps. Interested? Jump to the Section 2, “Quick Start” to get started. Enjoy!
 
 == Quick Start
 
@@ -28,7 +28,7 @@ Having any Java 8 version is not enough. +
 This app will not work with earlier versions of Java 8.
 +
 .  [.line-through]#Download the latest `addressbook.jar` link:{repoURL}/releases[here].# _{ to be edited accordingly soon ... }_
-.  Copy the file to the folder you want to use as the home folder for your Task Book.
+.  Copy the file to the folder you want to use as the home folder for your Organizer.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
 image::Ui.png[width="790"]
@@ -39,7 +39,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
 * *`list`* : lists all contacts
-* **`add`**`add n/CS2103T Developer Guide p/10 d/2018-03-02` : adds a task named `CS2103T Developer Guide` to the Task Book.
+* **`add`**`add n/CS2103T Developer Guide p/10 d/2018-03-02` : adds a task named `CS2103T Developer Guide` to the Organizer.
 * **`delete`**`3` : deletes the 3rd task shown in the current list
 * *`exit`* : exits the app
 
@@ -63,7 +63,7 @@ Format: `help`
 
 === Adding a task: `add`
 
-Adds a person to the Task Book +
+Adds a person to the Organizer +
 Format: `add n/TASK_NAME p/PRIORITY_LEVEL d/DEADLINE [t/TAG]…​`
 
 [TIP]
@@ -76,12 +76,12 @@ Examples:
 
 === Listing all tasks : `list`
 
-Shows a list of all tasks in the Task Book. +
+Shows a list of all tasks in the Organizer. +
 Format: `list`
 
 === Editing a task : `edit`
 
-Edits an existing task in the Task Book. +
+Edits an existing task in the Organizer. +
 Format: `edit INDEX [n/TASK_NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [t/TAG]…​`
 
 ****
@@ -121,7 +121,7 @@ Returns any task having names `CS2101`, `Developer`, or `User`
 
 === Deleting a task : `delete`
 
-Deletes the specified task from the Task Book. +
+Deletes the specified task from the Organizer. +
 Format: `delete INDEX`
 
 ****
@@ -134,7 +134,7 @@ Examples:
 
 * `list` +
 `delete 2` +
-Deletes the 2nd task in the Task Book.
+Deletes the 2nd task in the Organizer.
 * `find Developer` +
 `delete 1` +
 Deletes the 1st task in the results of the `find` command.
@@ -154,7 +154,7 @@ Examples:
 
 * `list` +
 `select 2` +
-Selects the 2nd task in the Task Book.
+Selects the 2nd task in the Organizer.
 * `find Developer` +
 `select 1` +
 Selects the 1st task in the results of the `find` command.
@@ -172,12 +172,12 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 // tag::undoredo[]
 === Undoing previous command : `undo`
 
-Restores the Task Book to the state before the previous _undoable_ command was executed. +
+Restores the Organizer to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the Task Book's content (`add`, `delete`, `edit` and `clear`).
+Undoable commands: those commands that modify the Organizer's content (`add`, `delete`, `edit` and `clear`).
 ====
 
 Examples:
@@ -221,7 +221,7 @@ The `redo` command fails as there are no `undo` commands executed previously.
 
 === Clearing all entries : `clear`
 
-Clears all entries from the Task Book. +
+Clears all entries from the Organizer. +
 Format: `clear`
 
 === Exiting the program : `exit`
@@ -231,7 +231,7 @@ Format: `exit`
 
 === Saving the data
 
-Task Book data are saved in the hard disk automatically after any command that changes the data. +
+Organizer data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
 // tag::dataencryption[]
