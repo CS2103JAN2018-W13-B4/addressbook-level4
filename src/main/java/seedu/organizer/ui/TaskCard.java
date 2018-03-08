@@ -22,6 +22,8 @@ public class TaskCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on Organizer level 4</a>
      */
 
+    private static final String[] TAG_COLOR_STYLES = { "blue", "brown", "gray", "green", "maroon", "orange",
+        "pink", "purple", "red", "yellow" };
     public final Task task;
 
     @FXML
@@ -38,8 +40,6 @@ public class TaskCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
-
-    private static final String[] TAG_COLOR_STYLES = { "blue", "brown", "gray", "green", "maroon", "orange", "pink", "purple", "red", "yellow" };
 
     public TaskCard(Task task, int displayedIndex) {
         super(FXML);
@@ -60,7 +60,7 @@ public class TaskCard extends UiPart<Region> {
     private String getTagColorStyleFor(String tagName) {
         // we use the hash code of the tag name to generate a random color, so that the color remain consistent
         // between different runs of the program while still making it random enough between tags.
-            return TAG_COLOR_STYLES[Math.abs(tagName.hashCode()) % TAG_COLOR_STYLES.length];
+        return TAG_COLOR_STYLES[Math.abs(tagName.hashCode()) % TAG_COLOR_STYLES.length];
     }
 
     /**
