@@ -136,14 +136,14 @@ public class AddCommandSystemTest extends OrganizerSystemTest {
 
         /* Case: add a duplicate task -> rejected */
         command = TaskUtil.getAddCommand(HOON);
-        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_TASK);
 
         /* Case: add a duplicate task except with different tags -> rejected */
         // "friends" is an existing tag used in the default model, see TypicalTasks#ALICE
         // This test will fail if a new tag that is not in the model is used, see the bug documented in
         // Organizer#addTask(Task)
         command = TaskUtil.getAddCommand(HOON) + " " + PREFIX_TAG.getPrefix() + "friends";
-        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_TASK);
 
         /* Case: missing name -> rejected */
         command = AddCommand.COMMAND_WORD + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
