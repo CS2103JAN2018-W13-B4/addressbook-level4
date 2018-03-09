@@ -28,7 +28,7 @@ public class OrganizerBuilder {
      */
     public OrganizerBuilder withPerson(Task task) {
         try {
-            organizer.addPerson(task);
+            organizer.addTask(task);
         } catch (DuplicateTaskException dpe) {
             throw new IllegalArgumentException("task is expected to be unique.");
         }

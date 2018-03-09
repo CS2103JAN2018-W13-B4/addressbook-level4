@@ -28,7 +28,7 @@ public class OrganizerTest {
 
     @Test
     public void constructor() {
-        assertEquals(Collections.emptyList(), organizer.getPersonList());
+        assertEquals(Collections.emptyList(), organizer.getTaskList());
         assertEquals(Collections.emptyList(), organizer.getTagList());
     }
 
@@ -59,7 +59,7 @@ public class OrganizerTest {
     @Test
     public void getPersonList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
-        organizer.getPersonList().remove(0);
+        organizer.getTaskList().remove(0);
     }
 
     @Test
@@ -81,7 +81,7 @@ public class OrganizerTest {
         }
 
         @Override
-        public ObservableList<Task> getPersonList() {
+        public ObservableList<Task> getTaskList() {
             return tasks;
         }
 

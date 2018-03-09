@@ -57,7 +57,7 @@ public class SelectCommandSystemTest extends OrganizerSystemTest {
          * -> rejected
          */
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
-        int invalidIndex = getModel().getOrganizer().getPersonList().size();
+        int invalidIndex = getModel().getOrganizer().getTaskList().size();
         assertCommandFailure(SelectCommand.COMMAND_WORD + " " + invalidIndex, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
         /* Case: filtered task list, select index within bounds of organizer book and task list -> selected */

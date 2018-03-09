@@ -112,7 +112,7 @@ public class EditCommandSystemTest extends OrganizerSystemTest {
          * -> rejected
          */
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
-        int invalidIndex = getModel().getOrganizer().getPersonList().size();
+        int invalidIndex = getModel().getOrganizer().getTaskList().size();
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
                 Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
@@ -175,7 +175,7 @@ public class EditCommandSystemTest extends OrganizerSystemTest {
 
         /* Case: edit a task with new values same as another task's values -> rejected */
         executeCommand(TaskUtil.getAddCommand(BOB));
-        assertTrue(getModel().getOrganizer().getPersonList().contains(BOB));
+        assertTrue(getModel().getOrganizer().getTaskList().contains(BOB));
         index = INDEX_FIRST_PERSON;
         assertFalse(getModel().getFilteredPersonList().get(index.getZeroBased()).equals(BOB));
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB

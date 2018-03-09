@@ -69,7 +69,7 @@ public class DeleteCommandSystemTest extends OrganizerSystemTest {
          * -> rejected
          */
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
-        int invalidIndex = getModel().getOrganizer().getPersonList().size();
+        int invalidIndex = getModel().getOrganizer().getTaskList().size();
         command = DeleteCommand.COMMAND_WORD + " " + invalidIndex;
         assertCommandFailure(command, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
@@ -98,7 +98,7 @@ public class DeleteCommandSystemTest extends OrganizerSystemTest {
 
         /* Case: invalid index (size + 1) -> rejected */
         Index outOfBoundsIndex = Index.fromOneBased(
-                getModel().getOrganizer().getPersonList().size() + 1);
+                getModel().getOrganizer().getTaskList().size() + 1);
         command = DeleteCommand.COMMAND_WORD + " " + outOfBoundsIndex.getOneBased();
         assertCommandFailure(command, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 

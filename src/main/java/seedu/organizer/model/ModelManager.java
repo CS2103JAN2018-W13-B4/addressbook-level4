@@ -36,7 +36,7 @@ public class ModelManager extends ComponentManager implements Model {
         logger.fine("Initializing with organizer book: " + addressBook + " and user prefs " + userPrefs);
 
         this.organizer = new Organizer(addressBook);
-        filteredTasks = new FilteredList<>(this.organizer.getPersonList());
+        filteredTasks = new FilteredList<>(this.organizer.getTaskList());
     }
 
     public ModelManager() {
@@ -61,13 +61,13 @@ public class ModelManager extends ComponentManager implements Model {
 
     @Override
     public synchronized void deletePerson(Task target) throws TaskNotFoundException {
-        organizer.removePerson(target);
+        organizer.removeTask(target);
         indicateAddressBookChanged();
     }
 
     @Override
     public synchronized void addPerson(Task task) throws DuplicateTaskException {
-        organizer.addPerson(task);
+        organizer.addTask(task);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         indicateAddressBookChanged();
     }
@@ -77,7 +77,7 @@ public class ModelManager extends ComponentManager implements Model {
             throws DuplicateTaskException, TaskNotFoundException {
         requireAllNonNull(target, editedTask);
 
-        organizer.updatePerson(target, editedTask);
+        organizer.updateTask(target, editedTask);
         indicateAddressBookChanged();
     }
 

@@ -82,7 +82,7 @@ public class FindCommandSystemTest extends OrganizerSystemTest {
 
         /* Case: find same persons in organizer book after deleting 1 of them -> 1 task found */
         executeCommand(DeleteCommand.COMMAND_WORD + " 1");
-        assertFalse(getModel().getOrganizer().getPersonList().contains(BENSON));
+        assertFalse(getModel().getOrganizer().getTaskList().contains(BENSON));
         command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
         expectedModel = getModel();
         ModelHelper.setFilteredList(expectedModel, DANIEL);

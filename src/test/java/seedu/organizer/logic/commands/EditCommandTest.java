@@ -117,7 +117,7 @@ public class EditCommandTest {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
         // edit task in filtered list into a duplicate in organizer book
-        Task taskInList = model.getOrganizer().getPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
+        Task taskInList = model.getOrganizer().getTaskList().get(INDEX_SECOND_PERSON.getZeroBased());
         EditCommand editCommand = prepareCommand(INDEX_FIRST_PERSON,
                 new EditTaskDescriptorBuilder(taskInList).build());
 
@@ -142,7 +142,7 @@ public class EditCommandTest {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
         Index outOfBoundIndex = INDEX_SECOND_PERSON;
         // ensures that outOfBoundIndex is still in bounds of organizer book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getOrganizer().getPersonList().size());
+        assertTrue(outOfBoundIndex.getZeroBased() < model.getOrganizer().getTaskList().size());
 
         EditCommand editCommand = prepareCommand(outOfBoundIndex,
                 new EditTaskDescriptorBuilder().withName(VALID_NAME_BOB).build());

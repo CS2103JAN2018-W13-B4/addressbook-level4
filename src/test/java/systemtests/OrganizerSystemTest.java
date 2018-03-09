@@ -142,7 +142,7 @@ public abstract class OrganizerSystemTest {
      */
     protected void showAllPersons() {
         executeCommand(ListCommand.COMMAND_WORD);
-        assertEquals(getModel().getOrganizer().getPersonList().size(), getModel().getFilteredPersonList().size());
+        assertEquals(getModel().getOrganizer().getTaskList().size(), getModel().getFilteredPersonList().size());
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class OrganizerSystemTest {
      */
     protected void showPersonsWithName(String keyword) {
         executeCommand(FindCommand.COMMAND_WORD + " " + keyword);
-        assertTrue(getModel().getFilteredPersonList().size() < getModel().getOrganizer().getPersonList().size());
+        assertTrue(getModel().getFilteredPersonList().size() < getModel().getOrganizer().getTaskList().size());
     }
 
     /**
@@ -166,7 +166,7 @@ public abstract class OrganizerSystemTest {
      */
     protected void deleteAllPersons() {
         executeCommand(ClearCommand.COMMAND_WORD);
-        assertEquals(0, getModel().getOrganizer().getPersonList().size());
+        assertEquals(0, getModel().getOrganizer().getTaskList().size());
     }
 
     /**
@@ -287,7 +287,7 @@ public abstract class OrganizerSystemTest {
             assertEquals(MainApp.class.getResource(FXML_FILE_FOLDER + DEFAULT_PAGE), getBrowserPanel().getLoadedUrl());
             assertEquals("./" + testApp.getStorageSaveLocation(), getStatusBarFooter().getSaveLocation());
             assertEquals(SYNC_STATUS_INITIAL, getStatusBarFooter().getSyncStatus());
-            assertEquals(String.format(TOTAL_TASKS_STATUS, getModel().getOrganizer().getPersonList().size()),
+            assertEquals(String.format(TOTAL_TASKS_STATUS, getModel().getOrganizer().getTaskList().size()),
                 getStatusBarFooter().getTotalTasksStatus());
         } catch (Exception e) {
             throw new AssertionError("Starting state is wrong.", e);
@@ -306,7 +306,7 @@ public abstract class OrganizerSystemTest {
         String expectedSyncStatus = String.format(SYNC_STATUS_UPDATED, timestamp);
         assertEquals(expectedSyncStatus, handle.getSyncStatus());
 
-        final int totalTasks = testApp.getModel().getOrganizer().getPersonList().size();
+        final int totalTasks = testApp.getModel().getOrganizer().getTaskList().size();
         assertEquals(String.format(TOTAL_TASKS_STATUS, totalTasks), handle.getTotalTasksStatus());
 
         assertFalse(handle.isSaveLocationChanged());

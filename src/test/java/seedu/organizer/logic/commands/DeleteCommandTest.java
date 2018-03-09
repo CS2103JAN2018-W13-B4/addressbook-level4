@@ -74,7 +74,7 @@ public class DeleteCommandTest {
 
         Index outOfBoundIndex = INDEX_SECOND_PERSON;
         // ensures that outOfBoundIndex is still in bounds of organizer book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getOrganizer().getPersonList().size());
+        assertTrue(outOfBoundIndex.getZeroBased() < model.getOrganizer().getTaskList().size());
 
         DeleteCommand deleteCommand = prepareCommand(outOfBoundIndex);
 

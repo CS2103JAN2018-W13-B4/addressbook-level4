@@ -68,7 +68,7 @@ public class TypicalTasks {
         Organizer ab = new Organizer();
         for (Task task : getTypicalPersons()) {
             try {
-                ab.addPerson(task);
+                ab.addTask(task);
             } catch (DuplicateTaskException e) {
                 throw new AssertionError("not possible");
             }
