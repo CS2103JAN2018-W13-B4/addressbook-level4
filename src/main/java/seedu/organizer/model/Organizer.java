@@ -113,6 +113,18 @@ public class Organizer implements ReadOnlyOrganizer {
         // This can cause the tags master list to have additional tags that are not tagged to any task
         // in the task list.
         tasks.setTask(target, syncedEditedTask);
+        removeUnusedTags();
+    }
+
+    /**
+     * Removes all {@code Tag}s that are not used by any {@code Task} in this {@code Organizer}.
+     */
+    private void removeUnusedTags() {
+        Set<Tag> tagsInTasks = tasks.asObservableList().stream()
+                .map(Task::getTags)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet());
+        tags.setTags(tagsInTasks);
     }
 
     /**
