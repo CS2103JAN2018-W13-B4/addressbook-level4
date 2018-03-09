@@ -32,7 +32,7 @@ public class AddCommandIntegrationTest {
         Task validTask = new TaskBuilder().build();
 
         Model expectedModel = new ModelManager(model.getOrganizer(), new UserPrefs());
-        expectedModel.addPerson(validTask);
+        expectedModel.addTask(validTask);
 
         assertCommandSuccess(prepareCommand(validTask, model), model,
                 String.format(AddCommand.MESSAGE_SUCCESS, validTask), expectedModel);

@@ -98,7 +98,7 @@ public class CommandTestUtil {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         Organizer expectedOrganizer = new Organizer(actualModel.getOrganizer());
-        List<Task> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
+        List<Task> expectedFilteredList = new ArrayList<>(actualModel.getFilteredTaskList());
 
         try {
             command.execute();
@@ -106,7 +106,7 @@ public class CommandTestUtil {
         } catch (CommandException e) {
             assertEquals(expectedMessage, e.getMessage());
             assertEquals(expectedOrganizer, actualModel.getOrganizer());
-            assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
+            assertEquals(expectedFilteredList, actualModel.getFilteredTaskList());
         }
     }
 
@@ -115,22 +115,22 @@ public class CommandTestUtil {
      * {@code model}'s organizer book.
      */
     public static void showPersonAtIndex(Model model, Index targetIndex) {
-        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredTaskList().size());
 
-        Task task = model.getFilteredPersonList().get(targetIndex.getZeroBased());
+        Task task = model.getFilteredTaskList().get(targetIndex.getZeroBased());
         final String[] splitName = task.getName().fullName.split("\\s+");
-        model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        model.updateFilteredTaskList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-        assertEquals(1, model.getFilteredPersonList().size());
+        assertEquals(1, model.getFilteredTaskList().size());
     }
 
     /**
      * Deletes the first task in {@code model}'s filtered list from {@code model}'s organizer book.
      */
     public static void deleteFirstPerson(Model model) {
-        Task firstTask = model.getFilteredPersonList().get(0);
+        Task firstTask = model.getFilteredTaskList().get(0);
         try {
-            model.deletePerson(firstTask);
+            model.deleteTask(firstTask);
         } catch (TaskNotFoundException pnfe) {
             throw new AssertionError("Task in filtered list must exist in model.", pnfe);
         }

@@ -75,7 +75,7 @@ public class AddCommandSystemTest extends OrganizerSystemTest {
 
         /* Case: redo adding Amy to the list -> Amy added again */
         command = RedoCommand.COMMAND_WORD;
-        model.addPerson(toAdd);
+        model.addTask(toAdd);
         expectedResultMessage = RedoCommand.MESSAGE_SUCCESS;
         assertCommandSuccess(command, model, expectedResultMessage);
 
@@ -215,7 +215,7 @@ public class AddCommandSystemTest extends OrganizerSystemTest {
     private void assertCommandSuccess(String command, Task toAdd) {
         Model expectedModel = getModel();
         try {
-            expectedModel.addPerson(toAdd);
+            expectedModel.addTask(toAdd);
         } catch (DuplicateTaskException dpe) {
             throw new IllegalArgumentException("toAdd already exists in the model.");
         }

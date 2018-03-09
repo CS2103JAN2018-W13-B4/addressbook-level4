@@ -56,9 +56,9 @@ public class UndoableCommandTest {
 
         @Override
         public CommandResult executeUndoableCommand() throws CommandException {
-            Task taskToDelete = model.getFilteredPersonList().get(0);
+            Task taskToDelete = model.getFilteredTaskList().get(0);
             try {
-                model.deletePerson(taskToDelete);
+                model.deleteTask(taskToDelete);
             } catch (TaskNotFoundException pnfe) {
                 fail("Impossible: taskToDelete was retrieved from model.");
             }

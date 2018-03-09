@@ -97,7 +97,7 @@ public class AddCommandTest {
      */
     private class ModelStub implements Model {
         @Override
-        public void addPerson(Task task) throws DuplicateTaskException {
+        public void addTask(Task task) throws DuplicateTaskException {
             fail("This method should not be called.");
         }
 
@@ -113,24 +113,24 @@ public class AddCommandTest {
         }
 
         @Override
-        public void deletePerson(Task target) throws TaskNotFoundException {
+        public void deleteTask(Task target) throws TaskNotFoundException {
             fail("This method should not be called.");
         }
 
         @Override
-        public void updatePerson(Task target, Task editedTask)
+        public void updateTask(Task target, Task editedTask)
                 throws DuplicateTaskException {
             fail("This method should not be called.");
         }
 
         @Override
-        public ObservableList<Task> getFilteredPersonList() {
+        public ObservableList<Task> getFilteredTaskList() {
             fail("This method should not be called.");
             return null;
         }
 
         @Override
-        public void updateFilteredPersonList(Predicate<Task> predicate) {
+        public void updateFilteredTaskList(Predicate<Task> predicate) {
             fail("This method should not be called.");
         }
     }
@@ -140,7 +140,7 @@ public class AddCommandTest {
      */
     private class ModelStubThrowingDuplicatePersonException extends ModelStub {
         @Override
-        public void addPerson(Task task) throws DuplicateTaskException {
+        public void addTask(Task task) throws DuplicateTaskException {
             throw new DuplicateTaskException();
         }
 
@@ -157,7 +157,7 @@ public class AddCommandTest {
         final ArrayList<Task> personsAdded = new ArrayList<>();
 
         @Override
-        public void addPerson(Task task) throws DuplicateTaskException {
+        public void addTask(Task task) throws DuplicateTaskException {
             requireNonNull(task);
             personsAdded.add(task);
         }

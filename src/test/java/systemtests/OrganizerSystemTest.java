@@ -142,7 +142,7 @@ public abstract class OrganizerSystemTest {
      */
     protected void showAllPersons() {
         executeCommand(ListCommand.COMMAND_WORD);
-        assertEquals(getModel().getOrganizer().getTaskList().size(), getModel().getFilteredPersonList().size());
+        assertEquals(getModel().getOrganizer().getTaskList().size(), getModel().getFilteredTaskList().size());
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class OrganizerSystemTest {
      */
     protected void showPersonsWithName(String keyword) {
         executeCommand(FindCommand.COMMAND_WORD + " " + keyword);
-        assertTrue(getModel().getFilteredPersonList().size() < getModel().getOrganizer().getTaskList().size());
+        assertTrue(getModel().getFilteredTaskList().size() < getModel().getOrganizer().getTaskList().size());
     }
 
     /**
@@ -180,7 +180,7 @@ public abstract class OrganizerSystemTest {
         assertEquals(expectedResultMessage, getResultDisplay().getText());
         assertEquals(expectedModel, getModel());
         assertEquals(expectedModel.getOrganizer(), testApp.readStorageAddressBook());
-        assertListMatching(getPersonListPanel(), expectedModel.getFilteredPersonList());
+        assertListMatching(getPersonListPanel(), expectedModel.getFilteredTaskList());
     }
 
     /**
@@ -283,7 +283,7 @@ public abstract class OrganizerSystemTest {
         try {
             assertEquals("", getCommandBox().getInput());
             assertEquals("", getResultDisplay().getText());
-            assertListMatching(getPersonListPanel(), getModel().getFilteredPersonList());
+            assertListMatching(getPersonListPanel(), getModel().getFilteredTaskList());
             assertEquals(MainApp.class.getResource(FXML_FILE_FOLDER + DEFAULT_PAGE), getBrowserPanel().getLoadedUrl());
             assertEquals("./" + testApp.getStorageSaveLocation(), getStatusBarFooter().getSaveLocation());
             assertEquals(SYNC_STATUS_INITIAL, getStatusBarFooter().getSyncStatus());
