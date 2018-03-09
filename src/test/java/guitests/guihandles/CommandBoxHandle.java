@@ -3,7 +3,7 @@ package guitests.guihandles;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import seedu.address.ui.CommandBox;
+import seedu.organizer.ui.CommandBox;
 
 /**
  * A handle to the {@code CommandBox} in the GUI.
@@ -25,6 +25,7 @@ public class CommandBoxHandle extends NodeHandle<TextField> {
 
     /**
      * Enters the given command in the Command Box and presses enter.
+     *
      * @return true if the command succeeded, false otherwise.
      */
     public boolean run(String command) {
