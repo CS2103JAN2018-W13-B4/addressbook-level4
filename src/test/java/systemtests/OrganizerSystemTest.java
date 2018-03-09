@@ -84,7 +84,7 @@ public abstract class OrganizerSystemTest {
      * Returns the data to be loaded into the file in {@link #getDataFileLocation()}.
      */
     protected Organizer getInitialData() {
-        return TypicalTasks.getTypicalAddressBook();
+        return TypicalTasks.getTypicalOrganizer();
     }
 
     /**

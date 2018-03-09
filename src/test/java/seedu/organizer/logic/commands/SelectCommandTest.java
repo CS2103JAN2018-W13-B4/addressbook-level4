@@ -8,7 +8,7 @@ import static seedu.organizer.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.organizer.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.organizer.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.organizer.testutil.TypicalIndexes.INDEX_THIRD_PERSON;
-import static seedu.organizer.testutil.TypicalTasks.getTypicalAddressBook;
+import static seedu.organizer.testutil.TypicalTasks.getTypicalOrganizer;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -36,7 +36,7 @@ public class SelectCommandTest {
 
     @Before
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        model = new ModelManager(getTypicalOrganizer(), new UserPrefs());
     }
 
     @Test

@@ -15,7 +15,7 @@ import static seedu.organizer.logic.commands.CommandTestUtil.prepareUndoCommand;
 import static seedu.organizer.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.organizer.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.organizer.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.organizer.testutil.TypicalTasks.getTypicalAddressBook;
+import static seedu.organizer.testutil.TypicalTasks.getTypicalOrganizer;
 
 import org.junit.Test;
 
@@ -37,7 +37,7 @@ import seedu.organizer.testutil.TaskBuilder;
  */
 public class EditCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalOrganizer(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() throws Exception {

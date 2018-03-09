@@ -26,7 +26,7 @@ public class StatusBarFooterTest extends GuiUnitTest {
     private static final String STUB_SAVE_LOCATION = "Stub";
     private static final String RELATIVE_PATH = "./";
 
-    private static final OrganizerChangedEvent EVENT_STUB = new OrganizerChangedEvent(new OrganizerBuilder().withPerson
+    private static final OrganizerChangedEvent EVENT_STUB = new OrganizerChangedEvent(new OrganizerBuilder().withTask
         (ALICE).build());
 
     private static final int INITIAL_TOTAL_TASKS = 0;

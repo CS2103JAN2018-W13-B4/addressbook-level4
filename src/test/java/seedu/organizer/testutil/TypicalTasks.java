@@ -64,7 +64,7 @@ public class TypicalTasks {
     /**
      * Returns an {@code Organizer} with all the typical persons.
      */
-    public static Organizer getTypicalAddressBook() {
+    public static Organizer getTypicalOrganizer() {
         Organizer ab = new Organizer();
         for (Task task : getTypicalPersons()) {
             try {

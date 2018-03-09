@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static seedu.organizer.testutil.TypicalTasks.ALICE;
 import static seedu.organizer.testutil.TypicalTasks.HOON;
 import static seedu.organizer.testutil.TypicalTasks.IDA;
-import static seedu.organizer.testutil.TypicalTasks.getTypicalAddressBook;
+import static seedu.organizer.testutil.TypicalTasks.getTypicalOrganizer;
 
 import java.io.IOException;
 
@@ -75,7 +75,7 @@ public class XmlOrganizerStorageTest {
     @Test
     public void readAndSaveAddressBook_allInOrder_success() throws Exception {
         String filePath = testFolder.getRoot().getPath() + "TempAddressBook.xml";
-        Organizer original = getTypicalAddressBook();
+        Organizer original = getTypicalOrganizer();
         XmlOrganizerStorage xmlAddressBookStorage = new XmlOrganizerStorage(filePath);
 
         //Save in new file and read back

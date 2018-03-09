@@ -9,7 +9,7 @@ import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 /**
  * A utility class to help with building Addressbook objects.
  * Example usage: <br>
- * {@code Organizer ab = new OrganizerBuilder().withPerson("John", "Doe").withTag("Friend").build();}
+ * {@code Organizer ab = new OrganizerBuilder().withTask("John", "Doe").withTag("Friend").build();}
  */
 public class OrganizerBuilder {
 
@@ -26,7 +26,7 @@ public class OrganizerBuilder {
     /**
      * Adds a new {@code Task} to the {@code Organizer} that we are building.
      */
-    public OrganizerBuilder withPerson(Task task) {
+    public OrganizerBuilder withTask(Task task) {
         try {
             organizer.addTask(task);
         } catch (DuplicateTaskException dpe) {
