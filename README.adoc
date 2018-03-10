@@ -13,6 +13,7 @@ ifndef::env-github[]
 image::images/Ui.png[width="600"]
 endif::[]
 
+
 PrioriTask is a desktop Task Management application.
 
 This application's main aim is to help busy university students keep track of their many tasks and priorities. This application is most suitable for students who:
@@ -34,7 +35,7 @@ Is PrioriTask the application for you? Get started by reading the
 
 == Acknowledgements
 
-* This application is based on the https://github.com/se-edu/addressbook-level4[AddressBook-Level4] project created by _https://github.com/se-edu/[SE-EDU initiative]_.
+* This application is based on the https://github.com/se-edu/addressbook-level4[AddressBook-Level4] project created by _https://github.com/se-edu/[SE-EDU] initiative_.
 * Some parts of this application were inspired by the excellent http://code.makery.ch/library/javafx-8-tutorial/[Java FX tutorial] by
 _Marco Jakob_.
 * Libraries used: https://github.com/TomasMikula/EasyBind[EasyBind], https://github.com/TestFX/TestFX[TextFX], https://bitbucket.org/controlsfx/controlsfx/[ControlsFX], https://github.com/FasterXML/jackson[Jackson], https://github.com/google/guava[Guava], https://github.com/junit-team/junit4[JUnit4]
