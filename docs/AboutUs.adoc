@@ -11,7 +11,7 @@ We are a team based in the http://www.comp.nus.edu.sg[School of Computing, Natio
 
 === Agus Sentosa Hermawan
 image::agus.jpeg[width="150", align="left"]
-{empty}[https://github.com/aguss787[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/aguss787[github]] [<<agus#, portfolio>>]
 
 Role: Testing +
 Responsibilities: Storage
@@ -20,7 +20,7 @@ Responsibilities: Storage
 
 === Dominic Kenn Lim
 image::dominic.jpeg[width="150", align="left"]
-{empty}[https://github.com/dominickenn[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/dominickenn[github]] [<<dominic#, portfolio>>]
 
 Role: Team Lead, Scheduling and Tracking +
 Responsibilities: UI
@@ -29,7 +29,7 @@ Responsibilities: UI
 
 === Natania Djohari
 image::natania.jpeg[width="150", align="left"]
-{empty}[https://github.com/natania-d[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/natania-d[github]] [<<natania#, portfolio>>]
 
 Role: Documentation +
 Responsibilities: Model
@@ -38,7 +38,7 @@ Responsibilities: Model
 
 === Yeo Guek Ling
 image::guekling.jpeg[width="150", align="left"]
-{empty}[https://github.com/guekling[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/guekling[github]] [<<guekling#, portfolio>>]
 
 Role: Deliverables and Deadlines +
 Responsibilities: UI
