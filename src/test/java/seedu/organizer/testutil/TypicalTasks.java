@@ -33,19 +33,19 @@ public class TypicalTasks {
             .withDeadline("2018-09-08").withPhone("98765432")
             .withTags("owesMoney", "friends").build();
     public static final Task CARL = new TaskBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withDeadline("2018-03-04").withAddress("wall street").build();
+            .withDeadline("2018-11-12").withAddress("wall street").build();
     public static final Task DANIEL = new TaskBuilder().withName("Daniel Meier").withPhone("87652533")
             .withDeadline("2018-03-21").withAddress("10th street").build();
     public static final Task ELLE = new TaskBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withDeadline("2018-09-12").withAddress("michegan ave").build();
+            .withDeadline("2018-09-14").withAddress("michegan ave").build();
     public static final Task FIONA = new TaskBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withDeadline("2018-04-05").withAddress("little tokyo").build();
     public static final Task GEORGE = new TaskBuilder().withName("George Best").withPhone("9482442")
-            .withDeadline("2018-09-12").withAddress("4th street").build();
+            .withDeadline("2018-05-23").withAddress("4th street").build();
 
     // Manually added
     public static final Task HOON = new TaskBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withDeadline("s2018-07-06").withAddress("little india").build();
+            .withDeadline("2018-07-06").withAddress("little india").build();
     public static final Task IDA = new TaskBuilder().withName("Ida Mueller").withPhone("8482131")
             .withDeadline("2018-06-01").withAddress("chicago ave").build();
 
