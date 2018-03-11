@@ -782,13 +782,16 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 
 *Target user profile*:
 
-* university students
-* prefer desktop apps over other types
+* busy university students who has many tasks to keep track of
+* is taking many modules, and is part of various student organizations and activities
+* prefers a digital organizer over a physical organizer
+* requires help in monitoring the numerous tasks and their levels of importance
+* would like assistance for the planning of tasks
+* is forgetful, and requires constant reminders
+* prefers desktop apps over other types
 * can type fast
 * prefers typing over mouse input
 * is reasonably comfortable using CLI apps
-* prefers a digital organiser over a physical organiser
-* would rather the application do the planning for them
 
 *Value proposition*: helps busy university students keep track of their tasks and priorities
 
