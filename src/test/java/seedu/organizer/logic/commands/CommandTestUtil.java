@@ -29,8 +29,8 @@ import seedu.organizer.testutil.EditTaskDescriptorBuilder;
  */
 public class CommandTestUtil {
 
-    public static final String VALID_NAME_EXAM = "Amy Bee";
-    public static final String VALID_NAME_STUDY = "Bob Choo";
+    public static final String VALID_NAME_EXAM = "CS2103T Exam";
+    public static final String VALID_NAME_STUDY = "Study MA1101R";
     public static final String VALID_PRIORITY_EXAM = "1";
     public static final String VALID_PRIORITY_STUDY = "2";
     public static final String VALID_DEADLINE_EXAM = "2018-03-27";
@@ -62,15 +62,15 @@ public class CommandTestUtil {
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
-    public static final EditCommand.EditTaskDescriptor DESC_AMY;
-    public static final EditCommand.EditTaskDescriptor DESC_BOB;
+    public static final EditCommand.EditTaskDescriptor DESC_EXAM;
+    public static final EditCommand.EditTaskDescriptor DESC_STUDY;
 
     static {
-        DESC_AMY = new EditTaskDescriptorBuilder().withName(VALID_NAME_EXAM)
+        DESC_EXAM = new EditTaskDescriptorBuilder().withName(VALID_NAME_EXAM)
                 .withPriority(VALID_PRIORITY_EXAM).withDeadline(VALID_DEADLINE_EXAM).withDescription
                         (VALID_DESCRIPTION_EXAM)
                 .withTags(VALID_TAG_FRIEND).build();
-        DESC_BOB = new EditTaskDescriptorBuilder().withName(VALID_NAME_STUDY)
+        DESC_STUDY = new EditTaskDescriptorBuilder().withName(VALID_NAME_STUDY)
                 .withPriority(VALID_PRIORITY_STUDY).withDeadline(VALID_DEADLINE_STUDY).withDescription
                         (VALID_DESCRIPTION_STUDY)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();

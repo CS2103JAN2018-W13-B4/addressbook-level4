@@ -46,7 +46,7 @@ public class EditCommand extends UndoableCommand {
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_PRIORITY + "91234567 "
+            + PREFIX_PRIORITY + "9 "
             + PREFIX_DEADLINE + "2018-03-11";
 
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Edited Task: %1$s";
