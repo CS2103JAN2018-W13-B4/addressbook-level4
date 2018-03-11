@@ -4,7 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.organizer.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.organizer.logic.commands.CommandTestUtil.DESC_BOB;
-import static seedu.organizer.logic.commands.CommandTestUtil.VALID_ADDRESS_STUDY;
+import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DEADLINE_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_NAME_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_PRIORITY_STUDY;
@@ -49,7 +49,7 @@ public class EditTaskDescriptorTest {
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different organizer -> returns false
-        editedAmy = new EditTaskDescriptorBuilder(DESC_AMY).withAddress(VALID_ADDRESS_STUDY).build();
+        editedAmy = new EditTaskDescriptorBuilder(DESC_AMY).withDescription(VALID_DESCRIPTION_STUDY).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different tags -> returns false
