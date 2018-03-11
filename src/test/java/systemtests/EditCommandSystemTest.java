@@ -80,8 +80,8 @@ public class EditCommandSystemTest extends OrganizerSystemTest {
         assertCommandSuccess(command, model, expectedResultMessage);
 
         /* Case: edit a task with new values same as existing values -> edited */
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB +
-                DEADLINE_DESC_BOB
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB
+                + DEADLINE_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandSuccess(command, index, BOB);
 
@@ -125,8 +125,8 @@ public class EditCommandSystemTest extends OrganizerSystemTest {
         showAllPersons();
         index = INDEX_FIRST_PERSON;
         selectPerson(index);
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + PHONE_DESC_AMY +
-                DEADLINE_DESC_AMY
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + PHONE_DESC_AMY
+                + DEADLINE_DESC_AMY
                 + ADDRESS_DESC_AMY + TAG_DESC_FRIEND;
         // this can be misleading: card selection actually remains unchanged but the
         // browser's url is updated to reflect the new task's name
@@ -180,14 +180,14 @@ public class EditCommandSystemTest extends OrganizerSystemTest {
         assertTrue(getModel().getOrganizer().getTaskList().contains(BOB));
         index = INDEX_FIRST_PERSON;
         assertFalse(getModel().getFilteredTaskList().get(index.getZeroBased()).equals(BOB));
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB +
-                DEADLINE_DESC_BOB
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB
+                + DEADLINE_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_PERSON);
 
         /* Case: edit a task with new values same as another task's values but with different tags -> rejected */
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB +
-                DEADLINE_DESC_BOB
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB
+                + DEADLINE_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_PERSON);
     }

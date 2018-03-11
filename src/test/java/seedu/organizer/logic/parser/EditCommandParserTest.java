@@ -83,7 +83,8 @@ public class EditCommandParserTest {
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + INVALID_NAME_DESC, Name.MESSAGE_NAME_CONSTRAINTS); // invalid name
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_PHONE_CONSTRAINTS); // invalid phone
-        assertParseFailure(parser, "1" + INVALID_DEADLINE_DESC, Deadline.MESSAGE_DEADLINE_CONSTRAINTS); // invalid deadline
+        assertParseFailure(parser, "1" + INVALID_DEADLINE_DESC, Deadline.MESSAGE_DEADLINE_CONSTRAINTS);
+            // invalid deadline
         assertParseFailure(parser,
                 "1" + INVALID_ADDRESS_DESC, Address.MESSAGE_ADDRESS_CONSTRAINTS); // invalid organizer
         assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_TAG_CONSTRAINTS); // invalid tag
@@ -178,8 +179,8 @@ public class EditCommandParserTest {
                 + PHONE_DESC_BOB + ADDRESS_DESC_BOB + DEADLINE_DESC_BOB + TAG_DESC_HUSBAND;
 
         EditPersonDescriptor descriptor = new EditTaskDescriptorBuilder().withPhone(VALID_PHONE_BOB)
-                .withDeadline(VALID_DEADLINE_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
-                .build();
+            .withDeadline(VALID_DEADLINE_BOB).withAddress(VALID_ADDRESS_BOB)
+            .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
