@@ -1,9 +1,9 @@
 package seedu.organizer.testutil;
 
-import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_EXAM;
-import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DEADLINE_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DEADLINE_STUDY;
+import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_EXAM;
+import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_NAME_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_NAME_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_PRIORITY_EXAM;
@@ -50,7 +50,8 @@ public class TypicalTasks {
 
     // Manually added - Task's details found in {@code CommandTestUtil}
     public static final Task EXAM = new TaskBuilder().withName(VALID_NAME_EXAM).withPriority(VALID_PRIORITY_EXAM)
-            .withDeadline(VALID_DEADLINE_EXAM).withDescription(VALID_DESCRIPTION_EXAM).withTags(VALID_TAG_FRIEND).build();
+            .withDeadline(VALID_DEADLINE_EXAM).withDescription(VALID_DESCRIPTION_EXAM)
+            .withTags(VALID_TAG_FRIEND).build();
     public static final Task STUDY = new TaskBuilder().withName(VALID_NAME_STUDY).withPriority(VALID_PRIORITY_STUDY)
             .withDeadline(VALID_DEADLINE_STUDY).withDescription(VALID_DESCRIPTION_STUDY).withTags(VALID_TAG_HUSBAND,
                     VALID_TAG_FRIEND)

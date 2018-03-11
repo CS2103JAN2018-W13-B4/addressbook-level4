@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 import seedu.organizer.logic.commands.EditCommand;
 import seedu.organizer.logic.commands.EditCommand.EditTaskDescriptor;
 import seedu.organizer.model.tag.Tag;
-import seedu.organizer.model.task.Description;
 import seedu.organizer.model.task.Deadline;
+import seedu.organizer.model.task.Description;
 import seedu.organizer.model.task.Name;
 import seedu.organizer.model.task.Priority;
 import seedu.organizer.model.task.Task;
@@ -57,11 +57,7 @@ public class EditTaskDescriptorBuilder {
     }
 
     /**
-<<<<<<< HEAD
      * Sets the {@code Deadline} of the {@code EditTaskDescriptor} that we are building.
-=======
-     * Sets the {@code Deadline} of the {@code EditTaskDescriptor} that we are building.
->>>>>>> ff65e3137bd264588bf2aaa81c331b7a7109edae
      */
     public EditTaskDescriptorBuilder withDeadline(String deadline) {
         descriptor.setDeadline(new Deadline(deadline));

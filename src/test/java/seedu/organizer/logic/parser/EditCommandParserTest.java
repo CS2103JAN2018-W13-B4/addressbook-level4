@@ -1,12 +1,12 @@
 package seedu.organizer.logic.parser;
 
 import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.organizer.logic.commands.CommandTestUtil.DESCRIPTION_DESC_EXAM;
-import static seedu.organizer.logic.commands.CommandTestUtil.DESCRIPTION_DESC_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_STUDY;
-import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_DESCRIPTION_DESC;
+import static seedu.organizer.logic.commands.CommandTestUtil.DESCRIPTION_DESC_EXAM;
+import static seedu.organizer.logic.commands.CommandTestUtil.DESCRIPTION_DESC_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_DEADLINE_DESC;
+import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_DESCRIPTION_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_PRIORITY_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
@@ -15,10 +15,10 @@ import static seedu.organizer.logic.commands.CommandTestUtil.PRIORITY_DESC_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.PRIORITY_DESC_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.organizer.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
-import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_EXAM;
-import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DEADLINE_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DEADLINE_STUDY;
+import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_EXAM;
+import static seedu.organizer.logic.commands.CommandTestUtil.VALID_DESCRIPTION_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_NAME_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_PRIORITY_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_PRIORITY_STUDY;
@@ -36,8 +36,8 @@ import org.junit.Test;
 import seedu.organizer.commons.core.index.Index;
 import seedu.organizer.logic.commands.EditCommand;
 import seedu.organizer.model.tag.Tag;
-import seedu.organizer.model.task.Description;
 import seedu.organizer.model.task.Deadline;
+import seedu.organizer.model.task.Description;
 import seedu.organizer.model.task.Name;
 import seedu.organizer.model.task.Priority;
 import seedu.organizer.testutil.EditTaskDescriptorBuilder;
@@ -120,8 +120,8 @@ public class EditCommandParserTest {
                 + DEADLINE_DESC_EXAM + DESCRIPTION_DESC_EXAM + NAME_DESC_EXAM + TAG_DESC_FRIEND;
 
         EditCommand.EditTaskDescriptor descriptor = new EditTaskDescriptorBuilder().withName(VALID_NAME_EXAM)
-                .withPriority(VALID_PRIORITY_STUDY).withDeadline(VALID_DEADLINE_EXAM).withDescription(VALID_DESCRIPTION_EXAM)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withPriority(VALID_PRIORITY_STUDY).withDeadline(VALID_DEADLINE_EXAM)
+                .withDescription(VALID_DESCRIPTION_EXAM).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
