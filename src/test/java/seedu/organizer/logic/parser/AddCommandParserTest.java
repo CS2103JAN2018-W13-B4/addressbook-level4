@@ -108,7 +108,8 @@ public class AddCommandParserTest {
                 expectedMessage);
 
         // all prefixes missing
-        assertParseFailure(parser, VALID_NAME_STUDY + VALID_PRIORITY_STUDY + VALID_DEADLINE_STUDY + VALID_ADDRESS_STUDY, expectedMessage);
+        assertParseFailure(parser, VALID_NAME_STUDY + VALID_PRIORITY_STUDY + VALID_DEADLINE_STUDY
+            + VALID_ADDRESS_STUDY, expectedMessage);
     }
 
     @Test
