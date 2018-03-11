@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 import seedu.organizer.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Address;
-import seedu.organizer.model.task.Email;
+import seedu.organizer.model.task.Deadline;
 import seedu.organizer.model.task.Name;
 import seedu.organizer.model.task.Phone;
 import seedu.organizer.model.task.Task;
@@ -34,7 +34,7 @@ public class EditTaskDescriptorBuilder {
         descriptor = new EditPersonDescriptor();
         descriptor.setName(task.getName());
         descriptor.setPhone(task.getPhone());
-        descriptor.setEmail(task.getEmail());
+        descriptor.setDeadline(task.getDeadline());
         descriptor.setAddress(task.getAddress());
         descriptor.setTags(task.getTags());
     }
@@ -56,10 +56,10 @@ public class EditTaskDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Deadline} of the {@code EditTaskDescriptor} that we are building.
      */
-    public EditTaskDescriptorBuilder withEmail(String email) {
-        descriptor.setEmail(new Email(email));
+    public EditTaskDescriptorBuilder withDeadline(String deadline) {
+        descriptor.setDeadline(new Deadline(deadline));
         return this;
     }
 

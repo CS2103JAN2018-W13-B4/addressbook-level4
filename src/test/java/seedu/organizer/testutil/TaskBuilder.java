@@ -5,7 +5,7 @@ import java.util.Set;
 
 import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Address;
-import seedu.organizer.model.task.Email;
+import seedu.organizer.model.task.Deadline;
 import seedu.organizer.model.task.Name;
 import seedu.organizer.model.task.Phone;
 import seedu.organizer.model.task.Task;
@@ -18,20 +18,20 @@ public class TaskBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
     public static final String DEFAULT_PHONE = "85355255";
-    public static final String DEFAULT_EMAIL = "alice@gmail.com";
+    public static final String DEFAULT_DEADLINE = "2018-05-18";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_TAGS = "friends";
 
     private Name name;
     private Phone phone;
-    private Email email;
+    private Deadline deadline;
     private Address address;
     private Set<Tag> tags;
 
     public TaskBuilder() {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
-        email = new Email(DEFAULT_EMAIL);
+        deadline = new Deadline(DEFAULT_DEADLINE);
         address = new Address(DEFAULT_ADDRESS);
         tags = SampleDataUtil.getTagSet(DEFAULT_TAGS);
     }
@@ -42,7 +42,7 @@ public class TaskBuilder {
     public TaskBuilder(Task taskToCopy) {
         name = taskToCopy.getName();
         phone = taskToCopy.getPhone();
-        email = taskToCopy.getEmail();
+        deadline = taskToCopy.getDeadline();
         address = taskToCopy.getAddress();
         tags = new HashSet<>(taskToCopy.getTags());
     }
@@ -80,15 +80,15 @@ public class TaskBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code Task} that we are building.
+     * Sets the {@code Deadline} of the {@code Task} that we are building.
      */
-    public TaskBuilder withEmail(String email) {
-        this.email = new Email(email);
+    public TaskBuilder withDeadline(String deadline) {
+        this.deadline = new Deadline(deadline);
         return this;
     }
 
     public Task build() {
-        return new Task(name, phone, email, address, tags);
+        return new Task(name, phone, deadline, address, tags);
     }
 
 }
