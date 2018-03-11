@@ -49,8 +49,8 @@ public class EditCommandParser implements Parser<EditCommand> {
             ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME)).ifPresent(editTaskDescriptor::setName);
             ParserUtil.parsePriority(argMultimap.getValue(PREFIX_PRIORITY)).ifPresent(editTaskDescriptor::setPriority);
             ParserUtil.parseDeadline(argMultimap.getValue(PREFIX_DEADLINE)).ifPresent(editTaskDescriptor::setDeadline);
-            ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION)).ifPresent
-                    (editTaskDescriptor::setDescription);
+            ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION))
+                .ifPresent(editTaskDescriptor::setDescription);
             parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editTaskDescriptor::setTags);
         } catch (IllegalValueException ive) {
             throw new ParseException(ive.getMessage(), ive);

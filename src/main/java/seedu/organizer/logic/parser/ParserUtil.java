@@ -11,8 +11,8 @@ import seedu.organizer.commons.core.index.Index;
 import seedu.organizer.commons.exceptions.IllegalValueException;
 import seedu.organizer.commons.util.StringUtil;
 import seedu.organizer.model.tag.Tag;
-import seedu.organizer.model.task.Description;
 import seedu.organizer.model.task.Deadline;
+import seedu.organizer.model.task.Description;
 import seedu.organizer.model.task.Name;
 import seedu.organizer.model.task.Priority;
 
@@ -108,7 +108,8 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code Optional<String> organizer} into an {@code Optional<Description>} if {@code organizer} is present.
+     * Parses a {@code Optional<String> organizer} into an {@code Optional<Description>} if
+     * {@code organizer} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
      */
     public static Optional<Description> parseDescription(Optional<String> description) throws IllegalValueException {
