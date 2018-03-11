@@ -37,7 +37,7 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private Label address;
     @FXML
-    private Label email;
+    private Label deadline;
     @FXML
     private FlowPane tags;
 
@@ -48,7 +48,7 @@ public class TaskCard extends UiPart<Region> {
         name.setText(task.getName().fullName);
         phone.setText(task.getPhone().value);
         address.setText(task.getAddress().value);
-        email.setText(task.getDeadline().value);
+        deadline.setText(task.getDeadline().value);
         initTags(task);
     }
 
