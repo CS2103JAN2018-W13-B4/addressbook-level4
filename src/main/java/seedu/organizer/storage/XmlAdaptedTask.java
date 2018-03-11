@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
 import seedu.organizer.commons.exceptions.IllegalValueException;
 import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Address;
-import seedu.organizer.model.task.Email;
+import seedu.organizer.model.task.Deadline;
 import seedu.organizer.model.task.Name;
 import seedu.organizer.model.task.Phone;
 import seedu.organizer.model.task.Task;
@@ -28,7 +28,7 @@ public class XmlAdaptedTask {
     @XmlElement(required = true)
     private String phone;
     @XmlElement(required = true)
-    private String email;
+    private String deadline;
     @XmlElement(required = true)
     private String address;
 
@@ -45,10 +45,10 @@ public class XmlAdaptedTask {
     /**
      * Constructs an {@code XmlAdaptedTask} with the given task details.
      */
-    public XmlAdaptedTask(String name, String phone, String email, String address, List<XmlAdaptedTag> tagged) {
+    public XmlAdaptedTask(String name, String phone, String deadline, String address, List<XmlAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
-        this.email = email;
+        this.deadline = deadline;
         this.address = address;
         if (tagged != null) {
             this.tagged = new ArrayList<>(tagged);
@@ -63,7 +63,7 @@ public class XmlAdaptedTask {
     public XmlAdaptedTask(Task source) {
         name = source.getName().fullName;
         phone = source.getPhone().value;
-        email = source.getEmail().value;
+        deadline = source.getDeadline().value;
         address = source.getAddress().value;
         tagged = new ArrayList<>();
         for (Tag tag : source.getTags()) {
@@ -98,13 +98,14 @@ public class XmlAdaptedTask {
         }
         final Phone phone = new Phone(this.phone);
 
-        if (this.email == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
+        if (this.deadline == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Deadline.class.getSimpleName
+                    ()));
         }
-        if (!Email.isValidEmail(this.email)) {
-            throw new IllegalValueException(Email.MESSAGE_EMAIL_CONSTRAINTS);
+        if (!Deadline.isValidDeadline(this.deadline)) {
+            throw new IllegalValueException(Deadline.MESSAGE_DEADLINE_CONSTRAINTS);
         }
-        final Email email = new Email(this.email);
+        final Deadline deadline = new Deadline(this.deadline);
 
         if (this.address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
@@ -115,7 +116,7 @@ public class XmlAdaptedTask {
         final Address address = new Address(this.address);
 
         final Set<Tag> tags = new HashSet<>(personTags);
-        return new Task(name, phone, email, address, tags);
+        return new Task(name, phone, deadline, address, tags);
     }
 
     @Override
@@ -131,7 +132,7 @@ public class XmlAdaptedTask {
         XmlAdaptedTask otherPerson = (XmlAdaptedTask) other;
         return Objects.equals(name, otherPerson.name)
                 && Objects.equals(phone, otherPerson.phone)
-                && Objects.equals(email, otherPerson.email)
+                && Objects.equals(deadline, otherPerson.deadline)
                 && Objects.equals(address, otherPerson.address)
                 && tagged.equals(otherPerson.tagged);
     }
