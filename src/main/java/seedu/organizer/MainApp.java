@@ -93,7 +93,7 @@ public class MainApp extends Application {
             if (!addressBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample Organizer");
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleOrganizer);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty Organizer");
             initialData = new Organizer();

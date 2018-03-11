@@ -40,7 +40,7 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyOrganizer getSampleAddressBook() {
+    public static ReadOnlyOrganizer getSampleOrganizer() {
         try {
             Organizer sampleAb = new Organizer();
             for (Task sampleTask : getSampleTasks()) {
