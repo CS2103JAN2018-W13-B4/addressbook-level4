@@ -30,7 +30,7 @@ public class AddCommand extends UndoableCommand {
             + PREFIX_NAME + "John Doe "
             + PREFIX_PRIORITY + "9 "
             + PREFIX_DEADLINE + "2018-03-11 "
-            + PREFIX_DESCRIPTION + "311, Clementi Ave 2, #02-25 "
+            + PREFIX_DESCRIPTION + "Refactor AddressBook to PrioriTask "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
