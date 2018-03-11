@@ -7,56 +7,49 @@ import org.junit.Test;
 
 import seedu.organizer.testutil.Assert;
 
-public class EmailTest {
+public class DeadlineTest {
 
     @Test
     public void constructor_null_throwsNullPointerException() {
-        Assert.assertThrows(NullPointerException.class, () -> new Email(null));
+        Assert.assertThrows(NullPointerException.class, () -> new Deadline(null));
     }
 
     @Test
-    public void constructor_invalidEmail_throwsIllegalArgumentException() {
-        String invalidEmail = "";
-        Assert.assertThrows(IllegalArgumentException.class, () -> new Email(invalidEmail));
+    public void constructor_invalidDeadline_throwsIllegalArgumentException() {
+        String invalidDeadline = "";
+        Assert.assertThrows(IllegalArgumentException.class, () -> new Deadline(invalidDeadline));
     }
 
     @Test
-    public void isValidEmail() {
-        // null email
-        Assert.assertThrows(NullPointerException.class, () -> Email.isValidEmail(null));
+    public void isValidDeadline() {
+        // null deadline
+        Assert.assertThrows(NullPointerException.class, () -> Deadline.isValidDeadline(null));
 
-        // blank email
-        assertFalse(Email.isValidEmail("")); // empty string
-        assertFalse(Email.isValidEmail(" ")); // spaces only
+        // blank deadline
+        assertFalse(Deadline.isValidDeadline("")); // empty string
+        assertFalse(Deadline.isValidDeadline(" ")); // spaces only
 
         // missing parts
-        assertFalse(Email.isValidEmail("@example.com")); // missing local part
-        assertFalse(Email.isValidEmail("peterjackexample.com")); // missing '@' symbol
-        assertFalse(Email.isValidEmail("peterjack@")); // missing domain name
+        assertFalse(Deadline.isValidDeadline("2018-02")); // missing date
+        assertFalse(Deadline.isValidDeadline("12-02")); // missing year
+        assertFalse(Deadline.isValidDeadline("2019")); // missing month and date
+        assertFalse(Deadline.isValidDeadline("12")); // missing year and date
 
         // invalid parts
-        assertFalse(Email.isValidEmail("peterjack@-")); // invalid domain name
-        assertFalse(Email.isValidEmail("peterjack@exam_ple.com")); // underscore in domain name
-        assertFalse(Email.isValidEmail("peter jack@example.com")); // spaces in local part
-        assertFalse(Email.isValidEmail("peterjack@exam ple.com")); // spaces in domain name
-        assertFalse(Email.isValidEmail(" peterjack@example.com")); // leading space
-        assertFalse(Email.isValidEmail("peterjack@example.com ")); // trailing space
-        assertFalse(Email.isValidEmail("peterjack@@example.com")); // double '@' symbol
-        assertFalse(Email.isValidEmail("peter@jack@example.com")); // '@' symbol in local part
-        assertFalse(Email.isValidEmail("peterjack@example@com")); // '@' symbol in domain name
-        assertFalse(Email.isValidEmail("peterjack@.example.com")); // domain name starts with a period
-        assertFalse(Email.isValidEmail("peterjack@example.com.")); // domain name ends with a period
-        assertFalse(Email.isValidEmail("peterjack@-example.com")); // domain name starts with a hyphen
-        assertFalse(Email.isValidEmail("peterjack@example.com-")); // domain name ends with a hyphen
+        assertFalse(Deadline.isValidDeadline("17-12-12")); // invalid year
+        assertFalse(Deadline.isValidDeadline("2019-20-09")); // invalid month
+        assertFalse(Deadline.isValidDeadline("2016-02-40")); // invalid date
+        assertFalse(Deadline.isValidDeadline("2017-2-09")); // single numbered months should be declared '0x'
+        assertFalse(Deadline.isValidDeadline("2017-02-9")); // single numbered dates should be declared '0x'
+        assertFalse(Deadline.isValidDeadline("12-30-2017")); // wrong format of MM-DD-YYYY
+        assertFalse(Deadline.isValidDeadline("30-12-2017")); // wrong format of DD-MM-YYYY
+        assertFalse(Deadline.isValidDeadline(" 2017-08-09")); // leading space
+        assertFalse(Deadline.isValidDeadline("2017-08-09 ")); // trailing space
+        assertFalse(Deadline.isValidDeadline("2017/09/09")); // wrong symbol
 
-        // valid email
-        assertTrue(Email.isValidEmail("PeterJack_1190@example.com"));
-        assertTrue(Email.isValidEmail("a@bc"));  // minimal
-        assertTrue(Email.isValidEmail("test@localhost"));   // alphabets only
-        assertTrue(Email.isValidEmail("!#$%&'*+/=?`{|}~^.-@example.org")); // special characters local part
-        assertTrue(Email.isValidEmail("123@145"));  // numeric local part and domain name
-        assertTrue(Email.isValidEmail("a1+be!@example1.com")); // mixture of alphanumeric and special characters
-        assertTrue(Email.isValidEmail("peter_jack@very-very-very-long-example.com"));   // long domain name
-        assertTrue(Email.isValidEmail("if.you.dream.it_you.can.do.it@example.com"));    // long local part
+        // valid deadline
+        assertTrue(Deadline.isValidDeadline("2018-03-11"));
+        assertTrue(Deadline.isValidDeadline("2017-02-31"));  // dates that have already passed
+        assertTrue(Deadline.isValidDeadline("3000-03-23"));   // dates in the far future
     }
 }
