@@ -2,7 +2,7 @@ package seedu.organizer.storage;
 
 import static org.junit.Assert.assertEquals;
 import static seedu.organizer.storage.XmlAdaptedTask.MISSING_FIELD_MESSAGE_FORMAT;
-import static seedu.organizer.testutil.TypicalTasks.BENSON;
+import static seedu.organizer.testutil.TypicalTasks.SPRINGCLEAN;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,71 +14,70 @@ import seedu.organizer.commons.exceptions.IllegalValueException;
 import seedu.organizer.model.task.Address;
 import seedu.organizer.model.task.Deadline;
 import seedu.organizer.model.task.Name;
-import seedu.organizer.model.task.Phone;
+import seedu.organizer.model.task.Priority;
 import seedu.organizer.testutil.Assert;
 
 public class XmlAdaptedTaskTest {
     private static final String INVALID_NAME = "R@chel";
-    private static final String INVALID_PHONE = "+651234";
+    private static final String INVALID_PRIORITY = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_DEADLINE = "2018/09/09";
     private static final String INVALID_TAG = "#friend";
-
-    private static final String VALID_NAME = BENSON.getName().toString();
-    private static final String VALID_PHONE = BENSON.getPhone().toString();
-    private static final String VALID_DEADLINE = BENSON.getDeadline().toString();
-    private static final String VALID_ADDRESS = BENSON.getAddress().toString();
-    private static final List<XmlAdaptedTag> VALID_TAGS = BENSON.getTags().stream()
+    private static final String VALID_NAME = SPRINGCLEAN.getName().toString();
+    private static final String VALID_PRIORITY = SPRINGCLEAN.getPriority().toString();
+    private static final String VALID_DEADLINE = SPRINGCLEAN.getDeadline().toString();
+    private static final String VALID_ADDRESS = SPRINGCLEAN.getAddress().toString();
+    private static final List<XmlAdaptedTag> VALID_TAGS = SPRINGCLEAN.getTags().stream()
             .map(XmlAdaptedTag::new)
             .collect(Collectors.toList());
 
     @Test
     public void toModelType_validPersonDetails_returnsPerson() throws Exception {
-        XmlAdaptedTask person = new XmlAdaptedTask(BENSON);
-        assertEquals(BENSON, person.toModelType());
+        XmlAdaptedTask person = new XmlAdaptedTask(SPRINGCLEAN);
+        assertEquals(SPRINGCLEAN, person.toModelType());
     }
 
     @Test
     public void toModelType_invalidName_throwsIllegalValueException() {
         XmlAdaptedTask person =
-                new XmlAdaptedTask(INVALID_NAME, VALID_PHONE, VALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
+                new XmlAdaptedTask(INVALID_NAME, VALID_PRIORITY, VALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = Name.MESSAGE_NAME_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
     @Test
     public void toModelType_nullName_throwsIllegalValueException() {
-        XmlAdaptedTask person = new XmlAdaptedTask(null, VALID_PHONE, VALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
+        XmlAdaptedTask person = new XmlAdaptedTask(null, VALID_PRIORITY, VALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
     @Test
-    public void toModelType_invalidPhone_throwsIllegalValueException() {
+    public void toModelType_invalidPriority_throwsIllegalValueException() {
         XmlAdaptedTask person =
-                new XmlAdaptedTask(VALID_NAME, INVALID_PHONE, VALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
-        String expectedMessage = Phone.MESSAGE_PHONE_CONSTRAINTS;
+                new XmlAdaptedTask(VALID_NAME, INVALID_PRIORITY, VALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
+        String expectedMessage = Priority.MESSAGE_PRIORITY_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
     @Test
-    public void toModelType_nullPhone_throwsIllegalValueException() {
+    public void toModelType_nullPriority_throwsIllegalValueException() {
         XmlAdaptedTask person = new XmlAdaptedTask(VALID_NAME, null, VALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
-        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Priority.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
     @Test
     public void toModelType_invalidDeadline_throwsIllegalValueException() {
         XmlAdaptedTask person =
-                new XmlAdaptedTask(VALID_NAME, VALID_PHONE, INVALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
+                new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, INVALID_DEADLINE, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = Deadline.MESSAGE_DEADLINE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
     @Test
     public void toModelType_nullDeadline_throwsIllegalValueException() {
-        XmlAdaptedTask person = new XmlAdaptedTask(VALID_NAME, VALID_PHONE, null, VALID_ADDRESS, VALID_TAGS);
+        XmlAdaptedTask person = new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, null, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Deadline.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
@@ -86,14 +85,14 @@ public class XmlAdaptedTaskTest {
     @Test
     public void toModelType_invalidAddress_throwsIllegalValueException() {
         XmlAdaptedTask person =
-                new XmlAdaptedTask(VALID_NAME, VALID_PHONE, VALID_DEADLINE, INVALID_ADDRESS, VALID_TAGS);
+                new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, VALID_DEADLINE, INVALID_ADDRESS, VALID_TAGS);
         String expectedMessage = Address.MESSAGE_ADDRESS_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
     @Test
     public void toModelType_nullAddress_throwsIllegalValueException() {
-        XmlAdaptedTask person = new XmlAdaptedTask(VALID_NAME, VALID_PHONE, VALID_DEADLINE, null, VALID_TAGS);
+        XmlAdaptedTask person = new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, VALID_DEADLINE, null, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
@@ -103,7 +102,7 @@ public class XmlAdaptedTaskTest {
         List<XmlAdaptedTag> invalidTags = new ArrayList<>(VALID_TAGS);
         invalidTags.add(new XmlAdaptedTag(INVALID_TAG));
         XmlAdaptedTask person =
-                new XmlAdaptedTask(VALID_NAME, VALID_PHONE, VALID_DEADLINE, VALID_ADDRESS, invalidTags);
+                new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, VALID_DEADLINE, VALID_ADDRESS, invalidTags);
         Assert.assertThrows(IllegalValueException.class, person::toModelType);
     }
 

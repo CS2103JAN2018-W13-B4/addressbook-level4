@@ -16,7 +16,7 @@ import seedu.organizer.model.tag.UniqueTagList;
 public class Task {
 
     private final Name name;
-    private final Phone phone;
+    private final Priority priority;
     private final Deadline deadline;
     private final Address address;
 
@@ -25,10 +25,10 @@ public class Task {
     /**
      * Every field must be present and not null.
      */
-    public Task(Name name, Phone phone, Deadline deadline, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, deadline, address, tags);
+    public Task(Name name, Priority priority, Deadline deadline, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, priority, deadline, address, tags);
         this.name = name;
-        this.phone = phone;
+        this.priority = priority;
         this.deadline = deadline;
         this.address = address;
         // protect internal tags from changes in the arg list
@@ -39,8 +39,8 @@ public class Task {
         return name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Priority getPriority() {
+        return priority;
     }
 
     public Deadline getDeadline() {
@@ -71,7 +71,7 @@ public class Task {
 
         Task otherTask = (Task) other;
         return otherTask.getName().equals(this.getName())
-                && otherTask.getPhone().equals(this.getPhone())
+                && otherTask.getPriority().equals(this.getPriority())
                 && otherTask.getDeadline().equals(this.getDeadline())
                 && otherTask.getAddress().equals(this.getAddress());
     }
@@ -79,15 +79,15 @@ public class Task {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, deadline, address, tags);
+        return Objects.hash(name, priority, deadline, address, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" Phone: ")
-                .append(getPhone())
+                .append(" Priority: ")
+                .append(getPriority())
                 .append(" Deadline: ")
                 .append(getDeadline())
                 .append(" Address: ")
