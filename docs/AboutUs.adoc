@@ -23,7 +23,7 @@ image::dominic.jpeg[width="150", align="left"]
 {empty}[https://github.com/dominickenn[github]] [<<dominic#, portfolio>>]
 
 Role: Team Lead, Scheduling and Tracking +
-Responsibilities: UI
+Responsibilities: Logic
 
 '''
 
