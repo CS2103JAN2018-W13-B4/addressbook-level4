@@ -93,7 +93,7 @@ public class AddCommandSystemTest extends OrganizerSystemTest {
                 + TAG_DESC_FRIEND;
         assertCommandSuccess(command, toAdd);
 
-        /* Case: add a task with all fields same as another task in the organizer book except email -> added */
+        /* Case: add a task with all fields same as another task in the organizer book except deadline -> added */
         toAdd = new TaskBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY).withDeadline(VALID_DEADLINE_BOB)
                 .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + DEADLINE_DESC_BOB + ADDRESS_DESC_AMY
@@ -153,7 +153,7 @@ public class AddCommandSystemTest extends OrganizerSystemTest {
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DEADLINE_DESC_AMY + ADDRESS_DESC_AMY;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
-        /* Case: missing email -> rejected */
+        /* Case: missing deadline -> rejected */
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + ADDRESS_DESC_AMY;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
@@ -173,7 +173,7 @@ public class AddCommandSystemTest extends OrganizerSystemTest {
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + INVALID_PHONE_DESC + DEADLINE_DESC_AMY + ADDRESS_DESC_AMY;
         assertCommandFailure(command, Phone.MESSAGE_PHONE_CONSTRAINTS);
 
-        /* Case: invalid email -> rejected */
+        /* Case: invalid deadline -> rejected */
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + INVALID_DEADLINE_DESC + ADDRESS_DESC_AMY;
         assertCommandFailure(command, Deadline.MESSAGE_DEADLINE_CONSTRAINTS);
 

@@ -163,7 +163,7 @@ public class EditCommandSystemTest extends OrganizerSystemTest {
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_PHONE_DESC,
                 Phone.MESSAGE_PHONE_CONSTRAINTS);
 
-        /* Case: invalid email -> rejected */
+        /* Case: invalid deadline -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_DEADLINE_DESC,
                 Deadline.MESSAGE_DEADLINE_CONSTRAINTS);
 
