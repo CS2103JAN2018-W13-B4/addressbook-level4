@@ -95,10 +95,8 @@ public class ParserUtil {
     /**
      * Parses a {@code String organizer} into an {@code Description}.
      * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws IllegalValueException if the given {@code organizer} is invalid.
      */
-    public static Description parseDescription(String description) throws IllegalValueException {
+    public static Description parseDescription(String description) {
         requireNonNull(description);
         String trimmedDescription = description.trim();
         return new Description(trimmedDescription);
