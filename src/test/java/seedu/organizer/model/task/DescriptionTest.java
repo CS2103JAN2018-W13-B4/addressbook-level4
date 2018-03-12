@@ -28,6 +28,7 @@ public class DescriptionTest {
             + "Email")); // long description
     }
 
+    //@@guekling
     @Test
     public void isHashCodeEquals() {
         Description testDescription = new Description("CS2103T Testing");
