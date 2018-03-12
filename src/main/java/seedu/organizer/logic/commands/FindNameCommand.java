@@ -6,7 +6,7 @@ import seedu.organizer.model.task.NameContainsKeywordsPredicate;
  * Finds and lists all persons in organizer book whose name contains any of the argument keywords.
  * Keyword matching is case sensitive.
  */
-public class FindCommand extends Command {
+public class FindNameCommand extends Command {
 
     public static final String COMMAND_WORD = "findn/";
     public static final String COMMAND_ALIAS = "fn/";
@@ -18,7 +18,7 @@ public class FindCommand extends Command {
 
     private final NameContainsKeywordsPredicate predicate;
 
-    public FindCommand(NameContainsKeywordsPredicate predicate) {
+    public FindNameCommand(NameContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
@@ -31,7 +31,7 @@ public class FindCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof FindCommand // instanceof handles nulls
-                && this.predicate.equals(((FindCommand) other).predicate)); // state check
+                || (other instanceof FindNameCommand // instanceof handles nulls
+                && this.predicate.equals(((FindNameCommand) other).predicate)); // state check
     }
 }
