@@ -1,6 +1,7 @@
 package seedu.organizer.model.task;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -25,5 +26,12 @@ public class DescriptionTest {
         assertTrue(Description.isValidDescription("!")); // one character
         assertTrue(Description.isValidDescription("Add new sort feature / Update README.md / Refactor Address to "
             + "Email")); // long description
+    }
+
+    @Test
+    public void isHashCodeEquals() {
+        Description testDescription = new Description("CS2103T Testing");
+        String testDescriptionValue = "CS2103T Testing";
+        assertEquals(testDescription.hashCode(), testDescriptionValue.hashCode());
     }
 }
