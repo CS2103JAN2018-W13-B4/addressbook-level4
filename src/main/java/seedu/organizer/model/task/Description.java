@@ -10,12 +10,12 @@ import static seedu.organizer.commons.util.AppUtil.checkArgument;
 public class Description {
 
     public static final String MESSAGE_DESCRIPTION_CONSTRAINTS =
-            "Task descriptions can take any values, and it can be blank";
+            "Task descriptions can take any values, and it should not be blank";
 
     /*
      * The first character must not be a whitespace, otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String DESCRIPTION_VALIDATION_REGEX = "[^\\s].*";
+    public static final String DESCRIPTION_VALIDATION_REGEX = "[^//s].*";
 
     public final String value;
 
