@@ -25,11 +25,9 @@ public class DescriptionTest {
         // null organizer
         Assert.assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
 
-        // invalid descriptions
-        assertFalse(Description.isValidDescription("")); // empty string
-        assertFalse(Description.isValidDescription(" ")); // spaces only
-
         // valid descriptions
+        assertTrue(Description.isValidDescription("")); // empty string - Description is not a compulsory field
+        assertTrue(Description.isValidDescription(" ")); // spaces only - Description is not a compulsory field
         assertTrue(Description.isValidDescription("Practice MA1101R past year questions"));
         assertTrue(Description.isValidDescription("!")); // one character
         assertTrue(Description.isValidDescription("Add new sort feature / Update README.md / Refactor Address to "
