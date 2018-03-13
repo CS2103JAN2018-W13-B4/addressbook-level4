@@ -1,33 +1,27 @@
 package seedu.organizer.logic.commands;
 
-import seedu.organizer.logic.CommandHistory;
-import seedu.organizer.logic.UndoRedoStack;
-import seedu.organizer.logic.commands.exceptions.CommandException;
-import seedu.organizer.model.Model;
-import seedu.organizer.model.ModelManager;
-import seedu.organizer.model.UserPrefs;
-import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
-
-import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.Collections;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.organizer.commons.core.Messages.MESSAGE_TASKS_LISTED_OVERVIEW;
 import static seedu.organizer.testutil.TypicalTasks.PREPAREBREAKFAST;
 import static seedu.organizer.testutil.TypicalTasks.PROJECT;
 import static seedu.organizer.testutil.TypicalTasks.REVISION;
-import static seedu.organizer.testutil.TypicalTasks.getTypicalOrganizer;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import org.junit.Test;
+
+import seedu.organizer.logic.CommandHistory;
+import seedu.organizer.logic.UndoRedoStack;
+import seedu.organizer.logic.commands.exceptions.CommandException;
+import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
 
 //@@author guekling
 /**
  * Contains integration tests (interaction with the Model) for {@code FindDescriptionCommand}.
  */
 public class FindDescriptionCommandTest extends FindCommand<FindDescriptionCommand> {
-    private Model model = new ModelManager(getTypicalOrganizer(), new UserPrefs());
-
     @Test
     public void equals() {
         DescriptionContainsKeywordsPredicate firstPredicate =
