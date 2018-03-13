@@ -1,5 +1,6 @@
 package seedu.organizer.model.task;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -7,6 +8,7 @@ import org.junit.Test;
 
 import seedu.organizer.testutil.Assert;
 
+//@@author guekling
 public class DeadlineTest {
 
     @Test
@@ -51,5 +53,12 @@ public class DeadlineTest {
         assertTrue(Deadline.isValidDeadline("2018-03-11"));
         assertTrue(Deadline.isValidDeadline("2017-02-31"));  // dates that have already passed
         assertTrue(Deadline.isValidDeadline("3000-03-23"));   // dates in the far future
+    }
+
+    @Test
+    public void hashCode_equals() {
+        Deadline testDeadline = new Deadline("2018-09-09");
+        String testDeadlineValue = "2018-09-09";
+        assertEquals(testDeadline.hashCode(), testDeadlineValue.hashCode());
     }
 }

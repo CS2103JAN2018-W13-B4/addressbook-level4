@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import seedu.organizer.testutil.Assert;
 
+//@@author guekling
 public class DescriptionTest {
 
     @Test
@@ -30,9 +31,8 @@ public class DescriptionTest {
             + "Email")); // long description
     }
 
-    //@@guekling
     @Test
-    public void isHashCodeEquals() {
+    public void hashCode_equals() {
         Description testDescription = new Description("CS2103T Testing");
         String testDescriptionValue = "CS2103T Testing";
         assertEquals(testDescription.hashCode(), testDescriptionValue.hashCode());
