@@ -35,7 +35,7 @@ public class Deadline {
      * Returns true if a given string is a valid task deadline.
      */
     public static boolean isValidDeadline(String test) {
-        return test.matches(DEADLINE_VALIDATION_REGEX);
+        return test.matches("") || test.matches(DEADLINE_VALIDATION_REGEX);
     }
 
     @Override
