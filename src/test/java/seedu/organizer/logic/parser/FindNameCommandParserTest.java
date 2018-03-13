@@ -22,14 +22,14 @@ public class FindNameCommandParserTest {
     }
 
     @Test
-    public void parse_validArgs_returnsFindCommand() {
+    public void parse_validArgs_returnsFindNameCommand() {
         // no leading and trailing whitespaces
         FindNameCommand expectedFindNameCommand =
-                new FindNameCommand(new NameContainsKeywordsPredicate(Arrays.asList("Alice", "Bob")));
-        assertParseSuccess(parser, "Alice Bob", expectedFindNameCommand);
+                new FindNameCommand(new NameContainsKeywordsPredicate(Arrays.asList("CS2102", "ES2660")));
+        assertParseSuccess(parser, "CS2102 ES2660", expectedFindNameCommand);
 
         // multiple whitespaces between keywords
-        assertParseSuccess(parser, " \n Alice \n \t Bob  \t", expectedFindNameCommand);
+        assertParseSuccess(parser, " \n CS2102 \n \t ES2660  \t", expectedFindNameCommand);
     }
 
 }
