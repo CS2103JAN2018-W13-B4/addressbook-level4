@@ -1,5 +1,7 @@
 package seedu.organizer.model.task;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * Represents a Task's status in the organizer book.
  */
