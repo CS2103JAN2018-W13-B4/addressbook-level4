@@ -119,9 +119,6 @@ public class XmlAdaptedTask {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Description.class.getSimpleName()));
         }
-        if (!Description.isValidDescription(this.description)) {
-            throw new IllegalValueException(Description.MESSAGE_DESCRIPTION_CONSTRAINTS);
-        }
         final Description description = new Description(this.description);
 
         if (this.status == null) {
