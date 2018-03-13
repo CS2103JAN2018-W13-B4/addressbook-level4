@@ -16,8 +16,6 @@ import seedu.organizer.model.tag.UniqueTagList;
  */
 public class Task {
 
-    private final boolean DEFAULT_STATUS = false;
-
     private final Name name;
     private final Priority priority;
     private final Deadline deadline;
@@ -35,7 +33,7 @@ public class Task {
         this.priority = priority;
         this.deadline = deadline;
         this.description = description;
-        this.status = new Status(DEFAULT_STATUS);
+        this.status = null;
         // protect internal tags from changes in the arg list
         this.tags = new UniqueTagList(tags);
     }
@@ -71,7 +69,12 @@ public class Task {
         return description;
     }
 
-    public Status getStatus() { return status; }
+    public Status getStatus() {
+        if( status == null ) {
+            return new Status(false);
+        }
+        return status;
+    }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -95,8 +98,7 @@ public class Task {
         return otherTask.getName().equals(this.getName())
                 && otherTask.getPriority().equals(this.getPriority())
                 && otherTask.getDeadline().equals(this.getDeadline())
-                && otherTask.getDescription().equals(this.getDescription())
-                && otherTask.getStatus().equals(this.getStatus());
+                && otherTask.getDescription().equals(this.getDescription());
     }
 
     @Override
