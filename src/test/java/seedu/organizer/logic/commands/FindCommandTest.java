@@ -17,7 +17,7 @@ import seedu.organizer.model.task.Task;
  * Represents a find command with hidden internal logic and the ability to be executed for a {@code Command} of
  * type {@code T}.
  */
-public abstract class FindCommand<T extends Command> {
+public abstract class FindCommandTest<T extends Command> {
     protected Model model = new ModelManager(getTypicalOrganizer(), new UserPrefs());
 
     /**

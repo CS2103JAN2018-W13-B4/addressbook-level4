@@ -15,27 +15,28 @@ import org.junit.Test;
 import seedu.organizer.logic.CommandHistory;
 import seedu.organizer.logic.UndoRedoStack;
 import seedu.organizer.logic.commands.exceptions.CommandException;
-import seedu.organizer.model.task.NameContainsKeywordsPredicate;
+import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
 
+//@@author guekling
 /**
- * Contains integration tests (interaction with the Model) for {@code FindNameCommand}.
+ * Contains integration tests (interaction with the Model) for {@code FindDescriptionCommand}.
  */
-public class FindNameCommandTest extends FindCommand<FindNameCommand> {
+public class FindDescriptionCommandTestTest extends FindCommandTest<FindDescriptionCommand> {
     @Test
     public void equals() {
-        NameContainsKeywordsPredicate firstPredicate =
-                new NameContainsKeywordsPredicate(Collections.singletonList("first"));
-        NameContainsKeywordsPredicate secondPredicate =
-                new NameContainsKeywordsPredicate(Collections.singletonList("second"));
+        DescriptionContainsKeywordsPredicate firstPredicate =
+                new DescriptionContainsKeywordsPredicate(Collections.singletonList("cs2101"));
+        DescriptionContainsKeywordsPredicate secondPredicate =
+                new DescriptionContainsKeywordsPredicate(Collections.singletonList("CS2010"));
 
-        FindNameCommand findFirstCommand = new FindNameCommand(firstPredicate);
-        FindNameCommand findSecondCommand = new FindNameCommand(secondPredicate);
+        FindDescriptionCommand findFirstCommand = new FindDescriptionCommand(firstPredicate);
+        FindDescriptionCommand findSecondCommand = new FindDescriptionCommand(secondPredicate);
 
         // same object -> returns true
         assertTrue(findFirstCommand.equals(findFirstCommand));
 
         // same values -> returns true
-        FindNameCommand findFirstCommandCopy = new FindNameCommand(firstPredicate);
+        FindDescriptionCommand findFirstCommandCopy = new FindDescriptionCommand(firstPredicate);
         assertTrue(findFirstCommand.equals(findFirstCommandCopy));
 
         // different types -> returns false
@@ -49,25 +50,33 @@ public class FindNameCommandTest extends FindCommand<FindNameCommand> {
     }
 
     @Test
+    public void equals_notCaseSensitive() throws CommandException {
+        String expectedMessage = String.format(MESSAGE_TASKS_LISTED_OVERVIEW, 1);
+        FindDescriptionCommand command = prepareCommand("op1");
+        assertCommandSuccess(command, expectedMessage, Arrays.asList(PROJECT));
+    }
+
+    @Test
     public void execute_zeroKeywords_noTaskFound() throws CommandException {
         String expectedMessage = String.format(MESSAGE_TASKS_LISTED_OVERVIEW, 0);
-        FindNameCommand command = prepareCommand(" ");
+        FindDescriptionCommand command = prepareCommand(" ");
         assertCommandSuccess(command, expectedMessage, Collections.emptyList());
     }
 
     @Test
     public void execute_multipleKeywords_multipleTasksFound() throws CommandException {
         String expectedMessage = String.format(MESSAGE_TASKS_LISTED_OVERVIEW, 3);
-        FindNameCommand command = prepareCommand("Prepare breakfast Project Revision");
+        FindDescriptionCommand command = prepareCommand("coffee OP1 midterms");
         assertCommandSuccess(command, expectedMessage, Arrays.asList(PREPAREBREAKFAST, PROJECT, REVISION));
     }
 
     /**
-     * Parses {@code userInput} into a {@code FindNameCommand}.
+     * Parses {@code userInput} into a {@code FindDescriptionCommand}.
      */
-    private FindNameCommand prepareCommand(String userInput) {
-        FindNameCommand command =
-                new FindNameCommand(new NameContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+"))));
+    private FindDescriptionCommand prepareCommand(String userInput) {
+        FindDescriptionCommand command =
+            new FindDescriptionCommand(new DescriptionContainsKeywordsPredicate(Arrays.asList(userInput.split
+            ("\\s+"))));
         command.setData(model, new CommandHistory(), new UndoRedoStack());
         return command;
     }
