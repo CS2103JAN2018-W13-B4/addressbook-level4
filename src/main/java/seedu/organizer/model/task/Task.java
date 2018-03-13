@@ -16,15 +16,18 @@ import seedu.organizer.model.tag.UniqueTagList;
  */
 public class Task {
 
+    private final boolean DEFAULT_STATUS = false;
+
     private final Name name;
     private final Priority priority;
     private final Deadline deadline;
     private final Description description;
+    private final Status status;
 
     private final UniqueTagList tags;
 
     /**
-     * Every field must be present and not null.
+     * Every field must be present and not null
      */
     public Task(Name name, Priority priority, Deadline deadline, Description description, Set<Tag> tags) {
         requireAllNonNull(name, priority, deadline, description, tags);
@@ -32,6 +35,22 @@ public class Task {
         this.priority = priority;
         this.deadline = deadline;
         this.description = description;
+        this.status = new Status(DEFAULT_STATUS);
+        // protect internal tags from changes in the arg list
+        this.tags = new UniqueTagList(tags);
+    }
+
+    /**
+     * Another constructor with custom status
+     */
+    public Task(Name name, Priority priority, Deadline deadline,
+                Description description, Status status, Set<Tag> tags) {
+        requireAllNonNull(name, priority, deadline, description, tags);
+        this.name = name;
+        this.priority = priority;
+        this.deadline = deadline;
+        this.description = description;
+        this.status = status;
         // protect internal tags from changes in the arg list
         this.tags = new UniqueTagList(tags);
     }
@@ -51,6 +70,8 @@ public class Task {
     public Description getDescription() {
         return description;
     }
+
+    public Status getStatus() { return status; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -74,13 +95,14 @@ public class Task {
         return otherTask.getName().equals(this.getName())
                 && otherTask.getPriority().equals(this.getPriority())
                 && otherTask.getDeadline().equals(this.getDeadline())
-                && otherTask.getDescription().equals(this.getDescription());
+                && otherTask.getDescription().equals(this.getDescription())
+                && otherTask.getStatus().equals(this.getStatus());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, priority, deadline, description, tags);
+        return Objects.hash(name, priority, deadline, description, tags, status);
     }
 
     @Override
@@ -91,6 +113,8 @@ public class Task {
                 .append(getPriority())
                 .append(" Deadline: ")
                 .append(getDeadline())
+                .append(" Status: ")
+                .append(getStatus())
                 .append(" Description: ")
                 .append(getDescription())
                 .append(" Tags: ");

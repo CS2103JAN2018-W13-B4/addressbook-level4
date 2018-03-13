@@ -19,7 +19,7 @@ import seedu.organizer.logic.commands.AddCommand;
 import seedu.organizer.logic.commands.ClearCommand;
 import seedu.organizer.logic.commands.DeleteCommand;
 import seedu.organizer.logic.commands.EditCommand;
-import seedu.organizer.logic.commands.EditCommand.EditTaskDescriptor;
+import seedu.organizer.logic.commands.util.EditTaskDescriptor;
 import seedu.organizer.logic.commands.ExitCommand;
 import seedu.organizer.logic.commands.FindCommand;
 import seedu.organizer.logic.commands.HelpCommand;
