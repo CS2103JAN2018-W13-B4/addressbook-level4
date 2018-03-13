@@ -10,11 +10,6 @@ import static org.junit.Assert.assertTrue;
 public class StatusTest {
 
     @Test
-    public void constructor_null_throwsNullPointerException() {
-        Assert.assertThrows(NullPointerException.class, () -> new Status(null));
-    }
-
-    @Test
     public void comparator_allCombination() {
         Status s_true_1 = new Status(true);
         Status s_true_2 = new Status(true);

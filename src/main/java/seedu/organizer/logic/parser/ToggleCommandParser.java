@@ -10,7 +10,7 @@ import seedu.organizer.logic.parser.exceptions.ParseException;
 /**
  * Parses input arguments and creates a new ToggleCommand object
  */
-public class ToggleCommandParser {
+public class ToggleCommandParser implements Parser<ToggleCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the ToggleCommand
