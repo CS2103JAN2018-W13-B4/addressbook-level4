@@ -100,6 +100,7 @@ public class OrganizerParserTest {
         assertEquals(new FindNameCommand(new NameContainsKeywordsPredicate(keywords)), commandAlias);
     }
 
+    //@@author guekling
     @Test
     public void parseCommand_findDescription() throws Exception {
         List<String> keywords = Arrays.asList("cs2103", "cs2101", "CS2010");
@@ -112,6 +113,7 @@ public class OrganizerParserTest {
         assertEquals(new FindDescriptionCommand(new DescriptionContainsKeywordsPredicate(keywords)), command);
         assertEquals(new FindDescriptionCommand(new DescriptionContainsKeywordsPredicate(keywords)), commandAlias);
     }
+    //@@author
 
     @Test
     public void parseCommand_help() throws Exception {
