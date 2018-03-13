@@ -36,6 +36,7 @@ public class EditTaskDescriptorBuilder {
         descriptor.setPriority(task.getPriority());
         descriptor.setDeadline(task.getDeadline());
         descriptor.setDescription(task.getDescription());
+        descriptor.setStatus(task.getStatus());
         descriptor.setTags(task.getTags());
     }
 

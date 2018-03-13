@@ -31,7 +31,7 @@ public class ToggleCommand extends UndoableCommand {
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the organizer.";
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Toogled Task: %1$s";
 
-    private final Index index;
+    public final Index index;
 
     private Task taskToEdit;
     private Task editedTask;
@@ -82,5 +82,12 @@ public class ToggleCommand extends UndoableCommand {
         Status updatedStatus = taskToEdit.getStatus().getInverse();
 
         return new Task(updatedName, updatedPriority, updatedDeadline, updatedDescription, updatedStatus, updatedTags);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ToggleCommand // instanceof handles nulls
+                && this.index.equals(((ToggleCommand) other).index)); // state check
     }
 }

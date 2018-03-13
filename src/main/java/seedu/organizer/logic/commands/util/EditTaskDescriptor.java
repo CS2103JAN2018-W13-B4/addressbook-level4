@@ -81,7 +81,7 @@ public class EditTaskDescriptor {
         return Optional.ofNullable(description);
     }
 
-    void setStatus(Status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
