@@ -11,6 +11,7 @@ import org.junit.Test;
 import seedu.organizer.logic.commands.FindDescriptionCommand;
 import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
 
+//@@author guekling
 public class FindDescriptionCommandParserTest {
 
     private FindDescriptionCommandParser parser = new FindDescriptionCommandParser();
