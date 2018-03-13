@@ -1,15 +1,15 @@
 package seedu.organizer.model.task;
 
-import seedu.organizer.testutil.TaskBuilder;
-
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+
+import seedu.organizer.testutil.TaskBuilder;
 
 //@@author guekling
 public class DescriptionContainsKeywordsPredicateTest {
@@ -19,16 +19,17 @@ public class DescriptionContainsKeywordsPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("CS2101");
         List<String> secondPredicateKeywordList = Arrays.asList("CS2101", "CS2103");
 
-        DescriptionContainsKeywordsPredicate firstPredicate = new DescriptionContainsKeywordsPredicate(firstPredicateKeywordList);
-        DescriptionContainsKeywordsPredicate secondPredicate = new DescriptionContainsKeywordsPredicate
-                (secondPredicateKeywordList);
+        DescriptionContainsKeywordsPredicate firstPredicate = new DescriptionContainsKeywordsPredicate(
+            firstPredicateKeywordList);
+        DescriptionContainsKeywordsPredicate secondPredicate = new DescriptionContainsKeywordsPredicate(
+            secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        DescriptionContainsKeywordsPredicate firstPredicateCopy = new DescriptionContainsKeywordsPredicate
-                (firstPredicateKeywordList);
+        DescriptionContainsKeywordsPredicate firstPredicateCopy = new DescriptionContainsKeywordsPredicate(
+            firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
@@ -44,8 +45,8 @@ public class DescriptionContainsKeywordsPredicateTest {
     @Test
     public void test_descriptionContainsKeywords_returnsTrue() {
         // One keyword
-        DescriptionContainsKeywordsPredicate predicate = new DescriptionContainsKeywordsPredicate
-            (Collections.singletonList("CS2103T"));
+        DescriptionContainsKeywordsPredicate predicate = new DescriptionContainsKeywordsPredicate(
+            Collections.singletonList("CS2103T"));
         assertTrue(predicate.test(new TaskBuilder().withDescription("Study for CS2103T Exam").build()));
 
         // Multiple keywords
@@ -64,8 +65,8 @@ public class DescriptionContainsKeywordsPredicateTest {
     @Test
     public void test_descriptionDoesNotContainKeywords_returnsFalse() {
         // Zero keywords
-        DescriptionContainsKeywordsPredicate predicate = new DescriptionContainsKeywordsPredicate
-            (Collections.emptyList());
+        DescriptionContainsKeywordsPredicate predicate = new DescriptionContainsKeywordsPredicate(
+            Collections.emptyList());
         assertFalse(predicate.test(new TaskBuilder().withDescription("CS2101").build()));
 
         // Non-matching keyword
