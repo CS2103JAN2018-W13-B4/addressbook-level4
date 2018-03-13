@@ -26,6 +26,7 @@ import seedu.organizer.logic.commands.HistoryCommand;
 import seedu.organizer.logic.commands.ListCommand;
 import seedu.organizer.logic.commands.RedoCommand;
 import seedu.organizer.logic.commands.SelectCommand;
+import seedu.organizer.logic.commands.ToggleCommand;
 import seedu.organizer.logic.commands.UndoCommand;
 import seedu.organizer.logic.commands.util.EditTaskDescriptor;
 import seedu.organizer.logic.parser.exceptions.ParseException;
@@ -133,6 +134,16 @@ public class OrganizerParserTest {
                 SelectCommand.COMMAND_ALIAS + " " + INDEX_FIRST_TASK.getOneBased());
         assertEquals(new SelectCommand(INDEX_FIRST_TASK), command);
         assertEquals(new SelectCommand(INDEX_FIRST_TASK), commandAlias);
+    }
+
+    @Test
+    public void parseCommand_toggle() throws Exception {
+        ToggleCommand command = (ToggleCommand) parser.parseCommand(
+                ToggleCommand.COMMAND_WORD + " " + INDEX_FIRST_TASK.getOneBased());
+        ToggleCommand commandAlias = (ToggleCommand) parser.parseCommand(
+                ToggleCommand.COMMAND_ALIAS + " " + INDEX_FIRST_TASK.getOneBased());
+        assertEquals(new ToggleCommand(INDEX_FIRST_TASK), command);
+        assertEquals(new ToggleCommand(INDEX_FIRST_TASK), commandAlias);
     }
 
     @Test
