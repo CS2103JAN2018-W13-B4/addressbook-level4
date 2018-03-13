@@ -1,21 +1,21 @@
 package seedu.organizer.model.task;
 
-import static seedu.organizer.commons.util.AppUtil.checkArgument;
-
 /**
  * Represents a Task's status in the organizer book.
  */
 public class Status {
 
-    public final static String LABEL_FOR_DONE = "Done";
-    public final static String LABEL_FOR_NOT_DONE = "Not done";
+    public static final String LABEL_FOR_DONE = "Done";
+    public static final String LABEL_FOR_NOT_DONE = "Not done";
 
     public final boolean value;
 
     /**
-     * Constructs an {@code Description}.
+     * Constructs an {@code status}.
      *
-     * @param description A valid organizer.
+     * @param newValue a boolean indicating the status of the task.
+     *                 - false: not complete
+     *                 - true: complete
      */
     public Status(boolean newValue) {
         this.value = newValue;
@@ -27,7 +27,7 @@ public class Status {
 
     @Override
     public String toString() {
-        if( this.value ) {
+        if (this.value) {
             return LABEL_FOR_DONE;
         } else {
             return LABEL_FOR_NOT_DONE;
@@ -43,7 +43,7 @@ public class Status {
 
     @Override
     public int hashCode() {
-        if( this.value ) {
+        if (this.value) {
             return 1;
         } else {
             return 0;

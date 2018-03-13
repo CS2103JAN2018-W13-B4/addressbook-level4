@@ -1,12 +1,11 @@
 package seedu.organizer.logic.parser;
 
+import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import seedu.organizer.commons.core.index.Index;
 import seedu.organizer.commons.exceptions.IllegalValueException;
-import seedu.organizer.logic.parser.exceptions.ParseException;
-
 import seedu.organizer.logic.commands.ToggleCommand;
-
-import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import seedu.organizer.logic.parser.exceptions.ParseException;
 
 /**
  * Parses input arguments and creates a new ToggleCommand object

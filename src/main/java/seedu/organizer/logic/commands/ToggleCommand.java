@@ -1,9 +1,13 @@
 package seedu.organizer.logic.commands;
 
+import static seedu.organizer.model.Model.PREDICATE_SHOW_ALL_TASKS;
+
+import java.util.List;
+import java.util.Set;
+
 import seedu.organizer.commons.core.Messages;
 import seedu.organizer.commons.core.index.Index;
 import seedu.organizer.logic.commands.exceptions.CommandException;
-import seedu.organizer.logic.commands.util.EditTaskDescriptor;
 import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Deadline;
 import seedu.organizer.model.task.Description;
@@ -13,11 +17,6 @@ import seedu.organizer.model.task.Status;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
-
-import static seedu.organizer.model.Model.PREDICATE_SHOW_ALL_TASKS;
-
-import java.util.List;
-import java.util.Set;
 
 /**
  * Inverse the value of task status
@@ -69,6 +68,9 @@ public class ToggleCommand extends UndoableCommand {
         editedTask = createEditedTask(taskToEdit);
     }
 
+    /**
+     * Creates and returns a {@code Task} with the details of {@code taskToEdit} with status inversed
+     */
     private static Task createEditedTask(Task taskToEdit) {
         assert taskToEdit != null;
 

@@ -1,18 +1,17 @@
 package seedu.organizer.logic.commands.util;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
 import seedu.organizer.commons.util.CollectionUtil;
-import seedu.organizer.logic.commands.EditCommand;
 import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Deadline;
 import seedu.organizer.model.task.Description;
 import seedu.organizer.model.task.Name;
 import seedu.organizer.model.task.Priority;
 import seedu.organizer.model.task.Status;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
 
 /**
  * Stores the details to edit the task with. Each non-empty field value will replace the
@@ -78,11 +77,17 @@ public class EditTaskDescriptor {
         this.description = description;
     }
 
-    public Optional<Description> getDescription() { return Optional.ofNullable(description); }
+    public Optional<Description> getDescription() {
+        return Optional.ofNullable(description);
+    }
 
-    void setStatus(Status status) { this.status = status; }
+    void setStatus(Status status) {
+        this.status = status;
+    }
 
-    public Optional<Status> getStatus() { return Optional.ofNullable(status); }
+    public Optional<Status> getStatus() {
+        return Optional.ofNullable(status);
+    }
 
     /**
      * Sets {@code tags} to this object's {@code tags}.

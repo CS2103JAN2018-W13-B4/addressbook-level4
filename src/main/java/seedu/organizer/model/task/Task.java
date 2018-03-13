@@ -70,7 +70,7 @@ public class Task {
     }
 
     public Status getStatus() {
-        if( status == null ) {
+        if (status == null) {
             return new Status(false);
         }
         return status;

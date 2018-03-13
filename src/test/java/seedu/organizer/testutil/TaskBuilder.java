@@ -22,7 +22,7 @@ public class TaskBuilder {
     public static final String DEFAULT_DEADLINE = "2018-05-18";
     public static final String DEFAULT_DESCRIPTION = "Study for CS2103T Exam";
     public static final String DEFAULT_TAGS = "friends";
-    public static final Boolean DEFAULT_Status = false;
+    public static final Boolean DEFAULT_STATUS = false;
 
     private Name name;
     private Priority priority;
@@ -36,7 +36,7 @@ public class TaskBuilder {
         priority = new Priority(DEFAULT_PRIORITY);
         deadline = new Deadline(DEFAULT_DEADLINE);
         description = new Description(DEFAULT_DESCRIPTION);
-        status = new Status(DEFAULT_Status);
+        status = new Status(DEFAULT_STATUS);
         tags = SampleDataUtil.getTagSet(DEFAULT_TAGS);
     }
 
