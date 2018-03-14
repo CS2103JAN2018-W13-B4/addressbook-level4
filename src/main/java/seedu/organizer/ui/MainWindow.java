@@ -186,9 +186,9 @@ public class MainWindow extends UiPart<Stage> {
         return this.taskListPanel;
     }
 
-    void releaseResources() {
+    /*void releaseResources() {
         browserPanel.freeResources();
-    }
+    }*/
 
     @Subscribe
     private void handleShowHelpEvent(ShowHelpRequestEvent event) {

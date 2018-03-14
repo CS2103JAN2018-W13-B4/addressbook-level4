@@ -1,6 +1,7 @@
 package seedu.organizer.ui;
 
 import java.net.URL;
+import java.time.YearMonth;
 import java.util.logging.Logger;
 
 import com.google.common.eventbus.Subscribe;
@@ -9,6 +10,7 @@ import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import seedu.organizer.MainApp;
 import seedu.organizer.commons.core.LogsCenter;
@@ -20,47 +22,55 @@ import seedu.organizer.model.task.Task;
  */
 public class BrowserPanel extends UiPart<Region> {
 
-    public static final String DEFAULT_PAGE = "default.html";
+    /*public static final String DEFAULT_PAGE = "default.html";
     public static final String SEARCH_PAGE_URL =
-            "https://se-edu.github.io/addressbook-level4/DummySearchPage.html?name=";
+            "https://se-edu.github.io/addressbook-level4/DummySearchPage.html?name=";*/
 
     private static final String FXML = "BrowserPanel.fxml";
 
-    private final Logger logger = LogsCenter.getLogger(this.getClass());
+    /*private final Logger logger = LogsCenter.getLogger(this.getClass());
 
     @FXML
-    private WebView browser;
+    private WebView browser;*/
+
+    //private YearMonth yearMonth;
+
+    //@FXML
+    //private Text calendarShowMonth;
 
     public BrowserPanel() {
         super(FXML);
 
+        //calendarShowMonth.setText(yearMonth.now().getMonth().toString() + " " + String.valueOf(yearMonth.now().getYear
+                //()));
+
         // To prevent triggering events for typing inside the loaded Web page.
-        getRoot().setOnKeyPressed(Event::consume);
+        /*getRoot().setOnKeyPressed(Event::consume);
 
         loadDefaultPage();
-        registerAsAnEventHandler(this);
+        registerAsAnEventHandler(this);*/
     }
 
-    private void loadPersonPage(Task task) {
+    /*private void loadPersonPage(Task task) {
         loadPage(SEARCH_PAGE_URL + task.getName().fullName);
     }
 
     public void loadPage(String url) {
         Platform.runLater(() -> browser.getEngine().load(url));
-    }
+    }*/
 
     /**
      * Loads a default HTML file with a background that matches the general theme.
      */
-    private void loadDefaultPage() {
+    /*private void loadDefaultPage() {
         URL defaultPage = MainApp.class.getResource(FXML_FILE_FOLDER + DEFAULT_PAGE);
         loadPage(defaultPage.toExternalForm());
-    }
+    }*/
 
     /**
      * Frees resources allocated to the browser.
      */
-    public void freeResources() {
+    /*public void freeResources() {
         browser = null;
     }
 
@@ -68,5 +78,5 @@ public class BrowserPanel extends UiPart<Region> {
     private void handlePersonPanelSelectionChangedEvent(TaskPanelSelectionChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         loadPersonPage(event.getNewSelection().task);
-    }
+    }*/
 }
