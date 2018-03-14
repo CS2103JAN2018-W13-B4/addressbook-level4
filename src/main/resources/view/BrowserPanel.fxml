@@ -8,13 +8,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
+<!-- @@author guekling -->
+
 <StackPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox>
          <children>
             <HBox alignment="BASELINE_CENTER" prefHeight="40.0">
                <children>
-                  <Text fx:id="calendarShowMonth" strokeType="OUTSIDE" strokeWidth="0.0" text="Test" />
+                  <Text fx:id="calendarTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Test" />
                </children>
             </HBox>
             <GridPane>

@@ -1,154 +1,160 @@
 package seedu.organizer.ui;
 
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.util.logging.Logger;
 
-import com.google.common.eventbus.Subscribe;
-
-import javafx.application.Platform;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.web.WebView;
-import seedu.organizer.MainApp;
-import seedu.organizer.commons.core.LogsCenter;
-import seedu.organizer.commons.events.ui.TaskPanelSelectionChangedEvent;
-import seedu.organizer.model.task.Task;
 
+//@@author guekling
 /**
  * The Browser Panel of the App.
  */
 public class BrowserPanel extends UiPart<Region> {
 
-    /*public static final String DEFAULT_PAGE = "default.html";
-    public static final String SEARCH_PAGE_URL =
-            "https://se-edu.github.io/addressbook-level4/DummySearchPage.html?name=";*/
-
     private static final String FXML = "BrowserPanel.fxml";
 
-    /*private final Logger logger = LogsCenter.getLogger(this.getClass());
-
-    @FXML
-    private WebView browser;*/
-
     private YearMonth currentYearMonth;
+    private int dateCount;
+    private String[] datesToBePrinted;
 
     @FXML
-    private Text calendarShowMonth;
+    private Text calendarTitle;
 
     @FXML
     private GridPane taskCalendar;
-    
+
 
     public BrowserPanel() {
         super(FXML);
 
-        //currentYearMonth = currentYearMonth.now();
-        LocalDate currentYearMonth = LocalDate.of(2018, 12, 1);
-        calendarShowMonth.setText(currentYearMonth.getMonth().toString() + " " + String.valueOf(currentYearMonth.getYear
-            ()));
+        // Shows calendar of current month
+        currentYearMonth = currentYearMonth.now();
+        int currentYear = currentYearMonth.getYear();
+        setMonthCalendarTitle(currentYear, currentYearMonth.getMonth().toString());
 
+        setMonthCalendarDates(currentYear, currentYearMonth.getMonthValue());
+    }
 
-        LocalDate startDate = LocalDate.of(currentYearMonth.getYear(), currentYearMonth.getMonthValue(), 1);
-        int startDay = startDate.getDayOfWeek().getValue();
+    /**
+     * Sets the title of the calendar according to a specific month and year.
+     *
+     * @param month Full month name.
+     * @param year Year represented as a 4-digit integer.
+     */
+    private void setMonthCalendarTitle(int year, String month) {
+        calendarTitle.setText(month + " " + year);
+    }
 
-        if (startDay == 7) {
-            startDay = 0;
-        }
-
+    /**
+     * Sets the dates of a month-view calendar according to the specific month and year
+     *
+     * @param year Year represented as a 4-digit integer.
+     * @param month Month represented by numbers from 1 to 12.
+     */
+    private void setMonthCalendarDates(int year, int month) {
+        LocalDate startDate = LocalDate.of(year, month, 1);
         int lengthOfMonth = startDate.lengthOfMonth();
-        String[] datesToBePrinted = new String[36];
+        int startDay = getMonthStartDay(startDate);
 
-        for (int date = 1; date <= 35; date++) {
-            if (date <= lengthOfMonth) {
-                datesToBePrinted[date] = "  " + String.valueOf(date);
-            }
+        datesToBePrinted = new String[36];
+        storeMonthDatesToBePrinted(lengthOfMonth);
+
+        setFiveWeeksMonthCalendar(startDay);
+
+        // If month has more than 5 weeks
+        if (dateCount != lengthOfMonth) {
+            setSixWeeksMonthCalendar(lengthOfMonth);
         }
+    }
 
-        int dateCount = 1;
-
+    /**
+     * Sets the dates of a five-weeks month-view calendar into the {@code taskCalendar}.
+     *
+     * @param startDay Integer value of the day of week of the start day  of the month. Values ranges from 1 - 7,
+     *                 representing the different days of the week.
+     */
+    private void setFiveWeeksMonthCalendar(int startDay) {
+        dateCount = 1;
         for (int row = 0; row <= 4; row++) {
             if (row == 0) {
                 for (int column = startDay; column <= 6; column++) {
                     Text dateToPrint = new Text(datesToBePrinted[dateCount]);
-                    taskCalendar.add(dateToPrint, column, row);
-                    taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
-                    taskCalendar.setValignment(dateToPrint, VPos.TOP);
-
+                    addMonthDate(dateToPrint, column, row);
                     dateCount++;
                 }
             } else {
                 for (int column = 0; column <= 6; column++) {
                     Text dateToPrint = new Text(datesToBePrinted[dateCount]);
-                    taskCalendar.add(dateToPrint, column, row);
-                    taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
-                    taskCalendar.setValignment(dateToPrint, VPos.TOP);
-
+                    addMonthDate(dateToPrint, column, row);
                     dateCount++;
                 }
             }
         }
+    }
 
-        if (dateCount != lengthOfMonth) { // if month has more than 5 weeks
-            int remainingDays = lengthOfMonth - dateCount;
+    /**
+     * Sets the dates of the sixth week in a six-weeks month-view calendar into the {@code taskCalendar}.
+     *
+     * @param lengthOfMonth Integer value of the number of days in a month.
+     */
+    private void setSixWeeksMonthCalendar(int lengthOfMonth) {
+        int remainingDays = lengthOfMonth - dateCount;
 
-            for (int column = 0; column <= remainingDays; column++) {
-                Text dateToPrint = new Text(datesToBePrinted[dateCount]);
-                taskCalendar.add(dateToPrint, column, 0);
-                taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
-                taskCalendar.setValignment(dateToPrint, VPos.TOP);
+        for (int column = 0; column <= remainingDays; column++) {
+            Text dateToPrint = new Text(datesToBePrinted[dateCount]);
+            addMonthDate(dateToPrint, column, 0);
+            dateCount++;
+        }
+    }
 
-                dateCount++;
-            }
+    /**
+     * Gets the day of week of the start date of a particular month and year.
+     *
+     * @param startDate A LocalDate variable that represents the date, viewed as year-month-day. The day will always
+     *                  be set as 1.
+     * @return Integer value of the day of week of the start day  of the month. Values ranges from 1 - 7,
+     *         representing the different days of the week.
+     */
+    private int getMonthStartDay(LocalDate startDate) {
+        int startDay = startDate.getDayOfWeek().getValue();
+
+        // Sunday is the first column in the calendar
+        if (startDay == 7) {
+            startDay = 0;
         }
 
-
-        /*taskCalendar.add(dateOne, 0, 0);
-        taskCalendar.add(dateTwo, 1, 0);
-        taskCalendar.setHalignment(dateOne, HPos.LEFT);
-        taskCalendar.setValignment(dateOne, VPos.TOP);*/
-
-        // To prevent triggering events for typing inside the loaded Web page.
-        /*getRoot().setOnKeyPressed(Event::consume);
-
-        loadDefaultPage();
-        registerAsAnEventHandler(this);*/
+        return startDay;
     }
-
-    /*private void loadPersonPage(Task task) {
-        loadPage(SEARCH_PAGE_URL + task.getName().fullName);
-    }
-
-    public void loadPage(String url) {
-        Platform.runLater(() -> browser.getEngine().load(url));
-    }*/
 
     /**
-     * Loads a default HTML file with a background that matches the general theme.
+     * Adds a particular date to the correct {@code column} and {@code row} in the {@code taskCalendar}.
+     *
+     * @param dateToPrint The formatted date text to be printed on the {@code taskCalendar}.
+     * @param column The column number in {@code taskCalendar}. Column number should range from 0 to 6.
+     * @param row The row number in {@code taskCalendar}. Row number should range from 0 to 4.
      */
-    /*private void loadDefaultPage() {
-        URL defaultPage = MainApp.class.getResource(FXML_FILE_FOLDER + DEFAULT_PAGE);
-        loadPage(defaultPage.toExternalForm());
-    }*/
-
-    /**
-     * Frees resources allocated to the browser.
-     */
-    /*public void freeResources() {
-        browser = null;
+    private void addMonthDate(Text dateToPrint, int column, int row) {
+        taskCalendar.add(dateToPrint, column, row);
+        taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
+        taskCalendar.setValignment(dateToPrint, VPos.TOP);
     }
 
-    @Subscribe
-    private void handlePersonPanelSelectionChangedEvent(TaskPanelSelectionChangedEvent event) {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        loadPersonPage(event.getNewSelection().task);
-    }*/
+    /**
+     * Stores the formatted date String to be printed on the {@code taskCalendar}.
+     *
+     * @param lengthOfMonth Integer value of the number of days in a month.
+     */
+    private void storeMonthDatesToBePrinted(int lengthOfMonth) {
+        for (int date = 1; date <= 35; date++) {
+            if (date <= lengthOfMonth) {
+                datesToBePrinted[date] = "  " + String.valueOf(date);
+            }
+        }
+    }
+
 }
