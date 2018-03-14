@@ -33,16 +33,17 @@ public class BrowserPanel extends UiPart<Region> {
     @FXML
     private WebView browser;*/
 
-    //private YearMonth yearMonth;
+    private YearMonth currentYearMonth;
 
-    //@FXML
-    //private Text calendarShowMonth;
+    @FXML
+    private Text calendarShowMonth;
 
     public BrowserPanel() {
         super(FXML);
 
-        //calendarShowMonth.setText(yearMonth.now().getMonth().toString() + " " + String.valueOf(yearMonth.now().getYear
-                //()));
+        currentYearMonth = currentYearMonth.now();
+        calendarShowMonth.setText(currentYearMonth.getMonth().toString() + " " + String.valueOf(currentYearMonth.getYear
+            ()));
 
         // To prevent triggering events for typing inside the loaded Web page.
         /*getRoot().setOnKeyPressed(Event::consume);
