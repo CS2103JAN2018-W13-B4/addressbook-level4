@@ -1,11 +1,8 @@
 package seedu.organizer.logic.commands;
 
-import java.util.function.Predicate;
+import seedu.organizer.model.task.FieldsContainsKeywordsPredicate;
 
-import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
-import seedu.organizer.model.task.NameContainsKeywordsPredicate;
-import seedu.organizer.model.task.Task;
-
+//@@author guekling
 /**
  * Finds and lists all persons in organizer book whose name or description contains any of the argument keywords.
  * Keyword matching is not case sensitive.
@@ -20,11 +17,10 @@ public class FindCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " cs2103 es2660 assignment";
 
-    private final Predicate<Task> predicate;
+    private final FieldsContainsKeywordsPredicate predicate;
 
-    public FindCommand(NameContainsKeywordsPredicate namePredicate, DescriptionContainsKeywordsPredicate
-            descriptionPredicate) {
-        this.predicate = namePredicate.or(descriptionPredicate);
+    public FindCommand(FieldsContainsKeywordsPredicate predicate) {
+        this.predicate = predicate;
     }
 
     @Override
