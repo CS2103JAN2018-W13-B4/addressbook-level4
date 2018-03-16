@@ -34,6 +34,7 @@ import seedu.organizer.logic.commands.util.EditTaskDescriptor;
 import seedu.organizer.logic.parser.exceptions.ParseException;
 import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
 import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
+import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicateTest;
 import seedu.organizer.model.task.NameContainsKeywordsPredicate;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.testutil.EditTaskDescriptorBuilder;

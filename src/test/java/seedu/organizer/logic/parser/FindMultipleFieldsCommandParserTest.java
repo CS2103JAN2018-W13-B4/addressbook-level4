@@ -25,8 +25,8 @@ public class FindMultipleFieldsCommandParserTest {
     public void parse_validArgs_returnsFindMultipleFieldsCommand() {
         // no leading and trailing whitespaces
         FindMultipleFieldsCommand expectedFindMultipleFieldsCommand =
-                new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(Arrays.asList("CS2102",
-                        "script")));
+            new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(Arrays.asList("CS2102",
+            "script")));
         assertParseSuccess(parser, "CS2102 script", expectedFindMultipleFieldsCommand);
 
         // multiple whitespaces between keywords

@@ -21,7 +21,7 @@ import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
 /**
  * Contains integration tests (interaction with the Model) for {@code FindDescriptionCommand}.
  */
-public class FindDescriptionCommandTestTest extends FindCommandTest<FindDescriptionCommand> {
+public class FindDescriptionCommandTest extends FindCommandTest<FindDescriptionCommand> {
     @Test
     public void equals() {
         DescriptionContainsKeywordsPredicate firstPredicate =

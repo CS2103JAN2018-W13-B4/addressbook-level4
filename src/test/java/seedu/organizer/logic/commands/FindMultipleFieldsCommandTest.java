@@ -4,6 +4,7 @@ import seedu.organizer.logic.CommandHistory;
 import seedu.organizer.logic.UndoRedoStack;
 import seedu.organizer.logic.commands.exceptions.CommandException;
 import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
+import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicateTest;
 
 import org.junit.Test;
 
@@ -68,8 +69,8 @@ public class FindMultipleFieldsCommandTest extends FindCommandTest<FindMultipleF
      */
     private FindMultipleFieldsCommand prepareCommand(String userInput) {
         FindMultipleFieldsCommand command =
-                new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(Arrays.asList(userInput.split
-                        ("\\s+"))));
+            new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(Arrays.asList(userInput.split
+            ("\\s+"))));
         command.setData(model, new CommandHistory(), new UndoRedoStack());
         return command;
     }
