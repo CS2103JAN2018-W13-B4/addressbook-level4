@@ -8,8 +8,8 @@ import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
  */
 public class FindDescriptionCommand extends Command {
 
-    public static final String COMMAND_WORD = "finddes/";
-    public static final String COMMAND_ALIAS = "fdes/";
+    public static final String COMMAND_WORD = "finddes";
+    public static final String COMMAND_ALIAS = "fdes";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all tasks whose description contain any of "
             + "the specified keywords (not case-sensitive) and displays them as a list with index numbers.\n"
