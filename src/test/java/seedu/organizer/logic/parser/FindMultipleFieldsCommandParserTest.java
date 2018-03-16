@@ -1,15 +1,15 @@
 package seedu.organizer.logic.parser;
 
-import seedu.organizer.logic.commands.FindMultipleFieldsCommand;
-import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
-
-import org.junit.Test;
-
-import java.util.Arrays;
-
 import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.organizer.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.organizer.logic.parser.CommandParserTestUtil.assertParseSuccess;
+
+import java.util.Arrays;
+
+import org.junit.Test;
+
+import seedu.organizer.logic.commands.FindMultipleFieldsCommand;
+import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
 
 public class FindMultipleFieldsCommandParserTest {
 

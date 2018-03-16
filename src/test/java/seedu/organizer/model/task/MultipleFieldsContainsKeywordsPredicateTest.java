@@ -1,15 +1,15 @@
 package seedu.organizer.model.task;
 
-import seedu.organizer.testutil.TaskBuilder;
-
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+
+import seedu.organizer.testutil.TaskBuilder;
 
 public class MultipleFieldsContainsKeywordsPredicateTest {
 
@@ -18,16 +18,17 @@ public class MultipleFieldsContainsKeywordsPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        MultipleFieldsContainsKeywordsPredicate firstPredicate = new MultipleFieldsContainsKeywordsPredicate(firstPredicateKeywordList);
-        MultipleFieldsContainsKeywordsPredicate secondPredicate = new MultipleFieldsContainsKeywordsPredicate
-                (secondPredicateKeywordList);
+        MultipleFieldsContainsKeywordsPredicate firstPredicate = new MultipleFieldsContainsKeywordsPredicate(
+            firstPredicateKeywordList);
+        MultipleFieldsContainsKeywordsPredicate secondPredicate = new MultipleFieldsContainsKeywordsPredicate(
+            secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        MultipleFieldsContainsKeywordsPredicate firstPredicateCopy = new MultipleFieldsContainsKeywordsPredicate
-                (firstPredicateKeywordList);
+        MultipleFieldsContainsKeywordsPredicate firstPredicateCopy = new MultipleFieldsContainsKeywordsPredicate(
+            firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false

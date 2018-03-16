@@ -1,22 +1,21 @@
 package seedu.organizer.logic.commands;
 
-import seedu.organizer.logic.CommandHistory;
-import seedu.organizer.logic.UndoRedoStack;
-import seedu.organizer.logic.commands.exceptions.CommandException;
-import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
-import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicateTest;
-
-import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.Collections;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.organizer.commons.core.Messages.MESSAGE_TASKS_LISTED_OVERVIEW;
 import static seedu.organizer.testutil.TypicalTasks.PREPAREBREAKFAST;
 import static seedu.organizer.testutil.TypicalTasks.PROJECT;
 import static seedu.organizer.testutil.TypicalTasks.REVISION;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import org.junit.Test;
+
+import seedu.organizer.logic.CommandHistory;
+import seedu.organizer.logic.UndoRedoStack;
+import seedu.organizer.logic.commands.exceptions.CommandException;
+import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
 
 //@@author guekling
 /**
