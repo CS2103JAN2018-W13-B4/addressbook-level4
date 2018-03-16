@@ -92,6 +92,7 @@ public class OrganizerParserTest {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD + " 3") instanceof ExitCommand);
     }
 
+    //@@author guekling
     @Test
     public void parseCommand_find() throws Exception {
         List<String> keywords = Arrays.asList("Study", "es2660", "update");
@@ -102,6 +103,7 @@ public class OrganizerParserTest {
         assertEquals(new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(keywords)), command);
         assertEquals(new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(keywords)), commandAlias);
     }
+    //@@author
 
     @Test
     public void parseCommand_findName() throws Exception {
