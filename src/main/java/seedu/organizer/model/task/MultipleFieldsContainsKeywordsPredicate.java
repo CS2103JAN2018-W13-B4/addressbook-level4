@@ -10,13 +10,13 @@ import seedu.organizer.commons.util.StringUtil;
 /**
  * Tests that a {@code Task}'s {@code Name} and {@code Description} matches any of the keywords given.
  */
-public class FieldsContainsKeywordsPredicate implements Predicate<Task> {
+public class MultipleFieldsContainsKeywordsPredicate implements Predicate<Task> {
     private final List<String> nameKeywords;
     private final List<String> descriptionKeywords;
     private final List<String> keywords;
 
 
-    public FieldsContainsKeywordsPredicate(List<String> keywords) {
+    public MultipleFieldsContainsKeywordsPredicate(List<String> keywords) {
         this.nameKeywords = keywords;
         this.descriptionKeywords = keywords;
         this.keywords = Stream.concat(nameKeywords.stream(), descriptionKeywords.stream()).collect(Collectors.toList
@@ -34,7 +34,7 @@ public class FieldsContainsKeywordsPredicate implements Predicate<Task> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof FieldsContainsKeywordsPredicate // instanceof handles nulls
-                && this.keywords.equals(((FieldsContainsKeywordsPredicate) other).keywords)); // state check
+                || (other instanceof MultipleFieldsContainsKeywordsPredicate // instanceof handles nulls
+                && this.keywords.equals(((MultipleFieldsContainsKeywordsPredicate) other).keywords)); // state check
     }
 }

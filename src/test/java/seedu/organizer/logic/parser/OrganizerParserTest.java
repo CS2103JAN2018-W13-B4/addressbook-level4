@@ -9,7 +9,6 @@ import static seedu.organizer.testutil.TypicalIndexes.INDEX_FIRST_TASK;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.junit.Rule;
@@ -18,12 +17,11 @@ import org.junit.rules.ExpectedException;
 
 import seedu.organizer.logic.commands.AddCommand;
 import seedu.organizer.logic.commands.ClearCommand;
-import seedu.organizer.logic.commands.CommandResult;
 import seedu.organizer.logic.commands.DeleteCommand;
 import seedu.organizer.logic.commands.EditCommand;
 import seedu.organizer.logic.commands.ExitCommand;
-import seedu.organizer.logic.commands.FindCommand;
 import seedu.organizer.logic.commands.FindDescriptionCommand;
+import seedu.organizer.logic.commands.FindMultipleFieldsCommand;
 import seedu.organizer.logic.commands.FindNameCommand;
 import seedu.organizer.logic.commands.HelpCommand;
 import seedu.organizer.logic.commands.HistoryCommand;
@@ -35,7 +33,7 @@ import seedu.organizer.logic.commands.UndoCommand;
 import seedu.organizer.logic.commands.util.EditTaskDescriptor;
 import seedu.organizer.logic.parser.exceptions.ParseException;
 import seedu.organizer.model.task.DescriptionContainsKeywordsPredicate;
-import seedu.organizer.model.task.FieldsContainsKeywordsPredicate;
+import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
 import seedu.organizer.model.task.NameContainsKeywordsPredicate;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.testutil.EditTaskDescriptorBuilder;
@@ -97,12 +95,12 @@ public class OrganizerParserTest {
     @Test
     public void parseCommand_find() throws Exception {
         List<String> keywords = Arrays.asList("Study", "es2660", "update");
-        FindCommand command = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-        FindCommand commandAlias = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_ALIAS + " " + keywords.stream().collect(Collectors.joining(" ")));
-        assertEquals(new FindCommand(new FieldsContainsKeywordsPredicate(keywords)), command);
-        assertEquals(new FindCommand(new FieldsContainsKeywordsPredicate(keywords)), commandAlias);
+        FindMultipleFieldsCommand command = (FindMultipleFieldsCommand) parser.parseCommand(
+                FindMultipleFieldsCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
+        FindMultipleFieldsCommand commandAlias = (FindMultipleFieldsCommand) parser.parseCommand(
+                FindMultipleFieldsCommand.COMMAND_ALIAS + " " + keywords.stream().collect(Collectors.joining(" ")));
+        assertEquals(new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(keywords)), command);
+        assertEquals(new FindMultipleFieldsCommand(new MultipleFieldsContainsKeywordsPredicate(keywords)), commandAlias);
     }
 
     @Test

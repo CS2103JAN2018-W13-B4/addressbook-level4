@@ -1,13 +1,13 @@
 package seedu.organizer.logic.commands;
 
-import seedu.organizer.model.task.FieldsContainsKeywordsPredicate;
+import seedu.organizer.model.task.MultipleFieldsContainsKeywordsPredicate;
 
 //@@author guekling
 /**
  * Finds and lists all persons in organizer book whose name or description contains any of the argument keywords.
  * Keyword matching is not case sensitive.
  */
-public class FindCommand extends Command {
+public class FindMultipleFieldsCommand extends Command {
 
     public static final String COMMAND_WORD = "find";
     public static final String COMMAND_ALIAS = "f";
@@ -17,9 +17,9 @@ public class FindCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " cs2103 es2660 assignment";
 
-    private final FieldsContainsKeywordsPredicate predicate;
+    private final MultipleFieldsContainsKeywordsPredicate predicate;
 
-    public FindCommand(FieldsContainsKeywordsPredicate predicate) {
+    public FindMultipleFieldsCommand(MultipleFieldsContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
@@ -32,7 +32,7 @@ public class FindCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof FindCommand // instanceof handles nulls
-                && this.predicate.equals(((FindCommand) other).predicate)); // state check
+                || (other instanceof FindMultipleFieldsCommand // instanceof handles nulls
+                && this.predicate.equals(((FindMultipleFieldsCommand) other).predicate)); // state check
     }
 }
