@@ -1,4 +1,4 @@
-= AddressBook Level 4 - User Guide
+= PrioriTask - User Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -119,6 +119,26 @@ Examples:
 Edits the priority level and deadline of the 1st task to be `9` and `2018-12-30` respectively.
 * `edit 2 n/CS2101 Final Assignment t/` +
 Edits the name of the 2nd task to be `CS2101 Final Assignment` and clears all existing tags.
+
+=== Locating tasks: `find` or `f`
+
+Finds tasks whose names or descriptions contain any of the given keywords. +
+Format: `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
+
+****
+* The search is case insensitive. e.g `Developer` will match `developer`
+* The order of the keywords does not matter. e.g. `Guide Developer` will match `Developer Guide`
+* Only the name and description are searched.
+* Only full words will be matched e.g. `Guide` will not match `Guides`
+* Tasks matching at least one keyword will be returned (i.e. `OR` search). e.g. `CS2101 Guide` will return `CS2101 Script`, `Developer Guide`.
+****
+
+Examples:
+
+* find `Guide` +
+Returns `User Guide` and `Developer Guide`
+* f `CS2101 Developer User` +
+Returns any task having names or descriptions `CS2101`, `Developer`, or `User`
 
 === Locating tasks by name: `findn/` or `fn/`
 
