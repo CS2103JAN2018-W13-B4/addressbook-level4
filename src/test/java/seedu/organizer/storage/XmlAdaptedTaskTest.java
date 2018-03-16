@@ -119,9 +119,7 @@ public class XmlAdaptedTaskTest {
     @Test
     public void equalsFalse() {
         XmlAdaptedTask task = new XmlAdaptedTask(SPRINGCLEAN);
-        assertFalse(task.equals(new XmlAdaptedTask("Study", VALID_PRIORITY, VALID_DEADLINE, VALID_DESCRIPTION,
-            VALID_STATUS, VALID_TAGS)));
+        assertFalse(task.equals(new Integer(1)));
     }
-
     //@@author
 }
