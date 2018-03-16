@@ -1,7 +1,8 @@
 package seedu.organizer.storage;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertFalse;
 import static seedu.organizer.storage.XmlAdaptedTask.MISSING_FIELD_MESSAGE_FORMAT;
 import static seedu.organizer.testutil.TypicalTasks.SPRINGCLEAN;
 
@@ -112,15 +113,15 @@ public class XmlAdaptedTaskTest {
     @Test
     public void equalsTrue() {
         XmlAdaptedTask task = new XmlAdaptedTask(SPRINGCLEAN);
-        assertEquals(new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, VALID_DEADLINE, VALID_DESCRIPTION, VALID_STATUS,
-            VALID_TAGS), task);
+        assertTrue(task.equals(new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, VALID_DEADLINE, VALID_DESCRIPTION, VALID_STATUS,
+            VALID_TAGS)));
     }
 
     @Test
     public void equalsFalse() {
         XmlAdaptedTask task = new XmlAdaptedTask(SPRINGCLEAN);
-        assertNotEquals(new XmlAdaptedTask("Study", VALID_PRIORITY, VALID_DEADLINE, VALID_DESCRIPTION, VALID_STATUS,
-                VALID_TAGS), task);
+        assertFalse(task.equals(new XmlAdaptedTask("Study", VALID_PRIORITY, VALID_DEADLINE, VALID_DESCRIPTION,
+            VALID_STATUS, VALID_TAGS)));
     }
 
     //@@author
