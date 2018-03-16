@@ -110,14 +110,14 @@ public class XmlAdaptedTaskTest {
 
     //@@author guekling
     @Test
-    public void equals_True() {
+    public void equalsTrue() {
         XmlAdaptedTask task = new XmlAdaptedTask(SPRINGCLEAN);
         assertEquals(new XmlAdaptedTask(VALID_NAME, VALID_PRIORITY, VALID_DEADLINE, VALID_DESCRIPTION, VALID_STATUS,
             VALID_TAGS), task);
     }
 
     @Test
-    public void equals_NotTrue() {
+    public void equalsFalse() {
         XmlAdaptedTask task = new XmlAdaptedTask(SPRINGCLEAN);
         assertNotEquals(new XmlAdaptedTask("Study", VALID_PRIORITY, VALID_DEADLINE, VALID_DESCRIPTION, VALID_STATUS,
                 VALID_TAGS), task);
