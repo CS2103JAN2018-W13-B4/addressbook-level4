@@ -20,7 +20,7 @@ import seedu.organizer.model.task.NameContainsKeywordsPredicate;
 /**
  * Contains integration tests (interaction with the Model) for {@code FindNameCommand}.
  */
-public class FindNameCommandTestTest extends FindCommandTest<FindNameCommand> {
+public class FindNameCommandTest extends FindCommandTest<FindNameCommand> {
     @Test
     public void equals() {
         NameContainsKeywordsPredicate firstPredicate =
