@@ -180,6 +180,25 @@ Returns tasks with descriptions `Study midterms` and `study chapter 2`.
 * fdes `Study Update Chapter` +
 Returns any task having descriptions containing words `Study`, `Update`, or `Chapter`.
 
+=== Locating tasks by deadline: `findd` or `fd`
+
+Find tasks whose deadlines contain any of the given keywords. +
+Format: `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
+
+****
+* Keywords should be in the format of YYYY-MM-DD.
+* The order of the keywords does not matter. e.g. `2018-03-17 2018-09-09` will match `2018-09-09 2018-03-17`
+* Only the deadline is searched.
+* Only full keywords will be matched e.g. `2018` will not match `2018-03-17`
+****
+
+Examples:
+
+* findd `2018-03-17` +
+Returns tasks with deadlines `2018-03-17`.
+* fd `2018-03-17 2018-09-04 2018-03-21` +
+Returns any task having deadlines `2018-03-17`, `2018-09-04`, or `2018-03-21`.
+
 === Deleting a task : `delete` or `d`
 
 Deletes the specified task from the PrioriTask. +
@@ -322,10 +341,6 @@ _{ coming in v2.0 }_
 ****
 * Delete either a tag, deadline, or description from a particular task.
 ****
-
-=== Locating tasks by deadline `[coming in v2.0]`
-
-_{ coming in v2.0 }_
 
 === Locating tasks by tag `[coming in v2.0]`
 
