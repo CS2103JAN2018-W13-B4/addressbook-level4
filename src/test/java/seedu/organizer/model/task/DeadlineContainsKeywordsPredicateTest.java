@@ -1,15 +1,15 @@
 package seedu.organizer.model.task;
 
-import seedu.organizer.testutil.TaskBuilder;
-
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+
+import seedu.organizer.testutil.TaskBuilder;
 
 //@@author guekling
 public class DeadlineContainsKeywordsPredicateTest {
