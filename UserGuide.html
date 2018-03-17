@@ -35,17 +35,17 @@
 <li><a href="#locating-tasks-code-find-code-or-code-f-code">3.5. Locating tasks: <code>find</code> or <code>f</code></a></li>
 <li><a href="#locating-tasks-by-name-code-findn-code-or-code-fn-code">3.6. Locating tasks by name: <code>findn</code> or <code>fn</code></a></li>
 <li><a href="#locating-tasks-by-description-code-finddes-code-or-code-fdes-code">3.7. Locating tasks by description: <code>finddes</code> or <code>fdes</code></a></li>
-<li><a href="#deleting-a-task-code-delete-code-or-code-d-code">3.8. Deleting a task : <code>delete</code> or <code>d</code></a></li>
-<li><a href="#selecting-a-task-code-select-code-or-code-s-code">3.9. Selecting a task : <code>select</code> or <code>s</code></a></li>
-<li><a href="#mark-task-as-complete-code-toggle-code-or-code-t-code">3.10. Mark task as complete: <code>toggle</code> or <code>t</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.14. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.16. Saving the data</a></li>
-<li><a href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">3.17. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></li>
-<li><a href="#locating-tasks-by-deadline-code-coming-in-v2-0-code">3.18. Locating tasks by deadline <code>[coming in v2.0]</code></a></li>
+<li><a href="#locating-tasks-by-deadline-code-findd-code-or-code-fd-code">3.8. Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></li>
+<li><a href="#deleting-a-task-code-delete-code-or-code-d-code">3.9. Deleting a task : <code>delete</code> or <code>d</code></a></li>
+<li><a href="#selecting-a-task-code-select-code-or-code-s-code">3.10. Selecting a task : <code>select</code> or <code>s</code></a></li>
+<li><a href="#mark-task-as-complete-code-toggle-code-or-code-t-code">3.11. Mark task as complete: <code>toggle</code> or <code>t</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.15. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.17. Saving the data</a></li>
+<li><a href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">3.18. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></li>
 <li><a href="#locating-tasks-by-tag-code-coming-in-v2-0-code">3.19. Locating tasks by tag <code>[coming in v2.0]</code></a></li>
 <li><a href="#adding-a-subtask-to-a-task-code-coming-in-v2-0-code">3.20. Adding a subtask to a task <code>[coming in v2.0]</code></a></li>
 <li><a href="#deleting-a-subtask-from-a-task-code-coming-in-v2-0-code">3.21. Deleting a subtask from a task <code>[coming in v2.0]</code></a></li>
@@ -331,7 +331,7 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 <div class="sect2">
 <h3 id="locating-tasks-code-find-code-or-code-f-code"><a class="link" href="#locating-tasks-code-find-code-or-code-f-code">3.5. Locating tasks: <code>find</code> or <code>f</code></a></h3>
 <div class="paragraph">
-<p>Finds tasks whose names or descriptions contain any of the given keywords.<br>
+<p>Finds tasks whose names, descriptions or deadlines contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -340,6 +340,9 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 <ul>
 <li>
 <p>The search is case insensitive. e.g <code>Developer</code> will match <code>developer</code></p>
+</li>
+<li>
+<p>Keywords for deadlines should be in the format of YYYY-MM-DD.</p>
 </li>
 <li>
 <p>The order of the keywords does not matter. e.g. <code>Guide Developer</code> will match <code>Developer Guide</code></p>
@@ -464,7 +467,49 @@ Returns any task having descriptions containing words <code>Study</code>, <code>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-task-code-delete-code-or-code-d-code"><a class="link" href="#deleting-a-task-code-delete-code-or-code-d-code">3.8. Deleting a task : <code>delete</code> or <code>d</code></a></h3>
+<h3 id="locating-tasks-by-deadline-code-findd-code-or-code-fd-code"><a class="link" href="#locating-tasks-by-deadline-code-findd-code-or-code-fd-code">3.8. Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></h3>
+<div class="paragraph">
+<p>Find tasks whose deadlines contain any of the given keywords.<br>
+Format: <code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Keywords should be in the format of YYYY-MM-DD.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>2018-03-17 2018-09-09</code> will match <code>2018-09-09 2018-03-17</code></p>
+</li>
+<li>
+<p>Only the deadline is searched.</p>
+</li>
+<li>
+<p>Only full keywords will be matched e.g. <code>2018</code> will not match <code>2018-03-17</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>findd <code>2018-03-17</code><br>
+Returns tasks with deadlines <code>2018-03-17</code>.</p>
+</li>
+<li>
+<p>fd <code>2018-03-17 2018-09-04 2018-03-21</code><br>
+Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-task-code-delete-code-or-code-d-code"><a class="link" href="#deleting-a-task-code-delete-code-or-code-d-code">3.9. Deleting a task : <code>delete</code> or <code>d</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified task from the PrioriTask.<br>
 Format: <code>delete INDEX</code></p>
@@ -505,7 +550,7 @@ Deletes the 1st task in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-task-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-task-code-select-code-or-code-s-code">3.9. Selecting a task : <code>select</code> or <code>s</code></a></h3>
+<h3 id="selecting-a-task-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-task-code-select-code-or-code-s-code">3.10. Selecting a task : <code>select</code> or <code>s</code></a></h3>
 <div class="paragraph">
 <p>Selects the task identified by the index number used in the last task listing.<br>
 Format: <code>select INDEX</code></p>
@@ -546,7 +591,7 @@ Selects the 1st task in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="mark-task-as-complete-code-toggle-code-or-code-t-code"><a class="link" href="#mark-task-as-complete-code-toggle-code-or-code-t-code">3.10. Mark task as complete: <code>toggle</code> or <code>t</code></a></h3>
+<h3 id="mark-task-as-complete-code-toggle-code-or-code-t-code"><a class="link" href="#mark-task-as-complete-code-toggle-code-or-code-t-code">3.11. Mark task as complete: <code>toggle</code> or <code>t</code></a></h3>
 <div class="paragraph">
 <p>Toggle the status of the task identified by the index number used in the last task listing
 between <code>Done</code> and <code>Not Done</code>.<br>
@@ -582,7 +627,7 @@ Toggle the first task in th result of <code>find homework</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -603,7 +648,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the PrioriTask to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -648,7 +693,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -680,28 +725,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.14. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.15. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the PrioriTask.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>PrioriTask data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code"><a class="link" href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">3.17. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></h3>
+<h3 id="deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code"><a class="link" href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">3.18. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
@@ -715,12 +760,6 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-tasks-by-deadline-code-coming-in-v2-0-code"><a class="link" href="#locating-tasks-by-deadline-code-coming-in-v2-0-code">3.18. Locating tasks by deadline <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -809,12 +848,20 @@ e.g. <code>delete 3</code></p>
 e.g. <code>edit 1 p/9 d/2018-12-30</code></p>
 </li>
 <li>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find CS2103 update 2018-03-17</code></p>
+</li>
+<li>
 <p><strong>Find Name</strong> : <code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>findn Developer User</code></p>
 </li>
 <li>
 <p><strong>Find Description</strong> : <code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORDS [MORE_KEYWORDS]</code><br>
 e.g. <code>finddes study update</code></p>
+</li>
+<li>
+<p><strong>Find Deadline</strong> : <code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORDS [MORE_KEYWORDS]</code><br>
+e.g. <code>findd 2018-03-17 2018-09-07</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -846,7 +893,7 @@ e.g.<code>select 3</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-17 07:51:28 UTC
+Last updated 2018-03-17 13:09:36 UTC
 </div>
 </div>
 </body>
