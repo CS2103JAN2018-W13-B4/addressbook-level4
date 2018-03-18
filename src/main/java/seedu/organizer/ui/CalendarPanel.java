@@ -14,9 +14,9 @@ import seedu.organizer.ui.Calendar.Calendar;
 /**
  * The Browser Panel of the App.
  */
-public class BrowserPanel extends UiPart<Region> {
+public class CalendarPanel extends UiPart<Region> {
 
-    private static final String FXML = "BrowserPanel.fxml";
+    private static final String FXML = "CalendarPanel.fxml";
 
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
@@ -26,7 +26,7 @@ public class BrowserPanel extends UiPart<Region> {
     @FXML
     private StackPane calendarPane;
 
-    public BrowserPanel() {
+    public CalendarPanel() {
         super(FXML);
 
         calendar = new Calendar();

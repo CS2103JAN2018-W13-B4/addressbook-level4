@@ -1,6 +1,5 @@
 package seedu.organizer.ui;
 
-import java.io.IOException;
 import java.util.logging.Logger;
 
 import com.google.common.eventbus.Subscribe;
@@ -35,7 +34,7 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private BrowserPanel browserPanel;
+    private CalendarPanel calendarPanel;
     private TaskListPanel taskListPanel;
     private Config config;
     private UserPrefs prefs;
@@ -117,8 +116,8 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        browserPanel = new BrowserPanel();
-        browserPlaceholder.getChildren().add(browserPanel.getRoot());
+        calendarPanel = new CalendarPanel();
+        browserPlaceholder.getChildren().add(calendarPanel.getRoot());
 
         taskListPanel = new TaskListPanel(logic.getFilteredPersonList());
         taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());
@@ -188,7 +187,7 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /*void releaseResources() {
-        browserPanel.freeResources();
+        calendarPanel.freeResources();
     }*/
 
     @Subscribe

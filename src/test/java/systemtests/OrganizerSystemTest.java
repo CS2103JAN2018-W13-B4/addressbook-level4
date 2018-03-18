@@ -4,7 +4,7 @@ import static guitests.guihandles.WebViewUtil.waitUntilBrowserLoaded;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.organizer.ui.BrowserPanel.DEFAULT_PAGE;
+import static seedu.organizer.ui.CalendarPanel.DEFAULT_PAGE;
 import static seedu.organizer.ui.StatusBarFooter.SYNC_STATUS_INITIAL;
 import static seedu.organizer.ui.StatusBarFooter.SYNC_STATUS_UPDATED;
 import static seedu.organizer.ui.StatusBarFooter.TOTAL_TASKS_STATUS;
@@ -40,7 +40,7 @@ import seedu.organizer.logic.commands.SelectCommand;
 import seedu.organizer.model.Model;
 import seedu.organizer.model.Organizer;
 import seedu.organizer.testutil.TypicalTasks;
-import seedu.organizer.ui.BrowserPanel;
+import seedu.organizer.ui.CalendarPanel;
 import seedu.organizer.ui.CommandBox;
 
 /**
@@ -218,7 +218,7 @@ public abstract class OrganizerSystemTest {
         String selectedCardName = getTaskListPanel().getHandleToSelectedCard().getName();
         URL expectedUrl;
         try {
-            expectedUrl = new URL(BrowserPanel.SEARCH_PAGE_URL + selectedCardName.replaceAll(" ", "%20"));
+            expectedUrl = new URL(CalendarPanel.SEARCH_PAGE_URL + selectedCardName.replaceAll(" ", "%20"));
         } catch (MalformedURLException mue) {
             throw new AssertionError("URL expected to be valid.");
         }
