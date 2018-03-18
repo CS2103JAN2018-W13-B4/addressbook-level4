@@ -10,8 +10,9 @@
 
 <!-- @@author guekling -->
 
-<StackPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
+<StackPane fx:id="calendarPane" xmlns="http://javafx.com/javafx/8.0.121"
+           xmlns:fx="http://javafx.com/fxml/1">
+   <!--<children>
       <VBox>
          <children>
             <HBox alignment="BASELINE_CENTER" prefHeight="40.0">
@@ -62,5 +63,5 @@
             </GridPane>
          </children>
       </VBox>
-   </children>
+   </children>-->
 </StackPane>

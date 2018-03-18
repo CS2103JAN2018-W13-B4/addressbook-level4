@@ -1,5 +1,6 @@
 package seedu.organizer.ui;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import com.google.common.eventbus.Subscribe;
