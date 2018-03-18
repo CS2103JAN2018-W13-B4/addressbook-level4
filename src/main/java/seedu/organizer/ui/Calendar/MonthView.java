@@ -1,7 +1,6 @@
 package seedu.organizer.ui.Calendar;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
 
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
@@ -30,18 +29,6 @@ public class MonthView extends UiPart<Region> {
 
     public MonthView() {
         super(FXML);
-    }
-
-    public void getCurrentMonth(YearMonth currentYearMonth) {
-        currentYearMonth = currentYearMonth.now();
-        int currentYear = currentYearMonth.getYear();
-        setMonthCalendarTitle(currentYear, currentYearMonth.getMonth().toString());
-
-        setMonthCalendarDates(currentYear, currentYearMonth.getMonthValue());
-    }
-
-    public String getFxmlFile() {
-        return "/view/" + FXML;
     }
 
     /**
