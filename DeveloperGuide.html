@@ -45,9 +45,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#task-s-priority-autoupdating-and-autosorting-feature">3.2. Task&#8217;s Priority Autoupdating and AutoSorting feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -587,7 +588,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
+<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the organizer (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
 </div>
 <div class="paragraph">
 <p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
@@ -596,6 +597,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
 </div>
+<div class="title">Figure 11. Reference from Figure 7.</div>
 </div>
 <div class="paragraph">
 <p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
@@ -635,6 +637,8 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 }</code></pre>
 </div>
 </div>
+<div class="sect4">
+<h5 id="scenario"><a class="link" href="#scenario">Scenario</a></h5>
 <div class="paragraph">
 <p>Suppose that the user has just launched the application. The <code>UndoRedoStack</code> will be empty at the beginning.</p>
 </div>
@@ -645,6 +649,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
 </div>
+<div class="title">Figure 12. UndoRedoStack <code>delete 5</code> command execution</div>
 </div>
 <div class="paragraph">
 <p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/Study &#8230;&#8203;</code> to add a new task.</p>
@@ -653,6 +658,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
 </div>
+<div class="title">Figure 13. UndoRedoStack <code>add n/Study &#8230;&#8203;</code> command execution</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -676,6 +682,7 @@ If a command fails its execution, it will not be pushed to the <code>UndoRedoSta
 <div class="content">
 <img src="images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
 </div>
+<div class="title">Figure 14. UndoRedoStack <code>undo</code> command execution</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -696,6 +703,7 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 15. UndeRedoStack sequence diagram</div>
 </div>
 <div class="paragraph">
 <p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the organizer to the state after the command is executed).</p>
@@ -719,6 +727,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
 </div>
+<div class="title">Figure 16. UndoRedoStack <code>clear</code> command execution</div>
 </div>
 <div class="paragraph">
 <p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
@@ -727,6 +736,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
 </div>
+<div class="title">Figure 17. UndoRedoStack <code>list</code> command execution</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
@@ -734,6 +744,8 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+</div>
+<div class="title">Figure 18. UndoRedoStack activity diagram</div>
 </div>
 </div>
 </div>
@@ -875,20 +887,280 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="task-s-priority-autoupdating-and-autosorting-feature"><a class="link" href="#task-s-priority-autoupdating-and-autosorting-feature">3.2. Task&#8217;s Priority Autoupdating and AutoSorting feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The autoupdating and autosorting mechanism resides inside <code>UniqueTaskList</code>. The <code>UniqueTaskList</code> is responsible for updating each Task’s priority level and sorting the <code>ObservableList&lt;Task&gt;</code> whenever a new <code>Task</code> is added. In addition, whenever a <code>Task</code> is edited, the <code>ObservableList&lt;Task&gt;</code> is sorted again.</p>
+</div>
+<div class="sect4">
+<h5 id="description-of-code-uniquetasklist-code-s-code-add-code-method"><a class="link" href="#description-of-code-uniquetasklist-code-s-code-add-code-method">Description of <code>UniqueTaskList</code> 's <code>add</code> method</a></h5>
+<div class="paragraph">
+<p>The <code>add</code> method of the <code>UniqueTaskList</code> class is implemented as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public void add(Task toAdd) throws DuplicateTaskException {
+	//check non null and no duplicate task
+	toAdd = updatePriority(toAdd);
+	internalList.add(toAdd);
+	sortTasks();
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>updatePriority</code> method returns a new <code>Task</code> with a new <code>Priority</code> based on the current date, <code>AddedDate</code>, and <code>Deadline</code>.</p>
+</div>
+<div class="paragraph">
+<p>The new <code>Priority</code> level will remain within the range of 0 - 9. The new <code>Priority</code> is calculated as such :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the current date is equal to <code>AddedDate</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Priority</code> remains the same.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the current date is past <code>Deadline</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Priority</code> is set to the <code>HIGHEST_SETTABLE_PRIORITY_LEVEL</code> : 9</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the current date is before <code>Deadline</code> and not equal to <code>AddedDate</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>`Priority is calculated via the following formula :</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>priorityDifferenceFromMax = HIGHEST_SETTABLE_PRIORITY_LEVEL - currentPriority
+
+dayDifferenceCurrentToDeadline = Duration.between(currentDate, deadline)
+
+dayDifferenceAddedToDeadline = Duration.between(dateAdded, deadline)
+
+priorityToIncrease = priorityDifferenceFromMax * (dayDifferenceCurrentToDeadline / dayDifferenceAddedToDeadline)
+
+newPriority = currentPriority + priorityToIncrease</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The new <code>Task</code> with its updated <code>Priority</code> will then be added to <code>UniqueTaskList</code>’s <code>internalList</code>. Following that, the <code>internalList</code> is sorted via the <code>sortTasks</code> method. The <code>sortTasks</code> method is implemented as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>private void sortTasks() {
+	internalList.sort(Task.priorityComparator());
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>sortTasks</code> method makes use of the <code>ObservableList</code> class’s <code>sort</code> method and <code>Task</code>’s <code>priorityComparator</code> method. The <code>priorityComparator</code> method returns a <code>Comparator</code> that sorts <code>Task</code>’s based on descending <code>Priority</code> levels. The <code>internalList</code> is sorted with respect to the comparator.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="scenario-2"><a class="link" href="#scenario-2">Scenario</a></h5>
+<div class="paragraph">
+<p>Consider a <code>addTask</code> method call by the <code>Organizer</code>. The current date is 2018-03-19.</p>
+</div>
+<div class="paragraph">
+<p>The following is a sequence diagram which represents the <code>Organizer</code> adding a Study <code>Task</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OrganizerAddTaskSequenceDiagram.png" alt="OrganizerAddTaskSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 19. addTask(Study) method execution sequence diagram</div>
+</div>
+<div class="paragraph">
+<p>Suppose the <code>tasks</code> currently contains the following two <code>Task</code> s.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OrganizerAddTaskDiagram1.png" alt="OrganizerAddTaskDiagram1" width="800">
+</div>
+<div class="title">Figure 20. <code>tasks</code> 's initial <code>Task</code> s</div>
+</div>
+<div class="paragraph">
+<p>The following figure represents the "Study" <code>Task</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OrganizerAddTaskDiagram2.png" alt="OrganizerAddTaskDiagram2" width="300">
+</div>
+<div class="title">Figure 21. "Study" <code>Task</code></div>
+</div>
+<div class="paragraph">
+<p>When <code>tasks</code> calls <code>updatePriority(Study)</code>, the new priority level is calculated as such :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>priorityDifferenceFromMax = 9 - 0 = 9
+
+dayDifferenceCurrentToDeadline = 14
+
+dayDifferenceAddedToDeadline = 31
+
+priorityToIncrease = 9 * (14 / 31) = 4
+
+newPriority = 0 + 4 = 4</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A new "Study" <code>Task</code> is created and added to the <code>internalList</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OrganizerAddTaskDiagram3.png" alt="OrganizerAddTaskDiagram3" width="800">
+</div>
+<div class="title">Figure 22. <code>internalList</code> after "Study" <code>Task</code> is added</div>
+</div>
+<div class="paragraph">
+<p>The <code>sortTasks</code> method is then called, which calls the <code>priorityCompartor</code> method, and uses the <code>Comparator</code> returned to sort the <code>Task</code> s. This results in the following <code>UniqueTaskList</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OrganizerAddTaskDiagram4.png" alt="OrganizerAddTaskDiagram4" width="800">
+</div>
+<div class="title">Figure 23. <code>internalList</code> after <code>sortTasks</code> is called</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-updatepriority-code"><a class="link" href="#aspect-implementation-of-code-updatepriority-code">Aspect : Implementation of <code>updatePriority</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Add a new method <code>updatePriority</code> in UniqueTaskList’s <code>add</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : Convenient to update the priority during this method call; since during initialization of <code>Organizer</code>, <code>add</code> is called for every <code>Task</code> to initialize the <code>UniqueTaskList</code>.</p>
+</li>
+<li>
+<p>Cons : Possible violation of Single Responsibility Principle and Separation of Concerns as <code>UniqueTaskList</code> now updates <code>Task</code> priorities and stores <code>Task</code> s.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Add a new class <code>UpdatedUniqueTaskList</code> which extends <code>UniqueTaskList</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : Removes violation of Single Responsibility Principle and Separation of Concerns in Alternative 1.</p>
+</li>
+<li>
+<p>Cons : Repeats the logic in <code>UniqueTaskList</code> while adding one method.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-code-updatepriority-code-executes"><a class="link" href="#aspect-how-code-updatepriority-code-executes">Aspect : How <code>updatePriority</code> executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice) : Return a new <code>Task</code> with new <code>Priority</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : Easy to implement.</p>
+</li>
+<li>
+<p>Cons : A new object is created twice during every addition, even if <code>Priority</code> is not updated; Hence slightly inefficient.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Edit the <code>Priority</code> parameter of the <code>Task</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : No new objects need to be created.</p>
+</li>
+<li>
+<p>Cons : Requires major overhaul of <code>Task</code> and it’s parameters to be mutable.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code"><a class="link" href="#aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code">Aspect : Scope of <code>updatePriority</code> and <code>sortTasks</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice) : Implement within <code>Model</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : No need to deal with commands, and fits with the idea of automation.</p>
+</li>
+<li>
+<p>Cons : Concern of updating priorities and sorting tasks may not lie with <code>Model</code> but <code>Logic</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Implement within <code>Logic</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : Fits with the concern of updating priorities and sorting tasks.</p>
+</li>
+<li>
+<p>Cons : Requires development of commands and extra command calls to be automatically called upon start of application; unnecessary trouble for same feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -919,7 +1191,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -985,7 +1257,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -2010,24 +2282,21 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Major : Announcement / Notification</p>
+<p>Major : Recurring Tasks</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Helps users be reminded of the latest upcoming deadline</p>
+<p>Helps users automatically create tasks that are recurring</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Minor : Date added parameter</p>
+<p>Minor : RemoveTag method</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allows users to recall when the task was created</p>
-</li>
-<li>
-<p>Supports application function of priority autoupdating</p>
+<p>Allows application to remove a specific tag from all tasks</p>
 </li>
 </ul>
 </div>
@@ -2583,7 +2852,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-18 13:26:35 UTC
+Last updated 2018-03-19 13:23:13 UTC
 </div>
 </div>
 </body>
