@@ -2,7 +2,6 @@ package seedu.organizer.model.subtask;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -18,6 +17,7 @@ public class SubtaskTest {
     public void constructorwithouttask_null_throwsNullPointerException() {
         Assert.assertThrows(NullPointerException.class, () -> new Subtask(null, null));
         Assert.assertThrows(NullPointerException.class, () -> new Subtask(null, VALID_STATUS));
+        Assert.assertThrows(NullPointerException.class, () -> new Subtask(null));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class SubtaskTest {
 
     @Test
     public void equal_allcombination() {
-        Subtask subtask1 = new Subtask(VALID_NAME, new Status(false));
+        Subtask subtask1 = new Subtask(VALID_NAME);
         Subtask subtask2 = new Subtask(VALID_NAME, new Status(true));
         Subtask subtask3 = new Subtask(VALID_NAME, new Status(false));
         Subtask subtask4 = new Subtask(new Name("ganteng"), new Status(false));

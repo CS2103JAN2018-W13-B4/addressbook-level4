@@ -15,6 +15,16 @@ public class Subtask {
     private final Status status;
 
     /**
+     * Contruct a {@code Subtask} with {@code false} status
+     */
+    public Subtask(Name name) {
+        requireNonNull(name);
+        this.name = name;
+        this.status = null;
+    }
+
+
+    /**
      * Contruct a {@code Subtask}
      */
     public Subtask(Name name, Status status) {

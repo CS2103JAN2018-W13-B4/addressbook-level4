@@ -25,7 +25,7 @@ public class TaskCard extends UiPart<Region> {
 
     private static final String[] TAG_COLOR_STYLES = { "blue", "brown", "gray", "green", "maroon", "orange",
         "pink", "purple", "red", "yellow" };
-    private static final int CELL_HEIGHT = 23;
+    private static final int CELL_HEIGHT = 24;
     public final Task task;
 
     @FXML
@@ -93,7 +93,7 @@ public class TaskCard extends UiPart<Region> {
             Label subtaskLabel = new Label(subtask.toString());
             subtasks.getItems().add(subtaskLabel);
         });
-        subtasks.setPrefHeight(CELL_HEIGHT * task.getSubtasks().size());
+        subtasks.setPrefHeight(10 + CELL_HEIGHT * task.getSubtasks().size());
     }
 
     @Override
