@@ -8,6 +8,7 @@ import java.util.Set;
 import seedu.organizer.commons.core.Messages;
 import seedu.organizer.commons.core.index.Index;
 import seedu.organizer.logic.commands.exceptions.CommandException;
+import seedu.organizer.model.subtask.Subtask;
 import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.DateAdded;
 import seedu.organizer.model.task.Deadline;
@@ -62,7 +63,7 @@ public class ToggleCommand extends UndoableCommand {
         List<Task> lastShownList = model.getFilteredTaskList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
         taskToEdit = lastShownList.get(index.getZeroBased());
@@ -81,10 +82,11 @@ public class ToggleCommand extends UndoableCommand {
         DateAdded oldDateAdded = taskToEdit.getDateAdded();
         Description updatedDescription = taskToEdit.getDescription();
         Set<Tag> updatedTags = taskToEdit.getTags();
+        List<Subtask> updatedSubtasks = taskToEdit.getSubtasks();
         Status updatedStatus = taskToEdit.getStatus().getInverse();
 
         return new Task(updatedName, updatedPriority, updatedDeadline, oldDateAdded,
-                updatedDescription, updatedStatus, updatedTags);
+                updatedDescription, updatedStatus, updatedTags, updatedSubtasks);
     }
 
     @Override
