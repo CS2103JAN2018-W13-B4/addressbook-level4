@@ -1,4 +1,4 @@
-= AddressBook Level 4 - User Guide
+= PrioriTask - User Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -53,8 +53,9 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 * `NAME`
 * `PRIORITY LEVEL`
 ** A task can have a priority level ranging from 0 (lowest) to 9 (highest).
-** Setting a priority level is optional. PrioriTask will automatically set a task’s priority level to its default level (0) if User does not add a one.
-** _[Coming in v2.0]_ Priority levels are automatically updated as the deadline approaches, or when a task is still uncompleted after the deadline has passed.
+** Setting a priority level is optional. PrioriTask will automatically set a task’s priority level to its default level (0) if User does not add one.
+** Priority levels are automatically updated as the deadline approaches.
+** If a task is still uncompleted after the deadline has passed, priority level will be updated to it's maximum level : 9.
 * `DEADLINE`
 ** A task must have a deadline in the format of YYYY-MM-DD.
 * `DESCRIPTION`
@@ -82,7 +83,7 @@ Format: `help`
 
 === Adding a task: `add` or `a`
 
-Adds a person to the PrioriTask +
+Adds a task to the PrioriTask +
 Format: `add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…​`
 
 Examples:
@@ -120,10 +121,31 @@ Edits the priority level and deadline of the 1st task to be `9` and `2018-12-30`
 * `edit 2 n/CS2101 Final Assignment t/` +
 Edits the name of the 2nd task to be `CS2101 Final Assignment` and clears all existing tags.
 
-=== Locating tasks by name: `findn/` or `fn/`
+=== Locating tasks: `find` or `f`
+
+Finds tasks whose names, descriptions or deadlines contain any of the given keywords. +
+Format: `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
+
+****
+* The search is case insensitive. e.g `Developer` will match `developer`
+* Keywords for deadlines should be in the format of YYYY-MM-DD.
+* The order of the keywords does not matter. e.g. `Guide Developer` will match `Developer Guide`
+* Only the name and description are searched.
+* Only full words will be matched e.g. `Guide` will not match `Guides`
+* Tasks matching at least one keyword will be returned (i.e. `OR` search). e.g. `CS2101 Guide` will return `CS2101 Script`, `Developer Guide`.
+****
+
+Examples:
+
+* find `Guide` +
+Returns `User Guide` and `Developer Guide`
+* f `CS2101 Developer User` +
+Returns any task having names or descriptions `CS2101`, `Developer`, or `User`
+
+=== Locating tasks by name: `findn` or `fn`
 
 Finds tasks whose names contain any of the given keywords. +
-Format: `findn/ KEYWORD [MORE_KEYWORDS]` or `fn/ KEYWORD [MORE_KEYWORDS]`
+Format: `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`
 
 ****
 * The search is case insensitive. e.g `Developer` will match `developer`
@@ -135,15 +157,15 @@ Format: `findn/ KEYWORD [MORE_KEYWORDS]` or `fn/ KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 
-* findn/ `Guide` +
+* findn `Guide` +
 Returns `User Guide` and `Developer Guide`
-* fn/ `CS2101 Developer User` +
+* fn `CS2101 Developer User` +
 Returns any task having names `CS2101`, `Developer`, or `User`
 
-=== Locating tasks by description: `finddes/` or `fdes/`
+=== Locating tasks by description: `finddes` or `fdes`
 
 Find tasks whose descriptions contain any of the given keywords. +
-Format: `finddes/ KEYWORD [MORE_KEYWORDS]` or `fdes/ KEYWORD [MORE_KEYWORDS]`
+Format: `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORD [MORE_KEYWORDS]`
 
 ****
 * The search is case insensitive. e.g `Update` will match `update`
@@ -155,10 +177,29 @@ Format: `finddes/ KEYWORD [MORE_KEYWORDS]` or `fdes/ KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 
-* finddes/ `Study` +
+* finddes `Study` +
 Returns tasks with descriptions `Study midterms` and `study chapter 2`.
-* fdes/ `Study Update Chapter` +
+* fdes `Study Update Chapter` +
 Returns any task having descriptions containing words `Study`, `Update`, or `Chapter`.
+
+=== Locating tasks by deadline: `findd` or `fd`
+
+Find tasks whose deadlines contain any of the given keywords. +
+Format: `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
+
+****
+* Keywords should be in the format of YYYY-MM-DD.
+* The order of the keywords does not matter. e.g. `2018-03-17 2018-09-09` will match `2018-09-09 2018-03-17`
+* Only the deadline is searched.
+* Only full keywords will be matched e.g. `2018` will not match `2018-03-17`
+****
+
+Examples:
+
+* findd `2018-03-17` +
+Returns tasks with deadlines `2018-03-17`.
+* fd `2018-03-17 2018-09-04 2018-03-21` +
+Returns any task having deadlines `2018-03-17`, `2018-09-04`, or `2018-03-21`.
 
 === Deleting a task : `delete` or `d`
 
@@ -303,15 +344,7 @@ _{ coming in v2.0 }_
 * Delete either a tag, deadline, or description from a particular task.
 ****
 
-=== Locating tasks by deadline `[coming in v2.0]`
-
-_{ coming in v2.0 }_
-
 === Locating tasks by tag `[coming in v2.0]`
-
-_{ coming in v2.0 }_
-
-=== Locating tasks by description `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
@@ -361,10 +394,14 @@ e.g. `add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t
 e.g. `delete 3`
 * *Edit* : `edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​` +
 e.g. `edit 1 p/9 d/2018-12-30`
-* *Find Name* : `findn/ KEYWORD [MORE_KEYWORDS]` or `fn/ KEYWORD [MORE_KEYWORDS]` +
-e.g. `findn/ Developer User`
-* *Find Description* : `finddes/ KEYWORD [MORE_KEYWORDS]` or `fdes/ KEYWORDS [MORE_KEYWORDS]` +
-e.g. `finddes/ study update`
+* *Find* : `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]` +
+e.g. `find CS2103 update 2018-03-17`
+* *Find Name* : `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]` +
+e.g. `findn Developer User`
+* *Find Description* : `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORDS [MORE_KEYWORDS]` +
+e.g. `finddes study update`
+* *Find Deadline* : `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORDS [MORE_KEYWORDS]` +
+e.g. `findd 2018-03-17 2018-09-07`
 * *List* : `list`
 * *Help* : `help`
 * *Select* : `select INDEX` +

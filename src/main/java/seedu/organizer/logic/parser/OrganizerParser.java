@@ -12,7 +12,9 @@ import seedu.organizer.logic.commands.Command;
 import seedu.organizer.logic.commands.DeleteCommand;
 import seedu.organizer.logic.commands.EditCommand;
 import seedu.organizer.logic.commands.ExitCommand;
+import seedu.organizer.logic.commands.FindDeadlineCommand;
 import seedu.organizer.logic.commands.FindDescriptionCommand;
+import seedu.organizer.logic.commands.FindMultipleFieldsCommand;
 import seedu.organizer.logic.commands.FindNameCommand;
 import seedu.organizer.logic.commands.HelpCommand;
 import seedu.organizer.logic.commands.HistoryCommand;
@@ -86,6 +88,12 @@ public class OrganizerParser {
         case ClearCommand.COMMAND_ALIAS:
             return new ClearCommand();
 
+        case FindMultipleFieldsCommand.COMMAND_WORD:
+            return new FindMultipleFieldsCommandParser().parse(arguments);
+
+        case FindMultipleFieldsCommand.COMMAND_ALIAS:
+            return new FindMultipleFieldsCommandParser().parse(arguments);
+
         case FindNameCommand.COMMAND_WORD:
             return new FindNameCommandParser().parse(arguments);
 
@@ -97,6 +105,12 @@ public class OrganizerParser {
 
         case FindDescriptionCommand.COMMAND_ALIAS:
             return new FindDescriptionCommandParser().parse(arguments);
+
+        case FindDeadlineCommand.COMMAND_WORD:
+            return new FindDeadlineCommandParser().parse(arguments);
+
+        case FindDeadlineCommand.COMMAND_ALIAS:
+            return new FindDeadlineCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
