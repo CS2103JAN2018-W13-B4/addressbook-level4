@@ -46,9 +46,10 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#task-s-priority-autoupdating-and-autosorting-feature">3.2. Task&#8217;s Priority Autoupdating and AutoSorting feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#calendar-feature">3.3. Calendar Feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1147,20 +1148,72 @@ newPriority = 0 + 4 = 4</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="calendar-feature"><a class="link" href="#calendar-feature">3.3. Calendar Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The calendar feature is facilitated by the <code>Calendar</code> class, which supports the <code>CalendarPanel</code>. The <code>Calendar</code> is responsible for displaying a monthly calendar view to the users through the <code>CalendarPanel</code>. The following diagram describes the structure of the calendar system:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CalendarComponentClassDiagram.png" alt="CalendarComponentClassDiagram" width="800">
+</div>
+<div class="title">Figure 24. UML Class Diagram for Calendar</div>
+</div>
+<div class="paragraph">
+<p>As you can see from the diagram, <code>MonthView</code> facilitates the drawing of the calendar, while <code>Calendar</code> supports the display of the calendar onto the <code>CalendarPanel</code>. The <code>MonthView</code> interacts very closely with the corresponding FXML file, and the following diagram shows the basic layout of the calendar:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MonthViewLayoutDiagram.png" alt="MonthViewLayoutDiagram" width="800">
+</div>
+<div class="title">Figure 25. Basic Calendar Layout</div>
+</div>
+<div class="paragraph">
+<p>The basic calendar layout (refer to Figure 25) is reflected in the <code>MonthView.fxml</code> file, and is loaded by <code>MonthView</code>. <code>MonthView</code> uses the JavaFX layout objects extensively when drawing the calendar. An example would be the <code>addMonthDate</code> method, which adds a particular date to the exact <code>column</code> and <code>row</code> in the <code>taskCalendar</code>. The <code>addMonthDate</code> method is implemented as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>private void addMonthDate(Text dateToPrint, int column, int row) {
+    taskCalendar.add(dateToPrint, column, row);
+    taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
+    taskCalendar.setValignment(dateToPrint, VPos.TOP)
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both the <code>Calendar</code> and <code>CalendarPanel</code> use the JavaFX <code>StackPane</code> object as a placeholder for the <code>MonthView</code>. After loading the respective FXML files, methods in the <code>Calendar</code> and <code>CalendarPanel</code> fetch the display for the <code>MonthView</code> as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public void getCurrentMonth(YearMonth currentYearMonth) throws IOException {
+    // draws the calendar for the current month
+    calendarPlaceholder.getChildren().add(monthView.getRoot());
+}
+
+private void createMainView() throws IOException {
+    // fetches the calendar view
+    calendarPane.getChildren().add(calendar.getRoot());
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1191,7 +1244,7 @@ newPriority = 0 + 4 = 4</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1257,7 +1310,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 26. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -2852,7 +2905,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-20 02:19:24 UTC
+Last updated 2018-03-20 17:41:14 UTC
 </div>
 </div>
 </body>
