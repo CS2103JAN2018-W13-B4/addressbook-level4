@@ -10,7 +10,7 @@ import seedu.organizer.ui.UiPart;
 
 //@@author guekling
 /**
- * !!! ADD COMMENTS !!!
+ * Supports the display of the calendar onto the Calendar Panel.
  */
 public class Calendar extends UiPart<Region> {
 
@@ -26,9 +26,10 @@ public class Calendar extends UiPart<Region> {
     }
 
     /**
-     * ADD COMMENTS!!!
-     * @param currentYearMonth
-     * @throws IOException
+     * Displays the current month view in the {@code calendarPlaceholder}.
+     *
+     * @param currentYearMonth Current year and month in the YearMonth format.
+     * @throws IOException if there's problem fetching the Month View.
      */
     public void getCurrentMonth(YearMonth currentYearMonth) throws IOException {
         monthView = new MonthView();

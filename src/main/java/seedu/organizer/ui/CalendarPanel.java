@@ -12,7 +12,7 @@ import seedu.organizer.ui.calendar.Calendar;
 
 //@@author guekling
 /**
- * The Browser Panel of the App.
+ * The Calendar Panel of the App.
  */
 public class CalendarPanel extends UiPart<Region> {
 
@@ -36,19 +36,20 @@ public class CalendarPanel extends UiPart<Region> {
     }
 
     /**
-     * ADD COMMENTS!!!!!!!!!
+     * Loads the main view of the calendar.
      */
     private void loadMainView() {
         try {
             createMainView();
         } catch (IOException e) {
-            logger.warning("Error loading FXML file for Main View.");
+            logger.warning("Error loading Calendar for Main View.");
         }
     }
 
     /**
-     * ADD COMMENTS!!!!!!!!!!!!
-     * @throws IOException
+     * Creates the main view of the calendar, which by default, is the month view.
+     *
+     * @throws IOException if there's problem fetching the Calendar.
      */
     private void createMainView() throws IOException {
         calendar.getCurrentMonth(currentYearMonth);

@@ -12,7 +12,7 @@ import seedu.organizer.ui.UiPart;
 
 //@@author guekling
 /**
- * !!! ADD COMMENTS !!!
+ * Supports the display of the month view of the calendar.
  */
 public class MonthView extends UiPart<Region> {
 
