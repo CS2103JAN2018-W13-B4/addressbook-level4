@@ -27,7 +27,7 @@
     display: inline-block;
 }
 
-.exampleblock.format code {
+.format.exampleblock code {
     background-color: rgb(143,188,143);
 }
 
