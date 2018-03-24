@@ -471,7 +471,7 @@ _{ coming in v2.0 }_
 
 == Command Summary
 
-* *Add* `add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…` +
+* *Add* [format]#`add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…`# +
 e.g. `add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA`
 * *Clear* : `clear`
 * *Delete* : `delete INDEX` +

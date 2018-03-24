@@ -24,11 +24,11 @@
     background-color: rgb(152,251,152);
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: inline-block;
 }
 
-.format.exampleblock code {
+.format .exampleblock code {
     background-color: rgb(143,188,143);
 }
 
