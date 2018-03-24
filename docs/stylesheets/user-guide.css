@@ -4,5 +4,5 @@
 }
 
 .noteblock.exampleblock > .content {
-.background-color: rgb(231, 242, 250);
+    background-color: rgb(231, 242, 250);
 }
