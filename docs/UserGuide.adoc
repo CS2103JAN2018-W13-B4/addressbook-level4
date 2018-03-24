@@ -169,7 +169,7 @@ Finds tasks whose names, descriptions and deadlines contain any of the given key
 [format-title]#Format:# `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
 ====
 
-* Only the name, description and deadline are searched.
+IMPORTANT: Only the name, description and deadline are searched.
 
 [.example]
 ====
@@ -190,7 +190,7 @@ Finds tasks whose names contain any of the given keywords. +
 [format-title]#Format:# `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`
 ====
 
-* Only the name is searched.
+IMPORTANT: Only the name is searched.
 
 [.example]
 ====
@@ -211,7 +211,7 @@ Find tasks whose descriptions contain any of the given keywords. +
 [format-title]#Format:# `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORD [MORE_KEYWORDS]`
 ====
 
-* Only the description is searched.
+IMPORTANT: Only the description is searched.
 
 [.example]
 ====
@@ -232,7 +232,7 @@ Find tasks whose deadlines contain any of the given keywords. +
 [format-title]#Format:# `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
 ====
 
-* Only the deadline is searched.
+IMPORTANT: Only the deadline is searched.
 
 [.example]
 ====
