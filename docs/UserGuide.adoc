@@ -106,7 +106,7 @@ Adds a task to the PrioriTask +
 
 [.example]
 ====
-Examples:
+[example-title]#Examples:#
 
 * [example]#`add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction`#
 * [example]#`add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101`#
