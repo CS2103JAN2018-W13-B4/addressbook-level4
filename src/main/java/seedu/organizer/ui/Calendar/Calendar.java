@@ -1,4 +1,4 @@
-package seedu.organizer.ui.Calendar;
+package seedu.organizer.ui.calendar;
 
 import java.io.IOException;
 import java.time.YearMonth;
