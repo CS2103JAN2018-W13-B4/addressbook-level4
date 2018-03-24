@@ -18,8 +18,6 @@
     padding-top: 0;
 }
 
-.parameters {
-    .code {
-        color: orange;
-    }
+.parameters .code {
+    color: #FFA500;
 }
