@@ -453,7 +453,6 @@ Add a subtask to an existing task. +
 ====
 
 * Adds the subtask at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
-* _{ More information to be added. }_
 
 [.example]
 ====
