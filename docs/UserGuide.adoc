@@ -39,7 +39,7 @@ image::Ui.png[width="790"]
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
-* `list` : lists all tasks
+* [example]#`list`# : lists all tasks
 * `add n/CS2103T Developer Guide p/10 d/2018-03-02` : adds a task named `CS2103T Developer Guide` to the PrioriTask.
 * `delete 3` : deletes the 3rd task shown in the current list
 * `exit` : exits the application
@@ -471,29 +471,32 @@ _{ coming in v2.0 }_
 
 == Command Summary
 
-* *Add* [format]#`add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…`# +
+=== Basic Features
+* *Add* : [format]#`add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…`# +
 e.g. `add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA`
-* *Clear* : `clear`
-* *Delete* : `delete INDEX` +
+* *Clear* : [format]#`clear`#
+* *Delete* : [format]#`delete INDEX`# +
 e.g. `delete 3`
-* *Edit* : `edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​` +
+* *Edit* : [format]#`edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`# +
 e.g. `edit 1 p/9 d/2018-12-30`
-* *Add Subtask*: `adds INDEX n/NAME` +
-e.g. `adds 1 n/Submit Report`
-* *Find* : `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]` +
+* *Find* : [format]#`find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`# +
 e.g. `find CS2103 update 2018-03-17`
-* *Find Name* : `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]` +
+** *Find Name* : [format]#`findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`# +
 e.g. `findn Developer User`
-* *Find Description* : `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORDS [MORE_KEYWORDS]` +
+** *Find Description* : [format]#`finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORDS [MORE_KEYWORDS]`# +
 e.g. `finddes study update`
-* *Find Deadline* : `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORDS [MORE_KEYWORDS]` +
+** *Find Deadline* : [format]#`findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORDS [MORE_KEYWORDS]`# +
 e.g. `findd 2018-03-17 2018-09-07`
-* *List* : `list`
-* *Help* : `help`
-* *Select* : `select INDEX` +
+* *List* : [format]#`list`#
+* *Help* : [format]#`help`#
+* *Select* : [format]#`select INDEX`# +
 e.g.`select 2`
-* *Toggle* : `toggle INDEX` +
+* *Toggle* : [format]#`toggle INDEX`# +
 e.g.`select 3`
-* *History* : `history`
-* *Undo* : `undo`
-* *Redo* : `redo`
+* *History* : [format]#`history`#
+* *Undo* : [format]#`undo`#
+* *Redo* : [format]#`redo`#
+
+=== Subtask Feature
+* *Add Subtask* : [format]#`adds INDEX n/NAME`# +
+e.g. `adds 1 n/Submit Report`
