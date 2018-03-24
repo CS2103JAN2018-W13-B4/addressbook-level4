@@ -142,12 +142,15 @@ Edits an existing task in the PrioriTask. +
 * You can remove all the task's tags by typing `t/` without specifying any tags after it.
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`edit 1 p/9 d/2018-12-30`# +
 Edits the priority level and deadline of the 1st task to be `9` and `2018-12-30` respectively.
 * [example]#`edit 2 n/CS2101 Final Assignment t/`# +
 Edits the name of the 2nd task to be `CS2101 Final Assignment` and clears all existing tags.
+====
 
 ==== Locating tasks `[since v1.2]`
 
@@ -174,12 +177,15 @@ Finds tasks whose names, descriptions and deadlines contain any of the given key
 * Only the name, description and deadline are searched.
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`find Guide`# +
 Returns `User Guide` and `Developer Guide`
 * [example]#`f CS2101 Developer User`# +
 Returns any task having names or descriptions `CS2101`, `Developer`, or `User`
+====
 
 ===== Locating tasks by name: `findn` or `fn`
 
@@ -194,12 +200,15 @@ Finds tasks whose names contain any of the given keywords. +
 * Only the name is searched.
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`findn Guide`# +
 Returns `User Guide` and `Developer Guide`
 * [example]#`fn CS2101 Developer User`# +
 Returns any task having names `CS2101`, `Developer`, or `User`
+====
 
 ===== Locating tasks by description: `finddes` or `fdes`
 
@@ -214,12 +223,15 @@ Find tasks whose descriptions contain any of the given keywords. +
 * Only the description is searched.
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`finddes Study`# +
 Returns tasks with descriptions `Study midterms` and `study chapter 2`.
 * [example]#`fdes Study Update Chapter`# +
 Returns any task having descriptions containing words `Study`, `Update`, or `Chapter`.
+====
 
 ===== Locating tasks by deadline: `findd` or `fd`
 
@@ -234,12 +246,15 @@ Find tasks whose deadlines contain any of the given keywords. +
 * Only the deadline is searched.
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`findd 2018-03-17`# +
 Returns tasks with deadlines `2018-03-17`.
 * [example]#`fd 2018-03-17 2018-09-04 2018-03-21`# +
 Returns any task having deadlines `2018-03-17`, `2018-09-04`, or `2018-03-21`.
+====
 
 ==== Deleting a task : `delete` or `d`
 
@@ -256,7 +271,9 @@ Deletes the specified task from the PrioriTask. +
 * The index *must be a positive integer* (i.e. 1, 2, 3, ...).
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`list`# +
 [example]#`delete 2`# +
@@ -264,6 +281,7 @@ Deletes the 2nd task in the PrioriTask.
 * [example]#`find Developer`# +
 [example]#`delete 1`# +
 Deletes the 1st task in the results of the `find` command.
+====
 
 ==== Selecting a task : `select` or `s`
 
@@ -280,7 +298,9 @@ Selects the task identified by the index number used in the last task listing. +
 * The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`list`# +
 [example]#`select 2`# +
@@ -288,6 +308,7 @@ Selects the 2nd task in the PrioriTask.
 * [example]#`find Developer`# +
 [example]#`select 1`# +
 Selects the 1st task in the results of the `find` command.
+====
 
 ==== Mark task as complete: `toggle` or `t` `[since v1.2]`
 
@@ -303,7 +324,9 @@ between `Done` and `Not Done`. +
 * Index usage is same with `select`. Please refer to `select` for more details.
 ****
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`list`# +
 [example]#`toggle 1`# +
@@ -311,7 +334,7 @@ Toggle the first task in the PrioriTask.
 * [example]#`find homework`# +
 [example]#`toggle 1`# +
 Toggle the first task in th result of `find homework` command.
-
+====
 
 ==== Listing entered commands : `history`
 
@@ -341,7 +364,9 @@ Restores the PrioriTask to the state before the previous _undoable_ command was 
 Undoable commands: those commands that modify the PrioriTask's content (`add`, `delete`, `edit` and `clear`).
 ====
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`delete 1`# +
 [example]#`list`# +
@@ -356,6 +381,7 @@ The `undo` command fails as there are no undoable commands executed previously.
 [example]#`clear`# +
 [example]#`undo`# (reverses the `clear` command) +
 [example]#`undo`# (reverses the `delete 1` command) +
+====
 
 ==== Redoing the previously undone command : `redo`
 
@@ -366,7 +392,9 @@ Reverses the most recent `undo` command. +
 [format-title]#Format:# `redo`
 ====
 
-Examples:
+[.example]
+====
+[example-title]#Examples:#
 
 * [example]#`delete 1`# +
 [example]#`undo`# (reverses the `delete 1` command) +
@@ -382,6 +410,7 @@ The `redo` command fails as there are no `undo` commands executed previously.
 [example]#`undo`# (reverses the `delete 1` command) +
 [example]#`redo`# (reapplies the `delete 1` command) +
 [example]#`redo`# (reapplies the `clear` command) +
+====
 
 ==== Clearing all entries : `clear` or `c`
 
@@ -441,10 +470,13 @@ Add a subtask to an existing task. +
 * Index usage is same with `edit`. Please refer to `select` for more details.
 ****
 
-Example:
+[.example]
+====
+[example-title]#Example:#
 
 * [example]#`adds 1 n/Submit report`# +
 Add a subtask with name `Submit report` to the 1st task.
+====
 
 ==== Deleting a subtask from a task `[coming in v2.0]`
 
