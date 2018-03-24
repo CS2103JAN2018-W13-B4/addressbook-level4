@@ -63,7 +63,7 @@ h5 > a.link {
 }
 
 .example-title::before {
-    content: "\f121";
+    content: "\f044";
     font-family: FontAwesome;
     padding-right: 5px;
 }
