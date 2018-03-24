@@ -40,9 +40,9 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
 * [example]#`list`# : lists all tasks
-* `add n/CS2103T Developer Guide p/10 d/2018-03-02` : adds a task named `CS2103T Developer Guide` to the PrioriTask.
-* `delete 3` : deletes the 3rd task shown in the current list
-* `exit` : exits the application
+* [example]#`add n/CS2103T Developer Guide p/10 d/2018-03-02`# : adds a task named `CS2103T Developer Guide` to the PrioriTask.
+* [example]#`delete 3`# : deletes the 3rd task shown in the current list
+* [example]#`exit`# : exits the application
 
 .  Refer to <<Features>> for details of each command.
 
@@ -106,8 +106,8 @@ Adds a task to the PrioriTask +
 
 Examples:
 
-* `add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction`
-* `add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101`
+* [example]#`add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction`#
+* [example]#`add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101`#
 
 ==== Listing all tasks : `list` or `l`
 
@@ -141,9 +141,9 @@ Edits an existing task in the PrioriTask. +
 
 Examples:
 
-* `edit 1 p/9 d/2018-12-30` +
+* [example]#`edit 1 p/9 d/2018-12-30`# +
 Edits the priority level and deadline of the 1st task to be `9` and `2018-12-30` respectively.
-* `edit 2 n/CS2101 Final Assignment t/` +
+* [example]#`edit 2 n/CS2101 Final Assignment t/`# +
 Edits the name of the 2nd task to be `CS2101 Final Assignment` and clears all existing tags.
 
 ==== Locating tasks `[since v1.2]`
