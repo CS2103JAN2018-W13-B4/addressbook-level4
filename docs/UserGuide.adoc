@@ -92,7 +92,7 @@ _{ To explain what is a basic feature. }_
 
 [.format]
 ====
-Format: `help`
+[format-title]#Format:# `help`
 ====
 
 ==== Adding a task: `add` or `a`
