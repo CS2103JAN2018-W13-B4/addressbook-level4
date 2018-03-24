@@ -47,7 +47,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 [[Parameters]]
 == Task Parameters
 
-* `NAME`
+* <span class="parameters">`NAME`</span>
 * `PRIORITY LEVEL`
 ** A task can have a priority level ranging from 0 (lowest) to 9 (highest).
 ** Setting a priority level is optional. PrioriTask will automatically set a task’s priority level to its default level (0) if User does not add one.
