@@ -18,6 +18,6 @@
     padding-top: 0;
 }
 
-.parameters .code {
-    color: #FFA500;
+.parameters code {
+    color: lightblue;
 }
