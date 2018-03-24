@@ -300,7 +300,7 @@ between `Done` and `Not Done`. +
 * Index usage is same with `select`. Please refer to `select` for more details.
 ****
 
-Example:
+Examples:
 
 * [example]#`list`# +
 [example]#`toggle 1`# +
