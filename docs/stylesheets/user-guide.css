@@ -54,10 +54,10 @@ h5 > a.link {
     padding-right: 5px;
 }
 
-/*.example code {
-    background-color: rgb(255,218,185);
-}*/
+.example code {
+    background-color: rgb(255,239,213);
+}
 
 .example.exampleblock > .content {
-    background-color: rgb(255,218,185);
+    background-color: rgb(255,239,213);
 }
