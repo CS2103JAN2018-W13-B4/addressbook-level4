@@ -76,11 +76,11 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 [.noteblock]
 ====
-[noteblock-title]#*{nbsp}{nbsp}Command Format*#
+[noteblock-title]#*Command Format*#
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/CS2103T Developer Guide`.
 * Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/CS2103T Developer Guide t/CS2103` or as `n/CS2103T Developer Guide`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), or `t/CS2103`, `t/CS2103 t/CS2101` etc.
+* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `` (i.e. 0 times), or `t/CS2103`, `t/CS2103 t/CS2101` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PRIORITY_LEVEL`, `p/PRIORITY_LEVEL n/NAME` is also acceptable.
 ====
 
@@ -92,7 +92,7 @@ _{ To explain what is a basic feature. }_
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `help`
+[format-title]#Format:# `help`
 ====
 
 ==== Adding a task: `add` or `a`
@@ -101,9 +101,9 @@ Adds a task to the PrioriTask +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `add n/NAME d/DEADLINE [p/PRIORITY_LEVEL] [des/DESCRIPTION] [t/TAG]…​`
+[format-title]#Format:# `add n/NAME d/DEADLINE [p/PRIORITY_LEVEL] [des/DESCRIPTION] [t/TAG]…​`
 ====
-{nbsp} +
+
 Examples:
 
 * `add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction`
@@ -115,9 +115,9 @@ Shows a list of all tasks in the PrioriTask. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `list`
+[format-title]#Format:# `list`
 ====
-{nbsp} +
+
 ****
 * _[Coming in v2.0]_ Shows a list of all tasks (regardless of status), all completed tasks, or all uncompleted tasks.
 ****
@@ -128,9 +128,9 @@ Edits an existing task in the PrioriTask. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`
+[format-title]#Format:# `edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`
 ====
-{nbsp} +
+
 ****
 * Edits the task at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
 * At least one of the optional fields must be provided.
@@ -148,22 +148,27 @@ Edits the name of the 2nd task to be `CS2101 Final Assignment` and clears all ex
 
 ==== Locating tasks `[since v1.2]`
 
-===== Locating tasks: `find` or `f`
-
-Finds tasks whose names, descriptions or deadlines contain any of the given keywords. +
-
-[.format]
-====
-[format-title]#{nbsp}{nbsp}Format:# `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
-====
+Depending on the suffix (or lack of) at the end of the `find` command, you can find tasks whose names, descriptions and/or deadlines contain any of the given keywords. +
 
 ****
 * The search is case insensitive. e.g `Developer` will match `developer`
 * Keywords for deadlines should be in the format of YYYY-MM-DD.
 * The order of the keywords does not matter. e.g. `Guide Developer` will match `Developer Guide`
-* Only the name and description are searched.
 * Only full words will be matched e.g. `Guide` will not match `Guides`
 * Tasks matching at least one keyword will be returned (i.e. `OR` search). e.g. `CS2101 Guide` will return `CS2101 Script`, `Developer Guide`.
+****
+
+===== Locating tasks: `find` or `f`
+
+Finds tasks whose names, descriptions and deadlines contain any of the given keywords. +
+
+[.format]
+====
+[format-title]#Format:# `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
+====
+
+****
+* Only the name, description and deadline are searched.
 ****
 
 Examples:
@@ -179,15 +184,11 @@ Finds tasks whose names contain any of the given keywords. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`
+[format-title]#Format:# `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`
 ====
 
 ****
-* The search is case insensitive. e.g `Developer` will match `developer`
-* The order of the keywords does not matter. e.g. `Guide Developer` will match `Developer Guide`
 * Only the name is searched.
-* Only full words will be matched e.g. `Guide` will not match `Guides`
-* Tasks matching at least one keyword will be returned (i.e. `OR` search). e.g. `CS2101 Guide` will return `CS2101 Script`, `Developer Guide`.
 ****
 
 Examples:
@@ -203,15 +204,11 @@ Find tasks whose descriptions contain any of the given keywords. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORD [MORE_KEYWORDS]`
+[format-title]#Format:# `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORD [MORE_KEYWORDS]`
 ====
 
 ****
-* The search is case insensitive. e.g `Update` will match `update`
-* The order of the keywords does not matter. e.g. `update study` will match `study update`
 * Only the description is searched.
-* Only full words will be matched e.g. `CS2103` will not match `CS2103T`
-* Tasks matching at least one keyword will be returned (i.e. `OR` search). e.g. `Update Study` will return `Update script`, `Study midterms`.
 ****
 
 Examples:
@@ -227,14 +224,11 @@ Find tasks whose deadlines contain any of the given keywords. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
+[format-title]#Format:# `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
 ====
 
 ****
-* Keywords should be in the format of YYYY-MM-DD.
-* The order of the keywords does not matter. e.g. `2018-03-17 2018-09-09` will match `2018-09-09 2018-03-17`
 * Only the deadline is searched.
-* Only full keywords will be matched e.g. `2018` will not match `2018-03-17`
 ****
 
 Examples:
@@ -250,7 +244,7 @@ Deletes the specified task from the PrioriTask. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `delete INDEX`
+[format-title]#Format:# `delete INDEX`
 ====
 
 ****
@@ -274,7 +268,7 @@ Selects the task identified by the index number used in the last task listing. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `select INDEX`
+[format-title]#Format:# `select INDEX`
 ====
 
 ****
@@ -299,7 +293,7 @@ between `Done` and `Not Done`. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `toggle INDEX`
+[format-title]#Format:# `toggle INDEX`
 ====
 
 ****
@@ -322,7 +316,7 @@ Lists all the commands that you have entered in reverse chronological order. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `history`
+[format-title]#Format:# `history`
 ====
 
 [NOTE]
@@ -336,7 +330,7 @@ Restores the PrioriTask to the state before the previous _undoable_ command was 
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `undo`
+[format-title]#Format:# `undo`
 ====
 
 [NOTE]
@@ -366,7 +360,7 @@ Reverses the most recent `undo` command. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `redo`
+[format-title]#Format:# `redo`
 ====
 
 Examples:
@@ -392,7 +386,7 @@ Clears all entries from the PrioriTask. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `clear`
+[format-title]#Format:# `clear`
 ====
 
 ==== Exiting the program : `exit`
@@ -401,7 +395,7 @@ Exits the program. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `exit`
+[format-title]#Format:# `exit`
 ====
 
 ==== Saving the data
@@ -437,7 +431,7 @@ Add a subtask to an existing task. +
 
 [.format]
 ====
-[format-title]#{nbsp}{nbsp}Format:# `edit INDEX [n/NAME]`
+[format-title]#Format:# `edit INDEX [n/NAME]`
 ====
 
 ****
