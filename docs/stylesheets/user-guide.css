@@ -40,9 +40,9 @@ h5 > a.link {
     display: inline-block;
 }
 
-/*.format.exampleblock code {
-    background-color: rgb(143,188,143);
-}*/
+.format-no-box code {
+    background-color: rgb(152,251,152);
+}
 
 .format code {
     background-color: rgb(152,251,152);

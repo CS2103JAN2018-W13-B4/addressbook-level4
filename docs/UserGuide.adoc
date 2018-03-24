@@ -508,31 +508,31 @@ _{ coming in v2.0 }_
 == Command Summary
 
 === Basic Features
-* *Add* : [format]#`add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…`# +
-e.g. `add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA`
-* *Clear* : [format]#`clear`#
+* *Add* : [format-no-box]#`add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…`# +
+e.g. [example-no-box]#`add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA`#
+* *Clear* : [format-no-box]#`clear`#
 * *Delete* : [format]#`delete INDEX`# +
-e.g. `delete 3`
-* *Edit* : [format]#`edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`# +
-e.g. `edit 1 p/9 d/2018-12-30`
-* *Find* : [format]#`find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`# +
-e.g. `find CS2103 update 2018-03-17`
-** *Find Name* : [format]#`findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`# +
-e.g. `findn Developer User`
-** *Find Description* : [format]#`finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORDS [MORE_KEYWORDS]`# +
-e.g. `finddes study update`
-** *Find Deadline* : [format]#`findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORDS [MORE_KEYWORDS]`# +
-e.g. `findd 2018-03-17 2018-09-07`
-* *List* : [format]#`list`#
-* *Help* : [format]#`help`#
-* *Select* : [format]#`select INDEX`# +
-e.g.`select 2`
-* *Toggle* : [format]#`toggle INDEX`# +
-e.g.`select 3`
-* *History* : [format]#`history`#
-* *Undo* : [format]#`undo`#
-* *Redo* : [format]#`redo`#
+e.g. [example-no-box]#`delete 3`#
+* *Edit* : [format-no-box]#`edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`# +
+e.g. [example-no-box]#`edit 1 p/9 d/2018-12-30`#
+* *Find* : [format-no-box]#`find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`# +
+e.g. [example-no-box]#`find CS2103 update 2018-03-17`#
+** *Find Name* : [format-no-box]#`findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`# +
+e.g. [example-no-box]#`findn Developer User`#
+** *Find Description* : [format-no-box]#`finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORDS [MORE_KEYWORDS]`# +
+e.g. [example-no-box]#`finddes study update`#
+** *Find Deadline* : [format-no-box]#`findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORDS [MORE_KEYWORDS]`# +
+e.g. [example-no-box]#`findd 2018-03-17 2018-09-07`#
+* *List* : [format-no-box]#`list`#
+* *Help* : [format-no-box]#`help`#
+* *Select* : [format-no-box]#`select INDEX`# +
+e.g.[example-no-box]#`select 2`#
+* *Toggle* : [format-no-box]#`toggle INDEX`# +
+e.g.[example-no-box]#`toggle 3`#
+* *History* : [format-no-box]#`history`#
+* *Undo* : [format-no-box]#`undo`#
+* *Redo* : [format-no-box]#`redo`#
 
 === Subtask Feature
-* *Add Subtask* : [format]#`adds INDEX n/NAME`# +
-e.g. `adds 1 n/Submit Report`
+* *Add Subtask* : [format-no-box]#`adds INDEX n/NAME`# +
+e.g. [example-no-box]#`adds 1 n/Submit Report`#
