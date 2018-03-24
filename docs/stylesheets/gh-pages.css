@@ -19,5 +19,7 @@
 }
 
 .parameters {
-    color: orange;
+    .code {
+        color: orange;
+    }
 }
