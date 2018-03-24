@@ -27,6 +27,10 @@
     display: inline-block;
 }
 
+.exampleblock.format code {
+    background-color: rgb(143,188,143);
+}
+
 .format-title::before {
     content: "\f11c";
     font-family: FontAwesome;
