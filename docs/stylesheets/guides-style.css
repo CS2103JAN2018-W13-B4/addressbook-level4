@@ -1,14 +1,14 @@
 /* @@author guekling */
 h3 > a.link {
-    color: rgb(0,0,128);
-}
-
-h4 > a.link {
     color: rgb(75,0,130);
 }
 
+h4 > a.link {
+    color: rgb(70,130,180);
+}
+
 h5 > a.link {
-    color: rgb(139,69,19);
+    color: rgb(210,105,30);
 }
 
 .parameters code {
