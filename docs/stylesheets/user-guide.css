@@ -12,7 +12,7 @@
     font-family: FontAwesome;
     color: rgb(0,191,255);
     font-size: 1.3em;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 .noteblock-title {
@@ -28,7 +28,11 @@
     display: inline-block;
 }
 
-.format .exampleblock code {
+.format.exampleblock code {
+    background-color: rgb(143,188,143);
+}
+
+.format code {
     background-color: rgb(143,188,143);
 }
 
