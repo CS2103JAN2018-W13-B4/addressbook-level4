@@ -58,6 +58,10 @@ h5 > a.link {
     background-color: rgb(255,239,213);
 }
 
+.example-code code {
+    border: 1px solid black;
+}
+
 .example.exampleblock > .content {
     background-color: rgb(255,239,213);
 }
