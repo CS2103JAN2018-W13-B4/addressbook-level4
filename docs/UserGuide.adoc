@@ -92,13 +92,17 @@ _{ To explain what is a basic feature. }_
 
 [.format]
 ====
-[format-title]#Format:# `help`
+[format-title]#{nbsp}{nbsp}Format:# `help`
 ====
 
 ==== Adding a task: `add` or `a`
 
 Adds a task to the PrioriTask +
-Format: `add n/NAME d/DEADLINE [p/PRIORITY_LEVEL] [des/DESCRIPTION] [t/TAG]…​`
+
+[.format]
+====
+[format-title]#{nbsp}{nbsp}Format:# `add n/NAME d/DEADLINE [p/PRIORITY_LEVEL] [des/DESCRIPTION] [t/TAG]…​`
+====
 
 Examples:
 
