@@ -169,9 +169,7 @@ Finds tasks whose names, descriptions and deadlines contain any of the given key
 [format-title]#Format:# `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
 ====
 
-****
 * Only the name, description and deadline are searched.
-****
 
 [.example]
 ====
@@ -192,9 +190,7 @@ Finds tasks whose names contain any of the given keywords. +
 [format-title]#Format:# `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`
 ====
 
-****
 * Only the name is searched.
-****
 
 [.example]
 ====
@@ -215,9 +211,7 @@ Find tasks whose descriptions contain any of the given keywords. +
 [format-title]#Format:# `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORD [MORE_KEYWORDS]`
 ====
 
-****
 * Only the description is searched.
-****
 
 [.example]
 ====
@@ -238,9 +232,7 @@ Find tasks whose deadlines contain any of the given keywords. +
 [format-title]#Format:# `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
 ====
 
-****
 * Only the deadline is searched.
-****
 
 [.example]
 ====
@@ -261,11 +253,9 @@ Deletes the specified task from the PrioriTask. +
 [format-title]#Format:# `delete INDEX`
 ====
 
-****
 * Deletes the task at the specified `INDEX`.
 * The index refers to the index number shown in the most recent listing.
 * The index *must be a positive integer* (i.e. 1, 2, 3, ...).
-****
 
 [.example]
 ====
@@ -288,11 +278,9 @@ Selects the task identified by the index number used in the last task listing. +
 [format-title]#Format:# `select INDEX`
 ====
 
-****
 * Selects the task and shows full details of the task at the specified `INDEX`.
 * The index refers to the index number shown in the most recent listing.
 * The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
-****
 
 [.example]
 ====
@@ -316,9 +304,9 @@ between `Done` and `Not Done`. +
 [format-title]#Format:# `toggle INDEX`
 ====
 
-****
-* Index usage is same with `select`. Please refer to `select` for more details.
-****
+* Toggle the status of the task at the specified `INDEX`.
+* The index refers to the index number shown in the most recent listing.
+* The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
 
 [.example]
 ====
@@ -461,12 +449,11 @@ Add a subtask to an existing task. +
 
 [.format]
 ====
-[format-title]#Format:# `edit INDEX [n/NAME]`
+[format-title]#Format:# `adds INDEX [n/NAME]`
 ====
 
-****
-* Index usage is same with `edit`. Please refer to `select` for more details.
-****
+* Adds the subtask at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
+* _{ More information to be added. }_
 
 [.example]
 ====
