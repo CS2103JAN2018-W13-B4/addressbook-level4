@@ -43,9 +43,9 @@ public class HelpCommandSystemTest extends OrganizerSystemTest {
         getMainMenu().openHelpWindowUsingAccelerator();
         assertHelpWindowOpen();
 
-        getCalendarPanel().click();
+        /*getCalendarPanel().click();
         getMainMenu().openHelpWindowUsingAccelerator();
-        assertHelpWindowNotOpen();
+        assertHelpWindowOpen();*/
 
         //use menu button
         getMainMenu().openHelpWindowUsingMenu();
