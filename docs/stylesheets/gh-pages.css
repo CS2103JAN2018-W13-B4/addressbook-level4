@@ -18,6 +18,11 @@
     padding-top: 0;
 }
 
+/* @@author guekling */
 .parameters code {
-    color: lightblue;
+    background-color: rgb(173,216,230);
+}
+
+.noteblock .exampleblock > .content {
+    .background-color: rgb(231, 242, 250);
 }

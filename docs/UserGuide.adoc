@@ -72,6 +72,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 [[Features]]
 == Features
 
+[.noteblock]
 ====
 *Command Format*
 
@@ -129,7 +130,9 @@ Edits the priority level and deadline of the 1st task to be `9` and `2018-12-30`
 * `edit 2 n/CS2101 Final Assignment t/` +
 Edits the name of the 2nd task to be `CS2101 Final Assignment` and clears all existing tags.
 
-==== Locating tasks: `find` or `f` `[since v1.2]`
+==== Locating tasks `[since v1.2]`
+
+===== Locating tasks: `find` or `f`
 
 Finds tasks whose names, descriptions or deadlines contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
@@ -150,7 +153,7 @@ Returns `User Guide` and `Developer Guide`
 * f `CS2101 Developer User` +
 Returns any task having names or descriptions `CS2101`, `Developer`, or `User`
 
-==== Locating tasks by name: `findn` or `fn` `[since v1.2]`
+===== Locating tasks by name: `findn` or `fn`
 
 Finds tasks whose names contain any of the given keywords. +
 Format: `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`
@@ -170,7 +173,7 @@ Returns `User Guide` and `Developer Guide`
 * fn `CS2101 Developer User` +
 Returns any task having names `CS2101`, `Developer`, or `User`
 
-==== Locating tasks by description: `finddes` or `fdes` `[since v1.2]`
+===== Locating tasks by description: `finddes` or `fdes`
 
 Find tasks whose descriptions contain any of the given keywords. +
 Format: `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORD [MORE_KEYWORDS]`
@@ -190,7 +193,7 @@ Returns tasks with descriptions `Study midterms` and `study chapter 2`.
 * fdes `Study Update Chapter` +
 Returns any task having descriptions containing words `Study`, `Update`, or `Chapter`.
 
-==== Locating tasks by deadline: `findd` or `fd` `[since v1.2]`
+===== Locating tasks by deadline: `findd` or `fd`
 
 Find tasks whose deadlines contain any of the given keywords. +
 Format: `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
