@@ -11,9 +11,9 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
 endif::[]
-:repoURL: https://github.com/se-edu/addressbook-level4
+:repoURL: https://github.com/CS2103JAN2018-W13-B4/main
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `CS2103JAN2018-W13-B4`      Since: `March 2018`      Licence: `MIT`
 
 == Introduction
 
@@ -27,7 +27,7 @@ PrioriTask is for those who *prefer to use a desktop application for keeping tra
 Having any Java 8 version is not enough. +
 This app will not work with earlier versions of Java 8.
 +
-.  [.line-through]#Download the latest `addressbook.jar` link:{repoURL}/releases[here].# _{ to be edited accordingly soon ... }_
+.  Download the latest `organizer.jar` link:{repoURL}/releases[here].
 .  Copy the file to the folder you want to use as the home folder for your PrioriTask.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
@@ -44,11 +44,8 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 .  Refer to <<Features>> for details of each command.
 
-[[Features]]
-== Features
-
-====
-*Parameters*
+[[Parameters]]
+== Task Parameters
 
 * `NAME`
 * `PRIORITY LEVEL`
@@ -68,35 +65,41 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 ** A task can have any number of tags (including 0).
 * `SUBTASK`
 ** A task can have any number of subtasks (including 0).
-** A subtask has these parameters:
+** A subtask has the following parameters:
 *** `NAME`
 *** `STATUS`
-====
+
+[[Features]]
+== Features
 
 ====
 *Command Format*
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/CS2103T Developer Guide`.
 * Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/CS2103T Developer Guide t/CS2103` or as `n/CS2103T Developer Guide`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/CS2103`, `t/CS2103 t/CS2101` etc.
+* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), or `t/CS2103`, `t/CS2103 t/CS2101` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PRIORITY_LEVEL`, `p/PRIORITY_LEVEL n/NAME` is also acceptable.
 ====
 
-=== Viewing help : `help`
+=== Basic Features
+
+_{ To explain what is a basic feature. }_
+
+==== Viewing help : `help`
 
 Format: `help`
 
-=== Adding a task: `add` or `a`
+==== Adding a task: `add` or `a`
 
 Adds a task to the PrioriTask +
-Format: `add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…​`
+Format: `add n/NAME d/DEADLINE [p/PRIORITY_LEVEL] [des/DESCRIPTION] [t/TAG]…​`
 
 Examples:
 
 * `add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction`
 * `add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101`
 
-=== Listing all tasks : `list` or `l`
+==== Listing all tasks : `list` or `l`
 
 Shows a list of all tasks in the PrioriTask. +
 
@@ -106,7 +109,7 @@ Format: `list`
 * _[Coming in v2.0]_ Shows a list of all tasks (regardless of status), all completed tasks, or all uncompleted tasks.
 ****
 
-=== Editing a task : `edit` or `e`
+==== Editing a task : `edit` or `e`
 
 Edits an existing task in the PrioriTask. +
 Format: `edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`
@@ -126,21 +129,7 @@ Edits the priority level and deadline of the 1st task to be `9` and `2018-12-30`
 * `edit 2 n/CS2101 Final Assignment t/` +
 Edits the name of the 2nd task to be `CS2101 Final Assignment` and clears all existing tags.
 
-=== Adding a subtask to a task : `adds` or `as`
-
-Add a subtask to an existing task. +
-Format: `edit INDEX [n/NAME]`
-
-****
-* Index usage is same with `edit`. Please refer to `select` for more details.
-****
-
-Example: +
-* `adds 1 n/Submit report` +
-Add a subtask with name `Submit report` to the 1st task.
-
-
-=== Locating tasks: `find` or `f`
+==== Locating tasks: `find` or `f` `[since v1.2]`
 
 Finds tasks whose names, descriptions or deadlines contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`
@@ -161,7 +150,7 @@ Returns `User Guide` and `Developer Guide`
 * f `CS2101 Developer User` +
 Returns any task having names or descriptions `CS2101`, `Developer`, or `User`
 
-=== Locating tasks by name: `findn` or `fn`
+==== Locating tasks by name: `findn` or `fn` `[since v1.2]`
 
 Finds tasks whose names contain any of the given keywords. +
 Format: `findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`
@@ -181,7 +170,7 @@ Returns `User Guide` and `Developer Guide`
 * fn `CS2101 Developer User` +
 Returns any task having names `CS2101`, `Developer`, or `User`
 
-=== Locating tasks by description: `finddes` or `fdes`
+==== Locating tasks by description: `finddes` or `fdes` `[since v1.2]`
 
 Find tasks whose descriptions contain any of the given keywords. +
 Format: `finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORD [MORE_KEYWORDS]`
@@ -201,7 +190,7 @@ Returns tasks with descriptions `Study midterms` and `study chapter 2`.
 * fdes `Study Update Chapter` +
 Returns any task having descriptions containing words `Study`, `Update`, or `Chapter`.
 
-=== Locating tasks by deadline: `findd` or `fd`
+==== Locating tasks by deadline: `findd` or `fd` `[since v1.2]`
 
 Find tasks whose deadlines contain any of the given keywords. +
 Format: `findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORD [MORE_KEYWORDS]`
@@ -220,7 +209,7 @@ Returns tasks with deadlines `2018-03-17`.
 * fd `2018-03-17 2018-09-04 2018-03-21` +
 Returns any task having deadlines `2018-03-17`, `2018-09-04`, or `2018-03-21`.
 
-=== Deleting a task : `delete` or `d`
+==== Deleting a task : `delete` or `d`
 
 Deletes the specified task from the PrioriTask. +
 Format: `delete INDEX`
@@ -240,7 +229,7 @@ Deletes the 2nd task in the PrioriTask.
 `delete 1` +
 Deletes the 1st task in the results of the `find` command.
 
-=== Selecting a task : `select` or `s`
+==== Selecting a task : `select` or `s`
 
 Selects the task identified by the index number used in the last task listing. +
 Format: `select INDEX`
@@ -260,7 +249,7 @@ Selects the 2nd task in the PrioriTask.
 `select 1` +
 Selects the 1st task in the results of the `find` command.
 
-=== Mark task as complete: `toggle` or `t`
+==== Mark task as complete: `toggle` or `t` `[since v1.2]`
 
 Toggle the status of the task identified by the index number used in the last task listing
 between `Done` and `Not Done`. +
@@ -280,7 +269,7 @@ Toggle the first task in the PrioriTask.
 Toggle the first task in th result of `find homework` command.
 
 
-=== Listing entered commands : `history`
+==== Listing entered commands : `history`
 
 Lists all the commands that you have entered in reverse chronological order. +
 Format: `history`
@@ -290,8 +279,7 @@ Format: `history`
 Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box.
 ====
 
-// tag::undoredo[]
-=== Undoing previous command : `undo`
+==== Undoing previous command : `undo`
 
 Restores the PrioriTask to the state before the previous _undoable_ command was executed. +
 Format: `undo`
@@ -317,7 +305,7 @@ The `undo` command fails as there are no undoable commands executed previously.
 `undo` (reverses the `clear` command) +
 `undo` (reverses the `delete 1` command) +
 
-=== Redoing the previously undone command : `redo`
+==== Redoing the previously undone command : `redo`
 
 Reverses the most recent `undo` command. +
 Format: `redo`
@@ -338,24 +326,23 @@ The `redo` command fails as there are no `undo` commands executed previously.
 `undo` (reverses the `delete 1` command) +
 `redo` (reapplies the `delete 1` command) +
 `redo` (reapplies the `clear` command) +
-// end::undoredo[]
 
-=== Clearing all entries : `clear` or `c`
+==== Clearing all entries : `clear` or `c`
 
 Clears all entries from the PrioriTask. +
 Format: `clear`
 
-=== Exiting the program : `exit`
+==== Exiting the program : `exit`
 
 Exits the program. +
 Format: `exit`
 
-=== Saving the data
+==== Saving the data
 
 PrioriTask data is saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-=== Deleting specific parameters from a task `[coming in v2.0]`
+==== Deleting specific parameters from a task `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
@@ -363,35 +350,52 @@ _{ coming in v2.0 }_
 * Delete either a tag, deadline, or description from a particular task.
 ****
 
-=== Locating tasks by tag `[coming in v2.0]`
+==== Locating tasks by tag `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-=== Deleting a subtask from a task `[coming in v2.0]`
+==== Reminders `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-=== Editing a subtask `[coming in v2.0]`
+==== Recover past data `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-=== Mark subtask as complete `[coming in v2.0]`
+=== Subtask Feature
+
+==== Adding a subtask to a task : `adds` or `as` `[since v1.2]`
+
+Add a subtask to an existing task. +
+Format: `edit INDEX [n/NAME]`
+
+****
+* Index usage is same with `edit`. Please refer to `select` for more details.
+****
+
+Example: +
+* `adds 1 n/Submit report` +
+Add a subtask with name `Submit report` to the 1st task.
+
+==== Deleting a subtask from a task `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-=== Reorder subtask `[coming in v2.0]`
+==== Editing a subtask `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-=== Calendar `[coming in v2.0]`
+==== Mark subtask as complete `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-=== Reminders `[coming in v2.0]`
+==== Reorder subtask `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-=== Recover past data `[coming in v2.0]`
+=== Calendar Feature
+
+==== Calendar `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
