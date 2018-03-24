@@ -11,6 +11,16 @@
     content: "\f06a";
     font-family: FontAwesome;
     color: rgb(0,191,255);
+    font-size: 1.3em;
+}
+
+.noteblock-title {
+    font-size: 1.3em;
+    color: rgb(0,191,255);
+}
+
+.noteblock-title::after {
+    border-bottom: 1px solid rgb(255,255,255);
 }
 
 
