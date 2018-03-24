@@ -86,7 +86,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 === Basic Features
 
-_{ To explain what is a basic feature. }_
+_{ To explain what a basic feature is. }_
 
 ==== Viewing help : `help`
 
@@ -121,9 +121,7 @@ Shows a list of all tasks in the PrioriTask. +
 [format-title]#Format:# `list`
 ====
 
-****
 * _[Coming in v2.0]_ Shows a list of all tasks (regardless of status), all completed tasks, or all uncompleted tasks.
-****
 
 ==== Editing a task : `edit` or `e`
 
@@ -134,13 +132,11 @@ Edits an existing task in the PrioriTask. +
 [format-title]#Format:# `edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`
 ====
 
-****
 * Edits the task at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the task will be removed (i.e adding of tags is not cumulative).
 * You can remove all the task's tags by typing `t/` without specifying any tags after it.
-****
 
 [.example]
 ====
@@ -455,7 +451,9 @@ _{ coming in v2.0 }_
 
 _{ coming in v2.0 }_
 
-=== Subtask Feature
+=== Subtask Features
+
+_{ To explain what a subtask feature is. }_
 
 ==== Adding a subtask to a task : `adds` or `as` `[since v1.2]`
 
@@ -494,7 +492,9 @@ _{ coming in v2.0 }_
 
 _{ coming in v2.0 }_
 
-=== Calendar Feature
+=== Calendar Features
+
+_{ To explain what a calendar feature is. }_
 
 ==== Calendar `[coming in v2.0]`
 
