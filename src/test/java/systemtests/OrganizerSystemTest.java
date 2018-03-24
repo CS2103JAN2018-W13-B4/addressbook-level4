@@ -1,6 +1,6 @@
 package systemtests;
 
-import static guitests.guihandles.WebViewUtil.waitUntilBrowserLoaded;
+//import static guitests.guihandles.WebViewUtil.waitUntilCalendarLoaded;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 
-import guitests.guihandles.BrowserPanelHandle;
+import guitests.guihandles.CalendarPanelHandle;
 import guitests.guihandles.CommandBoxHandle;
 import guitests.guihandles.MainMenuHandle;
 import guitests.guihandles.MainWindowHandle;
@@ -71,7 +71,7 @@ public abstract class OrganizerSystemTest {
         testApp = setupHelper.setupApplication(this::getInitialData, getDataFileLocation());
         mainWindowHandle = setupHelper.setupMainWindowHandle();
 
-        waitUntilBrowserLoaded(getBrowserPanel());
+        //waitUntilCalendarLoaded(getCalendarPanel());
         assertApplicationStartingStateIsCorrect();
     }
 
@@ -111,8 +111,8 @@ public abstract class OrganizerSystemTest {
         return mainWindowHandle.getMainMenu();
     }
 
-    public BrowserPanelHandle getBrowserPanel() {
-        return mainWindowHandle.getBrowserPanel();
+    public CalendarPanelHandle getCalendarPanel() {
+        return mainWindowHandle.getCalendarPanel();
     }
 
     public StatusBarFooterHandle getStatusBarFooter() {
@@ -135,7 +135,7 @@ public abstract class OrganizerSystemTest {
 
         mainWindowHandle.getCommandBox().run(command);
 
-        waitUntilBrowserLoaded(getBrowserPanel());
+        //waitUntilCalendarLoaded(getCalendarPanel());
     }
 
     /**
@@ -185,12 +185,12 @@ public abstract class OrganizerSystemTest {
     }
 
     /**
-     * Calls {@code BrowserPanelHandle}, {@code TaskListPanelHandle} and {@code StatusBarFooterHandle} to remember
+     * Calls {@code CalendarPanelHandle}, {@code TaskListPanelHandle} and {@code StatusBarFooterHandle} to remember
      * their current state.
      */
     private void rememberStates() {
         StatusBarFooterHandle statusBarFooterHandle = getStatusBarFooter();
-        getBrowserPanel().rememberUrl();
+        //getCalendarPanel().rememberUrl();
         statusBarFooterHandle.rememberSaveLocation();
         statusBarFooterHandle.rememberTotalTasksStatus();
         statusBarFooterHandle.rememberSyncStatus();
@@ -201,10 +201,10 @@ public abstract class OrganizerSystemTest {
      * Asserts that the previously selected card is now deselected and the browser's url remains displaying the details
      * of the previously selected task.
      *
-     * @see BrowserPanelHandle#isUrlChanged()
+     * @see CalendarPanelHandle#isUrlChanged()
      */
     protected void assertSelectedCardDeselected() {
-        assertFalse(getBrowserPanel().isUrlChanged());
+        //assertFalse(getCalendarPanel().isUrlChanged());
         assertFalse(getTaskListPanel().isAnyCardSelected());
     }
 
@@ -212,7 +212,7 @@ public abstract class OrganizerSystemTest {
      * Asserts that the browser's url is changed to display the details of the task in the task list panel at
      * {@code expectedSelectedCardIndex}, and only the card at {@code expectedSelectedCardIndex} is selected.
      *
-     * @see BrowserPanelHandle#isUrlChanged()
+     * @see CalendarPanelHandle#isUrlChanged()
      * @see TaskListPanelHandle#isSelectedTaskCardChanged()
      */
     protected void assertSelectedCardChanged(Index expectedSelectedCardIndex) {
@@ -223,7 +223,7 @@ public abstract class OrganizerSystemTest {
         } catch (MalformedURLException mue) {
             throw new AssertionError("URL expected to be valid.");
         }
-        assertEquals(expectedUrl, getBrowserPanel().getLoadedUrl());
+        assertEquals(expectedUrl, getCalendarPanel().getLoadedUrl());
 
         assertEquals(expectedSelectedCardIndex.getZeroBased(), getTaskListPanel().getSelectedCardIndex());*/
     }
@@ -231,11 +231,11 @@ public abstract class OrganizerSystemTest {
     /**
      * Asserts that the browser's url and the selected card in the task list panel remain unchanged.
      *
-     * @see BrowserPanelHandle#isUrlChanged()
+     * @see CalendarPanelHandle#isUrlChanged()
      * @see TaskListPanelHandle#isSelectedTaskCardChanged()
      */
     protected void assertSelectedCardUnchanged() {
-        assertFalse(getBrowserPanel().isUrlChanged());
+        //assertFalse(getCalendarPanel().isUrlChanged());
         assertFalse(getTaskListPanel().isSelectedTaskCardChanged());
     }
 
@@ -285,7 +285,7 @@ public abstract class OrganizerSystemTest {
             assertEquals("", getCommandBox().getInput());
             assertEquals("", getResultDisplay().getText());
             assertListMatching(getTaskListPanel(), getModel().getFilteredTaskList());
-            //assertEquals(MainApp.class.getResource(FXML_FILE_FOLDER + DEFAULT_PAGE), getBrowserPanel().getLoadedUrl
+            //assertEquals(MainApp.class.getResource(FXML_FILE_FOLDER + DEFAULT_PAGE), getCalendarPanel().getLoadedUrl
             //        ());
             assertEquals("./" + testApp.getStorageSaveLocation(), getStatusBarFooter().getSaveLocation());
             assertEquals(SYNC_STATUS_INITIAL, getStatusBarFooter().getSyncStatus());
