@@ -18,7 +18,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103JAN2018-W13-B4</code>      Since: <code>March 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -26,39 +26,61 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#Parameters">3. Task Parameters</a></li>
+<li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-task-code-add-code-or-code-a-code">3.2. Adding a task: <code>add</code> or <code>a</code></a></li>
-<li><a href="#listing-all-tasks-code-list-code-or-code-l-code">3.3. Listing all tasks : <code>list</code> or <code>l</code></a></li>
-<li><a href="#editing-a-task-code-edit-code-or-code-e-code">3.4. Editing a task : <code>edit</code> or <code>e</code></a></li>
-<li><a href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code">3.5. Adding a subtask to a task : <code>adds</code> or <code>as</code></a></li>
-<li><a href="#locating-tasks-code-find-code-or-code-f-code">3.6. Locating tasks: <code>find</code> or <code>f</code></a></li>
-<li><a href="#locating-tasks-by-name-code-findn-code-or-code-fn-code">3.7. Locating tasks by name: <code>findn</code> or <code>fn</code></a></li>
-<li><a href="#locating-tasks-by-description-code-finddes-code-or-code-fdes-code">3.8. Locating tasks by description: <code>finddes</code> or <code>fdes</code></a></li>
-<li><a href="#locating-tasks-by-deadline-code-findd-code-or-code-fd-code">3.9. Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></li>
-<li><a href="#deleting-a-task-code-delete-code-or-code-d-code">3.10. Deleting a task : <code>delete</code> or <code>d</code></a></li>
-<li><a href="#selecting-a-task-code-select-code-or-code-s-code">3.11. Selecting a task : <code>select</code> or <code>s</code></a></li>
-<li><a href="#mark-task-as-complete-code-toggle-code-or-code-t-code">3.12. Mark task as complete: <code>toggle</code> or <code>t</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.13. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.16. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.18. Saving the data</a></li>
-<li><a href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">3.19. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></li>
-<li><a href="#locating-tasks-by-tag-code-coming-in-v2-0-code">3.20. Locating tasks by tag <code>[coming in v2.0]</code></a></li>
-<li><a href="#deleting-a-subtask-from-a-task-code-coming-in-v2-0-code">3.21. Deleting a subtask from a task <code>[coming in v2.0]</code></a></li>
-<li><a href="#editing-a-subtask-code-coming-in-v2-0-code">3.22. Editing a subtask <code>[coming in v2.0]</code></a></li>
-<li><a href="#mark-subtask-as-complete-code-coming-in-v2-0-code">3.23. Mark subtask as complete <code>[coming in v2.0]</code></a></li>
-<li><a href="#reorder-subtask-code-coming-in-v2-0-code">3.24. Reorder subtask <code>[coming in v2.0]</code></a></li>
-<li><a href="#calendar-code-coming-in-v2-0-code">3.25. Calendar <code>[coming in v2.0]</code></a></li>
-<li><a href="#reminders-code-coming-in-v2-0-code">3.26. Reminders <code>[coming in v2.0]</code></a></li>
-<li><a href="#recover-past-data-code-coming-in-v2-0-code">3.27. Recover past data <code>[coming in v2.0]</code></a></li>
+<li><a href="#basic-features">4.1. Basic Features</a>
+<ul class="sectlevel3">
+<li><a href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></li>
+<li><a href="#adding-a-task-code-add-code-or-code-a-code">4.1.2. Adding a task: <code>add</code> or <code>a</code></a></li>
+<li><a href="#listing-all-tasks-code-list-code-or-code-l-code">4.1.3. Listing all tasks : <code>list</code> or <code>l</code></a></li>
+<li><a href="#editing-a-task-code-edit-code-or-code-e-code">4.1.4. Editing a task : <code>edit</code> or <code>e</code></a></li>
+<li><a href="#locating-tasks-code-since-v1-2-code">4.1.5. Locating tasks <code>[since v1.2]</code></a>
+<ul class="sectlevel4">
+<li><a href="#locating-tasks-code-find-code-or-code-f-code">4.1.5.1. Locating tasks: <code>find</code> or <code>f</code></a></li>
+<li><a href="#locating-tasks-by-name-code-findn-code-or-code-fn-code">4.1.5.2. Locating tasks by name: <code>findn</code> or <code>fn</code></a></li>
+<li><a href="#locating-tasks-by-description-code-finddes-code-or-code-fdes-code">4.1.5.3. Locating tasks by description: <code>finddes</code> or <code>fdes</code></a></li>
+<li><a href="#locating-tasks-by-deadline-code-findd-code-or-code-fd-code">4.1.5.4. Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#deleting-a-task-code-delete-code-or-code-d-code">4.1.6. Deleting a task : <code>delete</code> or <code>d</code></a></li>
+<li><a href="#selecting-a-task-code-select-code-or-code-s-code">4.1.7. Selecting a task : <code>select</code> or <code>s</code></a></li>
+<li><a href="#mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code">4.1.8. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">4.1.9. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.1.10. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.1.11. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">4.1.12. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.1.13. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.1.14. Saving the data</a></li>
+<li><a href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">4.1.15. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></li>
+<li><a href="#locating-tasks-by-tag-code-coming-in-v2-0-code">4.1.16. Locating tasks by tag <code>[coming in v2.0]</code></a></li>
+<li><a href="#reminders-code-coming-in-v2-0-code">4.1.17. Reminders <code>[coming in v2.0]</code></a></li>
+<li><a href="#recover-past-data-code-coming-in-v2-0-code">4.1.18. Recover past data <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#subtask-features">4.2. Subtask Features</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code">4.2.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></a></li>
+<li><a href="#deleting-a-subtask-from-a-task-code-coming-in-v2-0-code">4.2.2. Deleting a subtask from a task <code>[coming in v2.0]</code></a></li>
+<li><a href="#editing-a-subtask-code-coming-in-v2-0-code">4.2.3. Editing a subtask <code>[coming in v2.0]</code></a></li>
+<li><a href="#mark-subtask-as-complete-code-coming-in-v2-0-code">4.2.4. Mark subtask as complete <code>[coming in v2.0]</code></a></li>
+<li><a href="#reorder-subtask-code-coming-in-v2-0-code">4.2.5. Reorder subtask <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#calendar-features">4.3. Calendar Features</a>
+<ul class="sectlevel3">
+<li><a href="#calendar-code-coming-in-v2-0-code">4.3.1. Calendar <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#basic-features-2">6.1. Basic Features</a></li>
+<li><a href="#subtask-feature">6.2. Subtask Feature</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -92,7 +114,7 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p><span class="line-through">Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</span> <em>{ to be edited accordingly soon &#8230;&#8203; }</em></p>
+<p>Download the latest <code>organizer.jar</code> <a href="https://github.com/CS2103JAN2018-W13-B4/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your PrioriTask.</p>
@@ -114,42 +136,37 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code> : lists all tasks</p>
+<p><span class="example-no-box"><code>list</code></span> : lists all tasks</p>
 </li>
 <li>
-<p><code>add n/CS2103T Developer Guide p/10 d/2018-03-02</code> : adds a task named <code>CS2103T Developer Guide</code> to the PrioriTask.</p>
+<p><span class="example-no-box"><code>add n/CS2103T Developer Guide p/10 d/2018-03-02</code></span> : adds a task named <code>CS2103T Developer Guide</code> to the PrioriTask.</p>
 </li>
 <li>
-<p><code>delete 3</code> : deletes the 3rd task shown in the current list</p>
+<p><span class="example-no-box"><code>delete 3</code></span> : deletes the 3rd task shown in the current list</p>
 </li>
 <li>
-<p><code>exit</code> : exits the application</p>
+<p><span class="example-no-box"><code>exit</code></span> : exits the application</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Features">Section 4, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="Parameters"><a class="link" href="#Parameters">3. Task Parameters</a></h2>
 <div class="sectionbody">
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Parameters</strong></p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>NAME</code></p>
+<p><span class="parameters"><code>NAME</code></span></p>
 </li>
 <li>
-<p><code>PRIORITY LEVEL</code></p>
+<p><span class="parameters"><code>PRIORITY LEVEL</code></span></p>
 <div class="ulist">
 <ul>
 <li>
@@ -168,7 +185,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p><code>DEADLINE</code></p>
+<p><span class="parameters"><code>DEADLINE</code></span></p>
 <div class="ulist">
 <ul>
 <li>
@@ -178,7 +195,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p><code>DESCRIPTION</code></p>
+<p><span class="parameters"><code>DESCRIPTION</code></span></p>
 <div class="ulist">
 <ul>
 <li>
@@ -191,7 +208,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p><code>STATUS</code></p>
+<p><span class="parameters"><code>STATUS</code></span></p>
 <div class="ulist">
 <ul>
 <li>
@@ -204,7 +221,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p><code>TAG</code></p>
+<p><span class="parameters"><code>TAG</code></span></p>
 <div class="ulist">
 <ul>
 <li>
@@ -214,21 +231,21 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p><code>SUBTASK</code></p>
+<p><span class="parameters"><code>SUBTASK</code></span></p>
 <div class="ulist">
 <ul>
 <li>
 <p>A task can have any number of subtasks (including 0).</p>
 </li>
 <li>
-<p>A subtask has these parameters:</p>
+<p>A subtask has the following parameters. Subtask parameters are similar to that of task parameters.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>NAME</code></p>
+<p><span class="parameters"><code>NAME</code></span></p>
 </li>
 <li>
-<p><code>STATUS</code></p>
+<p><span class="parameters"><code>STATUS</code></span></p>
 </li>
 </ul>
 </div>
@@ -240,10 +257,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 </div>
-<div class="exampleblock">
+<div class="sect1">
+<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
+<div class="sectionbody">
+<div class="exampleblock noteblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><span class="noteblock-title"><strong>Command Format</strong></span></p>
 </div>
 <div class="ulist">
 <ul>
@@ -254,7 +274,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/CS2103T Developer Guide t/CS2103</code> or as <code>n/CS2103T Developer Guide</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/CS2103</code>, <code>t/CS2103 t/CS2101</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>` (i.e. 0 times), or `t/CS2103</code>, <code>t/CS2103 t/CS2101</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PRIORITY_LEVEL</code>, <code>p/PRIORITY_LEVEL n/NAME</code> is also acceptable.</p>
@@ -264,41 +284,62 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="basic-features"><a class="link" href="#basic-features">4.1. Basic Features</a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p><em>{ To explain what a basic feature is. }</em></p>
+</div>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></h4>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>help</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="adding-a-task-code-add-code-or-code-a-code"><a class="link" href="#adding-a-task-code-add-code-or-code-a-code">3.2. Adding a task: <code>add</code> or <code>a</code></a></h3>
-<div class="paragraph">
-<p>Adds a task to the PrioriTask<br>
-Format: <code>add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…​</code></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-task-code-add-code-or-code-a-code"><a class="link" href="#adding-a-task-code-add-code-or-code-a-code">4.1.2. Adding a task: <code>add</code> or <code>a</code></a></h4>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Adds a task to the PrioriTask<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>add n/NAME d/DEADLINE [p/PRIORITY_LEVEL] [des/DESCRIPTION] [t/TAG]…​</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction</code></p>
+<p><span class="example"><code>add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction</code></span></p>
 </li>
 <li>
-<p><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101</code></p>
+<p><span class="example"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101</code></span></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-tasks-code-list-code-or-code-l-code"><a class="link" href="#listing-all-tasks-code-list-code-or-code-l-code">3.3. Listing all tasks : <code>list</code> or <code>l</code></a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-tasks-code-list-code-or-code-l-code"><a class="link" href="#listing-all-tasks-code-list-code-or-code-l-code">4.1.3. Listing all tasks : <code>list</code> or <code>l</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of all tasks in the PrioriTask.<br></p>
 </div>
-<div class="paragraph">
-<p>Format: <code>list</code></p>
-</div>
-<div class="sidebarblock">
+<div class="exampleblock format">
 <div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>list</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -307,16 +348,18 @@ Format: <code>add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-task-code-edit-code-or-code-e-code"><a class="link" href="#editing-a-task-code-edit-code-or-code-e-code">3.4. Editing a task : <code>edit</code> or <code>e</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-task-code-edit-code-or-code-e-code"><a class="link" href="#editing-a-task-code-edit-code-or-code-e-code">4.1.4. Editing a task : <code>edit</code> or <code>e</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing task in the PrioriTask.<br>
-Format: <code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></p>
+<p>Edits an existing task in the PrioriTask.<br></p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock format">
 <div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -336,52 +379,30 @@ Format: <code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTI
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="exampleblock example">
+<div class="content">
 <div class="paragraph">
-<p>Examples:</p>
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/9 d/2018-12-30</code><br>
+<p><span class="example"><code>edit 1 p/9 d/2018-12-30</code></span><br>
 Edits the priority level and deadline of the 1st task to be <code>9</code> and <code>2018-12-30</code> respectively.</p>
 </li>
 <li>
-<p><code>edit 2 n/CS2101 Final Assignment t/</code><br>
+<p><span class="example"><code>edit 2 n/CS2101 Final Assignment t/</code></span><br>
 Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and clears all existing tags.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="adding-a-subtask-to-a-task-code-adds-code-or-code-as-code"><a class="link" href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code">3.5. Adding a subtask to a task : <code>adds</code> or <code>as</code></a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-tasks-code-since-v1-2-code"><a class="link" href="#locating-tasks-code-since-v1-2-code">4.1.5. Locating tasks <code>[since v1.2]</code></a></h4>
 <div class="paragraph">
-<p>Add a subtask to an existing task.<br>
-Format: <code>edit INDEX [n/NAME]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Index usage is same with <code>edit</code>. Please refer to <code>select</code> for more details.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:<br>
-* <code>adds 1 n/Submit report</code><br>
-Add a subtask with name <code>Submit report</code> to the 1st task.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-tasks-code-find-code-or-code-f-code"><a class="link" href="#locating-tasks-code-find-code-or-code-f-code">3.6. Locating tasks: <code>find</code> or <code>f</code></a></h3>
-<div class="paragraph">
-<p>Finds tasks whose names, descriptions or deadlines contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Depending on the suffix (or lack of) at the end of the <code>find</code> command, you can find tasks whose names, descriptions and/or deadlines contain any of the given keywords.<br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -397,9 +418,6 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 <p>The order of the keywords does not matter. e.g. <code>Guide Developer</code> will match <code>Developer Guide</code></p>
 </li>
 <li>
-<p>Only the name and description are searched.</p>
-</li>
-<li>
 <p>Only full words will be matched e.g. <code>Guide</code> will not match <code>Guides</code></p>
 </li>
 <li>
@@ -409,162 +427,195 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 </div>
 </div>
 </div>
+<div class="sect4">
+<h5 id="locating-tasks-code-find-code-or-code-f-code"><a class="link" href="#locating-tasks-code-find-code-or-code-f-code">4.1.5.1. Locating tasks: <code>find</code> or <code>f</code></a></h5>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Finds tasks whose names, descriptions and deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the name, description and deadline are searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>find <code>Guide</code><br>
+<p><span class="example"><code>find Guide</code></span><br>
 Returns <code>User Guide</code> and <code>Developer Guide</code></p>
 </li>
 <li>
-<p>f <code>CS2101 Developer User</code><br>
+<p><span class="example"><code>f CS2101 Developer User</code></span><br>
 Returns any task having names or descriptions <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-tasks-by-name-code-findn-code-or-code-fn-code"><a class="link" href="#locating-tasks-by-name-code-findn-code-or-code-fn-code">3.7. Locating tasks by name: <code>findn</code> or <code>fn</code></a></h3>
-<div class="paragraph">
-<p>Finds tasks whose names contain any of the given keywords.<br>
-Format: <code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
-<div class="sidebarblock">
+</div>
+<div class="sect4">
+<h5 id="locating-tasks-by-name-code-findn-code-or-code-fn-code"><a class="link" href="#locating-tasks-by-name-code-findn-code-or-code-fn-code">4.1.5.2. Locating tasks by name: <code>findn</code> or <code>fn</code></a></h5>
+<div class="paragraph">
+<p>Finds tasks whose names contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>Developer</code> will match <code>developer</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Guide Developer</code> will match <code>Developer Guide</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Guide</code> will not match <code>Guides</code></p>
-</li>
-<li>
-<p>Tasks matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>CS2101 Guide</code> will return <code>CS2101 Script</code>, <code>Developer Guide</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><span class="format-title">Format:</span> <code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the name is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>findn <code>Guide</code><br>
+<p><span class="example"><code>findn Guide</code></span><br>
 Returns <code>User Guide</code> and <code>Developer Guide</code></p>
 </li>
 <li>
-<p>fn <code>CS2101 Developer User</code><br>
+<p><span class="example"><code>fn CS2101 Developer User</code></span><br>
 Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-tasks-by-description-code-finddes-code-or-code-fdes-code"><a class="link" href="#locating-tasks-by-description-code-finddes-code-or-code-fdes-code">3.8. Locating tasks by description: <code>finddes</code> or <code>fdes</code></a></h3>
-<div class="paragraph">
-<p>Find tasks whose descriptions contain any of the given keywords.<br>
-Format: <code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
-<div class="sidebarblock">
+</div>
+<div class="sect4">
+<h5 id="locating-tasks-by-description-code-finddes-code-or-code-fdes-code"><a class="link" href="#locating-tasks-by-description-code-finddes-code-or-code-fdes-code">4.1.5.3. Locating tasks by description: <code>finddes</code> or <code>fdes</code></a></h5>
+<div class="paragraph">
+<p>Find tasks whose descriptions contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>Update</code> will match <code>update</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>update study</code> will match <code>study update</code></p>
-</li>
-<li>
-<p>Only the description is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>CS2103</code> will not match <code>CS2103T</code></p>
-</li>
-<li>
-<p>Tasks matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Update Study</code> will return <code>Update script</code>, <code>Study midterms</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><span class="format-title">Format:</span> <code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the description is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>finddes <code>Study</code><br>
+<p><span class="example"><code>finddes Study</code></span><br>
 Returns tasks with descriptions <code>Study midterms</code> and <code>study chapter 2</code>.</p>
 </li>
 <li>
-<p>fdes <code>Study Update Chapter</code><br>
+<p><span class="example"><code>fdes Study Update Chapter</code></span><br>
 Returns any task having descriptions containing words <code>Study</code>, <code>Update</code>, or <code>Chapter</code>.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-tasks-by-deadline-code-findd-code-or-code-fd-code"><a class="link" href="#locating-tasks-by-deadline-code-findd-code-or-code-fd-code">3.9. Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></h3>
-<div class="paragraph">
-<p>Find tasks whose deadlines contain any of the given keywords.<br>
-Format: <code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
-<div class="sidebarblock">
+</div>
+<div class="sect4">
+<h5 id="locating-tasks-by-deadline-code-findd-code-or-code-fd-code"><a class="link" href="#locating-tasks-by-deadline-code-findd-code-or-code-fd-code">4.1.5.4. Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></h5>
+<div class="paragraph">
+<p>Find tasks whose deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Keywords should be in the format of YYYY-MM-DD.</p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>2018-03-17 2018-09-09</code> will match <code>2018-09-09 2018-03-17</code></p>
-</li>
-<li>
-<p>Only the deadline is searched.</p>
-</li>
-<li>
-<p>Only full keywords will be matched e.g. <code>2018</code> will not match <code>2018-03-17</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><span class="format-title">Format:</span> <code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the deadline is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>findd <code>2018-03-17</code><br>
+<p><span class="example"><code>findd 2018-03-17</code></span><br>
 Returns tasks with deadlines <code>2018-03-17</code>.</p>
 </li>
 <li>
-<p>fd <code>2018-03-17 2018-09-04 2018-03-21</code><br>
+<p><span class="example"><code>fd 2018-03-17 2018-09-04 2018-03-21</code></span><br>
 Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code>.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-task-code-delete-code-or-code-d-code"><a class="link" href="#deleting-a-task-code-delete-code-or-code-d-code">3.10. Deleting a task : <code>delete</code> or <code>d</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified task from the PrioriTask.<br>
-Format: <code>delete INDEX</code></p>
 </div>
-<div class="sidebarblock">
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-task-code-delete-code-or-code-d-code"><a class="link" href="#deleting-a-task-code-delete-code-or-code-d-code">4.1.6. Deleting a task : <code>delete</code> or <code>d</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified task from the PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
 <div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>delete INDEX</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -578,34 +629,40 @@ Format: <code>delete INDEX</code></p>
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="exampleblock example">
+<div class="content">
 <div class="paragraph">
-<p>Examples:</p>
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>delete 2</code></span><br>
 Deletes the 2nd task in the PrioriTask.</p>
 </li>
 <li>
-<p><code>find Developer</code><br>
-<code>delete 1</code><br>
+<p><span class="example"><code>find Developer</code></span><br>
+<span class="example"><code>delete 1</code></span><br>
 Deletes the 1st task in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="selecting-a-task-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-task-code-select-code-or-code-s-code">3.11. Selecting a task : <code>select</code> or <code>s</code></a></h3>
-<div class="paragraph">
-<p>Selects the task identified by the index number used in the last task listing.<br>
-Format: <code>select INDEX</code></p>
 </div>
-<div class="sidebarblock">
+</div>
+<div class="sect3">
+<h4 id="selecting-a-task-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-task-code-select-code-or-code-s-code">4.1.7. Selecting a task : <code>select</code> or <code>s</code></a></h4>
+<div class="paragraph">
+<p>Selects the task identified by the index number used in the last task listing.<br></p>
+</div>
+<div class="exampleblock format">
 <div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>select INDEX</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -619,67 +676,87 @@ Format: <code>select INDEX</code></p>
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="exampleblock example">
+<div class="content">
 <div class="paragraph">
-<p>Examples:</p>
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>select 2</code><br>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>select 2</code></span><br>
 Selects the 2nd task in the PrioriTask.</p>
 </li>
 <li>
-<p><code>find Developer</code><br>
-<code>select 1</code><br>
+<p><span class="example"><code>find Developer</code></span><br>
+<span class="example"><code>select 1</code></span><br>
 Selects the 1st task in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="mark-task-as-complete-code-toggle-code-or-code-t-code"><a class="link" href="#mark-task-as-complete-code-toggle-code-or-code-t-code">3.12. Mark task as complete: <code>toggle</code> or <code>t</code></a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code"><a class="link" href="#mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code">4.1.8. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></h4>
 <div class="paragraph">
 <p>Toggle the status of the task identified by the index number used in the last task listing
-between <code>Done</code> and <code>Not Done</code>.<br>
-Format: <code>toggle INDEX</code></p>
+between <code>Done</code> and <code>Not Done</code>.<br></p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock format">
 <div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>toggle INDEX</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Index usage is same with <code>select</code>. Please refer to <code>select</code> for more details.</p>
+<p>Toggle the status of the task at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="exampleblock example">
+<div class="content">
 <div class="paragraph">
-<p>Example:</p>
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>toggle 1</code><br>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>toggle 1</code></span><br>
 Toggle the first task in the PrioriTask.</p>
 </li>
 <li>
-<p><code>find homework</code><br>
-<code>toggle 1</code><br>
+<p><span class="example"><code>find homework</code></span><br>
+<span class="example"><code>toggle 1</code></span><br>
 Toggle the first task in th result of <code>find homework</code> command.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.13. Listing entered commands : <code>history</code></a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">4.1.9. Listing entered commands : <code>history</code></a></h4>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
+<p>Lists all the commands that you have entered in reverse chronological order.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>history</code></p>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -696,11 +773,17 @@ Format: <code>history</code></p>
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></h3>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.1.10. Undoing previous command : <code>undo</code></a></h4>
 <div class="paragraph">
-<p>Restores the PrioriTask to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Restores the PrioriTask to the state before the previous <em>undoable</em> command was executed.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>undo</code></p>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -716,86 +799,112 @@ Format: <code>undo</code></p>
 </tr>
 </table>
 </div>
+<div class="exampleblock example">
+<div class="content">
 <div class="paragraph">
-<p>Examples:</p>
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>list</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br></p>
 </li>
 <li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
+<p><span class="example"><code>select 1</code></span><br>
+<span class="example"><code>list</code></span><br>
+<span class="example"><code>undo</code></span><br>
 The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>clear</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>clear</code> command)<br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.1.11. Redoing the previously undone command : <code>redo</code></a></h4>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Reverses the most recent <code>undo</code> command.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>redo</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br>
+<span class="example"><code>redo</code></span> (reapplies the <code>delete 1</code> command)<br></p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>redo</code></span><br>
 The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>clear</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>clear</code> command)<br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br>
+<span class="example"><code>redo</code></span> (reapplies the <code>delete 1</code> command)<br>
+<span class="example"><code>redo</code></span> (reapplies the <code>clear</code> command)<br></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.16. Clearing all entries : <code>clear</code> or <code>c</code></a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">4.1.12. Clearing all entries : <code>clear</code> or <code>c</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the PrioriTask.<br>
-Format: <code>clear</code></p>
+<p>Clears all entries from the PrioriTask.<br></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
+<div class="exampleblock format">
+<div class="content">
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p><span class="format-title">Format:</span> <code>clear</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.1.13. Exiting the program : <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Exits the program.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>exit</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">4.1.14. Saving the data</a></h4>
 <div class="paragraph">
 <p>PrioriTask data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code"><a class="link" href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">3.19. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code"><a class="link" href="#deleting-specific-parameters-from-a-task-code-coming-in-v2-0-code">4.1.15. Deleting specific parameters from a task <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
@@ -811,58 +920,106 @@ There is no need to save manually.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-tasks-by-tag-code-coming-in-v2-0-code"><a class="link" href="#locating-tasks-by-tag-code-coming-in-v2-0-code">3.20. Locating tasks by tag <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="locating-tasks-by-tag-code-coming-in-v2-0-code"><a class="link" href="#locating-tasks-by-tag-code-coming-in-v2-0-code">4.1.16. Locating tasks by tag <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-subtask-from-a-task-code-coming-in-v2-0-code"><a class="link" href="#deleting-a-subtask-from-a-task-code-coming-in-v2-0-code">3.21. Deleting a subtask from a task <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="reminders-code-coming-in-v2-0-code"><a class="link" href="#reminders-code-coming-in-v2-0-code">4.1.17. Reminders <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-subtask-code-coming-in-v2-0-code"><a class="link" href="#editing-a-subtask-code-coming-in-v2-0-code">3.22. Editing a subtask <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="recover-past-data-code-coming-in-v2-0-code"><a class="link" href="#recover-past-data-code-coming-in-v2-0-code">4.1.18. Recover past data <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="mark-subtask-as-complete-code-coming-in-v2-0-code"><a class="link" href="#mark-subtask-as-complete-code-coming-in-v2-0-code">3.23. Mark subtask as complete <code>[coming in v2.0]</code></a></h3>
+<h3 id="subtask-features"><a class="link" href="#subtask-features">4.2. Subtask Features</a></h3>
+<div class="paragraph">
+<p><em>{ To explain what a subtask feature is. }</em></p>
+</div>
+<div class="sect3">
+<h4 id="adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code"><a class="link" href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code">4.2.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></a></h4>
+<div class="paragraph">
+<p>Add a subtask to an existing task.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>adds INDEX [n/NAME]</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds the subtask at the specified <code>INDEX</code>. The index refers to the index number shown in the last task listing. The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>adds 1 n/Submit report</code></span><br>
+Add a subtask with name <code>Submit report</code> to the 1st task.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-subtask-from-a-task-code-coming-in-v2-0-code"><a class="link" href="#deleting-a-subtask-from-a-task-code-coming-in-v2-0-code">4.2.2. Deleting a subtask from a task <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="reorder-subtask-code-coming-in-v2-0-code"><a class="link" href="#reorder-subtask-code-coming-in-v2-0-code">3.24. Reorder subtask <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-subtask-code-coming-in-v2-0-code"><a class="link" href="#editing-a-subtask-code-coming-in-v2-0-code">4.2.3. Editing a subtask <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="calendar-code-coming-in-v2-0-code"><a class="link" href="#calendar-code-coming-in-v2-0-code">3.25. Calendar <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="mark-subtask-as-complete-code-coming-in-v2-0-code"><a class="link" href="#mark-subtask-as-complete-code-coming-in-v2-0-code">4.2.4. Mark subtask as complete <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="reminders-code-coming-in-v2-0-code"><a class="link" href="#reminders-code-coming-in-v2-0-code">3.26. Reminders <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="reorder-subtask-code-coming-in-v2-0-code"><a class="link" href="#reorder-subtask-code-coming-in-v2-0-code">4.2.5. Reorder subtask <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="recover-past-data-code-coming-in-v2-0-code"><a class="link" href="#recover-past-data-code-coming-in-v2-0-code">3.27. Recover past data <code>[coming in v2.0]</code></a></h3>
+<h3 id="calendar-features"><a class="link" href="#calendar-features">4.3. Calendar Features</a></h3>
+<div class="paragraph">
+<p><em>{ To explain what a calendar feature is. }</em></p>
+</div>
+<div class="sect3">
+<h4 id="calendar-code-coming-in-v2-0-code"><a class="link" href="#calendar-code-coming-in-v2-0-code">4.3.1. Calendar <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{ coming in v2.0 }</em></p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -871,76 +1028,90 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="basic-features-2"><a class="link" href="#basic-features-2">6.1. Basic Features</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…</code><br>
-e.g. <code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA</code></p>
+<p><strong>Add</strong> : <span class="format-no-box"><code>add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…</code></span><br>
+e.g. <span class="example-no-box"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA</code></span></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>Clear</strong> : <span class="format-no-box"><code>clear</code></span></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Delete</strong> : <span class="format"><code>delete INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>delete 3</code></span></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code><br>
-e.g. <code>edit 1 p/9 d/2018-12-30</code></p>
+<p><strong>Edit</strong> : <span class="format-no-box"><code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></span><br>
+e.g. <span class="example-no-box"><code>edit 1 p/9 d/2018-12-30</code></span></p>
 </li>
 <li>
-<p><strong>Add Subtask</strong>: <code>adds INDEX n/NAME</code><br>
-e.g. <code>adds 1 n/Submit Report</code></p>
+<p><strong>Find</strong> : <span class="format-no-box"><code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>find CS2103 update 2018-03-17</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Find Name</strong> : <span class="format-no-box"><code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>findn Developer User</code></span></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find CS2103 update 2018-03-17</code></p>
+<p><strong>Find Description</strong> : <span class="format-no-box"><code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORDS [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>finddes study update</code></span></p>
 </li>
 <li>
-<p><strong>Find Name</strong> : <code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>findn Developer User</code></p>
+<p><strong>Find Deadline</strong> : <span class="format-no-box"><code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORDS [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>findd 2018-03-17 2018-09-07</code></span></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>Find Description</strong> : <code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORDS [MORE_KEYWORDS]</code><br>
-e.g. <code>finddes study update</code></p>
+<p><strong>List</strong> : <span class="format-no-box"><code>list</code></span></p>
 </li>
 <li>
-<p><strong>Find Deadline</strong> : <code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORDS [MORE_KEYWORDS]</code><br>
-e.g. <code>findd 2018-03-17 2018-09-07</code></p>
+<p><strong>Help</strong> : <span class="format-no-box"><code>help</code></span></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Select</strong> : <span class="format-no-box"><code>select INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>select 2</code></span></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Toggle</strong> : <span class="format-no-box"><code>toggle INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>toggle 3</code></span></p>
 </li>
 <li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
+<p><strong>History</strong> : <span class="format-no-box"><code>history</code></span></p>
 </li>
 <li>
-<p><strong>Toggle</strong> : <code>toggle INDEX</code><br>
-e.g.<code>select 3</code></p>
+<p><strong>Undo</strong> : <span class="format-no-box"><code>undo</code></span></p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>Redo</strong> : <span class="format-no-box"><code>redo</code></span></p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="subtask-feature"><a class="link" href="#subtask-feature">6.2. Subtask Feature</a></h3>
+<div class="ulist">
+<ul>
 <li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
+<p><strong>Add Subtask</strong> : <span class="format-no-box"><code>adds INDEX n/NAME</code></span><br>
+e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-21 00:32:56 UTC
+Last updated 2018-03-25 05:41:27 UTC
 </div>
 </div>
 </body>
