@@ -63,6 +63,6 @@ public class CalendarPanel extends UiPart<Region> {
      * @throws IOException if there's problem fetching the Calendar.
      */
     private void createMonthView(YearMonth yearMonth) throws IOException {
-       calendar.getMonthView(yearMonth);
+        calendar.getMonthView(yearMonth);
     }
 }
