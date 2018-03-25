@@ -42,18 +42,27 @@ public class CalendarPanel extends UiPart<Region> {
         try {
             createMainView();
         } catch (IOException e) {
-            logger.warning("Error loading Calendar for Main View.");
+            logger.warning("Error loading Calendar.");
         }
     }
 
     /**
-     * Creates the main view of the calendar, which by default, is the month view.
+     * Creates the main view of the calendar, which by default, is the current month view.
      *
      * @throws IOException if there's problem fetching the Calendar.
      */
     private void createMainView() throws IOException {
-        calendar.getCurrentMonth(currentYearMonth);
+        createMonthView(currentYearMonth);
         calendarPane.getChildren().add(calendar.getRoot());
     }
 
+    /**
+     * Creates the month view of the calendar.
+     *
+     * @param yearMonth Current year and month in the YearMonth format.
+     * @throws IOException if there's problem fetching the Calendar.
+     */
+    private void createMonthView(YearMonth yearMonth) throws IOException {
+       calendar.getMonthView(yearMonth);
+    }
 }

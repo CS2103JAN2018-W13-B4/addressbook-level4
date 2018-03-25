@@ -26,18 +26,18 @@ public class Calendar extends UiPart<Region> {
     }
 
     /**
-     * Displays the current month view in the {@code calendarPlaceholder}.
+     * Displays the month view in the {@code calendarPlaceholder}.
      *
-     * @param currentYearMonth Current year and month in the YearMonth format.
+     * @param yearMonth Current year and month in the YearMonth format.
      * @throws IOException if there's problem fetching the Month View.
      */
-    public void getCurrentMonth(YearMonth currentYearMonth) throws IOException {
+    public void getMonthView(YearMonth yearMonth) throws IOException {
         monthView = new MonthView();
 
-        int currentYear = currentYearMonth.getYear();
+        int currentYear = yearMonth.getYear();
 
-        monthView.setMonthCalendarTitle(currentYear, currentYearMonth.getMonth().toString());
-        monthView.setMonthCalendarDates(currentYear, currentYearMonth.getMonthValue());
+        monthView.setMonthCalendarTitle(currentYear, yearMonth.getMonth().toString());
+        monthView.setMonthCalendarDates(currentYear, yearMonth.getMonthValue());
         calendarPlaceholder.getChildren().add(monthView.getRoot());
     }
 }
