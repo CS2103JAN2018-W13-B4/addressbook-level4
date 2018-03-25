@@ -111,8 +111,6 @@ _{ Preface to be added. }_
 [[Design-Architecture]]
 === Architecture
 
-_{ Preface to be added. }_
-
 The *_Architecture Diagram_* (refer to Figure 1) given below explains the high-level design of the App.
 
 [TIP]
@@ -398,6 +396,7 @@ The autoupdating and autosorting mechanism resides inside `UniqueTaskList`. The 
 
 The `add` method of the `UniqueTaskList` class is implemented as such:
 
+[source,java]
 ----
 public void add(Task toAdd) throws DuplicateTaskException {
 	//check non null and no duplicate task
@@ -417,6 +416,8 @@ The new `Priority` level will remain within the range of 0 - 9. The new `Priorit
 ** `Priority` is set to the `HIGHEST_SETTABLE_PRIORITY_LEVEL` : 9
 * If the current date is before `Deadline` and not equal to `AddedDate`
 ** `Priority is calculated via the following formula :
+
+[source,java]
 ----
 priorityDifferenceFromMax = HIGHEST_SETTABLE_PRIORITY_LEVEL - currentPriority
 
@@ -428,12 +429,16 @@ priorityToIncrease = priorityDifferenceFromMax * ((dayDifferenceAddedToDeadline 
 
 newPriority = currentPriority + priorityToIncrease
 ----
+
 The new `Task` with its updated `Priority` will then be added to `UniqueTaskList`’s `internalList`. Following that, the `internalList` is sorted via the `sortTasks` method. The `sortTasks` method is implemented as such:
+
+[source,java]
 ----
 private void sortTasks() {
 	internalList.sort(Task.priorityComparator());
 }
 ----
+
 The `sortTasks` method makes use of the `ObservableList` class’s `sort` method and `Task`’s `priorityComparator` method. The `priorityComparator` method returns a `Comparator` that sorts `Task`’s based on descending `Priority` levels. The `internalList` is sorted with respect to the comparator.
 
 ===== Scenario
@@ -456,7 +461,9 @@ The following figure represents the "Study" `Task`.
 image::OrganizerAddTaskDiagram2.png[width="300"]
 
 When `tasks` calls `updatePriority(Study)`, the new priority level is calculated as such :
------
+
+[source,java]
+----
 priorityDifferenceFromMax = 9 - 0 = 9
 
 dayDifferenceCurrentToDeadline = 14
@@ -466,7 +473,7 @@ dayDifferenceAddedToDeadline = 31
 priorityToIncrease = 9 * ((31 - 14) / 31) = 4
 
 newPriority = 0 + 4 = 4
------
+----
 
 A new "Study" `Task` is created and added to the `internalList`.
 
@@ -524,17 +531,19 @@ image::MonthViewLayoutDiagram.png[width="800"]
 
 The basic calendar layout (refer to Figure 25) is reflected in the `MonthView.fxml` file, and is loaded by `MonthView`. `MonthView` uses the JavaFX layout objects extensively when drawing the calendar. An example would be the `addMonthDate` method, which adds a particular date to the exact `column` and `row` in the `taskCalendar`. The `addMonthDate` method is implemented as such:
 
------
+[source,java]
+----
 private void addMonthDate(Text dateToPrint, int column, int row) {
     taskCalendar.add(dateToPrint, column, row);
     taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
     taskCalendar.setValignment(dateToPrint, VPos.TOP)
 }
------
+----
 
 Both the `Calendar` and `CalendarPanel` use the JavaFX `StackPane` object as a placeholder for the `MonthView`. After loading the respective FXML files, methods in the `Calendar` and `CalendarPanel` fetch the display for the `MonthView` as such:
 
------
+[source,java]
+----
 public void getCurrentMonth(YearMonth currentYearMonth) throws IOException {
     // draws the calendar for the current month
     calendarPlaceholder.getChildren().add(monthView.getRoot());
@@ -544,7 +553,7 @@ private void createMainView() throws IOException {
     // fetches the calendar view
     calendarPane.getChildren().add(calendar.getRoot());
 }
------
+----
 
 // end::calendar[]
 
@@ -587,13 +596,6 @@ is `O(n)`
 The second alternative is planned to be implemented in the near future.
 
 // end::subtask[]
-
-// tag::dataencryption[]
-=== [Proposed] Data Encryption
-
-_{Explain here how the data encryption feature will be implemented}_
-
-// end::dataencryption[]
 
 === Logging
 
