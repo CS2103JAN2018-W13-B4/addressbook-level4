@@ -1,6 +1,5 @@
 package seedu.organizer.ui.calendar;
 
-import java.io.IOException;
 import java.time.YearMonth;
 
 import javafx.fxml.FXML;
