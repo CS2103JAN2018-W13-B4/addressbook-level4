@@ -22,6 +22,7 @@ public class CalendarPanel extends UiPart<Region> {
 
     private Calendar calendar;
     private YearMonth currentYearMonth;
+    private YearMonth viewYearMonth;
 
     @FXML
     private StackPane calendarPane;
@@ -31,6 +32,7 @@ public class CalendarPanel extends UiPart<Region> {
 
         calendar = new Calendar();
         currentYearMonth = currentYearMonth.now();
+        viewYearMonth = currentYearMonth;
 
         loadMainView();
     }
@@ -42,7 +44,7 @@ public class CalendarPanel extends UiPart<Region> {
         try {
             createMainView();
         } catch (IOException e) {
-            logger.warning("Error loading Calendar.");
+            logger.warning("Error loading main view of Calendar.");
         }
     }
 
@@ -54,6 +56,29 @@ public class CalendarPanel extends UiPart<Region> {
     private void createMainView() throws IOException {
         createMonthView(currentYearMonth);
         calendarPane.getChildren().add(calendar.getRoot());
+    }
+
+    /**
+     * ADD COMMENTS!!!
+     * @param previousYearMonth
+     */
+    public void loadPreviousMonthView(YearMonth previousYearMonth) {
+        try {
+            calendarPane.getChildren().remove(calendar.getRoot());
+            createPreviousMonthView(previousYearMonth);
+            viewYearMonth.minusMonths(1);
+        } catch (IOException e) {
+            logger.warning("Error loading previous month of Calendar.");
+        }
+    }
+
+    private void createPreviousMonthView(YearMonth previousYearMonth) throws IOException {
+        createMonthView(previousYearMonth);
+        calendarPane.getChildren().add(calendar.getRoot());
+    }
+
+    public YearMonth getYearMonth() {
+        return viewYearMonth;
     }
 
     /**

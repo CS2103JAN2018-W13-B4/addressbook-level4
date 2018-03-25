@@ -29,9 +29,8 @@ public class Calendar extends UiPart<Region> {
      * Displays the month view in the {@code calendarPlaceholder}.
      *
      * @param yearMonth Current year and month in the YearMonth format.
-     * @throws IOException if there's problem fetching the Month View.
      */
-    public void getMonthView(YearMonth yearMonth) throws IOException {
+    public void getMonthView(YearMonth yearMonth) {
         monthView = new MonthView();
 
         int currentYear = yearMonth.getYear();
