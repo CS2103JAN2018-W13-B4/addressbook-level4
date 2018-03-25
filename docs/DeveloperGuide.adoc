@@ -24,7 +24,7 @@ _{ Preface to be added. }_
 
 === Prerequisites
 
-_{ Preface to be added. }_
+Before working on PrioriTask, please install these following requirements:
 
 . *JDK `1.8.0_60`* or later
 +
@@ -42,11 +42,10 @@ Do not disable them. If you have disabled them, go to `File` > `Settings` > `Plu
 
 === Setting up the project in your computer
 
-_{ Preface to be added. }_
+After installing all requirements, please do these following steps to setup this project in your computer:
 
 . Fork this repo, and clone the fork to your computer.
-. Open IntelliJ (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first).
-. Set up the correct JDK version for Gradle.
+. Open IntelliJ (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first) and set up the correct JDK version for Gradle.
 .. Click `Configure` > `Project Defaults` > `Project Structure`.
 .. Click `New...` and find the directory of the JDK.
 . Click `Import Project`.
@@ -58,9 +57,9 @@ This will generate all resources required by the application and tests.
 
 === Verifying the setup
 
-_{ Preface to be added. }_
+After setting up the project, you can do these step to verify that all requirements are met and the project is correctly set up.
 
-. Run the `seedu.organizer.MainApp` and try a few commands
+. Run the `seedu.organizer.MainApp` and try a few commands.
 . <<Testing,Run the tests>> to ensure they all pass.
 
 === Configurations to do before writing code
@@ -71,9 +70,9 @@ _{ Preface to be added. }_
 
 This project follows https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc[oss-generic coding standards]. IntelliJ's default style is mostly compliant with ours but it uses a different import order from ours. To rectify,
 
-. Go to `File` > `Settings...` (Windows/Linux), or `IntelliJ IDEA` > `Preferences...` (macOS)
-. Select `Editor` > `Code Style` > `Java`
-. Click on the `Imports` tab to set the order
+. Go to `File` > `Settings...` (Windows/Linux), or `IntelliJ IDEA` > `Preferences...` (macOS).
+. Select `Editor` > `Code Style` > `Java`.
+. Click on the `Imports` tab to set the order.
 
 * For `Class count to use import with '\*'` and `Names count to use static import with '*'`: Set to `999` to prevent IntelliJ from contracting the import statements
 * For `Import Layout`: The order is `import static all other imports`, `import java.\*`, `import javax.*`, `import org.\*`, `import com.*`, `import all other imports`. Add a `<blank line>` between each `import`
@@ -549,6 +548,46 @@ private void createMainView() throws IOException {
 
 // end::calendar[]
 
+// tag::subtask[]
+=== Subtask
+==== Current Implementation
+
+Subtask feature allows user to split their tasks into multiple subtasks. This feature allows user to better
+manage their task. It is implemented using `Subtask` class and `UniqueSubtaskList` class as shown by the diagram below:
+
+.Subtask UML Class Diagram
+image::SubtaskComponentDiagram.png[width="800"]
+
+`UniqueSubtaskList` is created to ensure that no task have a duplicated subtask.
+
+*Subtask management*
+
+To manage the subtasks (Add, edit, etc), the task should be copied since `Task` is immutable.
+
+==== Design Consideration
+===== Aspect: Implementation of `Subtask`
+* **Alternative 1 (current implementation):** Add a new class `Subtask`
+** Pros: Better isolation and easier modification to `Subtask` if needed.
+** Cons: Restricted the possibility of having a subtask that have subtasks.
+
+* **Alternative 2:** Use current `Task` class
+** Pros: Easier to implement and subtask will share the same properties with `Task`.
+** Cons: Possibility of having a cyclic subtask (a task that also a subtask of it self) if not handled carefully.
+
+===== Aspect: Implementation of `UniqueSubtaskList`
+* **Alternative 1 (current implementation):** Use `List` to store subtasks.
+** Pros: Easier to implement
+** Cons: Performance issue will appear when that data is large. Since any operation in `UniqueSubtaskList` except lookup
+is `O(n)`
+
+* **Alternative 2:** Use a combination of BBST and LinkedList to store subtasks.
+** Pros: Faster that the first alternative since it only took `O(log n)` to do every operation.
+** Cons: Harder to implement and more robust testing is required since it is more bug prone than the first alternative.
+
+The second alternative is planned to be implemented in the near future.
+
+// end::subtask[]
+
 // tag::dataencryption[]
 === [Proposed] Data Encryption
 
@@ -638,10 +677,10 @@ To run tests in headless mode, open a console and run the command `gradlew clean
 
 We have two types of tests:
 
-.  *GUI Tests* - These are tests involving the GUI. They include,
+.  *GUI Tests* - These are tests involving the GUI. They include:
 .. _System Tests_ that test the entire App by simulating user actions on the GUI. These are in the `systemtests` package.
 .. _Unit tests_ that test the individual components. These are in `seedu.organizer.ui` package.
-.  *Non-GUI Tests* - These are tests not involving the GUI. They include,
+.  *Non-GUI Tests* - These are tests not involving the GUI. They include:
 ..  _Unit tests_ targeting the lowest level methods/classes. +
 e.g. `seedu.organizer.commons.StringUtilTest`
 ..  _Integration tests_ that are checking the integration of multiple code units (those code units are assumed to be working). +
@@ -675,7 +714,7 @@ When a pull request has changes to asciidoc files, you can use https://www.netli
 
 === Making a Release
 
-Here are the steps to create a new release.
+Here are the steps to create a new release:
 
 .  Update the version number in link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp.java`].
 .  Generate a JAR file <<UsingGradle#creating-the-jar-file, using Gradle>>.
@@ -1168,8 +1207,8 @@ These instructions only provide a starting point for testers to work on; testers
 
 . Initial launch
 
-.. Download the jar file and copy into an empty folder
-.. Double-click the jar file +
+.. Download the jar file and copy into an empty folder.
+.. Double-click the jar file. +
    Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 . Saving window preferences
