@@ -47,9 +47,10 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#task-s-priority-autoupdating-and-autosorting-feature">3.2. Task&#8217;s Priority Autoupdating and AutoSorting feature</a></li>
 <li><a href="#calendar-feature">3.3. Calendar Feature</a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#subtask">3.4. Subtask</a></li>
+<li><a href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1200,20 +1201,118 @@ private void createMainView() throws IOException {
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
+<h3 id="subtask"><a class="link" href="#subtask">3.4. Subtask</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Subtask feature allows user to split their tasks into multiple subtasks. This feature allows user to better
+manage their task. It is implemented using <code>Subtask</code> class and <code>UniqueSubtaskList</code> class as shown by the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SubtaskComponentDiagram.png" alt="SubtaskComponentDiagram" width="800">
+</div>
+<div class="title">Figure 26. Subtask UML Class Diagram</div>
+</div>
+<div class="paragraph">
+<p><code>UniqueSubtaskList</code> is created to ensure that no task have a duplicated subtask.</p>
+</div>
+<div class="paragraph">
+<p><strong>Subtask management</strong></p>
+</div>
+<div class="paragraph">
+<p>To manage the subtasks (Add, edit, etc), the task should be copied since <code>Task</code> is immutable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.4.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-subtask-code"><a class="link" href="#aspect-implementation-of-code-subtask-code">Aspect: Implementation of <code>Subtask</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> Add a new class <code>Subtask</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better isolation and easier modification to <code>Subtask</code> if needed.</p>
+</li>
+<li>
+<p>Cons: Restricted the possibility of having a subtask that have subtasks.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use current <code>Task</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and subtask will share the same properties with <code>Task</code>.</p>
+</li>
+<li>
+<p>Cons: Possibility of having a cyclic subtask (a task that also a subtask of it self) if not handled carefully.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-uniquesubtasklist-code"><a class="link" href="#aspect-implementation-of-code-uniquesubtasklist-code">Aspect: Implementation of <code>UniqueSubtaskList</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> Use <code>List</code> to store subtasks.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement</p>
+</li>
+<li>
+<p>Cons: Performance issue will appear when that data is large. Since any operation in <code>UniqueSubtaskList</code> except lookup
+is <code>O(n)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a combination of BBST and LinkedList to store subtasks.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Faster that the first alternative since it only took <code>O(log n)</code> to do every operation.</p>
+</li>
+<li>
+<p>Cons: Harder to implement and more robust testing is required since it is more bug prone than the first alternative.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The second alternative is planned to be implemented in the near future.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1244,7 +1343,7 @@ private void createMainView() throws IOException {
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1310,7 +1409,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 26. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 27. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -2905,7 +3004,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 05:51:55 UTC
+Last updated 2018-03-25 11:48:45 UTC
 </div>
 </div>
 </body>
