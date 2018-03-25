@@ -768,9 +768,8 @@ Helps busy university students keep track of their tasks and priorities
 * Yeo Guek Ling
 ** Major : Calendar
 *** Allows users to be able to have a more concise view of task deadlines
-** Minor : Find name / description command
+** Minor : Find deadline / description command
 *** Allows users to be able to search the organizer for tasks even when they have forgotten the task's name
-
 
 [appendix]
 == User Stories
@@ -904,8 +903,6 @@ _{More to be added}_
 .  Should come with a help feature and various helper messages so that it is usable by a novice who had only have minimal CLI experience.
 .  Users are expected to know how to set up the project without an installer.
 .  The end product is geared towards power users, and may not be suitable for everyone.
-
-_{More to be added}_
 
 [appendix]
 == Glossary
