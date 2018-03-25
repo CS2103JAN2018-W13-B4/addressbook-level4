@@ -435,7 +435,7 @@ The new `Task` with its updated `Priority` will then be added to `UniqueTaskList
 [source,java]
 ----
 private void sortTasks() {
-	internalList.sort(Task.priorityComparator());
+    internalList.sort(Task.priorityComparator());
 }
 ----
 
