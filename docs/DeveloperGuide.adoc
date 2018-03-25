@@ -399,10 +399,10 @@ The `add` method of the `UniqueTaskList` class is implemented as such:
 [source,java]
 ----
 public void add(Task toAdd) throws DuplicateTaskException {
-	//check non null and no duplicate task
-	toAdd = updatePriority(toAdd);
-	internalList.add(toAdd);
-	sortTasks();
+    //check non null and no duplicate task
+    toAdd = updatePriority(toAdd);
+    internalList.add(toAdd);
+    sortTasks();
 }
 ----
 
