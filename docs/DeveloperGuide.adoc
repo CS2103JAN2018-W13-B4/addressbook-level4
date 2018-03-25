@@ -1012,7 +1012,7 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 
 *Target user profile*:
 
-* busy university students who has many tasks to keep track of
+* busy university students who has many tasks to keep track of, and are reasonably comfortable using CLI apps
 * is taking many modules, and is part of various student organizations and activities
 * prefers a digital organizer over a physical organizer
 * requires help in monitoring the numerous tasks and their levels of importance
@@ -1021,7 +1021,6 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 * prefers desktop apps over other types
 * can type fast
 * prefers typing over mouse input
-* is reasonably comfortable using CLI apps
 
 *Value proposition*:
 
