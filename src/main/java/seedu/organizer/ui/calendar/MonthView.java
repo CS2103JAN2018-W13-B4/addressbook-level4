@@ -1,17 +1,25 @@
 package seedu.organizer.ui.calendar;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
+import seedu.organizer.model.task.Task;
+import seedu.organizer.ui.TaskCard;
+import seedu.organizer.ui.TaskListPanel;
 import seedu.organizer.ui.UiPart;
+
+import org.fxmisc.easybind.EasyBind;
 
 //@@author guekling
 /**
@@ -23,6 +31,7 @@ public class MonthView extends UiPart<Region> {
 
     private int dateCount;
     private String[] datesToBePrinted;
+    private ObservableList<Task> taskList;
 
     @FXML
     private Text calendarTitle;
@@ -30,8 +39,10 @@ public class MonthView extends UiPart<Region> {
     @FXML
     private GridPane taskCalendar;
 
-    public MonthView() {
+    public MonthView(ObservableList<Task> taskList) {
         super(FXML);
+
+        this.taskList = taskList;
     }
 
     /**
@@ -56,12 +67,24 @@ public class MonthView extends UiPart<Region> {
         int startDay = getMonthStartDay(startDate);
 
         // !!! Calendar Entry
-        ListView<String> list = new ListView<String>();
-        ObservableList<String> items = FXCollections.observableArrayList ("Single", "Double");
-        list.setItems(items);
-        list.setMaxHeight(60);
-        taskCalendar.add(list, 1, 4);
-        taskCalendar.setValignment(list, VPos.BOTTOM);
+
+        //!!! THIS SHIT WORKS!!!
+        //List<EntryCard> list = new ArrayList<EntryCard>();
+        //list.add(new EntryCard("test"));
+
+        ListView<EntryCard> entries = new ListView<>();
+        ObservableList<EntryCard> mappedList = EasyBind.map(
+                taskList, (person) -> new EntryCard(person));
+
+        //ObservableList<EntryCard> mappedList = FXCollections.observableList(list);
+        entries.setItems(mappedList);
+        entries.setCellFactory(listView -> new MonthView.EntryListViewCell());
+
+        //ObservableList<String> items = FXCollections.observableArrayList ("Single", "Double");
+        //list.setItems(items);
+        entries.setMaxHeight(60);
+        taskCalendar.add(entries, 1, 4);
+        taskCalendar.setValignment(entries, VPos.BOTTOM);
         // !!! Calendar Entry
 
         datesToBePrinted = new String[36];
@@ -72,6 +95,25 @@ public class MonthView extends UiPart<Region> {
         // If month has more than 5 weeks
         if (dateCount != lengthOfMonth) {
             setSixWeeksMonthCalendar(lengthOfMonth);
+        }
+    }
+
+    /**
+     * !!! ADD COMMENTS - IF NOT REMOVED BY THEN LOLS !!!
+     * Custom {@code ListCell} that displays the graphics of a {@code TaskCard}.
+     */
+    class EntryListViewCell extends ListCell<EntryCard> {
+
+        @Override
+        protected void updateItem(EntryCard entry, boolean empty) {
+            super.updateItem(entry, empty);
+
+            if (empty || entry == null) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                setGraphic(entry.getRoot());
+            }
         }
     }
 
