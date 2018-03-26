@@ -7,6 +7,7 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
@@ -71,28 +72,34 @@ public class MonthView extends UiPart<Region> {
 
         // !!! Calendar Entry
 
-        //!!! THIS SHIT WORKS!!!
-        //List<EntryCard> list = new ArrayList<EntryCard>();
-        //list.add(new EntryCard("test"));
+
 
         ListView<EntryCard> entries = new ListView<>();
-        //ObservableList<Task> modifiableTaskList = FXCollections.observableList(taskList);
-        //FXCollections.sort(taskList, deadlineComparator());
-        //taskList.sort(deadlineComparator());
-        SortedList<Task> taskSortedList = taskList.sorted(deadlineComparator());
 
-        ObservableList<EntryCard> mappedList = EasyBind.map(
-                taskSortedList, (task) -> new EntryCard(task));
 
-        //ObservableList<EntryCard> mappedList = FXCollections.observableList(list);
+        FilteredList<Task> filteredList = new FilteredList<>(taskList, task -> true);
+
+        filteredList.setPredicate(task -> {
+            LocalDate date = task.getDeadline().date;
+
+            if ((date.getMonthValue() == 3) && (date.getYear() == 2018)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        SortedList<Task> taskSortedList = filteredList.sorted(deadlineComparator());
+
+        ObservableList<EntryCard> mappedList = EasyBind.map(taskSortedList, (task) -> new EntryCard(task));
+
         entries.setItems(mappedList);
         entries.setCellFactory(listView -> new MonthView.EntryListViewCell());
-
-        //ObservableList<String> items = FXCollections.observableArrayList ("Single", "Double");
-        //list.setItems(items);
         entries.setMaxHeight(60);
+
         taskCalendar.add(entries, 1, 4);
         taskCalendar.setValignment(entries, VPos.BOTTOM);
+
         // !!! Calendar Entry
 
         datesToBePrinted = new String[36];
