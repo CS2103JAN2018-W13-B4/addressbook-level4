@@ -2,10 +2,12 @@ package seedu.organizer.ui.calendar;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
@@ -14,6 +16,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
+import seedu.organizer.commons.events.ui.TaskPanelSelectionChangedEvent;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.ui.TaskCard;
 import seedu.organizer.ui.TaskListPanel;
@@ -73,8 +76,13 @@ public class MonthView extends UiPart<Region> {
         //list.add(new EntryCard("test"));
 
         ListView<EntryCard> entries = new ListView<>();
+        //ObservableList<Task> modifiableTaskList = FXCollections.observableList(taskList);
+        //FXCollections.sort(taskList, deadlineComparator());
+        //taskList.sort(deadlineComparator());
+        SortedList<Task> taskSortedList = taskList.sorted(deadlineComparator());
+
         ObservableList<EntryCard> mappedList = EasyBind.map(
-                taskList, (person) -> new EntryCard(person));
+                taskSortedList, (task) -> new EntryCard(task));
 
         //ObservableList<EntryCard> mappedList = FXCollections.observableList(list);
         entries.setItems(mappedList);
@@ -96,6 +104,15 @@ public class MonthView extends UiPart<Region> {
         if (dateCount != lengthOfMonth) {
             setSixWeeksMonthCalendar(lengthOfMonth);
         }
+    }
+
+    private static Comparator<Task> deadlineComparator() {
+        return new Comparator<Task>() {
+            @Override
+            public int compare(Task task1, Task task2) {
+                return (task1.getDeadline().date).compareTo(task2.getDeadline().date);
+            }
+        };
     }
 
     /**
