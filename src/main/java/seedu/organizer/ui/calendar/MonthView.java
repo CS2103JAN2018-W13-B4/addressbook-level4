@@ -2,9 +2,12 @@ package seedu.organizer.ui.calendar;
 
 import java.time.LocalDate;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -51,6 +54,15 @@ public class MonthView extends UiPart<Region> {
         LocalDate startDate = LocalDate.of(year, month, 1);
         int lengthOfMonth = startDate.lengthOfMonth();
         int startDay = getMonthStartDay(startDate);
+
+        // !!! Calendar Entry
+        ListView<String> list = new ListView<String>();
+        ObservableList<String> items = FXCollections.observableArrayList ("Single", "Double");
+        list.setItems(items);
+        list.setMaxHeight(60);
+        taskCalendar.add(list, 1, 4);
+        taskCalendar.setValignment(list, VPos.BOTTOM);
+        // !!! Calendar Entry
 
         datesToBePrinted = new String[36];
         storeMonthDatesToBePrinted(lengthOfMonth);
