@@ -255,7 +255,7 @@ public class MonthView extends UiPart<Region> {
      * @param column The column number in {@code taskCalendar}. Column number should range from 0 to 6.
      * @param row The row number in {@code taskCalendar}. Row number should range from 0 to 4.
      */
-    private void addEntryListView(ObservableList<EntryCard> toAddObservableList, int column, int row) {
+    private void addEntryListView(ObservableList<EntryCard> toAddObservableList, int row, int column) {
         ListView<EntryCard> entries = new ListView<>();
         entries.setItems(toAddObservableList);
         entries.setCellFactory(listView -> new EntryListViewCell());
