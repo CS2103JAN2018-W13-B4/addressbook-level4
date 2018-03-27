@@ -3,12 +3,12 @@ package seedu.organizer.ui.calendar;
 import java.time.LocalDate;
 import java.time.YearMonth;
 
-import javafx.event.ActionEvent;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -25,22 +25,35 @@ public class MonthView extends UiPart<Region> {
     private int dateCount;
     private String[] datesToBePrinted;
 
+    private ObservableList<String> executedCommandsList;
+
     @FXML
     private Text calendarTitle;
 
     @FXML
     private GridPane taskCalendar;
 
-    @FXML
-    private Button prevMonthButton;
-
-    public MonthView() {
+    public MonthView(ObservableList<String> executedCommandsList) {
         super(FXML);
 
-        prevMonthButton.setOnAction(this::goToPreviousMonth);
+        executedCommandsList.addListener(new ListChangeListener<String>() {
+
+            @Override
+            public void onChanged(Change change) {
+
+                while (change.next()) {
+                    int size = executedCommandsList.size();
+                    String command = executedCommandsList.get(size - 1);
+
+                    if (command.equals("pm")) {
+                        goToPreviousMonth();
+                    }
+                }
+            }
+        });
     }
 
-    private void goToPreviousMonth(ActionEvent event) {
+    private void goToPreviousMonth() {
         Node gridLines = taskCalendar.getChildren().get(0);
         taskCalendar.getChildren().retainAll(gridLines);
         getMonthView(YearMonth.now().minusMonths(2));

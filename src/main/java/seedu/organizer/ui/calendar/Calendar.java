@@ -29,7 +29,7 @@ public class Calendar extends UiPart<Region> {
      *
      * @param yearMonth Current year and month in the YearMonth format.
      */
-    public void getMonthView(YearMonth yearMonth) {
+    /*public void getMonthView(YearMonth yearMonth) {
         monthView = new MonthView();
 
         int currentYear = yearMonth.getYear();
@@ -37,5 +37,5 @@ public class Calendar extends UiPart<Region> {
         monthView.setMonthCalendarTitle(currentYear, yearMonth.getMonth().toString());
         monthView.setMonthCalendarDates(currentYear, yearMonth.getMonthValue());
         calendarPlaceholder.getChildren().add(monthView.getRoot());
-    }
+    }*/
 }

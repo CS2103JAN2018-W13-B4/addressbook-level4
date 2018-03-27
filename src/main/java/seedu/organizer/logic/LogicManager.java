@@ -1,7 +1,10 @@
 package seedu.organizer.logic;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.organizer.commons.core.ComponentManager;
 import seedu.organizer.commons.core.LogsCenter;
@@ -24,16 +27,25 @@ public class LogicManager extends ComponentManager implements Logic {
     private final OrganizerParser organizerParser;
     private final UndoRedoStack undoRedoStack;
 
+    private List<String> executedCommandsList;
+    private ObservableList<String> executedCommandsObservableList;
+
     public LogicManager(Model model) {
         this.model = model;
         history = new CommandHistory();
         organizerParser = new OrganizerParser();
         undoRedoStack = new UndoRedoStack();
+
+        //executedCommandsList = new ArrayList<>();
+        executedCommandsObservableList = FXCollections.observableArrayList();
     }
 
     @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
+
+        executedCommandsObservableList.add(commandText);
+
         try {
             Command command = organizerParser.parseCommand(commandText);
             command.setData(model, history, undoRedoStack);
@@ -53,5 +65,10 @@ public class LogicManager extends ComponentManager implements Logic {
     @Override
     public ListElementPointer getHistorySnapshot() {
         return new ListElementPointer(history.getHistory());
+    }
+
+    @Override
+    public ObservableList<String> getExecutedCommandsList() {
+        return executedCommandsObservableList;
     }
 }

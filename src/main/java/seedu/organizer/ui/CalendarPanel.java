@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.YearMonth;
 import java.util.logging.Logger;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
@@ -21,76 +22,26 @@ public class CalendarPanel extends UiPart<Region> {
 
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
-    private Calendar calendar;
     private MonthView monthView;
     private YearMonth currentYearMonth;
-    private YearMonth viewYearMonth;
 
     @FXML
     private StackPane calendarPane;
 
-    public CalendarPanel() {
+    public CalendarPanel(ObservableList<String> executedCommandsList) {
         super(FXML);
 
-        calendar = new Calendar();
-        monthView = new MonthView();
+        monthView = new MonthView(executedCommandsList);
         currentYearMonth = currentYearMonth.now();
-        viewYearMonth = currentYearMonth;
 
-        loadMainView();
+        createMainView();
     }
 
     /**
-     * Loads the main view of the calendar.
+     * Creates the main view of the calendar, which by default, is the current month view.*
      */
-    private void loadMainView() {
-        try {
-            createMainView();
-        } catch (IOException e) {
-            logger.warning("Error loading main view of Calendar.");
-        }
-    }
-
-    /**
-     * Creates the main view of the calendar, which by default, is the current month view.
-     *
-     * @throws IOException if there's problem fetching the Calendar.
-     */
-    private void createMainView() throws IOException {
-        createMonthView(currentYearMonth);
+    private void createMainView() {
+        monthView.getMonthView(currentYearMonth);
         calendarPane.getChildren().add(monthView.getRoot());
-    }
-
-    /**
-     * ADD COMMENTS!!!
-     * @param previousYearMonth
-     */
-    /*public void loadPreviousMonthView(YearMonth previousYearMonth) {
-        try {
-            calendarPane.getChildren().remove(calendar.getRoot());
-            createPreviousMonthView(previousYearMonth);
-            viewYearMonth.minusMonths(1);
-        } catch (IOException e) {
-            logger.warning("Error loading previous month of Calendar.");
-        }
-    }
-
-    private void createPreviousMonthView(YearMonth previousYearMonth) throws IOException {
-        createMonthView(previousYearMonth);
-        calendarPane.getChildren().add(calendar.getRoot());
-    }
-
-    public YearMonth getYearMonth() {
-        return viewYearMonth;
-    }*/
-
-    /**
-     * Creates the month view of the calendar.
-     *
-     * @param yearMonth Current year and month in the YearMonth format.
-     * @throws IOException if there's problem fetching the Calendar.
-     */
-    private void createMonthView(YearMonth yearMonth) throws IOException {
-        monthView.getMonthView(yearMonth);
     }
 }
