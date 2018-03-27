@@ -15,9 +15,9 @@ public class PreviousMonthCommand extends Command {
 
     @Override
     public CommandResult execute() {
-        CalendarPanel calendarPanel = new CalendarPanel();
-        YearMonth viewYearMonth = calendarPanel.getYearMonth().minusMonths(1);
-        calendarPanel.loadPreviousMonthView(viewYearMonth);
+        //CalendarPanel calendarPanel = new CalendarPanel();
+        //YearMonth viewYearMonth = calendarPanel.getYearMonth().minusMonths(1);
+        //calendarPanel.loadPreviousMonthView(viewYearMonth);
         return new CommandResult("TEST");
     }
 

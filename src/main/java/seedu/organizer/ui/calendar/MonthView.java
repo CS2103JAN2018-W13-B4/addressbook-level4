@@ -1,10 +1,14 @@
 package seedu.organizer.ui.calendar;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -27,8 +31,27 @@ public class MonthView extends UiPart<Region> {
     @FXML
     private GridPane taskCalendar;
 
+    @FXML
+    private Button prevMonthButton;
+
     public MonthView() {
         super(FXML);
+
+        prevMonthButton.setOnAction(this::goToPreviousMonth);
+    }
+
+    private void goToPreviousMonth(ActionEvent event) {
+        Node gridLines = taskCalendar.getChildren().get(0);
+        taskCalendar.getChildren().retainAll(gridLines);
+        getMonthView(YearMonth.now().minusMonths(2));
+    }
+
+    public void getMonthView(YearMonth yearMonth) {
+
+        int currentYear = yearMonth.getYear();
+
+        setMonthCalendarTitle(currentYear, yearMonth.getMonth().toString());
+        setMonthCalendarDates(currentYear, yearMonth.getMonthValue());
     }
 
     /**

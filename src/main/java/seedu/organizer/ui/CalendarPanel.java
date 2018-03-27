@@ -9,6 +9,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.organizer.commons.core.LogsCenter;
 import seedu.organizer.ui.calendar.Calendar;
+import seedu.organizer.ui.calendar.MonthView;
 
 //@@author guekling
 /**
@@ -21,6 +22,7 @@ public class CalendarPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
     private Calendar calendar;
+    private MonthView monthView;
     private YearMonth currentYearMonth;
     private YearMonth viewYearMonth;
 
@@ -31,6 +33,7 @@ public class CalendarPanel extends UiPart<Region> {
         super(FXML);
 
         calendar = new Calendar();
+        monthView = new MonthView();
         currentYearMonth = currentYearMonth.now();
         viewYearMonth = currentYearMonth;
 
@@ -55,14 +58,14 @@ public class CalendarPanel extends UiPart<Region> {
      */
     private void createMainView() throws IOException {
         createMonthView(currentYearMonth);
-        calendarPane.getChildren().add(calendar.getRoot());
+        calendarPane.getChildren().add(monthView.getRoot());
     }
 
     /**
      * ADD COMMENTS!!!
      * @param previousYearMonth
      */
-    public void loadPreviousMonthView(YearMonth previousYearMonth) {
+    /*public void loadPreviousMonthView(YearMonth previousYearMonth) {
         try {
             calendarPane.getChildren().remove(calendar.getRoot());
             createPreviousMonthView(previousYearMonth);
@@ -79,7 +82,7 @@ public class CalendarPanel extends UiPart<Region> {
 
     public YearMonth getYearMonth() {
         return viewYearMonth;
-    }
+    }*/
 
     /**
      * Creates the month view of the calendar.
@@ -88,6 +91,6 @@ public class CalendarPanel extends UiPart<Region> {
      * @throws IOException if there's problem fetching the Calendar.
      */
     private void createMonthView(YearMonth yearMonth) throws IOException {
-        calendar.getMonthView(yearMonth);
+        monthView.getMonthView(yearMonth);
     }
 }
