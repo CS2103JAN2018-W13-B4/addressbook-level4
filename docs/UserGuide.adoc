@@ -481,10 +481,10 @@ between `Done` and `Not Done`. +
 [example-title]#Examples:#
 
 * [example]#`list`# +
-[example]#`toggle 1 1`# +
+[example]#`toggle-subtask 1 1`# +
 Toggle the first subtask of the first task in the PrioriTask.
 * [example]#`find homework`# +
-[example]#`toggle 2 4`# +
+[example]#`toggle-subtask 2 4`# +
 Toggle the fourth subtask of the second task in th result of `find homework` command.
 ====
 
@@ -544,3 +544,5 @@ e.g.[example-no-box]#`toggle 3`#
 === Subtask Feature
 * *Add Subtask* : [format-no-box]#`adds INDEX n/NAME`# +
 e.g. [example-no-box]#`adds 1 n/Submit Report`#
+* *Toggle Subtask* : [format-no-box]#`toggle-subtask TASK_INDEX SUBTASK_INDEX`# +
+e.g.[example-no-box]#`toggle-subtask 3 2`#
