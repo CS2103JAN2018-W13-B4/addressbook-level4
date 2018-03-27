@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.organizer.commons.core.LogsCenter;
+import seedu.organizer.model.task.Task;
 import seedu.organizer.ui.calendar.Calendar;
 import seedu.organizer.ui.calendar.MonthView;
 
@@ -28,10 +29,10 @@ public class CalendarPanel extends UiPart<Region> {
     @FXML
     private StackPane calendarPane;
 
-    public CalendarPanel(ObservableList<String> executedCommandsList) {
+    public CalendarPanel(ObservableList<Task> taskList, ObservableList<String> executedCommandsList) {
         super(FXML);
 
-        monthView = new MonthView(executedCommandsList);
+        monthView = new MonthView(taskList ,executedCommandsList);
         currentYearMonth = currentYearMonth.now();
 
         createMainView();

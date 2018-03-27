@@ -2,9 +2,11 @@ package seedu.organizer.ui.calendar;
 
 import java.time.YearMonth;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import seedu.organizer.model.task.Task;
 import seedu.organizer.ui.UiPart;
 
 //@@author guekling
@@ -16,12 +18,15 @@ public class Calendar extends UiPart<Region> {
     private static final String FXML = "Calendar.fxml";
 
     private MonthView monthView;
+    private ObservableList<Task> taskList;
 
     @FXML
     private StackPane calendarPlaceholder;
 
-    public Calendar() {
+    public Calendar(ObservableList<Task> taskList) {
         super(FXML);
+
+        this.taskList = taskList;
     }
 
     /**
@@ -35,7 +40,7 @@ public class Calendar extends UiPart<Region> {
         int currentYear = yearMonth.getYear();
 
         monthView.setMonthCalendarTitle(currentYear, yearMonth.getMonth().toString());
-        monthView.setMonthCalendarDates(currentYear, yearMonth.getMonthValue());
+        monthView.setMonthCalendarDatesAndEntries(currentYear, yearMonth.getMonthValue());
         calendarPlaceholder.getChildren().add(monthView.getRoot());
     }*/
 }
