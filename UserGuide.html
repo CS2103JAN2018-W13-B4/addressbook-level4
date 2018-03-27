@@ -62,7 +62,7 @@
 <ul class="sectlevel3">
 <li><a href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code">4.2.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></a></li>
 <li><a href="#mark-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code">4.2.2. Mark subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></li>
-<li><a href="#deleting-a-subtask-from-a-task-code-coming-in-v2-0-code">4.2.3. Deleting a subtask from a task <code>[coming in v2.0]</code></a></li>
+<li><a href="#deleting-a-subtask-from-a-task-code-delete-subtask-code-or-code-ds-code-code-since-v1-3-code">4.2.3. Deleting a subtask from a task: <code>delete-subtask</code> or <code>ds</code> <code>[since v1.3]</code></a></li>
 <li><a href="#editing-a-subtask-code-coming-in-v2-0-code">4.2.4. Editing a subtask <code>[coming in v2.0]</code></a></li>
 <li><a href="#reorder-subtask-code-coming-in-v2-0-code">4.2.5. Reorder subtask <code>[coming in v2.0]</code></a></li>
 </ul>
@@ -1028,9 +1028,50 @@ Toggle the fourth subtask of the second task in th result of <code>find homework
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-subtask-from-a-task-code-coming-in-v2-0-code"><a class="link" href="#deleting-a-subtask-from-a-task-code-coming-in-v2-0-code">4.2.3. Deleting a subtask from a task <code>[coming in v2.0]</code></a></h4>
+<h4 id="deleting-a-subtask-from-a-task-code-delete-subtask-code-or-code-ds-code-code-since-v1-3-code"><a class="link" href="#deleting-a-subtask-from-a-task-code-delete-subtask-code-or-code-ds-code-code-since-v1-3-code">4.2.3. Deleting a subtask from a task: <code>delete-subtask</code> or <code>ds</code> <code>[since v1.3]</code></a></h4>
 <div class="paragraph">
-<p><em>{ coming in v2.0 }</em></p>
+<p>Deletes the specified subtask from the PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Delete the <code>SUBTASK_INDEX</code>-th subtask of task at the specified by <code>TASK_INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>delete-subtask 1 1</code></span><br>
+Delete the first subtask of the first task in the PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find cleaning</code></span><br>
+<span class="example"><code>delete-subtask 2 4</code></span><br>
+Delete the fourth subtask of the second task in th result of <code>find cleaning</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1149,6 +1190,10 @@ e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
 <p><strong>Toggle Subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
 e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
 </li>
+<li>
+<p><strong>Delete Subtask</strong> : <span class="format"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1157,7 +1202,7 @@ e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-27 12:52:49 UTC
+Last updated 2018-03-27 13:12:58 UTC
 </div>
 </div>
 </body>
