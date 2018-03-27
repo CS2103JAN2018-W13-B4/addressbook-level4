@@ -42,7 +42,7 @@ public class Calendar extends UiPart<Region> {
         int currentYear = yearMonth.getYear();
 
         monthView.setMonthCalendarTitle(currentYear, yearMonth.getMonth().toString());
-        monthView.setMonthCalendarDates(currentYear, yearMonth.getMonthValue());
+        monthView.setMonthCalendarDatesAndEntries(currentYear, yearMonth.getMonthValue());
         calendarPlaceholder.getChildren().add(monthView.getRoot());
     }
 }
