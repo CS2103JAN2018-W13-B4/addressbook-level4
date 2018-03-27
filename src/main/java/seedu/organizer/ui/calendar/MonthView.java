@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -32,6 +33,12 @@ import org.fxmisc.easybind.EasyBind;
 public class MonthView extends UiPart<Region> {
 
     private static final String FXML = "MonthView.fxml";
+
+    private static final int MAX_NUM_OF_DAYS = 35;
+    private static final int NO_REMAINDER = 0;
+    private static final int SUNDAY = 7;
+    private static final int MAX_COLUMN = 6;
+    private static final int MAX_ROW = 4;
 
     private int dateCount;
     private String[] datesToBePrinted;
@@ -72,17 +79,12 @@ public class MonthView extends UiPart<Region> {
 
         // !!! Calendar Entry
 
-
-
-        ListView<EntryCard> entries = new ListView<>();
-
-
         FilteredList<Task> filteredList = new FilteredList<>(taskList, task -> true);
 
         filteredList.setPredicate(task -> {
             LocalDate date = task.getDeadline().date;
 
-            if ((date.getMonthValue() == 3) && (date.getYear() == 2018)) {
+            if ((date.getMonthValue() == month) && (date.getYear() == year)) {
                 return true;
             } else {
                 return false;
@@ -93,14 +95,29 @@ public class MonthView extends UiPart<Region> {
 
         ObservableList<EntryCard> mappedList = EasyBind.map(taskSortedList, (task) -> new EntryCard(task));
 
+        
+
+        setMonthEntries(startDay, mappedList);
+
+
+
+
+
+
+        /*ListView<EntryCard> entries = new ListView<>();
         entries.setItems(mappedList);
         entries.setCellFactory(listView -> new MonthView.EntryListViewCell());
         entries.setMaxHeight(60);
 
         taskCalendar.add(entries, 1, 4);
-        taskCalendar.setValignment(entries, VPos.BOTTOM);
+        taskCalendar.setValignment(entries, VPos.BOTTOM);*/
+
+
 
         // !!! Calendar Entry
+
+
+
 
         datesToBePrinted = new String[36];
         storeMonthDatesToBePrinted(lengthOfMonth);
@@ -110,6 +127,73 @@ public class MonthView extends UiPart<Region> {
         // If month has more than 5 weeks
         if (dateCount != lengthOfMonth) {
             setSixWeeksMonthCalendar(lengthOfMonth);
+        }
+    }
+
+    private void setMonthEntries(int startDay, ObservableList<EntryCard> mappedList) {
+        int numOfEntries = mappedList.size();
+        for (int size = 0; size < numOfEntries; size++) {
+            List<EntryCard> toAddList = new ArrayList<>();
+            EntryCard currentEntry = mappedList.get(size);
+            toAddList.add(currentEntry);
+            ObservableList<EntryCard> toAddObservableList = FXCollections.observableList(toAddList);
+
+            int deadline = currentEntry.getTask().getDeadline().date.getDayOfMonth();
+            int countDate = deadline + startDay;
+
+            if (size != numOfEntries) {
+                for (int nextSize = size + 1; nextSize < numOfEntries; nextSize++) {
+                    EntryCard nextEntry = mappedList.get(nextSize);
+                    int nextDeadline = nextEntry.getTask().getDeadline().date.getDayOfMonth();
+
+                    if (deadline == nextDeadline) {
+                        toAddList.add(nextEntry);
+                        size++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+            int remainder = countDate % 7;
+            int divisor = countDate / 7;
+
+            if (countDate <= MAX_NUM_OF_DAYS) {
+                if (remainder == NO_REMAINDER) {
+                    int row = divisor - 1;
+                    int column = MAX_COLUMN;
+
+                    ListView<EntryCard> entries = new ListView<>();
+                    entries.setItems(toAddObservableList);
+                    entries.setCellFactory(listView -> new EntryListViewCell());
+                    entries.setMaxHeight(60);
+
+                    taskCalendar.add(entries, column, row);
+                    taskCalendar.setValignment(entries, VPos.BOTTOM);
+                } else {
+                    int row = divisor;
+                    int column = remainder - 1;
+
+                    ListView<EntryCard> entries = new ListView<>();
+                    entries.setItems(toAddObservableList);
+                    entries.setCellFactory(listView -> new EntryListViewCell());
+                    entries.setMaxHeight(60);
+
+                    taskCalendar.add(entries, column, row);
+                    taskCalendar.setValignment(entries, VPos.BOTTOM);
+                }
+            } else {
+                int row = 0;
+                int column = remainder - 1;
+
+                ListView<EntryCard> entries = new ListView<>();
+                entries.setItems(toAddObservableList);
+                entries.setCellFactory(listView -> new EntryListViewCell());
+                entries.setMaxHeight(60);
+
+                taskCalendar.add(entries, column, row);
+                taskCalendar.setValignment(entries, VPos.BOTTOM);
+            }
         }
     }
 
@@ -149,15 +233,15 @@ public class MonthView extends UiPart<Region> {
      */
     private void setFiveWeeksMonthCalendar(int startDay) {
         dateCount = 1;
-        for (int row = 0; row <= 4; row++) {
+        for (int row = 0; row <= MAX_ROW; row++) {
             if (row == 0) {
-                for (int column = startDay; column <= 6; column++) {
+                for (int column = startDay; column <= MAX_COLUMN; column++) {
                     Text dateToPrint = new Text(datesToBePrinted[dateCount]);
                     addMonthDate(dateToPrint, column, row);
                     dateCount++;
                 }
             } else {
-                for (int column = 0; column <= 6; column++) {
+                for (int column = 0; column <= MAX_COLUMN; column++) {
                     Text dateToPrint = new Text(datesToBePrinted[dateCount]);
                     addMonthDate(dateToPrint, column, row);
                     dateCount++;
@@ -193,7 +277,7 @@ public class MonthView extends UiPart<Region> {
         int startDay = startDate.getDayOfWeek().getValue();
 
         // Sunday is the first column in the calendar
-        if (startDay == 7) {
+        if (startDay == SUNDAY) {
             startDay = 0;
         }
 

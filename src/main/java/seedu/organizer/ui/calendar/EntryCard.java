@@ -14,12 +14,19 @@ public class EntryCard extends UiPart<Region> {
 
     private static final String FXML = "EntryCard.fxml";
 
+    private Task task;
+
     @FXML
     private Label entryCard;
 
     public EntryCard(Task task) {
         super(FXML);
 
+        this.task = task;
         entryCard.setText(task.getName().fullName);
+    }
+
+    public Task getTask() {
+        return task;
     }
 }
