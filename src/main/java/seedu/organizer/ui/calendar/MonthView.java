@@ -79,25 +79,20 @@ public class MonthView extends UiPart<Region> {
 
         // !!! Calendar Entry
 
-        FilteredList<Task> filteredList = new FilteredList<>(taskList, task -> true);
-
-        filteredList.setPredicate(task -> {
-            LocalDate date = task.getDeadline().date;
-
-            if ((date.getMonthValue() == month) && (date.getYear() == year)) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-
-        SortedList<Task> taskSortedList = filteredList.sorted(deadlineComparator());
-
-        ObservableList<EntryCard> mappedList = EasyBind.map(taskSortedList, (task) -> new EntryCard(task));
-
-        
+        ObservableList<EntryCard> mappedList = getEntryCardsList(year, month);
 
         setMonthEntries(startDay, mappedList);
+
+        taskList.addListener(new ListChangeListener<Task>() {
+            @Override
+            public void onChanged(ListChangeListener.Change change) {
+
+                while (change.next()) {
+                    ObservableList<EntryCard> updatedMappedList = getEntryCardsList(year, month);
+                    setMonthEntries(startDay, updatedMappedList);
+                }
+            }
+        });
 
 
 
@@ -128,6 +123,24 @@ public class MonthView extends UiPart<Region> {
         if (dateCount != lengthOfMonth) {
             setSixWeeksMonthCalendar(lengthOfMonth);
         }
+    }
+
+    private ObservableList<EntryCard> getEntryCardsList(int year, int month) {
+        FilteredList<Task> filteredList = new FilteredList<>(taskList, task -> true);
+
+        filteredList.setPredicate(task -> {
+            LocalDate date = task.getDeadline().date;
+
+            if ((date.getMonthValue() == month) && (date.getYear() == year)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        SortedList<Task> taskSortedList = filteredList.sorted(deadlineComparator());
+
+        return EasyBind.map(taskSortedList, (task) -> new EntryCard(task));
     }
 
     private void setMonthEntries(int startDay, ObservableList<EntryCard> mappedList) {
