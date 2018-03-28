@@ -66,6 +66,7 @@ public class LogicManager extends ComponentManager implements Logic {
         return new ListElementPointer(history.getHistory());
     }
 
+    //@@author guekling
     @Override
     public ObservableList<String> getExecutedCommandsList() {
         return executedCommandsObservableList;
