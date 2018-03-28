@@ -19,9 +19,7 @@ import seedu.organizer.ui.calendar.MonthView;
 public class CalendarPanel extends UiPart<Region> {
 
     private static final String FXML = "CalendarPanel.fxml";
-
-    private final Logger logger = LogsCenter.getLogger(this.getClass());
-
+    
     private MonthView monthView;
     private YearMonth currentYearMonth;
 
