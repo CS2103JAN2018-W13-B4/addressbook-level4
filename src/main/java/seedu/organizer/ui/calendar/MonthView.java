@@ -22,10 +22,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
+import seedu.organizer.logic.commands.PreviousMonthCommand;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.ui.UiPart;
-
-import seedu.organizer.logic.commands.PreviousMonthCommand;
 
 //@@author guekling
 /**
@@ -109,7 +108,7 @@ public class MonthView extends UiPart<Region> {
      * @param month Full month name.
      * @param year Year represented as a 4-digit integer.
      */
-    protected void setMonthCalendarTitle(int year, String month) {
+    private void setMonthCalendarTitle(int year, String month) {
         calendarTitle.setText(month + " " + year);
     }
 
@@ -119,7 +118,7 @@ public class MonthView extends UiPart<Region> {
      * @param year Year represented as a 4-digit integer.
      * @param month Month represented by numbers from 1 to 12.
      */
-    protected void setMonthCalendarDatesAndEntries(int year, int month) {
+    private void setMonthCalendarDatesAndEntries(int year, int month) {
         LocalDate startDate = LocalDate.of(year, month, 1);
         int lengthOfMonth = startDate.lengthOfMonth();
         int startDay = getMonthStartDay(startDate);
