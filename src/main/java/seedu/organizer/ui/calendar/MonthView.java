@@ -61,38 +61,14 @@ public class MonthView extends UiPart<Region> {
         viewYearMonth = currentYearMonth;
 
         this.taskList = taskList;
-        executedCommandsList.addListener(new ListChangeListener<String>() {
-
-            @Override
-            public void onChanged(Change change) {
-
-                while (change.next()) {
-                    int size = executedCommandsList.size();
-                    String command = executedCommandsList.get(size - 1);
-
-                    if ((command.equals(PreviousMonthCommand.COMMAND_WORD)) || (command.equals(PreviousMonthCommand
-                            .COMMAND_ALIAS))) {
-                        goToPreviousMonth();
-                    }
-                }
-            }
-        });
-    }
-
-    private void goToPreviousMonth() {
-        viewYearMonth = viewYearMonth.minusMonths(1);
-
-        Node gridLines = taskCalendar.getChildren().get(0);
-        taskCalendar.getChildren().retainAll(gridLines);
-        getMonthView(viewYearMonth);
+        this.executedCommandsList = executedCommandsList;
+        addListenerToExecutedCommandsList();
     }
 
     /**
-     * !!! EDIT COMMENT !!!
+     * Displays the month view.
      *
-     * Displays the month view in the {@code calendarPlaceholder}.
-     *
-     * @param yearMonth Current year and month in the YearMonth format.
+     * @param yearMonth Year and month in the YearMonth format.
      */
     public void getMonthView(YearMonth yearMonth) {
 
@@ -148,7 +124,49 @@ public class MonthView extends UiPart<Region> {
         ObservableList<EntryCard> entryCardsList = getEntryCardsList(year, month);
         setMonthEntries(startDay, entryCardsList);
 
-        addListenerToTaskList(year, month, startDay);
+        addListenerToTaskList(year, month);
+    }
+
+    /**
+     * Clears the calendar of all dates and entries, while retaining the {@code gridLines}.
+     */
+    private void clearCalendar() {
+        Node gridLines = taskCalendar.getChildren().get(0);
+        taskCalendar.getChildren().retainAll(gridLines);
+    }
+
+    //====================================== Interacting with Command ==============================================
+
+    /**
+     * Shows the view of the month before the currently viewed month.
+     */
+    private void goToPreviousMonth() {
+        viewYearMonth = viewYearMonth.minusMonths(1);
+
+        clearCalendar();
+        getMonthView(viewYearMonth);
+    }
+
+    /**
+     * Tracks the commands executed by the user in the {@code executedCommandsList}. Calendar view may change depending
+     * on the commands executed by the user.
+     */
+    private void addListenerToExecutedCommandsList() {
+        executedCommandsList.addListener(new ListChangeListener<String>() {
+            @Override
+            public void onChanged(Change change) {
+
+                while (change.next()) {
+                    int size = executedCommandsList.size();
+                    String executedCommand = executedCommandsList.get(size - 1);
+
+                    if ((executedCommand.equals(PreviousMonthCommand.COMMAND_WORD)) || (
+                        executedCommand.equals(PreviousMonthCommand.COMMAND_ALIAS))) {
+                        goToPreviousMonth();
+                    }
+                }
+            }
+        });
     }
 
     //============================= Populating the Month Calendar Dates ===========================================
@@ -399,17 +417,15 @@ public class MonthView extends UiPart<Region> {
      *
      * @param year Year represented as a 4-digit integer.
      * @param month Month represented by numbers from 1 to 12.
-     * @param startDay Integer value of the day of week of the start day of the month. Values ranges from 1 - 7,
-     *                 representing the different days of the week.
      */
-    private void addListenerToTaskList(int year, int month, int startDay) {
+    private void addListenerToTaskList(int year, int month) {
         taskList.addListener(new ListChangeListener<Task>() {
             @Override
             public void onChanged(Change change) {
 
                 while (change.next()) {
-                    ObservableList<EntryCard> updatedEntryCardsList = getEntryCardsList(year, month);
-                    setMonthEntries(startDay, updatedEntryCardsList);
+                    clearCalendar();
+                    setMonthCalendarDatesAndEntries(year, month);
                 }
             }
         });
