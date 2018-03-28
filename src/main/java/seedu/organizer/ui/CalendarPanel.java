@@ -10,7 +10,6 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.organizer.commons.core.LogsCenter;
 import seedu.organizer.model.task.Task;
-import seedu.organizer.ui.calendar.Calendar;
 import seedu.organizer.ui.calendar.MonthView;
 
 //@@author guekling
@@ -32,7 +31,7 @@ public class CalendarPanel extends UiPart<Region> {
     public CalendarPanel(ObservableList<Task> taskList, ObservableList<String> executedCommandsList) {
         super(FXML);
 
-        monthView = new MonthView(taskList ,executedCommandsList);
+        monthView = new MonthView(taskList, executedCommandsList);
         currentYearMonth = currentYearMonth.now();
 
         createMainView();

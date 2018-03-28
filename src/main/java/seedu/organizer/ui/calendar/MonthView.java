@@ -25,6 +25,8 @@ import javafx.scene.text.Text;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.ui.UiPart;
 
+import seedu.organizer.logic.commands.PreviousMonthCommand;
+
 //@@author guekling
 /**
  * Supports the display of the month view of the calendar.
@@ -40,6 +42,8 @@ public class MonthView extends UiPart<Region> {
     private static final int MAX_ROW = 4;
 
     private int dateCount;
+    private YearMonth currentYearMonth;
+    private YearMonth viewYearMonth;
     private String[] datesToBePrinted;
     private ObservableList<Task> taskList;
 
@@ -54,6 +58,9 @@ public class MonthView extends UiPart<Region> {
     public MonthView(ObservableList<Task> taskList, ObservableList<String> executedCommandsList) {
         super(FXML);
 
+        currentYearMonth = YearMonth.now();
+        viewYearMonth = currentYearMonth;
+
         this.taskList = taskList;
         executedCommandsList.addListener(new ListChangeListener<String>() {
 
@@ -64,7 +71,8 @@ public class MonthView extends UiPart<Region> {
                     int size = executedCommandsList.size();
                     String command = executedCommandsList.get(size - 1);
 
-                    if (command.equals("pm")) {
+                    if ((command.equals(PreviousMonthCommand.COMMAND_WORD)) || (command.equals(PreviousMonthCommand
+                            .COMMAND_ALIAS))) {
                         goToPreviousMonth();
                     }
                 }
@@ -73,11 +81,20 @@ public class MonthView extends UiPart<Region> {
     }
 
     private void goToPreviousMonth() {
+        viewYearMonth = viewYearMonth.minusMonths(1);
+
         Node gridLines = taskCalendar.getChildren().get(0);
         taskCalendar.getChildren().retainAll(gridLines);
-        getMonthView(YearMonth.now().minusMonths(2));
+        getMonthView(viewYearMonth);
     }
 
+    /**
+     * !!! EDIT COMMENT !!!
+     *
+     * Displays the month view in the {@code calendarPlaceholder}.
+     *
+     * @param yearMonth Current year and month in the YearMonth format.
+     */
     public void getMonthView(YearMonth yearMonth) {
 
         int currentYear = yearMonth.getYear();
