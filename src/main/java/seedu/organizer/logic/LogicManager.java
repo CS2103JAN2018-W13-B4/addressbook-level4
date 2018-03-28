@@ -34,8 +34,6 @@ public class LogicManager extends ComponentManager implements Logic {
         history = new CommandHistory();
         organizerParser = new OrganizerParser();
         undoRedoStack = new UndoRedoStack();
-
-        //executedCommandsList = new ArrayList<>();
         executedCommandsObservableList = FXCollections.observableArrayList();
     }
 
