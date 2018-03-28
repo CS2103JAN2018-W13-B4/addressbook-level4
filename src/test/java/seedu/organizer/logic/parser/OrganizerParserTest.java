@@ -253,11 +253,11 @@ public class OrganizerParserTest {
     @Test
     public void parseCommand_previousMonthCommand() throws Exception {
         assertTrue(parser.parseCommand(PreviousMonthCommand.COMMAND_WORD) instanceof PreviousMonthCommand);
-        assertTrue(parser.parseCommand(PreviousMonthCommand.COMMAND_WORD + " 3") instanceof
-            PreviousMonthCommand);
+        assertTrue(parser.parseCommand(PreviousMonthCommand.COMMAND_WORD + " 3")
+                instanceof PreviousMonthCommand);
         assertTrue(parser.parseCommand(PreviousMonthCommand.COMMAND_ALIAS) instanceof PreviousMonthCommand);
-        assertTrue(parser.parseCommand(PreviousMonthCommand.COMMAND_ALIAS + " 3") instanceof
-                PreviousMonthCommand);
+        assertTrue(parser.parseCommand(PreviousMonthCommand.COMMAND_ALIAS + " 3")
+                instanceof PreviousMonthCommand);
     }
     //@@author
 
