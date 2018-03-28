@@ -1,14 +1,11 @@
 package seedu.organizer.ui;
 
-import java.io.IOException;
 import java.time.YearMonth;
-import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import seedu.organizer.commons.core.LogsCenter;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.ui.calendar.MonthView;
 
