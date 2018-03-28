@@ -29,7 +29,6 @@ import static seedu.organizer.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.organizer.model.Model.PREDICATE_SHOW_ALL_TASKS;
 import static seedu.organizer.testutil.TypicalIndexes.INDEX_FIRST_TASK;
-import static seedu.organizer.testutil.TypicalIndexes.INDEX_SECOND_TASK;
 import static seedu.organizer.testutil.TypicalTasks.KEYWORD_MATCHING_SPRING;
 import static seedu.organizer.testutil.TypicalTasks.REVISION;
 import static seedu.organizer.testutil.TypicalTasks.STUDY;
