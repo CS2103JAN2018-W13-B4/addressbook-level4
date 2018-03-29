@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import javafx.collections.ObservableList;
+import junit.framework.TestCase;
 import seedu.organizer.logic.CommandHistory;
 import seedu.organizer.logic.UndoRedoStack;
 import seedu.organizer.logic.commands.exceptions.CommandException;
@@ -25,6 +26,10 @@ import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.user.User;
+import seedu.organizer.model.user.exceptions.CurrentlyLoggedInException;
+import seedu.organizer.model.user.exceptions.DuplicateUserException;
+import seedu.organizer.model.user.exceptions.UserNotFoundException;
 import seedu.organizer.testutil.TaskBuilder;
 
 public class AddCommandTest {
@@ -98,6 +103,16 @@ public class AddCommandTest {
      */
     private class ModelStub implements Model {
         @Override
+        public void addUser(User user) throws DuplicateUserException {
+            fail("This method should not be called");
+        }
+
+        @Override
+        public void loginUser(User user) throws UserNotFoundException, CurrentlyLoggedInException {
+            TestCase.fail("This method should not be called");
+        }
+
+        @Override
         public void addTask(Task task) throws DuplicateTaskException {
             fail("This method should not be called.");
         }
@@ -111,6 +126,11 @@ public class AddCommandTest {
         public ReadOnlyOrganizer getOrganizer() {
             fail("This method should not be called.");
             return null;
+        }
+
+        @Override
+        public void deleteCurrentUserTasks() {
+            fail("This method should not be called");
         }
 
         @Override

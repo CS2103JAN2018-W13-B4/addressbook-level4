@@ -3,6 +3,7 @@ package seedu.organizer.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.organizer.model.Model.PREDICATE_SHOW_ALL_TASKS;
+import static seedu.organizer.model.ModelManager.getCurrentlyLoggedInUser;
 import static seedu.organizer.model.subtask.UniqueSubtaskList.DuplicateSubtaskException;
 
 import java.util.List;
@@ -24,6 +25,7 @@ import seedu.organizer.model.task.Status;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.user.exceptions.NoUserLoggedInException;
 
 /**
  * Add a subtask into a task
@@ -66,6 +68,8 @@ public class AddSubtaskCommand extends UndoableCommand {
             throw new AssertionError("The target task cannot be missing");
         } catch (DuplicateSubtaskException dse) {
             throw new CommandException(MESSAGE_DUPLICATED);
+        } catch (NoUserLoggedInException e) {
+            throw new AssertionError("No user is logged in");
         }
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         return new CommandResult(String.format(MESSAGE_SUCCESS, editedTask));
@@ -101,7 +105,7 @@ public class AddSubtaskCommand extends UndoableCommand {
         updatedSubtasks.add(toAdd);
 
         return new Task(updatedName, updatedPriority, updatedDeadline, oldDateAdded, oldDateCompleted,
-                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList());
+                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList(), getCurrentlyLoggedInUser());
     }
 
     @Override

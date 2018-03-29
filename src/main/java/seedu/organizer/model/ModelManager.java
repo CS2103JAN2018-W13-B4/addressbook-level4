@@ -16,12 +16,21 @@ import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.task.predicates.TaskContainsUserPredicate;
+import seedu.organizer.model.user.User;
+import seedu.organizer.model.user.exceptions.CurrentlyLoggedInException;
+import seedu.organizer.model.user.exceptions.DuplicateUserException;
+import seedu.organizer.model.user.exceptions.NoUserLoggedInException;
+import seedu.organizer.model.user.exceptions.UserNotFoundException;
 
 /**
  * Represents the in-memory model of the organizer book data.
  * All changes to any model should be synchronized.
  */
 public class ModelManager extends ComponentManager implements Model {
+
+    private static User currentlyLoggedInUser = null;
+
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final Organizer organizer;
@@ -38,6 +47,7 @@ public class ModelManager extends ComponentManager implements Model {
 
         this.organizer = new Organizer(organizer);
         filteredTasks = new FilteredList<>(this.organizer.getTaskList());
+        updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
     }
 
     public ModelManager() {
@@ -45,7 +55,10 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void resetData(ReadOnlyOrganizer newData) {
+    public void resetData(ReadOnlyOrganizer newData) throws NoUserLoggedInException {
+        if (currentlyLoggedInUser == null) {
+            throw new NoUserLoggedInException();
+        }
         organizer.resetData(newData);
         indicateOrganizerChanged();
     }
@@ -61,29 +74,69 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public synchronized void deleteTask(Task target) throws TaskNotFoundException {
+    public synchronized void deleteTask(Task target) throws TaskNotFoundException, NoUserLoggedInException {
+        if (currentlyLoggedInUser == null) {
+            throw new NoUserLoggedInException();
+        }
         organizer.removeTask(target);
         indicateOrganizerChanged();
     }
 
     @Override
-    public synchronized void addTask(Task task) throws DuplicateTaskException {
+    public synchronized void addTask(Task task) throws DuplicateTaskException, NoUserLoggedInException {
+        if (currentlyLoggedInUser == null) {
+            throw new NoUserLoggedInException();
+        }
         organizer.addTask(task);
         updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         indicateOrganizerChanged();
     }
 
+    //@@author dominickenn
+    public static User getCurrentlyLoggedInUser() {
+        return currentlyLoggedInUser;
+    }
+
+    @Override
+    public synchronized void addUser(User user) throws DuplicateUserException {
+        organizer.addUser(user);
+        indicateOrganizerChanged();
+    }
+
+    @Override
+    public synchronized void loginUser(User user) throws UserNotFoundException, CurrentlyLoggedInException {
+        organizer.loginUser(user);
+        currentlyLoggedInUser = organizer.getCurrentLoggedInUser();
+        updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
+        indicateOrganizerChanged();
+    }
+
+    @Override
+    public synchronized void deleteCurrentUserTasks() throws NoUserLoggedInException {
+        if (currentlyLoggedInUser == null) {
+            throw new NoUserLoggedInException();
+        }
+        organizer.deleteUserTasks(getCurrentlyLoggedInUser());
+        indicateOrganizerChanged();
+    }
+    //@@author
+
     @Override
     public void updateTask(Task target, Task editedTask)
-            throws DuplicateTaskException, TaskNotFoundException {
+            throws DuplicateTaskException, TaskNotFoundException, NoUserLoggedInException {
         requireAllNonNull(target, editedTask);
-
+        if (currentlyLoggedInUser == null) {
+            throw new NoUserLoggedInException();
+        }
         organizer.updateTask(target, editedTask);
         indicateOrganizerChanged();
     }
 
     @Override
-    public void deleteTag(Tag tag) {
+    public void deleteTag(Tag tag) throws NoUserLoggedInException {
+        if (currentlyLoggedInUser == null) {
+            throw new NoUserLoggedInException();
+        }
         organizer.removeTag(tag);
     }
 
@@ -98,11 +151,19 @@ public class ModelManager extends ComponentManager implements Model {
         return FXCollections.unmodifiableObservableList(filteredTasks);
     }
 
+    //@@author dominickenn
     @Override
     public void updateFilteredTaskList(Predicate<Task> predicate) {
         requireNonNull(predicate);
-        filteredTasks.setPredicate(predicate);
+        if (getCurrentlyLoggedInUser() == null) {
+            filteredTasks.setPredicate(PREDICATE_SHOW_NO_TASKS);
+        } else {
+            Predicate<Task> predicateWithCurrentUser = new TaskContainsUserPredicate(getCurrentlyLoggedInUser());
+            Predicate<Task> adaptedPredicate = predicate.and(predicateWithCurrentUser);
+            filteredTasks.setPredicate(adaptedPredicate);
+        }
     }
+    //@@author
 
     @Override
     public boolean equals(Object obj) {

@@ -10,9 +10,12 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import seedu.organizer.commons.util.CollectionUtil;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.task.predicates.TaskContainsUserPredicate;
+import seedu.organizer.model.user.User;
 
 /**
  * A list of tasks that enforces uniqueness between its elements and does not allow nulls.
@@ -89,6 +92,17 @@ public class UniqueTaskList implements Iterable<Task> {
         return taskFoundAndDeleted;
     }
 
+    //@@author dominickenn
+    /**
+     * Removes all tasks belonging to {@code user}
+     */
+    public void removeUserTasks(User user) {
+        FilteredList<Task> filteredList = new FilteredList<>(internalList);
+        filteredList.setPredicate(new TaskContainsUserPredicate(user));
+        internalList.removeAll(filteredList);
+    }
+    //@@author
+
     public void setTasks(UniqueTaskList replacement) {
         this.internalList.setAll(replacement.internalList);
     }
@@ -108,6 +122,17 @@ public class UniqueTaskList implements Iterable<Task> {
     public ObservableList<Task> asObservableList() {
         return FXCollections.unmodifiableObservableList(internalList);
     }
+
+    //@@author dominickenn
+    /**
+     * Returns a filtered backing list as an unmodifiable {@code ObservableList}
+     */
+    public ObservableList<Task> currentUserObservableList(User user) {
+        FilteredList<Task> filteredList = new FilteredList<>(internalList);
+        filteredList.setPredicate(new TaskContainsUserPredicate(user));
+        return FXCollections.unmodifiableObservableList(filteredList);
+    }
+    //@@author
 
     @Override
     public Iterator<Task> iterator() {
@@ -157,7 +182,7 @@ public class UniqueTaskList implements Iterable<Task> {
         if (dateAdded.isEqual(LocalDate.now())) {
             newTask = new Task(task.getName(), task.getPriority(), task.getDeadline(), task.getDateAdded(),
                     task.getDateCompleted(), task.getDescription(), task.getStatus(), task.getTags(),
-                    task.getSubtasks());
+                    task.getSubtasks(), task.getUser());
         } else if (currentDate.isBefore(deadline)) {
             int priorityToIncrease = (int) (priorityDifferenceFromMax
                     * ((double) (dayDifferenceAddedToDeadline - dayDifferenceCurrentToDeadline)
@@ -165,12 +190,12 @@ public class UniqueTaskList implements Iterable<Task> {
             newPriority = new Priority(String.valueOf(Integer.parseInt(curPriority.value) + priorityToIncrease));
             newTask = new Task(task.getName(), newPriority, task.getDeadline(), task.getDateAdded(),
                     task.getDateCompleted(), task.getDescription(), task.getStatus(), task.getTags(),
-                    task.getSubtasks());
+                    task.getSubtasks(), task.getUser());
         } else {
             newPriority = new Priority(Priority.HIGHEST_SETTABLE_PRIORITY_LEVEL);
             newTask = new Task(task.getName(), newPriority, task.getDeadline(), task.getDateAdded(),
                     task.getDateCompleted(), task.getDescription(), task.getStatus(), task.getTags(),
-                    task.getSubtasks());
+                    task.getSubtasks(), task.getUser());
         }
 
         requireNonNull(newTask);

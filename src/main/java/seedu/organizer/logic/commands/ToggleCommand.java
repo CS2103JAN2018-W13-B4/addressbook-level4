@@ -1,6 +1,7 @@
 package seedu.organizer.logic.commands;
 
 import static seedu.organizer.model.Model.PREDICATE_SHOW_ALL_TASKS;
+import static seedu.organizer.model.ModelManager.getCurrentlyLoggedInUser;
 
 import java.util.List;
 import java.util.Set;
@@ -20,6 +21,7 @@ import seedu.organizer.model.task.Status;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.user.exceptions.NoUserLoggedInException;
 
 /**
  * Inverse the value of task status (Done or Not done)
@@ -54,6 +56,8 @@ public class ToggleCommand extends UndoableCommand {
             throw new CommandException(MESSAGE_DUPLICATE_TASK);
         } catch (TaskNotFoundException pnfe) {
             throw new AssertionError("The target task cannot be missing");
+        } catch (NoUserLoggedInException e) {
+            throw new AssertionError("No user is logged in");
         }
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
@@ -88,7 +92,8 @@ public class ToggleCommand extends UndoableCommand {
         Status updatedStatus = taskToEdit.getStatus().getInverse();
 
         return new Task(updatedName, updatedPriority, updatedDeadline, oldDateAdded,
-                updatedDateCompleted, updatedDescription, updatedStatus, updatedTags, updatedSubtasks);
+                updatedDateCompleted, updatedDescription, updatedStatus, updatedTags,
+                updatedSubtasks, getCurrentlyLoggedInUser());
     }
 
     @Override

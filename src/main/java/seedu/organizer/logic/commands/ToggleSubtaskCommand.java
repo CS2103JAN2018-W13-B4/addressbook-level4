@@ -22,6 +22,8 @@ import seedu.organizer.model.task.Status;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.user.User;
+import seedu.organizer.model.user.exceptions.NoUserLoggedInException;
 
 /**
  * Inverse the value of task status
@@ -60,6 +62,8 @@ public class ToggleSubtaskCommand extends UndoableCommand {
             throw new CommandException("This exception should not happen (duplicated task while toggling)");
         } catch (TaskNotFoundException pnfe) {
             throw new AssertionError("This exception should not happen (task missing while toggling)");
+        } catch (NoUserLoggedInException e) {
+            e.printStackTrace();
         }
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         return new CommandResult(String.format(MESSAGE_EDIT_SUBTASK_SUCCESS, editedSubtask));
@@ -96,6 +100,7 @@ public class ToggleSubtaskCommand extends UndoableCommand {
         Set<Tag> updatedTags = taskToEdit.getTags();
         List<Subtask> originalSubtasks = new ArrayList<>(taskToEdit.getSubtasks());
         Status updatedStatus = taskToEdit.getStatus();
+        User user = taskToEdit.getUser();
 
         Subtask originalSubtask = originalSubtasks.get(subtaskIndex.getZeroBased());
         Name subtaskName = originalSubtask.getName();
@@ -107,7 +112,7 @@ public class ToggleSubtaskCommand extends UndoableCommand {
         UniqueSubtaskList updatedSubtasks = new UniqueSubtaskList(originalSubtasks);
 
         return new Task(updatedName, updatedPriority, updatedDeadline, oldDateAdded, updatedDateCompleted,
-                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList());
+                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList(), user);
     }
 
     @Override

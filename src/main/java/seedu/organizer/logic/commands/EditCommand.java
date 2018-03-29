@@ -7,6 +7,7 @@ import static seedu.organizer.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.organizer.model.Model.PREDICATE_SHOW_ALL_TASKS;
+import static seedu.organizer.model.ModelManager.getCurrentlyLoggedInUser;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,6 +29,7 @@ import seedu.organizer.model.task.Status;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.user.exceptions.NoUserLoggedInException;
 
 /**
  * Edits the details of an existing task in the organizer book.
@@ -80,6 +82,8 @@ public class EditCommand extends UndoableCommand {
             throw new CommandException(MESSAGE_DUPLICATE_TASK);
         } catch (TaskNotFoundException pnfe) {
             throw new AssertionError("The target task cannot be missing");
+        } catch (NoUserLoggedInException e) {
+            throw new AssertionError("No user is logged in");
         }
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
@@ -115,7 +119,8 @@ public class EditCommand extends UndoableCommand {
         List<Subtask> updatedSubtasks = editTaskDescriptor.getSubtasks().orElse(taskToEdit.getSubtasks());
 
         return new Task(updatedName, updatedPriority, updatedDeadline, oldDateAdded,
-                oldDateCompleted, updatedDescription, updatedstatus, updatedTags, updatedSubtasks);
+                oldDateCompleted, updatedDescription, updatedstatus, updatedTags,
+                updatedSubtasks, getCurrentlyLoggedInUser());
     }
 
     @Override

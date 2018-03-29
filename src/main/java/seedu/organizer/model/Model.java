@@ -7,6 +7,11 @@ import seedu.organizer.model.tag.Tag;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.user.User;
+import seedu.organizer.model.user.exceptions.CurrentlyLoggedInException;
+import seedu.organizer.model.user.exceptions.DuplicateUserException;
+import seedu.organizer.model.user.exceptions.NoUserLoggedInException;
+import seedu.organizer.model.user.exceptions.UserNotFoundException;
 
 /**
  * The API of the Model component.
@@ -15,17 +20,29 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Task> PREDICATE_SHOW_ALL_TASKS = unused -> true;
 
+    /** {@code Predicate} that always evaluate to false */
+    Predicate<Task> PREDICATE_SHOW_NO_TASKS = unused -> false;
+
     /** Clears existing backing model and replaces with the provided new data. */
-    void resetData(ReadOnlyOrganizer newData);
+    void resetData(ReadOnlyOrganizer newData) throws NoUserLoggedInException;
 
     /** Returns the Organizer */
     ReadOnlyOrganizer getOrganizer();
 
+    /** Deletes the current users task. */
+    void deleteCurrentUserTasks() throws NoUserLoggedInException;
+
     /** Deletes the given task. */
-    void deleteTask(Task target) throws TaskNotFoundException;
+    void deleteTask(Task target) throws TaskNotFoundException, NoUserLoggedInException;
 
     /** Adds the given task */
-    void addTask(Task task) throws DuplicateTaskException;
+    void addTask(Task task) throws DuplicateTaskException, NoUserLoggedInException;
+
+    /** Adds a user */
+    void addUser(User user) throws DuplicateUserException;
+
+    /** Login a user */
+    void loginUser(User user) throws UserNotFoundException, CurrentlyLoggedInException;
 
     /**
      * Replaces the given task {@code target} with {@code editedTask}.
@@ -35,7 +52,7 @@ public interface Model {
      * @throws TaskNotFoundException if {@code target} could not be found in the list.
      */
     void updateTask(Task target, Task editedTask)
-            throws DuplicateTaskException, TaskNotFoundException;
+            throws DuplicateTaskException, TaskNotFoundException, NoUserLoggedInException;
 
     /** Returns an unmodifiable view of the filtered task list */
     ObservableList<Task> getFilteredTaskList();
@@ -47,5 +64,5 @@ public interface Model {
     void updateFilteredTaskList(Predicate<Task> predicate);
 
     /** Removes the given {@code tag} from all {@code Task}s. */
-    void deleteTag(Tag tag);
+    void deleteTag(Tag tag) throws NoUserLoggedInException;
 }

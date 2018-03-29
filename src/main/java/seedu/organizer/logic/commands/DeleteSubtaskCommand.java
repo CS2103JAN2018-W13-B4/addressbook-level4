@@ -22,6 +22,8 @@ import seedu.organizer.model.task.Status;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.model.task.exceptions.DuplicateTaskException;
 import seedu.organizer.model.task.exceptions.TaskNotFoundException;
+import seedu.organizer.model.user.User;
+import seedu.organizer.model.user.exceptions.NoUserLoggedInException;
 
 /**
  * Deletes a subtask of a task
@@ -60,6 +62,8 @@ public class DeleteSubtaskCommand extends UndoableCommand {
             throw new CommandException("This exception should not happen (duplicated task while toggling)");
         } catch (TaskNotFoundException pnfe) {
             throw new AssertionError("This exception should not happen (task missing while toggling)");
+        } catch (NoUserLoggedInException e) {
+            throw new AssertionError("No user is logged in");
         }
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         return new CommandResult(String.format(MESSAGE_EDIT_SUBTASK_SUCCESS, deletedSubtask));
@@ -93,6 +97,7 @@ public class DeleteSubtaskCommand extends UndoableCommand {
         DateAdded oldDateAdded = taskToEdit.getDateAdded();
         DateCompleted oldDateCompleted = taskToEdit.getDateCompleted();
         Description updatedDescription = taskToEdit.getDescription();
+        User user = taskToEdit.getUser();
         Set<Tag> updatedTags = taskToEdit.getTags();
         List<Subtask> originalSubtasks = new ArrayList<>(taskToEdit.getSubtasks());
         Status updatedStatus = taskToEdit.getStatus();
@@ -101,7 +106,7 @@ public class DeleteSubtaskCommand extends UndoableCommand {
         UniqueSubtaskList updatedSubtasks = new UniqueSubtaskList(originalSubtasks);
 
         return new Task(updatedName, updatedPriority, updatedDeadline, oldDateAdded, oldDateCompleted,
-                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList());
+                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList(), user);
     }
 
     @Override
