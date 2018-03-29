@@ -1,8 +1,8 @@
 package seedu.organizer.logic.commands;
 
+//@@author guekling
 /**
- * ADD COMMENTS!!!
- * Lists all persons in the organizer book to the user.
+ * Shows the view of the month before the currently viewed month.
  */
 public class PreviousMonthCommand extends Command {
 
