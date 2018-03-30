@@ -1,20 +1,20 @@
 package seedu.organizer.ui;
 
+import static org.junit.Assert.assertEquals;
+import static seedu.organizer.testutil.TypicalExecutedCommands.getTypicalExecutedCommands;
+import static seedu.organizer.testutil.TypicalTasks.getTypicalTasks;
+
+import java.time.YearMonth;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import guitests.guihandles.CalendarPanelHandle;
 import guitests.guihandles.MonthViewHandle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import seedu.organizer.model.task.Task;
-
-import static org.junit.Assert.assertEquals;
-import static seedu.organizer.testutil.TypicalExecutedCommands.getTypicalExecutedCommands;
-import static seedu.organizer.testutil.TypicalTasks.getTypicalTasks;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import java.time.YearMonth;
 
 //@@author guekling
 public class CalendarPanelTest extends GuiUnitTest {

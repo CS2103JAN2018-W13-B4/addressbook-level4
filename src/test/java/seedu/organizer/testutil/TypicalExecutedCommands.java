@@ -1,12 +1,12 @@
 package seedu.organizer.testutil;
 
-import seedu.organizer.logic.commands.AddCommand;
-import seedu.organizer.logic.commands.ListCommand;
-import seedu.organizer.logic.commands.PreviousMonthCommand;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import seedu.organizer.logic.commands.AddCommand;
+import seedu.organizer.logic.commands.ListCommand;
+import seedu.organizer.logic.commands.PreviousMonthCommand;
 
 /**
  * A utility class containing a list of commands to be used in tests.
