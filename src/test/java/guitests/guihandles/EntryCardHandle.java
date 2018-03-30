@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 
 //@@author guekling
 /**
- * Provides a handle to a entry card in the calendar panel.
+ * Provides a handle to a {@code EntryCard} in the calendar.
  */
 public class EntryCardHandle extends NodeHandle<Node> {
     private static final String ENTRY_CARD_ID = "#entryCard";
