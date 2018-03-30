@@ -1,6 +1,8 @@
 package seedu.organizer.ui;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static seedu.organizer.testutil.TypicalExecutedCommands.PREVIOUS_MONTH_COMMAND_ALIAS;
 import static seedu.organizer.testutil.TypicalExecutedCommands.PREVIOUS_MONTH_COMMAND_WORD;
 import static seedu.organizer.testutil.TypicalExecutedCommands.getTypicalExecutedCommands;
@@ -152,19 +154,21 @@ public class MonthViewTest extends GuiUnitTest {
     public void goToPreviousMonth_commandsSuccessful() {
         monthView.getMonthView(MAY_2018);
 
+        // using command word to go to previous month
         addCommandToExecutedCommandsList(PREVIOUS_MONTH_COMMAND_WORD);
 
-        // verify that command is successful by ensuring calendar title is displayed correctly
-        monthViewHandle.getCalendarTitleText();
-        String expectedTitle = "APRIL 2018";
-        assertEquals(expectedTitle, monthViewHandle.getCalendarTitleText());
+        MonthView expectedMonthView = new MonthView(TYPICAL_TASKS, TYPICAL_EXECUTED_COMMANDS);
+        expectedMonthView.getMonthView(YearMonth.of(2018, 4));
+        guiRobot.pause();
+        monthView.equals(expectedMonthView);
+
+        // using command alias to go to previous month
 
         addCommandToExecutedCommandsList(PREVIOUS_MONTH_COMMAND_ALIAS);
 
-        // verify that command is successful by ensuring that calendar title is displayed correctly
-        monthViewHandle.getCalendarTitleText();
-        expectedTitle = "MARCH 2018";
-        assertEquals(expectedTitle, monthViewHandle.getCalendarTitleText());
+        expectedMonthView.getMonthView(YearMonth.of(2018, 3));
+        guiRobot.pause();
+        monthView.equals(expectedMonthView);
     }
 
     @Test
@@ -214,6 +218,31 @@ public class MonthViewTest extends GuiUnitTest {
         actualEntryCard = entriesListView.getItems().get(0);
         expectedEntryCard = new EntryCard(toAddTaskTwo);
         assertEquals(expectedEntryCard, actualEntryCard);
+    }
+
+    @Test
+    public void equals() {
+        monthView.getMonthView(MAY_2018);
+
+        // same object -> returns true
+        assertTrue(monthView.equals(monthView));
+
+        // same month view -> returns true
+        MonthView newMonthView = new MonthView(TYPICAL_TASKS, TYPICAL_EXECUTED_COMMANDS);
+        newMonthView.getMonthView(YearMonth.of(2018, 5));
+        guiRobot.pause();
+        assertTrue(monthView.equals(newMonthView));
+
+        // null -> returns false
+        assertFalse(monthView.equals(null));
+
+        // different types -> returns false
+        assertFalse(monthView.equals(0));
+
+        // different month view -> returns false
+        newMonthView.getMonthView(YearMonth.of(2018, 3));
+        guiRobot.pause();
+        assertFalse(monthView.equals(newMonthView));
     }
 
     /**
