@@ -483,4 +483,59 @@ public class MonthView extends UiPart<Region> {
             }
         }
     }
+
+    //================================================= isEqual ======================================================
+
+    /**
+     * Checks if the entries are the same.
+     */
+    public boolean entriesIsEqual(Object other) {
+        MonthView monthView = (MonthView) other;
+
+        for (int size = 0; size < taskList.size(); size++) {
+            return taskList.get(size).equals(monthView.taskList.get(size));
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks if the dates are printed in the same row and column.
+     */
+    public boolean dateIsEqual(Object other) {
+        MonthView monthView = (MonthView) other;
+
+        for (int date = 1; date <= viewYearMonth.lengthOfMonth(); date++) {
+            Node expectedText = taskCalendar.lookup("#date" + String.valueOf(date));
+            int expectedRow = taskCalendar.getRowIndex(expectedText);
+            int expectedColumn = taskCalendar.getColumnIndex(expectedText);
+
+            Node actualText = monthView.taskCalendar.lookup("#date" + String.valueOf(date));
+            int actualRow = taskCalendar.getRowIndex(actualText);
+            int actualColumn = taskCalendar.getColumnIndex(actualText);
+
+            return (expectedRow == actualRow) && (expectedColumn == actualColumn);
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof MonthView)) {
+            return false;
+        }
+
+        // state check
+        MonthView monthView = (MonthView) other;
+        return calendarTitle.getText().equals(monthView.calendarTitle.getText())
+                && dateIsEqual(monthView)
+                && entriesIsEqual(monthView);
+    }
 }

@@ -223,6 +223,9 @@ public class MonthViewTest extends GuiUnitTest {
         TYPICAL_EXECUTED_COMMANDS.add(command);
     }
 
+    /**
+     * Adds a new {@code task} to the {@code TYPICAL_TASKS} observable list.
+     */
     private void addTaskToTaskList(Task task) {
         TYPICAL_TASKS.add(task);
     }
