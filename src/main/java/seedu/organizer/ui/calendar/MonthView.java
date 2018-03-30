@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.fxmisc.easybind.EasyBind;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -45,7 +46,6 @@ public class MonthView extends UiPart<Region> {
     private YearMonth viewYearMonth;
     private String[] datesToBePrinted;
     private ObservableList<Task> taskList;
-
     private ObservableList<String> executedCommandsList;
 
     @FXML
@@ -71,11 +71,11 @@ public class MonthView extends UiPart<Region> {
      * @param yearMonth Year and month in the YearMonth format.
      */
     public void getMonthView(YearMonth yearMonth) {
+        viewYearMonth = yearMonth;
+        int year = yearMonth.getYear();
 
-        int currentYear = yearMonth.getYear();
-
-        setMonthCalendarTitle(currentYear, yearMonth.getMonth().toString());
-        setMonthCalendarDatesAndEntries(currentYear, yearMonth.getMonthValue());
+        setMonthCalendarTitle(year, yearMonth.getMonth().toString());
+        setMonthCalendarDatesAndEntries(year, yearMonth.getMonthValue());
     }
 
     /**
@@ -132,7 +132,14 @@ public class MonthView extends UiPart<Region> {
      */
     private void clearCalendar() {
         Node gridLines = taskCalendar.getChildren().get(0);
-        taskCalendar.getChildren().retainAll(gridLines);
+
+        // To update the JavaFX component from a non-JavaFX thread
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                taskCalendar.getChildren().retainAll(gridLines);
+            }
+        });
     }
 
     //====================================== Interacting with Command ==============================================
@@ -238,9 +245,17 @@ public class MonthView extends UiPart<Region> {
      * @param row The row number in {@code taskCalendar}. Row number should range from 0 to 4.
      */
     private void addMonthDate(Text dateToPrint, int column, int row) {
-        taskCalendar.add(dateToPrint, column, row);
+        // To update the JavaFX component from a non-JavaFX thread
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                taskCalendar.add(dateToPrint, column, row);
+            }
+        });
+
         taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
         taskCalendar.setValignment(dateToPrint, VPos.TOP);
+        dateToPrint.setId("date" + String.valueOf(dateCount));
     }
 
     /**
@@ -324,11 +339,19 @@ public class MonthView extends UiPart<Region> {
      */
     private void addEntryListView(ObservableList<EntryCard> toAddObservableList, int row, int column) {
         ListView<EntryCard> entries = new ListView<>();
+        entries.setId("entry" + String.valueOf(row) + String.valueOf(column));
         entries.setItems(toAddObservableList);
         entries.setCellFactory(listView -> new EntryListViewCell());
         entries.setMaxHeight(60);
 
-        taskCalendar.add(entries, column, row);
+        // To update the JavaFX component from a non-JavaFX thread
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                taskCalendar.add(entries, column, row);
+            }
+        });
+
         taskCalendar.setValignment(entries, VPos.BOTTOM);
     }
 
