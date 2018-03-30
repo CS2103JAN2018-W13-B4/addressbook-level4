@@ -6,9 +6,12 @@ import static org.junit.Assert.assertTrue;
 import static seedu.organizer.testutil.TypicalExecutedCommands.PREVIOUS_MONTH_COMMAND_ALIAS;
 import static seedu.organizer.testutil.TypicalExecutedCommands.PREVIOUS_MONTH_COMMAND_WORD;
 import static seedu.organizer.testutil.TypicalExecutedCommands.getTypicalExecutedCommands;
+import static seedu.organizer.testutil.TypicalTasks.PREPAREBREAKFAST;
 import static seedu.organizer.testutil.TypicalTasks.getTypicalTasks;
 
 import java.time.YearMonth;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -243,6 +246,20 @@ public class MonthViewTest extends GuiUnitTest {
         newMonthView.getMonthView(YearMonth.of(2018, 3));
         guiRobot.pause();
         assertFalse(monthView.equals(newMonthView));
+
+        // different entries -> returns false
+        ObservableList<Task> newTaskList = FXCollections.observableList(new ArrayList<>(Arrays.asList(
+            PREPAREBREAKFAST)));
+        MonthView differentMonthView = new MonthView(newTaskList, TYPICAL_EXECUTED_COMMANDS);
+        differentMonthView.getMonthView(MAY_2018);
+        assertFalse(monthView.equals(differentMonthView));
+
+        // same title but different dates -> returns false
+        MonthView otherMonthView = new MonthView(TYPICAL_TASKS, TYPICAL_EXECUTED_COMMANDS);
+        otherMonthView.getMonthView(DEC_2018);
+        newMonthView.setMonthCalendarTitle(2018, "MAY");
+        assertFalse(monthView.dateIsEqual(otherMonthView));
+
     }
 
     /**

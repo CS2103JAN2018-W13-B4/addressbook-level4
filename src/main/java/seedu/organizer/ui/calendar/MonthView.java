@@ -84,7 +84,7 @@ public class MonthView extends UiPart<Region> {
      * @param month Full month name.
      * @param year Year represented as a 4-digit integer.
      */
-    private void setMonthCalendarTitle(int year, String month) {
+    public void setMonthCalendarTitle(int year, String month) {
         calendarTitle.setText(month + " " + year);
     }
 
@@ -511,8 +511,8 @@ public class MonthView extends UiPart<Region> {
             int expectedColumn = taskCalendar.getColumnIndex(expectedText);
 
             Node actualText = monthView.taskCalendar.lookup("#date" + String.valueOf(date));
-            int actualRow = taskCalendar.getRowIndex(actualText);
-            int actualColumn = taskCalendar.getColumnIndex(actualText);
+            int actualRow = monthView.taskCalendar.getRowIndex(actualText);
+            int actualColumn = monthView.taskCalendar.getColumnIndex(actualText);
 
             return (expectedRow == actualRow) && (expectedColumn == actualColumn);
         }
