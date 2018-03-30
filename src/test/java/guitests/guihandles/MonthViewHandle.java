@@ -27,13 +27,6 @@ public class MonthViewHandle extends NodeHandle<Node> {
     }
 
     /**
-     * Returns a node of the {@code taskCalendar}.
-     */
-    public Node getNode(int index) {
-        return taskCalendarGrid.getChildren().get(index);
-    }
-
-    /**
      * Returns the node of a {@code date}.
      */
     public Node getPrintedDateNode(int date) {

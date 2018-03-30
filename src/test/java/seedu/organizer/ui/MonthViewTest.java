@@ -167,8 +167,14 @@ public class MonthViewTest extends GuiUnitTest {
     }
 
     @Test
-    public void goToPreviousMonth_titleAndDatesPrintedSuccessfully() {
+    public void goToPreviousMonth_titleDatesAndEntriesPrintedSuccessfully() {
         monthView.getMonthView(MAY_2018);
+
+        Task toAddTaskOne = new TaskBuilder().withName("GER1000").withDeadline("2018-04-12").build();
+        addTaskToTaskList(toAddTaskOne);
+
+        Task toAddTaskTwo = new TaskBuilder().withName("CS2010").withDeadline("2018-04-25").build();
+        addTaskToTaskList(toAddTaskTwo);
 
         addCommandToExecutedCommandsList(PREVIOUS_MONTH_COMMAND_WORD);
         guiRobot.pause();
@@ -180,14 +186,6 @@ public class MonthViewTest extends GuiUnitTest {
 
         // verify that grid lines are visible after clearCalendar() is called
         assertEquals(true, monthViewHandle.isGridLinesVisible());
-
-        // verify that previous dates have been cleared after clearCalendar() is called
-        Node node = monthViewHandle.getNode(1);
-        int column = monthViewHandle.getColumnIndex(node);
-        int row = monthViewHandle.getRowIndex(node);
-
-        assertEquals(0, column);
-        assertEquals(0, row);
 
         // verify that the first date of the month is displayed in the correct row and column
         Node startDateNode = monthViewHandle.getPrintedDateNode(1);
@@ -204,6 +202,17 @@ public class MonthViewTest extends GuiUnitTest {
 
         assertEquals(1, lastDateColumn);
         assertEquals(4, lastDateRow);
+
+        // verify that entries are displayed
+        ListView<EntryCard> entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(1, 4);
+        EntryCard actualEntryCard = entriesListView.getItems().get(0);
+        EntryCard expectedEntryCard = new EntryCard(toAddTaskOne);
+        assertEquals(expectedEntryCard, actualEntryCard);
+
+        entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(3, 3);
+        actualEntryCard = entriesListView.getItems().get(0);
+        expectedEntryCard = new EntryCard(toAddTaskTwo);
+        assertEquals(expectedEntryCard, actualEntryCard);
     }
 
     /**
