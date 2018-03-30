@@ -1,15 +1,16 @@
 package seedu.organizer.ui;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static seedu.organizer.ui.testutil.GuiTestAssert.assertEntryCardDisplaysName;
+
+import org.junit.Test;
 
 import guitests.guihandles.EntryCardHandle;
 import seedu.organizer.model.task.Task;
 import seedu.organizer.testutil.TaskBuilder;
 import seedu.organizer.ui.calendar.EntryCard;
-
-import org.junit.Test;
-
-import static seedu.organizer.ui.testutil.GuiTestAssert.assertEntryCardDisplaysName;
 
 //@@author guekling
 public class EntryCardTest extends GuiUnitTest {
@@ -27,6 +28,25 @@ public class EntryCardTest extends GuiUnitTest {
         Task task = new TaskBuilder().build();
         EntryCard entryCard = new EntryCard(task);
         assertTaskEquals(task, entryCard.getTask());
+    }
+
+    @Test
+    public void equals() {
+        Task task = new TaskBuilder().build();
+        EntryCard entryCard = new EntryCard(task);
+
+        // same task, same index -> returns true
+        EntryCard copy = new EntryCard(task);
+        assertTrue(entryCard.equals(copy));
+
+        // same object -> returns true
+        assertTrue(entryCard.equals(entryCard));
+
+        // null -> returns false
+        assertFalse(entryCard.equals(null));
+
+        // different types -> returns false
+        assertFalse(entryCard.equals(0));
     }
 
     /**
