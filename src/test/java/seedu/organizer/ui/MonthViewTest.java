@@ -252,11 +252,13 @@ public class MonthViewTest extends GuiUnitTest {
             PREPAREBREAKFAST)));
         MonthView differentMonthView = new MonthView(newTaskList, TYPICAL_EXECUTED_COMMANDS);
         differentMonthView.getMonthView(MAY_2018);
+        guiRobot.pause();
         assertFalse(monthView.equals(differentMonthView));
 
         // same title but different dates -> returns false
         MonthView otherMonthView = new MonthView(TYPICAL_TASKS, TYPICAL_EXECUTED_COMMANDS);
         otherMonthView.getMonthView(DEC_2018);
+        guiRobot.pause();
         newMonthView.setMonthCalendarTitle(2018, "MAY");
         assertFalse(monthView.dateIsEqual(otherMonthView));
 
