@@ -112,11 +112,12 @@ public class MonthViewTest extends GuiUnitTest {
         expectedEntryCard = new EntryCard(toAddTask);
         assertEquals(expectedEntryCard, actualEntryCard);
 
-        toAddTask = new TaskBuilder().withName("GEQ1000").withDeadline("2018-05-23").build();
+        // entry on a Sunday
+        toAddTask = new TaskBuilder().withName("GEQ1000").withDeadline("2018-05-20").build();
         addTaskToTaskList(toAddTask);
         guiRobot.pause();
 
-        entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(3, 3);
+        entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(3, 0);
         actualEntryCard = entriesListView.getItems().get(0);
         expectedEntryCard = new EntryCard(toAddTask);
         assertEquals(expectedEntryCard, actualEntryCard);

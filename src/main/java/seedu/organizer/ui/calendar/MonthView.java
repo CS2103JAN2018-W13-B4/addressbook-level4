@@ -309,7 +309,7 @@ public class MonthView extends UiPart<Region> {
      */
     private void addEntries(ObservableList<EntryCard> toAddObservableList, int countDate, int remainder, int divisor) {
         if (countDate <= MAX_NUM_OF_DAYS) {
-            if (remainder == NO_REMAINDER) {
+            if (remainder == NO_REMAINDER) { // entry on a Sunday
                 int row = divisor - 1;
                 int column = MAX_COLUMN;
 
