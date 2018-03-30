@@ -44,7 +44,7 @@ public class MonthViewTest extends GuiUnitTest {
     @Test
     public void display_fiveWeeksCalendar() {
         monthView.getMonthView(MAY_2018);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         // verify that calendar title is displayed correctly
         monthViewHandle.getCalendarTitleText();
@@ -71,7 +71,7 @@ public class MonthViewTest extends GuiUnitTest {
     @Test
     public void display_sixWeeksCalendar() {
         monthView.getMonthView(DEC_2018);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         // verify that calendar title is displayed correctly
         monthViewHandle.getCalendarTitleText();
@@ -90,12 +90,12 @@ public class MonthViewTest extends GuiUnitTest {
     @Test
     public void showEntries_fiveWeeksCalendar() {
         monthView.getMonthView(MAY_2018);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         // one entry
         Task toAddTask = new TaskBuilder().withName("ES2660").withDeadline("2018-05-01").build();
         addTaskToTaskList(toAddTask);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         ListView<EntryCard> entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(0, 2);
         EntryCard actualEntryCard = entriesListView.getItems().get(0);
@@ -105,7 +105,7 @@ public class MonthViewTest extends GuiUnitTest {
         // multiple entries on different dates
         toAddTask = new TaskBuilder().withName("CS2101").withDeadline("2018-05-18").build();
         addTaskToTaskList(toAddTask);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(2, 5);
         actualEntryCard = entriesListView.getItems().get(0);
@@ -114,7 +114,7 @@ public class MonthViewTest extends GuiUnitTest {
 
         toAddTask = new TaskBuilder().withName("GEQ1000").withDeadline("2018-05-23").build();
         addTaskToTaskList(toAddTask);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(3, 3);
         actualEntryCard = entriesListView.getItems().get(0);
@@ -124,7 +124,7 @@ public class MonthViewTest extends GuiUnitTest {
         // entries on the same date
         toAddTask = new TaskBuilder().withName("MA1101R").withDeadline("2018-05-18").build();
         addTaskToTaskList(toAddTask);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(2, 5);
         actualEntryCard = entriesListView.getItems().get(1);
@@ -135,11 +135,11 @@ public class MonthViewTest extends GuiUnitTest {
     @Test
     public void showEntries_sixWeeksCalendar() {
         monthView.getMonthView(DEC_2018);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         Task toAddTask = new TaskBuilder().withName("CS2103T").withDeadline("2018-12-31").build();
         addTaskToTaskList(toAddTask);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         ListView<EntryCard> entriesListView = (ListView) monthViewHandle.getListViewEntriesNode(0, 1);
         EntryCard actualEntryCard = entriesListView.getItems().get(0);
@@ -171,7 +171,7 @@ public class MonthViewTest extends GuiUnitTest {
         monthView.getMonthView(MAY_2018);
 
         addCommandToExecutedCommandsList(PREVIOUS_MONTH_COMMAND_WORD);
-        guiRobot.pauseForHuman();
+        guiRobot.pause();
 
         // verify that calendar title is displayed correctly
         monthViewHandle.getCalendarTitleText();
