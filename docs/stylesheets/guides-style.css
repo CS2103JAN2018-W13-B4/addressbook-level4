@@ -12,6 +12,23 @@ h5, h5 > a.link {
     color: rgb(210,105,30);
 }
 
+.infoblock.exampleblock > .content {
+    background-color: rgb(255,254,247);
+}
+
+.infoblock-title::before {
+    content: "\f02d";
+    font-family: FontAwesome;
+    color: rgb(255,140,0);
+    font-size: 1.3em;
+    padding-right: 10px;
+}
+
+.infoblock-title {
+    font-size: 1.6em;
+    color: rgb(255,140,0);
+}
+
 .parameters code {
     background-color: rgb(173,216,230);
 }

@@ -76,20 +76,20 @@ image::DeveloperGettingStarted1.png[width="600"]
 . Click on `Import Project`.
 . Locate the cloned folder, and select it. Click `OK`. You will be directed to the `Import Project` window (refer to Figure 2).
 
-.The first page of the `Import Project` window.
+.The first page of the `Import Project` window
 image::DeveloperGettingStarted2.png[width="600"]
 
 [start=5]
 . Check the `Create project from existing sources` box and click `Next`. You will be directed to the next window (refer to Figure 3).
 
-.The second page of the `Import Project` window.
+.The second page of the `Import Project` window
 image::DeveloperGettingStarted3.png[width="600"]
 
 [start=6]
 . Fill up the necessary information as follows, and click `Next`. You will be directed to the next window.
 . Click `Next` until to reach the window to select the project SDK (refer to Figure 4).
 
-.`Import Project` window: Select Project SDK
+.Selecting project SDK in the `Import Project` window
 image::DeveloperGettingStarted4.png[width="600"]
 
 [start=8]
@@ -153,16 +153,16 @@ Having both Travis and AppVeyor ensures the application works on both Unix-based
 When you are ready to start developing,
 
 1. Read <<Design-Architecture>> to get some sense of the overall design.
-2. Look at <<Implementation>> to find out more about the major features, to better understand how you can contribute enhancements to those features.
+2. Look at <<Implementation>> to find out more about the major features, and better understand how you can contribute enhancements to those features.
 
 == Design
 
-_{ Preface to be added. }_
+PrioriTask consists of multiple components written in Java, with data being written and stored in XML files. This section contains an overview of the architecture systems used to design and implement the application, and an introduction to some of its major components.
 
 [[Design-Architecture]]
 === Architecture
 
-The *_Architecture Diagram_* (refer to Figure 1) given below explains the high-level design of the App.
+The *_Architecture Diagram_* given below explains the high-level design of the application.
 
 [TIP]
 The `.pptx` files used to create diagrams in this document can be found in the link:{repoURL}/docs/diagrams/[diagrams] folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose `Save as picture`.
@@ -170,35 +170,40 @@ The `.pptx` files used to create diagrams in this document can be found in the l
 .Architecture Diagram
 image::Architecture.png[width="600"]
 
-Given below is a quick overview of each component. The two main components of the App includes:
+Given below is a quick overview of each component. The two main components of the application includes:
 
 . `Main`, with only one class called link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp`]. It is responsible for,
 
-.. Initializing the components in the correct sequence, and connecting them up with each other at app launch.
-.. Shutting down the components and invokes cleanup method where necessary during shut down.
+.. Initializing the components in the correct sequence, and connecting them up with each other at application launch.
+.. Shutting down the components and invoking cleanup method where necessary during shut down.
 
 . <<Design-Commons,*`Commons`*>>, representing a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.
 
 .. `EventsCenter` : This class (written using https://github.com/google/guava/wiki/EventBusExplained[Google's Event Bus library]) is used by components to communicate with other components using events (i.e. a form of _Event Driven_ design).
-.. `LogsCenter` : This class is used by many classes to write log messages to the App's log file.
+.. `LogsCenter` : This class is used by many classes to write log messages to the application's log file.
 
-The rest of the App consists of four components:
+The rest of the application consists of four components:
 
-. <<Design-Ui,*`UI`*>>: Represents the UI of the App
+. <<Design-Ui,*`UI`*>>: Represents the UI of the application
 . <<Design-Logic,*`Logic`*>>: Executes commands
-. <<Design-Model,*`Model`*>>: Holds the data of the App in-memory.
-. <<Design-Storage,*`Storage`*>>: Reads data from, and writes data to, the hard disk.
+. <<Design-Model,*`Model`*>>: Holds the data of the application in-memory
+. <<Design-Storage,*`Storage`*>>: Reads data from, and writes data to, the hard disk
 
-Each of the four components
+Each of the four components,
 
 * Defines its _API_ in an `interface` with the same name as the Component.
 * Exposes its functionality using a `{Component Name}Manager` class.
 
-For example, the `Logic` component (refer to Figure 2) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
+For example, the `Logic` component (refer to Figure 8) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
 
 .Class Diagram of the Logic Component
 image::LogicClassDiagram.png[width="800"]
 
+[.infoblock]
+====
+[infoblock-title]#*More Information*#
+
+[discrete]
 ==== Events-Driven nature of the design
 
 The _Sequence Diagram_ below shows how the components interact for the scenario where the user issues the command `delete 1`.
@@ -207,7 +212,7 @@ The _Sequence Diagram_ below shows how the components interact for the scenario 
 image::SDforDeleteTask.png[width="800"]
 
 [NOTE]
-Note how the `Model` simply raises a `OrganizerChangedEvent` when the Address Book data are changed, instead of asking the `Storage` to save the updates to the hard disk.
+Note how the `Model` simply raises a `OrganizerChangedEvent` when the Organizer data are changed, instead of asking the `Storage` to save the updates to the hard disk.
 
 The diagram below shows how the `EventsCenter` reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.
 
@@ -216,6 +221,7 @@ image::SDforDeleteTaskEventHandling.png[width="800"]
 
 [NOTE]
 Note how the event is propagated through the `EventsCenter` to the `Storage` and `UI` without `Model` having to be coupled to either of them. This is an example of how this Event Driven approach helps us reduce direct coupling between components.
+====
 
 The sections below give more details of each component.
 
