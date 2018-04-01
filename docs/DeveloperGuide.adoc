@@ -22,48 +22,89 @@ PrioriTask is a fairly new application that has much room for improvement. We we
 
 This developer's guide consists of the following sections.
 
-* <<Setting Up>>
+* <<Getting Started>>
 * <<Design>>
 * <<Implementation>>
 * <<Documentation>>
 * <<Testing>>
 * <<Dev Ops>>
 
-== Setting Up
+== Getting Started
 
-_{ Preface to be added. }_
+This section contains information to help you get started developing for PrioriTask. The simple list below will ensure that you get up and running with the application in no time.
 
-=== Prerequisites
+* <<Install prerequisites>>
+* <<Setting up the project in your computer>>
+* <<Verifying the setup>>
+* <<Configurations to do before writing code>>
 
-Before working on PrioriTask, please install these following requirements:
+=== Install prerequisites
+
+Before working on PrioriTask, ensure that you have the following software installed.
 
 . *JDK `1.8.0_60`* or later
 +
 [NOTE]
-Having any Java 8 version is not enough. +
-This app will not work with earlier versions of Java 8.
+PrioriTask works best on JDK `1.8.0_60` or later. +
+It will not work with earlier versions of Java 8.
 +
 
 . *IntelliJ* IDE
 +
 [NOTE]
-IntelliJ by default has Gradle and JavaFx plugins installed. +
-Do not disable them. If you have disabled them, go to `File` > `Settings` > `Plugins` to re-enable them.
-
+PrioriTask requires Gradle and JavaFX plugins. +
+IntelliJ has both plugins installed by default. If you have disabled them, go to `File` > `Settings` > `Plugins` to re-enable them.
 
 === Setting up the project in your computer
 
-After installing all requirements, please do these following steps to setup this project in your computer:
+After you've ensured that you've met all requirements, follow the steps below to setup this project in your computer.
+
+[NOTE]
+The following steps are written for IntelliJ IDEA `2017.3.5` (Ultimate Edition). +
+There may be slight variations in the steps if using other versions of IntelliJ.
 
 . Fork this repo, and clone the fork to your computer.
-. Open IntelliJ (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first) and set up the correct JDK version for Gradle.
-.. Click `Configure` > `Project Defaults` > `Project Structure`.
-.. Click `New...` and find the directory of the JDK.
-. Click `Import Project`.
-. Locate the `build.gradle` file and select it. Click `OK`.
-. Click `Open as Project`.
+. Open IntelliJ. You should see the welcome screen (refer to Figure 1). If you do not see the welcome screen, select `File` > `Close Project` to close the existing project dialog first.
+
+.IntelliJ's Welcome Screen
+image::DeveloperGettingStarted1.png[width="600"]
+
+[start=3]
+. Click on `Import Project`.
+. Locate the cloned folder, and select it. Click `OK`. You will be directed to the `Import Project` window (refer to Figure 2).
+
+.The first page of the `Import Project` window.
+image::DeveloperGettingStarted2.png[width="600"]
+
+[start=5]
+. Check the `Create project from existing sources` box and click `Next`. You will be directed to the next window (refer to Figure 3).
+
+.The second page of the `Import Project` window.
+image::DeveloperGettingStarted3.png[width="600"]
+
+[start=6]
+. Fill up the necessary information as follows, and click `Next`. You will be directed to the next window.
+. Click `Next` until to reach the window to select the project SDK (refer to Figure 4).
+
+.`Import Project` window: Select Project SDK
+image::DeveloperGettingStarted4.png[width="600"]
+
+[start=8]
+. Click on the JDK `1.8` folder in the left pane and click `Next`. If you do not see a JDK `1.8` folder, click on `+` > `JDK`, and find the directory of the JDK.
+. Click `Next` until you reach the last window. Click `Finish` to complete the import of the project. The project will be loaded and you will be brought to the main project window (refer to Figure 5).
+
+.Main Project Window
+image::DeveloperGettingStarted5.png[width="600"]
+
+[start=10]
+. Select `File` > `New` > `Module from Existing Sources...`.
+. Locate the `build.gradle` file and select it. Click `OK`. You will be directed to the `Import Module from Gradle` window (refer to Figure 6).
+
+.`Import Module from Gradle` Window
+image::DeveloperGettingStarted6.png[width="600"]
+
 . Click `OK` to accept the default settings.
-. Open a console and run the command `gradlew processResources` (Mac/Linux: `./gradlew processResources`). It should finish with the `BUILD SUCCESSFUL` message. +
+. Open the `Terminal` (select `Tool Windows` > `Terminal`) and run the command `gradlew processResources` (run `./gradlew processResources` for Mac/Linux users). It should finish with the `BUILD SUCCESSFUL` message. +
 This will generate all resources required by the application and tests.
 
 === Verifying the setup
