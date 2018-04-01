@@ -1,4 +1,6 @@
 = PrioriTask - Developer Guide
+:linkcss:
+:icons: font
 :toc:
 :toc-title:
 :toc-placement: preamble
