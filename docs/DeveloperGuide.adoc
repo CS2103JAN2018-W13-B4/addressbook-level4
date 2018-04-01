@@ -33,12 +33,12 @@ This developer's guide consists of the following sections.
 
 This section contains information to help you get started developing for PrioriTask. The simple list below will ensure that you get up and running with the application in no time.
 
-* <<Install prerequisites>>
+* <<Installing prerequisites>>
 * <<Setting up the project in your computer>>
 * <<Verifying the setup>>
-* <<Configurations to do before writing code>>
+* <<Configuring the project before writing code>>
 
-=== Install prerequisites
+=== Installing prerequisites
 
 Before working on PrioriTask, ensure that you have the following software installed.
 
@@ -109,45 +109,45 @@ This will generate all resources required by the application and tests.
 
 === Verifying the setup
 
-After setting up the project, you can do these step to verify that all requirements are met and the project is correctly set up.
+After setting up the project, do the following steps to verify that the project has been correctly set up.
 
-. Run the `seedu.organizer.MainApp` and try a few commands.
+. Run the `seedu.organizer.MainApp` and try a few commands. You may refer to the <<UserGuide#, UserGuide.adoc>> for more information about the commands.
 . <<Testing,Run the tests>> to ensure they all pass.
 
-=== Configurations to do before writing code
+=== Configuring the project before writing code
 
-_{ Preface to be added. }_
+Before you begin developing, there are a few configurations to be done to ensure that the code you write meets our project standards. 
 
 ==== Configuring the coding style
 
 This project follows https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc[oss-generic coding standards]. IntelliJ's default style is mostly compliant with ours but it uses a different import order from ours. To rectify,
 
-. Go to `File` > `Settings...` (Windows/Linux), or `IntelliJ IDEA` > `Preferences...` (macOS).
+. Go to `File` > `Settings...` (Windows/Linux), or `IntelliJ IDEA` > `Preferences...` (Mac).
 . Select `Editor` > `Code Style` > `Java`.
 . Click on the `Imports` tab to set the order.
 
-* For `Class count to use import with '\*'` and `Names count to use static import with '*'`: Set to `999` to prevent IntelliJ from contracting the import statements
-* For `Import Layout`: The order is `import static all other imports`, `import java.\*`, `import javax.*`, `import org.\*`, `import com.*`, `import all other imports`. Add a `<blank line>` between each `import`
+* For `Class count to use import with '\*'` and `Names count to use static import with '*'`: Set to `999` to prevent IntelliJ from contracting the import statements.
+* For `Import Layout`: The order is `import static all other imports`, `import java.\*`, `import javax.*`, `import org.\*`, `import com.*`, `import all other imports`. Add a `<blank line>` between each `import`.
 
-Optionally, you can follow the <<UsingCheckstyle#, UsingCheckstyle.adoc>> document to configure Intellij to check style-compliance as you write code.
+Optionally, you can follow the <<UsingCheckstyle#, UsingCheckstyle.adoc>> document to configure Intellij to check style-compliance as you write the code.
 
 ==== Updating documentation to match your fork
 
-After forking the repo, links in the documentation will still point to the `se-edu/addressbook-level4` repo. If you plan to develop this as a separate product (i.e. instead of contributing to the `se-edu/addressbook-level4`) , you should replace the URL in the variable `repoURL` in `DeveloperGuide.adoc` and `UserGuide.adoc` with the URL of your fork.
+After forking the repo, links in the documentation will still point to the `CS2103JAN2018-W13-B4/main` repo. If you plan to develop this as a separate product (i.e. instead of contributing to the `CS2103JAN2018-W13-B4/main`) , you should replace the URL in the variable `repoURL` in `DeveloperGuide.adoc` and `UserGuide.adoc` with the URL of your fork.
 
 ==== Setting up CI
 
-Set up Travis to perform Continuous Integration (CI) for your fork. See <<UsingTravis#, UsingTravis.adoc>> to learn how to set it up.
+This project relies heavily on Travis to perform Continuous Integration (CI). You may also set up Travis for your fork. See <<UsingTravis#, UsingTravis.adoc>> to learn how to set it up.
 
 After setting up Travis, you can optionally set up coverage reporting for your team fork (see <<UsingCoveralls#, UsingCoveralls.adoc>>).
 
 [NOTE]
-Coverage reporting could be useful for a team repository that hosts the final version but it is not that useful for your personal fork.
+Coverage reporting could be useful for a team repository that hosts the final version, but is not that useful for your personal fork.
 
 Optionally, you can set up AppVeyor as a second CI (see <<UsingAppVeyor#, UsingAppVeyor.adoc>>).
 
 [NOTE]
-Having both Travis and AppVeyor ensures your App works on both Unix-based platforms and Windows-based platforms (Travis is Unix-based and AppVeyor is Windows-based)
+Having both Travis and AppVeyor ensures the application works on both Unix-based platforms and Windows-based platforms (Travis is Unix-based and AppVeyor is Windows-based).
 
 ==== Getting started with coding
 
