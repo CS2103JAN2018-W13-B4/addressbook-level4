@@ -67,42 +67,48 @@ The following steps are written for IntelliJ IDEA `2017.3.5` (Ultimate Edition).
 There may be slight variations in the steps if using other versions of IntelliJ.
 
 . Fork this repo, and clone the fork to your computer.
-. Open IntelliJ. You should see the welcome screen (refer to Figure 1). If you do not see the welcome screen, select `File` > `Close Project` to close the existing project dialog first.
+. Open IntelliJ. You should see the welcome screen (refer to <<fig-GettingStarted1>>). If you do not see the welcome screen, select `File` > `Close Project` to close the existing project dialog first.
 
+[[fig-GettingStarted1]]
 .IntelliJ's Welcome Screen
 image::DeveloperGettingStarted1.png[width="600"]
 
 [start=3]
 . Click on `Import Project`.
-. Locate the cloned folder, and select it. Click `OK`. You will be directed to the `Import Project` window (refer to Figure 2).
+. Locate the cloned folder, and select it. Click `OK`. You will be directed to the `Import Project` window (refer to <<fig-GettingStarted2>>).
 
+[[fig-GettingStarted2]]
 .The first page of the `Import Project` window
 image::DeveloperGettingStarted2.png[width="600"]
 
 [start=5]
-. Check the `Create project from existing sources` box and click `Next`. You will be directed to the next window (refer to Figure 3).
+. Check the `Create project from existing sources` box and click `Next`. You will be directed to the next window (refer to <<fig-GettingStarted3>>).
 
+[[fig-GettingStarted3]]
 .The second page of the `Import Project` window
 image::DeveloperGettingStarted3.png[width="600"]
 
 [start=6]
 . Fill up the necessary information as follows, and click `Next`. You will be directed to the next window.
-. Click `Next` until to reach the window to select the project SDK (refer to Figure 4).
+. Click `Next` until to reach the window to select the project SDK (refer to <<fig-GettingStarted4>>).
 
+[[fig-GettingStarted4]]
 .Selecting project SDK in the `Import Project` window
 image::DeveloperGettingStarted4.png[width="600"]
 
 [start=8]
 . Click on the JDK `1.8` folder in the left pane and click `Next`. If you do not see a JDK `1.8` folder, click on `+` > `JDK`, and find the directory of the JDK.
-. Click `Next` until you reach the last window. Click `Finish` to complete the import of the project. The project will be loaded and you will be brought to the main project window (refer to Figure 5).
+. Click `Next` until you reach the last window. Click `Finish` to complete the import of the project. The project will be loaded and you will be brought to the main project window (refer to <<fig-GettingStarted5>>).
 
+[[fig-GettingStarted5]]
 .Main Project Window
 image::DeveloperGettingStarted5.png[width="600"]
 
 [start=10]
 . Select `File` > `New` > `Module from Existing Sources...`.
-. Locate the `build.gradle` file and select it. Click `OK`. You will be directed to the `Import Module from Gradle` window (refer to Figure 6).
+. Locate the `build.gradle` file and select it. Click `OK`. You will be directed to the `Import Module from Gradle` window (refer to <<fig-GettingStarted6>>).
 
+[[fig-GettingStarted6]]
 .`Import Module from Gradle` Window
 image::DeveloperGettingStarted6.png[width="600"]
 
@@ -194,8 +200,9 @@ Each of the four components,
 * Defines its _API_ in an `interface` with the same name as the Component.
 * Exposes its functionality using a `{Component Name}Manager` class.
 
-For example, the `Logic` component (refer to Figure 8) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
+For example, the `Logic` component (refer to <<fig-LogicComponent>>) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
 
+[[fig-LogicComponent]]
 .Class Diagram of the Logic Component
 image::LogicClassDiagram.png[width="800"]
 
@@ -228,14 +235,16 @@ The sections below give more details of each component.
 [[Design-Ui]]
 === UI component
 
+The UI consists of a `MainWindow` that is made up of numerous parts (e.g.`CommandBox`, `ResultDisplay`, `TaskListPanel`, `StatusBarFooter`, `CalendarPanel`, etc.). All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+
+The class diagram below describes the structure of the `UI` component.
+
 .Structure of the UI Component
 image::UiClassDiagram.png[width="800"]
 
 *API* : link:{repoURL}/src/main/java/seedu/organizer/ui/Ui.java[`Ui.java`]
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `TaskListPanel`, `StatusBarFooter`, `BrowserPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
-
-The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow`] is specified in link:{repoURL}/src/main/resources/view/MainWindow.fxml[`MainWindow.fxml`]
+The `UI` component uses JavaFX UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow`] is specified in link:{repoURL}/src/main/resources/view/MainWindow.fxml[`MainWindow.fxml`]
 
 The `UI` component,
 
@@ -246,28 +255,42 @@ The `UI` component,
 [[Design-Logic]]
 === Logic component
 
+The `Logic` component consists of the commands and their respective parsers (if necessary). For commands requiring parsers, they are defined in `.java` files prefixed with _'-Parser'_ that are in the `src/main/java/logic/parser` folder. For example, the parser for `AddCommand` is specified in `AddCommandParser.java`.
+
+The class diagram below gives an overview of the structure of the `Logic` component.
+
 [[fig-LogicClassDiagram]]
 .Structure of the Logic Component
 image::LogicClassDiagram.png[width="800"]
 
-.Structure of Commands in the Logic Component. This diagram shows finer details concerning `XYZCommand` and `Command` in <<fig-LogicClassDiagram>>
-image::LogicCommandClassDiagram.png[width="800"]
-
 *API* :
 link:{repoURL}/src/main/java/seedu/organizer/logic/Logic.java[`Logic.java`]
 
-.  `Logic` uses the `OrganizerParser` class to parse the user command.
-.  This results in a `Command` object which is executed by the `LogicManager`.
-.  The command execution can affect the `Model` (e.g. adding a task) and/or raise events.
-.  The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
+There are two types of commands. Commands that modify the state of the organizer inherit from the `UndoableCommand` class, to be used by the undo/redo mechanism (see <<Undo/Redo feature>> for more information). Commands that do not modify the state of the organizer, and cannot be undone, inherit from the `Command` class instead.
+
+The class diagram below gives a more detailed overview of how the command system in the `Logic` component works. It shows the finer details concerning `XYZCommand` and `Command` in <<fig-LogicClassDiagram>>.
+
+.Structure of Commands in the Logic Component
+image::LogicCommandClassDiagram.png[width="800"]
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 .Interactions Inside the Logic Component for the `delete 1` Command
 image::DeleteTaskSdForLogic.png[width="800"]
 
+The sequence flow is as follows:
+
+.  `Logic` uses the `OrganizerParser` class to parse the user command.
+.  This results in a `Command` object which is executed by the `LogicManager`.
+.  The command execution can affect the `Model` (e.g. adding a task) and/or raise events.
+.  The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `UI`.
+
 [[Design-Model]]
 === Model component
+
+The `Model` component consists of a `UniqueTaskList` and `UniqueTagList` that contains and manipulates the data within the application using an `ObservableList`. The component also includes `Task`, and its respective parameters (e.g. `Name`, `Priority`, `Date Added`, etc.).
+
+The class diagram below gives an overview of the structure of the `Model` component.
 
 .Structure of the Model Component
 image::ModelClassDiagram.png[width="800"]
@@ -278,13 +301,17 @@ The `Model`,
 
 * stores a `UserPref` object that represents the user's preferences.
 * stores the Organizer data.
-* automatically updates Tasks' priority levels within the Organizer via the UniqueTaskList
-* sorts tasks within the Organizer
-* exposes an unmodifiable `ObservableList<Task>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* updates Tasks' priority levels within the Organizer via the `UniqueTaskList` automatically.
+* sorts tasks within the Organizer.
+* exposes an unmodifiable `ObservableList<Task>` that can be 'observed' (e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list changes).
 * does not depend on any of the other three components.
 
 [[Design-Storage]]
 === Storage component
+
+The `Storage` component consists of the `XmlOrganizerStorage`, which reads data from, and writes data to, the hard disk. Data is stored in XML format, and can be retrieved from `data` > `organizer.xml`. The component also contains the `UserPrefsStorage`, which stores user preferences (e.g. the application window's preferred height and width) in a JSON file. The file is titled `preferences.json`, and can be retrieved from the main folder.
+
+The class diagram below gives an overview of the structure of the `Storage` component.
 
 .Structure of the Storage Component
 image::StorageClassDiagram.png[width="800"]
@@ -293,13 +320,13 @@ image::StorageClassDiagram.png[width="800"]
 
 The `Storage` component,
 
-* can save `UserPref` objects in json format and read it back.
-* can save the Organizer data in xml format and read it back.
+* saves `UserPref` objects in JSON format and reads it back.
+* saves the Organizer data in XML format and reads it back.
 
 [[Design-Commons]]
 === Common classes
 
-Classes used by multiple components are in the `seedu.organizer.commons` package.
+Classes used by multiple components are in the `seedu.organizer.commons` package. Such classes include the `EventsCenter` and `LogsCenter`.
 
 == Implementation
 
