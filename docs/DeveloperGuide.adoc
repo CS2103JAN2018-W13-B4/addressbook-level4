@@ -37,6 +37,7 @@ This section contains information to help you get started developing for PrioriT
 * <<Setting up the project in your computer>>
 * <<Verifying the setup>>
 * <<Configuring the project before writing code>>
+* <<Getting started with developing>>
 
 === Installing prerequisites
 
@@ -145,12 +146,12 @@ Optionally, you can set up AppVeyor as a second CI (see <<UsingAppVeyor#, UsingA
 [NOTE]
 Having both Travis and AppVeyor ensures the application works on both Unix-based platforms and Windows-based platforms (Travis is Unix-based and AppVeyor is Windows-based).
 
-==== Getting started with coding
+=== Getting started with developing
 
-When you are ready to start coding,
+When you are ready to start developing,
 
-1. Get some sense of the overall design by reading <<Design-Architecture>>.
-2. Take a look at <<GetStartedProgramming>>.
+1. Read <<Design-Architecture>> to get some sense of the overall design.
+2. Look at <<Implementation>> to find out more about the major features, to better understand how you can contribute enhancements to those features.
 
 == Design
 
