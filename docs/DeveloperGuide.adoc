@@ -16,7 +16,18 @@ By: `CS2103JAN2018-W13-B4`      Since: `March 2018`      Licence: `MIT`
 
 == Introduction
 
-_{ Introduction to be added. }_
+PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of an automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month.
+
+PrioriTask is a fairly new application that has much room for improvement. We welcome any form of contributions to the PrioriTask project, be it from beginners or seasoned Java developers. Whether you're a new developer or an experienced contributor, this guide can serve as a helpful reference and source for information about writing code for the PrioriTask project.
+
+This developer's guide consists of the following sections.
+
+* <<Setting Up>>
+* <<Design>>
+* <<Implementation>>
+* <<Documentation>>
+* <<Testing>>
+* <<Dev Ops>>
 
 == Setting Up
 
