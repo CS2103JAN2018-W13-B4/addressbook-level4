@@ -1,6 +1,7 @@
 package seedu.organizer.logic.commands;
 
 import static seedu.organizer.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.organizer.testutil.TypicalExecutedCommands.PREVIOUS_MONTH_COMMAND_ALIAS;
 import static seedu.organizer.testutil.TypicalExecutedCommands.PREVIOUS_MONTH_COMMAND_WORD;
 import static seedu.organizer.testutil.TypicalExecutedCommands.getTypicalExecutedCommands;
 import static seedu.organizer.testutil.TypicalTasks.getTypicalTasks;
@@ -25,7 +26,7 @@ public class PreviousMonthCommandTest extends GuiUnitTest {
     private static final ObservableList<String> TO_BE_UPDATED_TYPICAL_EXECUTED_COMMANDS = FXCollections.observableList
         (getTypicalExecutedCommands());
     private static final ObservableList<String> TYPICAL_EXECUTED_COMMANDS = FXCollections.observableList
-            (getTypicalExecutedCommands());
+        (getTypicalExecutedCommands());
 
     private static final YearMonth currentYearMonth = YearMonth.now();
 
@@ -42,8 +43,17 @@ public class PreviousMonthCommandTest extends GuiUnitTest {
     }
 
     @Test
-    public void execute() {
+    public void execute_commandWord() {
         addCommandToExecutedCommandsList(PREVIOUS_MONTH_COMMAND_WORD);
+        com.sun.javafx.application.PlatformImpl.startup(()->{}); // initialising JavaFX toolkit explicitly
+        expectedMonthView.getMonthView(currentYearMonth.minusMonths(1));
+        guiRobot.pause();
+        assertCommandSuccess(previousMonthCommand, monthView, previousMonthCommand.MESSAGE_SUCCESS, expectedMonthView);
+    }
+
+    @Test
+    public void execute_commandAlias() {
+        addCommandToExecutedCommandsList(PREVIOUS_MONTH_COMMAND_ALIAS);
         com.sun.javafx.application.PlatformImpl.startup(()->{}); // initialising JavaFX toolkit explicitly
         expectedMonthView.getMonthView(currentYearMonth.minusMonths(1));
         guiRobot.pause();
