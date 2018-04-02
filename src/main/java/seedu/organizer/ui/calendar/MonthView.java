@@ -132,7 +132,6 @@ public class MonthView extends UiPart<Region> {
      */
     private void clearCalendar() {
         Node gridLines = taskCalendar.getChildren().get(0);
-        taskCalendar.getChildren().retainAll(gridLines);
 
         // To update the JavaFX component from a non-JavaFX thread
         Platform.runLater(new Runnable() {
