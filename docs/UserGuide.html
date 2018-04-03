@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.2">
+<title>PrioriTask - User Guide</title>
+<link rel="stylesheet" href="stylesheets/guides-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>PrioriTask - User Guide</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>CS2103JAN2018-W13-B4</code>      Since: <code>March 2018</code>      Licence: <code>MIT</code></p>
+</div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_quick_start">2. Quick Start</a>
+<ul class="sectlevel2">
+<li><a href="#_setting_up">2.1. Setting Up</a></li>
+<li><a href="#_signing_up">2.2. Signing Up</a></li>
+<li><a href="#_logging_in">2.3. Logging In</a></li>
+</ul>
+</li>
+<li><a href="#_using_prioritask">3. Using PrioriTask</a>
+<ul class="sectlevel2">
+<li><a href="#_the_different_sections_of_prioritask">3.1. The Different Sections of PrioriTask</a></li>
+<li><a href="#_command_format">3.2. Command Format</a></li>
+</ul>
+</li>
+<li><a href="#_user_features">4. User Features</a>
+<ul class="sectlevel2">
+<li><a href="#_viewing_help_code_help_code">4.1. Viewing help : <code>help</code></a></li>
+<li><a href="#_signing_up_code_signup_code_or_code_su_code_code_since_v1_3_code">4.2. Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></a></li>
+<li><a href="#_logging_in_code_login_code_or_code_in_code_code_since_v1_4_code">4.3. Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></a></li>
+<li><a href="#_logging_out_code_logout_code_or_code_out_code_code_since_v1_4_code">4.4. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a></li>
+<li><a href="#_deleting_an_account_code_coming_in_v2_0_code">4.5. Deleting an account <code>[coming in v2.0]</code></a></li>
+<li><a href="#_exiting_the_program_code_exit_code">4.6. Exiting the program : <code>exit</code></a></li>
+</ul>
+</li>
+<li><a href="#_task_management_features">5. Task Management Features</a>
+<ul class="sectlevel2">
+<li><a href="#_adding_a_task_code_add_code_or_code_a_code">5.1. Adding a task: <code>add</code> or <code>a</code></a></li>
+<li><a href="#_listing_all_tasks_code_list_code_or_code_l_code">5.2. Listing all tasks : <code>list</code> or <code>l</code></a></li>
+<li><a href="#_editing_a_task_code_edit_code_or_code_e_code">5.3. Editing a task : <code>edit</code> or <code>e</code></a></li>
+<li><a href="#_locating_tasks_code_since_v1_2_code">5.4. Locating tasks <code>[since v1.2]</code></a>
+<ul class="sectlevel3">
+<li><a href="#_locating_tasks_code_find_code_or_code_f_code">5.4.1. Locating tasks: <code>find</code> or <code>f</code></a></li>
+<li><a href="#_locating_tasks_by_name_code_findn_code_or_code_fn_code">5.4.2. Locating tasks by name: <code>findn</code> or <code>fn</code></a></li>
+<li><a href="#_locating_tasks_by_description_code_finddes_code_or_code_fdes_code">5.4.3. Locating tasks by description: <code>finddes</code> or <code>fdes</code></a></li>
+<li><a href="#_locating_tasks_by_deadline_code_findd_code_or_code_fd_code">5.4.4. Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></li>
+<li><a href="#_locating_tasks_by_tag_code_coming_in_v2_0_code">5.4.5. Locating tasks by tag <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#_deleting_a_task_code_delete_code_or_code_d_code">5.5. Deleting a task : <code>delete</code> or <code>d</code></a></li>
+<li><a href="#_selecting_a_task_code_select_code_or_code_s_code">5.6. Selecting a task : <code>select</code> or <code>s</code></a></li>
+<li><a href="#_mark_task_as_complete_code_toggle_code_or_code_t_code_code_since_v1_2_code">5.7. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></li>
+<li><a href="#_clearing_all_entries_code_clear_code_or_code_c_code">5.8. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
+</ul>
+</li>
+<li><a href="#_subtask_management_features">6. Subtask Management Features</a>
+<ul class="sectlevel2">
+<li><a href="#_adding_a_subtask_to_a_task_code_adds_code_or_code_as_code_code_since_v1_2_code">6.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></a></li>
+<li><a href="#_mark_subtask_as_complete_code_toggle_subtask_code_or_code_ts_code_code_since_v1_3_code">6.2. Mark subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></li>
+<li><a href="#_deleting_a_subtask_from_a_task_code_delete_subtask_code_or_code_ds_code_code_since_v1_3_code">6.3. Deleting a subtask from a task: <code>delete-subtask</code> or <code>ds</code> <code>[since v1.3]</code></a></li>
+<li><a href="#_editing_a_subtask_code_coming_in_v2_0_code">6.4. Editing a subtask <code>[coming in v2.0]</code></a></li>
+<li><a href="#_reorder_subtask_code_coming_in_v2_0_code">6.5. Reorder subtask <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#_calendar_features">7. Calendar Features</a>
+<ul class="sectlevel2">
+<li><a href="#_go_to_previous_month_code_pmonth_code_or_code_pm_code_code_since_v1_4_code">7.1. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#_go_to_next_month_code_nmonth_code_or_code_nm_code_code_since_v1_4_code">7.2. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#_prioritask_features">7.3. PrioriTask Features</a></li>
+<li><a href="#_listing_entered_commands_code_history_code">7.4. Listing entered commands : <code>history</code></a></li>
+<li><a href="#_undoing_previous_command_code_undo_code">7.5. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#_redoing_the_previously_undone_command_code_redo_code">7.6. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#_saving_the_data">7.7. Saving the data</a></li>
+<li><a href="#_recover_past_data_code_coming_in_v2_0_code">7.8. Recover past data <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#_reminders_code_coming_in_v2_0_code">8. Reminders <code>[coming in v2.0]</code></a></li>
+<li><a href="#_faq">9. FAQ</a></li>
+<li><a href="#_command_summary">10. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#_user_features_2">10.1. User Features</a></li>
+<li><a href="#_task_management_features_2">10.2. Task Management Features</a></li>
+<li><a href="#_subtask_management_features_2">10.3. Subtask Management Features</a></li>
+<li><a href="#_calendar_features_2">10.4. Calendar Features</a></li>
+<li><a href="#_prioritask_features_2">10.5. PrioriTask Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of an automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).</p>
+</div>
+<div class="paragraph">
+<p>With PrioriTask, you can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Keep track of your tasks and their deadlines, with reminders of approaching deadlines and at-a-glance views of upcoming tasks by day, week or month.</p>
+</li>
+<li>
+<p>Manage your tasks' priorities with our automatic updating and sorting feature, so that you will never have to worry about deciding which task to start working on.</p>
+</li>
+<li>
+<p>Maintain your list of tasks effectively with our easy-to-remember and user-friendly commands, which can help you get your tasks organised faster than traditional GUI applications.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Interested? Jump to <a href="#_quick_start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quick_start">2. Quick Start</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>{ Add a preface here }</em></p>
+</div>
+<div class="sect2">
+<h3 id="_setting_up">2.1. Setting Up</h3>
+<div class="paragraph">
+<p><em>{ Add a preface here }</em></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure that you have Java <code>1.8.0_60</code> or later installed in your computer. You may download the latest version of Java <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+PrioriTask works best on Java <code>1.8.0_60</code> or later.<br>
+It will not work with earlier versions of Java 8 (i.e. Java <code>1.8.0_51</code> and below).
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Download the latest <code>organizer.jar</code> <a href="https://github.com/CS2103JAN2018-W13-B4/main/releases">here</a>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideQuickStart1.png" alt="UserGuideQuickStart1" width="600">
+</div>
+<div class="title">Figure 1. Downloading the latest <code>organizer.jar</code></div>
+</div>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for PrioriTask.</p>
+</li>
+<li>
+<p>Double-click the file to start the application. The main page should appear in a few seconds (refer to <a href="#fig-Ui">Figure 2, &#8220;PrioriTask&#8217;s main page&#8221;</a>).</p>
+<div id="fig-Ui" class="imageblock">
+<div class="content">
+<img src="images/Ui.png" alt="Ui" width="790">
+</div>
+<div class="title">Figure 2. PrioriTask&#8217;s main page</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If the application is unable to start, refer to <a href="#_faq">Section 9, &#8220;FAQ&#8221;</a> for the solution.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Proceed to <a href="#_signing_up">Section 2.2, &#8220;Signing Up&#8221;</a> for instructions on creating an account on PrioriTask.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_signing_up">2.2. Signing Up</h3>
+<div class="paragraph">
+<p><em>{ Add a preface here }</em></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command <span class="example-no-box"><code>signup u/USERNAME p/PASSWORD</code></span> in the command box, replacing the <code>USERNAME</code> and <code>PASSWORD</code> with your own.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideQuickStart2.png" alt="UserGuideQuickStart2" width="790">
+</div>
+<div class="title">Figure 3. Signing up for an account</div>
+</div>
+</li>
+<li>
+<p>Press <kbd>Enter</kbd> to execute the command. Your sign up will be confirmed in the result display box upon a successful registration (refer to <a href="#fig-QuickStart3">Figure 4, &#8220;Confirmation message upon successful sign up&#8221;</a>).</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <span class="parameters"><code>USERNAME</code></span> and <span class="parameters"><code>PASSWORD</code></span> parameters can only take in alphabetical and numerical values. They will not accept spaces and special symbols (e.g. %, $, etc.).<br>
+A warning message will be displayed in the result display box if your <span class="parameters"><code>USERNAME</code></span> or <span class="parameters"><code>PASSWORD</code></span> contains characters that are not allowed.
+</td>
+</tr>
+</table>
+</div>
+<div id="fig-QuickStart3" class="imageblock">
+<div class="content">
+<img src="images/UserGuideQuickStart3.png" alt="UserGuideQuickStart3" width="790">
+</div>
+<div class="title">Figure 4. Confirmation message upon successful sign up</div>
+</div>
+</li>
+<li>
+<p>Proceed to <a href="#_logging_in">Section 2.3, &#8220;Logging In&#8221;</a> for instructions on logging into your account on PrioriTask.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logging_in">2.3. Logging In</h3>
+<div class="paragraph">
+<p><em>{ Add a preface here }</em></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command <span class="example-no-box"><code>login u/USERNAME p/PASSWORD</code></span> in the command box, replacing the <code>USERNAME</code> and <code>PASSWORD</code> with your own.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideQuickStart4.png" alt="UserGuideQuickStart4" width="790">
+</div>
+<div class="title">Figure 5. Logging into an account</div>
+</div>
+</li>
+<li>
+<p>Press <kbd>Enter</kbd> to execute the command. Your login will be confirmed in the result display box (refer to <a href="#fig-QuickStart6">Figure 6, &#8220;Confirmation message upon successful login&#8221;</a>).</p>
+<div id="fig-QuickStart6" class="imageblock">
+<div class="content">
+<img src="images/UserGuideQuickStart5.png" alt="UserGuideQuickStart5" width="790">
+</div>
+<div class="title">Figure 6. Confirmation message upon successful login</div>
+</div>
+</li>
+<li>
+<p>Proceed to <a href="#_using_prioritask">Section 3, &#8220;Using PrioriTask&#8221;</a> to learn more about using the application, or head straight to <a href="#_task_management_features">Section 5, &#8220;Task Management Features&#8221;</a> to start managing your tasks.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_prioritask">3. Using PrioriTask</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>{ Add a preface here }</em></p>
+</div>
+<div class="sect2">
+<h3 id="_the_different_sections_of_prioritask">3.1. The Different Sections of PrioriTask</h3>
+<div class="paragraph">
+<p>The PrioriTask application consists of six different sections (refer to <a href="#fig-DifferentComponents">Figure 7, &#8220;The Different Sections of PrioriTask&#8221;</a>).</p>
+</div>
+<div id="fig-DifferentComponents" class="imageblock">
+<div class="content">
+<img src="images/UserGuideDifferentComponents.png" alt="UserGuideDifferentComponents" width="790">
+</div>
+<div class="title">Figure 7. The Different Sections of PrioriTask</div>
+</div>
+<div class="paragraph">
+<p>Given below is a quick overview of each section.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Menu Bar</code>, where you will be able to,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Exit the application (<code>File</code> &gt; <code>Exit</code>).</p>
+</li>
+<li>
+<p>Open the Help Window (<code>Help</code> &gt; <code>Help  F1</code>).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>Command Box</code>, where you input the command to be executed. Press <kbd>Enter</kbd> to execute the command after you have finished typing.</p>
+</li>
+<li>
+<p><code>Result Display Box</code>, which displays a successful or warning message depending on the command you execute.</p>
+</li>
+<li>
+<p><code>Task List Panel</code>, which displays the tasks and their respective details. The tasks are organised by their priority levels, with the highest priority level at the top.</p>
+</li>
+<li>
+<p><code>Calendar Panel</code>, which displays the calendar a chronic overview of the deadlines of all your tasks. It will display the current month by default.</p>
+</li>
+<li>
+<p><code>Status Bar Footer</code>, which displays,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The date and time of the last time you have made changes to the data.</p>
+</li>
+<li>
+<p>The total number of tasks being shown in the <code>Task List Panel</code>.</p>
+</li>
+<li>
+<p>The folder address of where your data file is being stored.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_command_format">3.2. Command Format</h3>
+<div class="paragraph">
+<p>PrioriTask is a CLI application. All features are executed primarily via the command box.</p>
+</div>
+<div class="paragraph">
+<p>In the following sections, you will be introduced to several commands and their command formats. Here are a few things to take note of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The command word and alias are case-sensitive.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="icon"><i class="fa fa-check"></i></span> Typing <code>help</code> executes the command.</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-times"></i></span> Typing <code>Help</code>, <code>heLp</code> or <code>HELP</code> does not execute the command.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. In <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/CS2103T Developer Guide</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Items in square brackets are optional.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g <code>n/NAME [t/TAG]</code> can be used as <code>n/CS2103T Developer Guide t/CS2103</code> or as <code>n/CS2103T Developer Guide</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), or <code>t/CS2103</code>, <code>t/CS2103 t/CS2101</code> etc.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Parameters can be in any order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. If the command specifies <code>n/NAME p/PRIORITY_LEVEL</code>, <code>p/PRIORITY_LEVEL n/NAME</code> is also acceptable.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_features">4. User Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>{ To explain what a user feature is. }</em></p>
+</div>
+<div class="sect2">
+<h3 id="_viewing_help_code_help_code">4.1. Viewing help : <code>help</code></h3>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>help</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_signing_up_code_signup_code_or_code_su_code_code_since_v1_3_code">4.2. Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></h3>
+<div class="paragraph">
+<p>Sign up for a PrioriTask account<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>signup u/USERNAME p/PASSWORD</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example">`signup u/patrick p/pat19503</span></p>
+</li>
+<li>
+<p><span class="example"><code>signup u/mary p/m4ry</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logging_in_code_login_code_or_code_in_code_code_since_v1_4_code">4.3. Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></h3>
+<div class="paragraph">
+<p>Login to PrioriTask<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>login u/USERNAME p/PASSWORD</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example">`login u/patrick p/pat19503</span></p>
+</li>
+<li>
+<p><span class="example"><code>login u/mary p/m4ry</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logging_out_code_logout_code_or_code_out_code_code_since_v1_4_code">4.4. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></h3>
+<div class="paragraph">
+<p>Logout of PrioriTask<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>logout</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deleting_an_account_code_coming_in_v2_0_code">4.5. Deleting an account <code>[coming in v2.0]</code></h3>
+<div class="paragraph">
+<p><em>{ Describe the command function }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exiting_the_program_code_exit_code">4.6. Exiting the program : <code>exit</code></h3>
+<div class="paragraph">
+<p>Exits the program.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>exit</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_task_management_features">5. Task Management Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>{ To explain what a task management feature is. }</em></p>
+</div>
+<div class="exampleblock noteblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="noteblock-title"><strong>Task Parameters</strong></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="parameters"><code>NAME</code></span></p>
+</li>
+<li>
+<p><span class="parameters"><code>PRIORITY LEVEL</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A task can have a priority level ranging from 0 (lowest) to 9 (highest).</p>
+</li>
+<li>
+<p>Setting a priority level is optional. PrioriTask will automatically set a task’s priority level to its default level (0) if User does not add one.</p>
+</li>
+<li>
+<p>Priority levels are automatically updated as the deadline approaches.</p>
+</li>
+<li>
+<p>If a task is still uncompleted after the deadline has passed, priority level will be updated to it&#8217;s maximum level : 9.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="parameters"><code>DEADLINE</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A task must have a deadline in the format of YYYY-MM-DD.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="parameters"><code>DESCRIPTION</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A task can have a description that takes in any value (i.e. alphabet, numbers, special symbols).</p>
+</li>
+<li>
+<p>Having a task description is optional.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="parameters"><code>STATUS</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A task can be in one of two states, "Done" or "Not Done".</p>
+</li>
+<li>
+<p>By default, every new task is marked as "Not Done".</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="parameters"><code>TAG</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A task can have any number of tags (including 0).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="parameters"><code>SUBTASK</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A task can have any number of subtasks (including 0).</p>
+</li>
+<li>
+<p>A subtask has the following parameters. Subtask parameters are similar to that of task parameters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="parameters"><code>NAME</code></span></p>
+</li>
+<li>
+<p><span class="parameters"><code>STATUS</code></span></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_a_task_code_add_code_or_code_a_code">5.1. Adding a task: <code>add</code> or <code>a</code></h3>
+<div class="paragraph">
+<p>Adds a task to the PrioriTask<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>add n/NAME d/DEADLINE [p/PRIORITY_LEVEL] [des/DESCRIPTION] [t/TAG]…​</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_all_tasks_code_list_code_or_code_l_code">5.2. Listing all tasks : <code>list</code> or <code>l</code></h3>
+<div class="paragraph">
+<p>Shows a list of all tasks in the PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>list</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>[Coming in v2.0]</em> Shows a list of all tasks (regardless of status), all completed tasks, or all uncompleted tasks.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_editing_a_task_code_edit_code_or_code_e_code">5.3. Editing a task : <code>edit</code> or <code>e</code></h3>
+<div class="paragraph">
+<p>Edits an existing task in the PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the task at the specified <code>INDEX</code>. The index refers to the index number shown in the last task listing. The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the task will be removed (i.e adding of tags is not cumulative).</p>
+</li>
+<li>
+<p>You can remove all the task&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>edit 1 p/9 d/2018-12-30</code></span><br>
+Edits the priority level and deadline of the 1st task to be <code>9</code> and <code>2018-12-30</code> respectively.</p>
+</li>
+<li>
+<p><span class="example"><code>edit 2 n/CS2101 Final Assignment t/</code></span><br>
+Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_locating_tasks_code_since_v1_2_code">5.4. Locating tasks <code>[since v1.2]</code></h3>
+<div class="paragraph">
+<p>Depending on the suffix (or lack of) at the end of the <code>find</code> command, you can find tasks whose names, descriptions and/or deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>Developer</code> will match <code>developer</code></p>
+</li>
+<li>
+<p>Keywords for deadlines should be in the format of YYYY-MM-DD.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Guide Developer</code> will match <code>Developer Guide</code></p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Guide</code> will not match <code>Guides</code></p>
+</li>
+<li>
+<p>Tasks matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>CS2101 Guide</code> will return <code>CS2101 Script</code>, <code>Developer Guide</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_locating_tasks_code_find_code_or_code_f_code">5.4.1. Locating tasks: <code>find</code> or <code>f</code></h4>
+<div class="paragraph">
+<p>Finds tasks whose names, descriptions and deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the name, description and deadline are searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>find Guide</code></span><br>
+Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+</li>
+<li>
+<p><span class="example"><code>f CS2101 Developer User</code></span><br>
+Returns any task having names or descriptions <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_locating_tasks_by_name_code_findn_code_or_code_fn_code">5.4.2. Locating tasks by name: <code>findn</code> or <code>fn</code></h4>
+<div class="paragraph">
+<p>Finds tasks whose names contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the name is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>findn Guide</code></span><br>
+Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+</li>
+<li>
+<p><span class="example"><code>fn CS2101 Developer User</code></span><br>
+Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_locating_tasks_by_description_code_finddes_code_or_code_fdes_code">5.4.3. Locating tasks by description: <code>finddes</code> or <code>fdes</code></h4>
+<div class="paragraph">
+<p>Find tasks whose descriptions contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the description is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>finddes Study</code></span><br>
+Returns tasks with descriptions <code>Study midterms</code> and <code>study chapter 2</code>.</p>
+</li>
+<li>
+<p><span class="example"><code>fdes Study Update Chapter</code></span><br>
+Returns any task having descriptions containing words <code>Study</code>, <code>Update</code>, or <code>Chapter</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_locating_tasks_by_deadline_code_findd_code_or_code_fd_code">5.4.4. Locating tasks by deadline: <code>findd</code> or <code>fd</code></h4>
+<div class="paragraph">
+<p>Find tasks whose deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the deadline is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>findd 2018-03-17</code></span><br>
+Returns tasks with deadlines <code>2018-03-17</code>.</p>
+</li>
+<li>
+<p><span class="example"><code>fd 2018-03-17 2018-09-04 2018-03-21</code></span><br>
+Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_locating_tasks_by_tag_code_coming_in_v2_0_code">5.4.5. Locating tasks by tag <code>[coming in v2.0]</code></h4>
+<div class="paragraph">
+<p><em>{ coming in v2.0 }</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deleting_a_task_code_delete_code_or_code_d_code">5.5. Deleting a task : <code>delete</code> or <code>d</code></h3>
+<div class="paragraph">
+<p>Deletes the specified task from the PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>delete INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the task at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>delete 2</code></span><br>
+Deletes the 2nd task in the PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find Developer</code></span><br>
+<span class="example"><code>delete 1</code></span><br>
+Deletes the 1st task in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_selecting_a_task_code_select_code_or_code_s_code">5.6. Selecting a task : <code>select</code> or <code>s</code></h3>
+<div class="paragraph">
+<p>Selects the task identified by the index number used in the last task listing.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>select INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the task and shows full details of the task at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>select 2</code></span><br>
+Selects the 2nd task in the PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find Developer</code></span><br>
+<span class="example"><code>select 1</code></span><br>
+Selects the 1st task in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mark_task_as_complete_code_toggle_code_or_code_t_code_code_since_v1_2_code">5.7. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></h3>
+<div class="paragraph">
+<p>Toggle the status of the task identified by the index number used in the last task listing
+between <code>Done</code> and <code>Not Done</code>.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>toggle INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Toggle the status of the task at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>toggle 1</code></span><br>
+Toggle the first task in the PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find homework</code></span><br>
+<span class="example"><code>toggle 1</code></span><br>
+Toggle the first task in th result of <code>find homework</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clearing_all_entries_code_clear_code_or_code_c_code">5.8. Clearing all entries : <code>clear</code> or <code>c</code></h3>
+<div class="paragraph">
+<p>Clears all entries from the PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>clear</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subtask_management_features">6. Subtask Management Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>{ To explain what a subtask feature is. }</em></p>
+</div>
+<div class="sect2">
+<h3 id="_adding_a_subtask_to_a_task_code_adds_code_or_code_as_code_code_since_v1_2_code">6.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></h3>
+<div class="paragraph">
+<p>Add a subtask to an existing task.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>adds INDEX [n/NAME]</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds the subtask at the specified <code>INDEX</code>. The index refers to the index number shown in the last task listing. The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>adds 1 n/Submit report</code></span><br>
+Adds a subtask with name <code>Submit report</code> to the 1st task.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mark_subtask_as_complete_code_toggle_subtask_code_or_code_ts_code_code_since_v1_3_code">6.2. Mark subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></h3>
+<div class="paragraph">
+<p>Toggle the status of the subtask identified by the index number used in the last task listing
+between <code>Done</code> and <code>Not Done</code>.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Toggle the status of the <code>SUBTASK_INDEX</code>-th subtask of task at the specified by <code>TASK_INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>toggle-subtask 1 1</code></span><br>
+Toggles the first subtask of the first task in the PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find homework</code></span><br>
+<span class="example"><code>toggle-subtask 2 4</code></span><br>
+Toggles the fourth subtask of the second task in th result of <code>find homework</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deleting_a_subtask_from_a_task_code_delete_subtask_code_or_code_ds_code_code_since_v1_3_code">6.3. Deleting a subtask from a task: <code>delete-subtask</code> or <code>ds</code> <code>[since v1.3]</code></h3>
+<div class="paragraph">
+<p>Deletes the specified subtask from the PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Delete the <code>SUBTASK_INDEX</code>-th subtask of task at the specified by <code>TASK_INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>delete-subtask 1 1</code></span><br>
+Deletes the first subtask of the first task in the PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find cleaning</code></span><br>
+<span class="example"><code>delete-subtask 2 4</code></span><br>
+Deletes the fourth subtask of the second task in th result of <code>find cleaning</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_editing_a_subtask_code_coming_in_v2_0_code">6.4. Editing a subtask <code>[coming in v2.0]</code></h3>
+<div class="paragraph">
+<p><em>{ coming in v2.0 }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reorder_subtask_code_coming_in_v2_0_code">6.5. Reorder subtask <code>[coming in v2.0]</code></h3>
+<div class="paragraph">
+<p><em>{ coming in v2.0 }</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_calendar_features">7. Calendar Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>Calendar</code> allows you to have a chronic overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>[coming in v2.0]</em> To show only completed tasks on the calendar.</p>
+</li>
+<li>
+<p><em>[coming in v2.0]</em> To support the viewing of the calendar by days, weeks and years.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_go_to_previous_month_code_pmonth_code_or_code_pm_code_code_since_v1_4_code">7.1. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></h3>
+<div class="paragraph">
+<p>Changes the view of the calendar to that of the previous month.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>pmonth</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Views <code>March 2018</code><br>
+<span class="example"><code>pmonth</code></span><br>
+Goes to <code>February 2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_go_to_next_month_code_nmonth_code_or_code_nm_code_code_since_v1_4_code">7.2. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></h3>
+<div class="paragraph">
+<p>Changes the view of the calendar to that of the next month.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>nmonth</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Views <code>March 2018</code><br>
+<span class="example"><code>nmonth</code></span><br>
+Goes to <code>April 2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prioritask_features">7.3. PrioriTask Features</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_listing_entered_commands_code_history_code">7.4. Listing entered commands : <code>history</code></h3>
+<div class="paragraph">
+<p>Lists all the commands that you have entered in reverse chronological order.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>history</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_undoing_previous_command_code_undo_code">7.5. Undoing previous command : <code>undo</code></h3>
+<div class="paragraph">
+<p>Restores the PrioriTask to the state before the previous <em>undoable</em> command was executed.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>undo</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undoable commands: those commands that modify the PrioriTask&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>list</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br></p>
+</li>
+<li>
+<p><span class="example"><code>select 1</code></span><br>
+<span class="example"><code>list</code></span><br>
+<span class="example"><code>undo</code></span><br>
+The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
+</li>
+<li>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>clear</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>clear</code> command)<br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_redoing_the_previously_undone_command_code_redo_code">7.6. Redoing the previously undone command : <code>redo</code></h3>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>redo</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br>
+<span class="example"><code>redo</code></span> (reapplies the <code>delete 1</code> command)<br></p>
+</li>
+<li>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>redo</code></span><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><span class="example"><code>delete 1</code></span><br>
+<span class="example"><code>clear</code></span><br>
+<span class="example"><code>undo</code></span> (reverses the <code>clear</code> command)<br>
+<span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br>
+<span class="example"><code>redo</code></span> (reapplies the <code>delete 1</code> command)<br>
+<span class="example"><code>redo</code></span> (reapplies the <code>clear</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_saving_the_data">7.7. Saving the data</h3>
+<div class="paragraph">
+<p>PrioriTask data is saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_recover_past_data_code_coming_in_v2_0_code">7.8. Recover past data <code>[coming in v2.0]</code></h3>
+<div class="paragraph">
+<p><em>{ coming in v2.0 }</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reminders_code_coming_in_v2_0_code">8. Reminders <code>[coming in v2.0]</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>{ coming in v2.0 }</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_faq">9. FAQ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_summary">10. Command Summary</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_user_features_2">10.1. User Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Exit</strong> : <span class="format-no-box"><code>exit</code></span></p>
+</li>
+<li>
+<p><strong>Help</strong> : <span class="format-no-box"><code>help</code></span></p>
+</li>
+<li>
+<p><strong>Login</strong> : <span class="format-no-box"><code>login u/USERNAME p/PASSWORD</code></span>
+e.g. <span class="example-no-box"><code>login u/patrick p/pat12351</code></span></p>
+</li>
+<li>
+<p><strong>Logout</strong> : <span class="format-no-box"><code>logout</code></span></p>
+</li>
+<li>
+<p><strong>Sign Up</strong> : <span class="format-no-box"><code>signup u/USERNAME p/PASSWORD</code></span>
+e.g. <span class="example-no-box"><code>signup u/patrick p/pat12351</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_task_management_features_2">10.2. Task Management Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> : <span class="format-no-box"><code>add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…</code></span><br>
+e.g. <span class="example-no-box"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA</code></span></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <span class="format-no-box"><code>clear</code></span></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <span class="format-no-box"><code>delete INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>delete 3</code></span></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <span class="format-no-box"><code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></span><br>
+e.g. <span class="example-no-box"><code>edit 1 p/9 d/2018-12-30</code></span></p>
+</li>
+<li>
+<p><strong>Find</strong> : <span class="format-no-box"><code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>find CS2103 update 2018-03-17</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Find Name</strong> : <span class="format-no-box"><code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>findn Developer User</code></span></p>
+</li>
+<li>
+<p><strong>Find Description</strong> : <span class="format-no-box"><code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORDS [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>finddes study update</code></span></p>
+</li>
+<li>
+<p><strong>Find Deadline</strong> : <span class="format-no-box"><code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORDS [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>findd 2018-03-17 2018-09-07</code></span></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>List</strong> : <span class="format-no-box"><code>list</code></span></p>
+</li>
+<li>
+<p><strong>Select</strong> : <span class="format-no-box"><code>select INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>select 2</code></span></p>
+</li>
+<li>
+<p><strong>Toggle</strong> : <span class="format-no-box"><code>toggle INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>toggle 3</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_subtask_management_features_2">10.3. Subtask Management Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add Subtask</strong> : <span class="format-no-box"><code>adds INDEX n/NAME</code></span><br>
+e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
+</li>
+<li>
+<p><strong>Delete Subtask</strong> : <span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span></p>
+</li>
+<li>
+<p><strong>Toggle Subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_calendar_features_2">10.4. Calendar Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Go To Next Month</strong> : <span class="format-no-box"><code>nmonth</code></span></p>
+</li>
+<li>
+<p><strong>Go To Previous Month</strong> : <span class="format-no-box"><code>pmonth</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prioritask_features_2">10.5. PrioriTask Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>History</strong> : <span class="format-no-box"><code>history</code></span></p>
+</li>
+<li>
+<p><strong>Undo</strong> : <span class="format-no-box"><code>undo</code></span></p>
+</li>
+<li>
+<p><strong>Redo</strong> : <span class="format-no-box"><code>redo</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-03 16:02:59 +08
+</div>
+</div>
+</body>
+</html>
