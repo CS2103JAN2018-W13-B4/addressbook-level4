@@ -497,7 +497,7 @@ _{ To explain what a subtask feature is. }_
 
 [.noteblock]
 ====
-[noteblock-title]#*Task Parameters*#
+[noteblock-title]#*Subtask Parameters*#
 
 * [parameters]#`NAME`#
 * [parameters]#`STATUS`#
@@ -515,7 +515,7 @@ Add a subtask to an existing task. +
 [format-title]#Format:# `adds INDEX [n/NAME]`
 ====
 
-* Adds the subtask at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
+* Adds the subtask at the specified `INDEX`. The index refers to the index number shown in the last subtask listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
 
 [.example]
 ====
@@ -527,7 +527,7 @@ Adds a subtask with name `Submit report` to the 1st task.
 
 === Mark subtask as complete: `toggle-subtask` or `ts` `[since v1.3]`
 
-Toggle the status of the subtask identified by the index number used in the last task listing
+Toggle the status of the subtask identified by the index number used in the last subtask listing
 between `Done` and `Not Done`. +
 
 [.format]
@@ -560,7 +560,7 @@ Deletes the specified subtask from the PrioriTask. +
 [format-title]#Format:# `delete-subtask TASK_INDEX SUBTASK_INDEX`
 ====
 
-* Delete the `SUBTASK_INDEX`-th subtask of task at the specified by `TASK_INDEX`.
+* Delete the `SUBTASK_INDEX`-th subtask of task at the specified by `SUBTASK_INDEX`.
 * The index refers to the index number shown in the most recent listing.
 * The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
 
