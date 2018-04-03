@@ -249,9 +249,7 @@ _{ To explain what a task management feature is. }_
 ** A task can have any number of tags (including 0).
 * [parameters]#`SUBTASK`#
 ** A task can have any number of subtasks (including 0).
-** A subtask has the following parameters. Subtask parameters are similar to that of task parameters.
-*** [parameters]#`NAME`#
-*** [parameters]#`STATUS`#
+** More information about subtask parameters can be found in <<Subtask Management Features>>.
 
 ====
 
@@ -497,6 +495,17 @@ Clears all entries from the PrioriTask. +
 
 _{ To explain what a subtask feature is. }_
 
+[.noteblock]
+====
+[noteblock-title]#*Task Parameters*#
+
+* [parameters]#`NAME`#
+* [parameters]#`STATUS`#
+** A task can be in one of two states, "Done" or "Not Done".
+** By default, every new task is marked as "Not Done".
+
+====
+
 === Adding a subtask to a task : `adds` or `as` `[since v1.2]`
 
 Add a subtask to an existing task. +
@@ -620,6 +629,8 @@ Goes to `April 2018`
 
 === PrioriTask Features
 
+_{ To describe what this feature is about }_
+
 === Listing entered commands : `history`
 
 Lists all the commands that you have entered in reverse chronological order. +
@@ -703,11 +714,11 @@ There is no need to save manually.
 
 === Recover past data `[coming in v2.0]`
 
-_{ coming in v2.0 }_
+_{ To explain what this feature is about }_
 
 == Reminders `[coming in v2.0]`
 
-_{ coming in v2.0 }_
+_{ To explain what this feature is about }_
 
 == FAQ
 
