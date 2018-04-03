@@ -602,17 +602,7 @@ A warning message will be displayed in the result display box if your <span clas
 <p>A task can have any number of subtasks (including 0).</p>
 </li>
 <li>
-<p>A subtask has the following parameters. Subtask parameters are similar to that of task parameters.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><span class="parameters"><code>NAME</code></span></p>
-</li>
-<li>
-<p><span class="parameters"><code>STATUS</code></span></p>
-</li>
-</ul>
-</div>
+<p>More information about subtask parameters can be found in <a href="#_subtask_management_features">Section 6, &#8220;Subtask Management Features&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -1096,6 +1086,33 @@ Toggle the first task in th result of <code>find homework</code> command.</p>
 <div class="paragraph">
 <p><em>{ To explain what a subtask feature is. }</em></p>
 </div>
+<div class="exampleblock noteblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="noteblock-title"><strong>Task Parameters</strong></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="parameters"><code>NAME</code></span></p>
+</li>
+<li>
+<p><span class="parameters"><code>STATUS</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A task can be in one of two states, "Done" or "Not Done".</p>
+</li>
+<li>
+<p>By default, every new task is marked as "Not Done".</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_adding_a_subtask_to_a_task_code_adds_code_or_code_as_code_code_since_v1_2_code">6.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></h3>
 <div class="paragraph">
@@ -1316,7 +1333,9 @@ Goes to <code>April 2018</code></p>
 </div>
 <div class="sect2">
 <h3 id="_prioritask_features">7.3. PrioriTask Features</h3>
-
+<div class="paragraph">
+<p><em>{ To describe what this feature is about }</em></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_listing_entered_commands_code_history_code">7.4. Listing entered commands : <code>history</code></h3>
@@ -1452,7 +1471,7 @@ There is no need to save manually.</p>
 <div class="sect2">
 <h3 id="_recover_past_data_code_coming_in_v2_0_code">7.8. Recover past data <code>[coming in v2.0]</code></h3>
 <div class="paragraph">
-<p><em>{ coming in v2.0 }</em></p>
+<p><em>{ To explain what this feature is about }</em></p>
 </div>
 </div>
 </div>
@@ -1461,16 +1480,66 @@ There is no need to save manually.</p>
 <h2 id="_reminders_code_coming_in_v2_0_code">8. Reminders <code>[coming in v2.0]</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>{ coming in v2.0 }</em></p>
+<p><em>{ To explain what this feature is about }</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_faq">9. FAQ</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<div class="qlist qanda">
+<ol>
+<li>
+<p><em>I am unable to start the application. Double-clicking on the <code>jar</code> file doesn&#8217;t work. What do I do?</em></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">For Windows Users</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Find your Java JDK directory.</p>
+</li>
+<li>
+<p>Open <code>Command Prompt</code>.</p>
+</li>
+<li>
+<p>Change the directory to your Java JDK directory.</p>
+</li>
+<li>
+<p>Execute the command <code>"JAVA_JDK_EXE_FILE_DIRECTORY_PATH" -jar YOUR_JAR_FILE_NAME.jar</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>E.g. <code>"C:\Program Files\Java\jdk1.8.0_102\bin\javaw.exe" -jar YOUR_JAR_FILE_NAME.jar</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">For Mac/Linux Users</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <code>Terminal</code>.</p>
+</li>
+<li>
+<p>Execute the command <code>java -jar YOUR_JAR_FILE_NAME.jar</code>.</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</li>
+<li>
+<p><em>How do I transfer my data to another computer?</em></p>
+<p>Install the application in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous PrioriTask folder.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1607,7 +1676,7 @@ e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-03 16:02:59 +08
+Last updated 2018-04-03 16:33:04 +08
 </div>
 </div>
 </body>
