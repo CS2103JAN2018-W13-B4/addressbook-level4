@@ -413,9 +413,8 @@ public class MonthView extends UiPart<Region> {
      */
     private ObservableList<EntryCard> getEntryCardsList(int year, int month) {
         FilteredList<Task> filteredList = getFilteredTaskList(year, month);
-        SortedList<Task> taskSortedList = getSortedTaskList(filteredList);
 
-        return EasyBind.map(taskSortedList, (task) -> new EntryCard(task));
+        return EasyBind.map(filteredList, (task) -> new EntryCard(task));
     }
 
     /**
@@ -437,18 +436,11 @@ public class MonthView extends UiPart<Region> {
      * @return A filtered {@code taskList} that contains tasks whose deadlines are of a particular month and year.
      */
     private FilteredList<Task> getFilteredTaskList(int year, int month) {
-        FilteredList<Task> filteredList = new FilteredList<>(taskList, task -> true);
-
-        filteredList.setPredicate(task -> {
+        return new FilteredList<>(taskList, task -> {
             LocalDate date = task.getDeadline().date;
 
-            if ((date.getMonthValue() == month) && (date.getYear() == year)) {
-                return true;
-            } else {
-                return false;
-            }
+            return (date.getMonthValue() == month) && (date.getYear() == year);
         });
-        return filteredList;
     }
 
     /**
