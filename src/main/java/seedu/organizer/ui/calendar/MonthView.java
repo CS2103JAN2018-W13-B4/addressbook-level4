@@ -187,7 +187,7 @@ public class MonthView extends UiPart<Region> {
                     int size = executedCommandsList.size();
                     String executedCommand = executedCommandsList.get(size - 1);
 
-                    if ((executedCommandsList.equals(CurrentMonthCommand.COMMAND_WORD)) || (
+                    if ((executedCommand.equals(CurrentMonthCommand.COMMAND_WORD)) || (
                             executedCommand.equals(CurrentMonthCommand.COMMAND_ALIAS))) {
                         goToCurrentMonth();
                     }
