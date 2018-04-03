@@ -722,8 +722,22 @@ _{ To explain what this feature is about }_
 
 == FAQ
 
-*Q*: How do I transfer my data to another Computer? +
-*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
+[qanda]
+I am unable to start the application. Double-clicking on the `jar` file doesn't work. What do I do?:::
+For Windows Users::
+. Find your Java JDK directory.
+. Open `Command Prompt`.
+. Change the directory to your Java JDK directory.
+. Execute the command `"JAVA_JDK_EXE_FILE_DIRECTORY_PATH" -jar YOUR_JAR_FILE_NAME.jar`.
+.. E.g. `"C:\Program Files\Java\jdk1.8.0_102\bin\javaw.exe" -jar YOUR_JAR_FILE_NAME.jar`
+
+For Mac/Linux Users::
+. Open `Terminal`.
+. Execute the command `java -jar YOUR_JAR_FILE_NAME.jar`.
+
+
+How do I transfer my data to another computer?:::
+Install the application in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous PrioriTask folder.
 
 == Command Summary
 
