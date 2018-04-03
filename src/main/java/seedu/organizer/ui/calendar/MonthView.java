@@ -413,8 +413,9 @@ public class MonthView extends UiPart<Region> {
      */
     private ObservableList<EntryCard> getEntryCardsList(int year, int month) {
         FilteredList<Task> filteredList = getFilteredTaskList(year, month);
+        SortedList<Task> taskSortedList = getSortedTaskList(filteredList);
 
-        return EasyBind.map(filteredList, (task) -> new EntryCard(task));
+        return EasyBind.map(taskSortedList, (task) -> new EntryCard(task));
     }
 
     /**
@@ -497,6 +498,10 @@ public class MonthView extends UiPart<Region> {
     public boolean entriesIsEqual(Object other) {
         MonthView monthView = (MonthView) other;
 
+        if (taskList.size() != monthView.taskList.size()) {
+            return false;
+        }
+
         for (int size = 0; size < taskList.size(); size++) {
             return taskList.get(size).equals(monthView.taskList.get(size));
         }
@@ -516,13 +521,20 @@ public class MonthView extends UiPart<Region> {
             int expectedColumn = taskCalendar.getColumnIndex(expectedText);
 
             Node actualText = monthView.taskCalendar.lookup("#date" + String.valueOf(date));
+
+            if (actualText == null) {
+                return false;
+            }
+
             int actualRow = monthView.taskCalendar.getRowIndex(actualText);
             int actualColumn = monthView.taskCalendar.getColumnIndex(actualText);
 
-            return (expectedRow == actualRow) && (expectedColumn == actualColumn);
+            if ((expectedRow != actualRow) || (expectedColumn != actualColumn)) {
+                return false;
+            }
         }
 
-        return false;
+        return true;
     }
 
     @Override
