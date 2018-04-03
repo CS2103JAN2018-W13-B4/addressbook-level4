@@ -24,8 +24,8 @@ public class CalendarPanelTest extends GuiUnitTest {
 
     private static final int SUNDAY = 7;
     private static final int FIRST_ROW = 0;
-    private static final int LAST_ROW = 4;
     private static final int MAX_NUM_OF_DAYS = 35;
+    private static final double DAYS_IN_WEEK = 7.0;
 
     private CalendarPanel calendarPanel;
     private CalendarPanelHandle calendarPanelHandle;
@@ -97,7 +97,7 @@ public class CalendarPanelTest extends GuiUnitTest {
         int totalDays = startDay + date;
 
         if (totalDays <= MAX_NUM_OF_DAYS) {
-            return LAST_ROW;
+            return (int) (date / DAYS_IN_WEEK);
         } else {
             return FIRST_ROW;
         }
