@@ -110,21 +110,51 @@ image::UserGuideQuickStart4.png[width="790"]
 image::UserGuideQuickStart5.png[width="790"]
 +
 
-. Proceed to <<>> to learn more about using the application, or head straight to <<>> to start managing your tasks.
+. Proceed to <<Using PrioriTask>> to learn more about using the application, or head straight to <<Task Management Features>> to start managing your tasks.
 
 == Using PrioriTask
 
+_{ Add a preface here }_
+
 === The Different Sections of PrioriTask
+
+The PrioriTask application consists of six different sections (refer to <<fig-DifferentComponents>>).
+
+[[fig-DifferentComponents]]
+.The Different Sections of PrioriTask
+image::UserGuideDifferentComponents.png[width="790"]
+
+Given below is a quick overview of each section.
+
+. `Menu Bar`, where you will be able to,
+.. Exit the application (`File` > `Exit`).
+.. Open the Help Window (`Help` > `Help  F1`).
+. `Command Box`, where you input the command to be executed. Press kbd:[Enter] to execute the command after you have finished typing.
+. `Result Display Box`, which displays a successful or warning message depending on the command you execute.
+. `Task List Panel`, which displays the tasks and their respective details. The tasks are organised by their priority levels, with the highest priority level at the top.
+. `Calendar Panel`, which displays the calendar a chronic overview of the deadlines of all your tasks. It will display the current month by default.
+. `Status Bar Footer`, which displays,
+.. The date and time of the last time you have made changes to the data.
+.. The total number of tasks being shown in the `Task List Panel`.
+.. The folder address of where your data file is being stored.
 
 === Command Format
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/CS2103T Developer Guide`.
-* Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/CS2103T Developer Guide t/CS2103` or as `n/CS2103T Developer Guide`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `` (i.e. 0 times), or `t/CS2103`, `t/CS2103 t/CS2101` etc.
-* Parameters can be in any order e.g. if the command specifies `n/NAME p/PRIORITY_LEVEL`, `p/PRIORITY_LEVEL n/NAME` is also acceptable.
+PrioriTask is a CLI application. All features are executed primarily via the command box.
 
+In the following sections, you will be introduced to several commands and their command formats. Here are a few things to take note of:
 
-.  Refer to <<Features>> for details of each command.
+* The command word and alias are case-sensitive.
+** icon:check[] Typing `help` executes the command.
+** icon:times[] Typing `Help`, `heLp` or `HELP` does not execute the command.
+* Words in `UPPER_CASE` are the parameters to be supplied by the user.
+** E.g. In `add n/NAME`, `NAME` is a parameter which can be used as `add n/CS2103T Developer Guide`.
+* Items in square brackets are optional.
+** E.g `n/NAME [t/TAG]` can be used as `n/CS2103T Developer Guide t/CS2103` or as `n/CS2103T Developer Guide`.
+* Items with `…`​ after them can be used multiple times including zero times.
+** E.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), or `t/CS2103`, `t/CS2103 t/CS2101` etc.
+* Parameters can be in any order.
+** E.g. If the command specifies `n/NAME p/PRIORITY_LEVEL`, `p/PRIORITY_LEVEL n/NAME` is also acceptable.
 
 == User Features
 
