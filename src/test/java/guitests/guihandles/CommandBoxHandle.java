@@ -35,6 +35,8 @@ public class CommandBoxHandle extends NodeHandle<TextField> {
 
         guiRobot.type(KeyCode.ENTER);
 
+        guiRobot.pauseForHuman();
+
         return !getStyleClass().contains(CommandBox.ERROR_STYLE_CLASS);
     }
 
