@@ -180,6 +180,10 @@ Logout of PrioriTask +
 [format-title]#Format:# `logout`
 ====
 
+=== Deleting an account `[coming in v2.0]`
+
+_{ Describe the command function }_
+
 === Exiting the program : `exit`
 
 Exits the program. +
@@ -370,6 +374,10 @@ Returns tasks with deadlines `2018-03-17`.
 Returns any task having deadlines `2018-03-17`, `2018-09-04`, or `2018-03-21`.
 ====
 
+==== Locating tasks by tag `[coming in v2.0]`
+
+_{ coming in v2.0 }_
+
 === Deleting a task : `delete` or `d`
 
 Deletes the specified task from the PrioriTask. +
@@ -445,6 +453,142 @@ Toggle the first task in the PrioriTask.
 [example]#`toggle 1`# +
 Toggle the first task in th result of `find homework` command.
 ====
+
+=== Clearing all entries : `clear` or `c`
+
+Clears all entries from the PrioriTask. +
+
+[.format]
+====
+[format-title]#Format:# `clear`
+====
+
+== Subtask Management Features
+
+_{ To explain what a subtask feature is. }_
+
+=== Adding a subtask to a task : `adds` or `as` `[since v1.2]`
+
+Add a subtask to an existing task. +
+
+[.format]
+====
+[format-title]#Format:# `adds INDEX [n/NAME]`
+====
+
+* Adds the subtask at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
+
+[.example]
+====
+[example-title]#Example:#
+
+* [example]#`adds 1 n/Submit report`# +
+Adds a subtask with name `Submit report` to the 1st task.
+====
+
+=== Mark subtask as complete: `toggle-subtask` or `ts` `[since v1.3]`
+
+Toggle the status of the subtask identified by the index number used in the last task listing
+between `Done` and `Not Done`. +
+
+[.format]
+====
+[format-title]#Format:# `toggle-subtask TASK_INDEX SUBTASK_INDEX`
+====
+
+* Toggle the status of the `SUBTASK_INDEX`-th subtask of task at the specified by `TASK_INDEX`.
+* The index refers to the index number shown in the most recent listing.
+* The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`list`# +
+[example]#`toggle-subtask 1 1`# +
+Toggles the first subtask of the first task in the PrioriTask.
+* [example]#`find homework`# +
+[example]#`toggle-subtask 2 4`# +
+Toggles the fourth subtask of the second task in th result of `find homework` command.
+====
+
+=== Deleting a subtask from a task: `delete-subtask` or `ds` `[since v1.3]`
+
+Deletes the specified subtask from the PrioriTask. +
+
+[.format]
+====
+[format-title]#Format:# `delete-subtask TASK_INDEX SUBTASK_INDEX`
+====
+
+* Delete the `SUBTASK_INDEX`-th subtask of task at the specified by `TASK_INDEX`.
+* The index refers to the index number shown in the most recent listing.
+* The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`list`# +
+[example]#`delete-subtask 1 1`# +
+Deletes the first subtask of the first task in the PrioriTask.
+* [example]#`find cleaning`# +
+[example]#`delete-subtask 2 4`# +
+Deletes the fourth subtask of the second task in th result of `find cleaning` command.
+====
+
+=== Editing a subtask `[coming in v2.0]`
+
+_{ coming in v2.0 }_
+
+=== Reorder subtask `[coming in v2.0]`
+
+_{ coming in v2.0 }_
+
+== Calendar Features
+
+The `Calendar` allows you to have a chronic overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask.
+
+* _[coming in v2.0]_ To show only completed tasks on the calendar.
+* _[coming in v2.0]_ To support the viewing of the calendar by days, weeks and years.
+
+=== Go to previous month: `pmonth` or `pm` `[since v1.4]`
+
+Changes the view of the calendar to that of the previous month. +
+
+[.format]
+====
+[format-title]#Format:# `pmonth`
+====
+
+[.example]
+====
+[example-title]#Example:#
+
+* Views `March 2018` +
+[example]#`pmonth`# +
+Goes to `February 2018`
+====
+
+=== Go to next month: `nmonth` or `nm` `[since v1.4]`
+
+Changes the view of the calendar to that of the next month. +
+
+[.format]
+====
+[format-title]#Format:# `nmonth`
+====
+
+[.example]
+====
+[example-title]#Example:#
+
+* Views `March 2018` +
+[example]#`nmonth`# +
+Goes to `April 2018`
+====
+
+=== PrioriTask Features
 
 === Listing entered commands : `history`
 
@@ -522,164 +666,18 @@ The `redo` command fails as there are no `undo` commands executed previously.
 [example]#`redo`# (reapplies the `clear` command) +
 ====
 
-=== Clearing all entries : `clear` or `c`
-
-Clears all entries from the PrioriTask. +
-
-[.format]
-====
-[format-title]#Format:# `clear`
-====
-
-==== Saving the data
+=== Saving the data
 
 PrioriTask data is saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-==== Deleting specific parameters from a task `[coming in v2.0]`
+=== Recover past data `[coming in v2.0]`
 
 _{ coming in v2.0 }_
 
-****
-* Delete either a tag, deadline, or description from a particular task.
-****
-
-==== Locating tasks by tag `[coming in v2.0]`
+== Reminders `[coming in v2.0]`
 
 _{ coming in v2.0 }_
-
-==== Reminders `[coming in v2.0]`
-
-_{ coming in v2.0 }_
-
-==== Recover past data `[coming in v2.0]`
-
-_{ coming in v2.0 }_
-
-=== Subtask Features
-
-_{ To explain what a subtask feature is. }_
-
-==== Adding a subtask to a task : `adds` or `as` `[since v1.2]`
-
-Add a subtask to an existing task. +
-
-[.format]
-====
-[format-title]#Format:# `adds INDEX [n/NAME]`
-====
-
-* Adds the subtask at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
-
-[.example]
-====
-[example-title]#Example:#
-
-* [example]#`adds 1 n/Submit report`# +
-Adds a subtask with name `Submit report` to the 1st task.
-====
-
-==== Mark subtask as complete: `toggle-subtask` or `ts` `[since v1.3]`
-
-Toggle the status of the subtask identified by the index number used in the last task listing
-between `Done` and `Not Done`. +
-
-[.format]
-====
-[format-title]#Format:# `toggle-subtask TASK_INDEX SUBTASK_INDEX`
-====
-
-* Toggle the status of the `SUBTASK_INDEX`-th subtask of task at the specified by `TASK_INDEX`.
-* The index refers to the index number shown in the most recent listing.
-* The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
-
-[.example]
-====
-[example-title]#Examples:#
-
-* [example]#`list`# +
-[example]#`toggle-subtask 1 1`# +
-Toggles the first subtask of the first task in the PrioriTask.
-* [example]#`find homework`# +
-[example]#`toggle-subtask 2 4`# +
-Toggles the fourth subtask of the second task in th result of `find homework` command.
-====
-
-==== Deleting a subtask from a task: `delete-subtask` or `ds` `[since v1.3]`
-
-Deletes the specified subtask from the PrioriTask. +
-
-[.format]
-====
-[format-title]#Format:# `delete-subtask TASK_INDEX SUBTASK_INDEX`
-====
-
-* Delete the `SUBTASK_INDEX`-th subtask of task at the specified by `TASK_INDEX`.
-* The index refers to the index number shown in the most recent listing.
-* The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
-
-[.example]
-====
-[example-title]#Examples:#
-
-* [example]#`list`# +
-[example]#`delete-subtask 1 1`# +
-Deletes the first subtask of the first task in the PrioriTask.
-* [example]#`find cleaning`# +
-[example]#`delete-subtask 2 4`# +
-Deletes the fourth subtask of the second task in th result of `find cleaning` command.
-====
-
-==== Editing a subtask `[coming in v2.0]`
-
-_{ coming in v2.0 }_
-
-==== Reorder subtask `[coming in v2.0]`
-
-_{ coming in v2.0 }_
-
-=== Calendar Features
-
-The `Calendar` allows you to have a chronic overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask.
-
-* _[coming in v2.0]_ To show only completed tasks on the calendar.
-* _[coming in v2.0]_ To support the viewing of the calendar by days, weeks and years.
-
-==== Go to previous month: `pmonth` or `pm` `[since v1.4]`
-
-Changes the view of the calendar to that of the previous month. +
-
-[.format]
-====
-[format-title]#Format:# `pmonth`
-====
-
-[.example]
-====
-[example-title]#Example:#
-
-* Views `March 2018` +
-[example]#`pmonth`# +
-Goes to `February 2018`
-====
-
-==== Go to next month: `nmonth` or `nm` `[since v1.4]`
-
-Changes the view of the calendar to that of the next month. +
-
-[.format]
-====
-[format-title]#Format:# `nmonth`
-====
-
-[.example]
-====
-[example-title]#Example:#
-
-* Views `March 2018` +
-[example]#`nmonth`# +
-Goes to `April 2018`
-====
 
 == FAQ
 
@@ -689,18 +687,19 @@ Goes to `April 2018`
 == Command Summary
 
 === User Features
+* *Exit* : [format-no-box]#`exit`#
 * *Help* : [format-no-box]#`help`#
-* *Sign Up* : [format-no-box]#`signup u/USERNAME p/PASSWORD`#
-e.g. [example-no-box]#`signup u/patrick p/pat12351`#
 * *Login* : [format-no-box]#`login u/USERNAME p/PASSWORD`#
 e.g. [example-no-box]#`login u/patrick p/pat12351`#
 * *Logout* : [format-no-box]#`logout`#
+* *Sign Up* : [format-no-box]#`signup u/USERNAME p/PASSWORD`#
+e.g. [example-no-box]#`signup u/patrick p/pat12351`#
 
 === Task Management Features
 * *Add* : [format-no-box]#`add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…`# +
 e.g. [example-no-box]#`add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA`#
 * *Clear* : [format-no-box]#`clear`#
-* *Delete* : [format]#`delete INDEX`# +
+* *Delete* : [format-no-box]#`delete INDEX`# +
 e.g. [example-no-box]#`delete 3`#
 * *Edit* : [format-no-box]#`edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`# +
 e.g. [example-no-box]#`edit 1 p/9 d/2018-12-30`#
@@ -717,18 +716,20 @@ e.g. [example-no-box]#`findd 2018-03-17 2018-09-07`#
 e.g.[example-no-box]#`select 2`#
 * *Toggle* : [format-no-box]#`toggle INDEX`# +
 e.g.[example-no-box]#`toggle 3`#
+
+=== Subtask Management Features
+* *Add Subtask* : [format-no-box]#`adds INDEX n/NAME`# +
+e.g. [example-no-box]#`adds 1 n/Submit Report`#
+* *Delete Subtask* : [format-no-box]#`delete-subtask TASK_INDEX SUBTASK_INDEX`# +
+e.g. [example-no-box]#`delete-subtask 2 3`#
+* *Toggle Subtask* : [format-no-box]#`toggle-subtask TASK_INDEX SUBTASK_INDEX`# +
+e.g.[example-no-box]#`toggle-subtask 3 2`#
+
+=== Calendar Features
+* *Go To Next Month* : [format-no-box]#`nmonth`#
+* *Go To Previous Month* : [format-no-box]#`pmonth`#
+
+=== PrioriTask Features
 * *History* : [format-no-box]#`history`#
 * *Undo* : [format-no-box]#`undo`#
 * *Redo* : [format-no-box]#`redo`#
-
-=== Subtask Feature
-* *Add Subtask* : [format-no-box]#`adds INDEX n/NAME`# +
-e.g. [example-no-box]#`adds 1 n/Submit Report`#
-* *Toggle Subtask* : [format-no-box]#`toggle-subtask TASK_INDEX SUBTASK_INDEX`# +
-e.g.[example-no-box]#`toggle-subtask 3 2`#
-* *Delete Subtask* : [format]#`delete-subtask TASK_INDEX SUBTASK_INDEX`# +
-e.g. [example-no-box]#`delete-subtask 2 3`#
-
-=== Calendar Feature
-* *Go To Previous Month* : [format-no-box]#`pmonth`#
-* *Go To Next Month* : [format-no-box]#`nmonth`#
