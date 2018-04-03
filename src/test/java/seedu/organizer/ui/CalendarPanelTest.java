@@ -65,7 +65,7 @@ public class CalendarPanelTest extends GuiUnitTest {
         int lastDateRow = monthViewHandle.getRowIndex(lastDateNode);
         int lastDateColumn = monthViewHandle.getColumnIndex(lastDateNode);
         int expectedLastDateColumn = getExpectedDateColumn(currentYearMonth, lastDate);
-        int expectedLastDateRow = getExpectedRowColumn(currentYearMonth, lastDate);
+        int expectedLastDateRow = getExpectedDateRow(currentYearMonth, lastDate);
 
         assertEquals(expectedLastDateColumn, lastDateColumn);
         assertEquals(expectedLastDateRow, lastDateRow);
@@ -87,7 +87,7 @@ public class CalendarPanelTest extends GuiUnitTest {
     /**
      * Retrieves the expected row index of a {@code date}.
      */
-    private int getExpectedRowColumn(YearMonth yearMonth, int date) {
+    private int getExpectedDateRow(YearMonth yearMonth, int date) {
         int startDay = yearMonth.atDay(1).getDayOfWeek().getValue();
 
         if (startDay == SUNDAY) {
