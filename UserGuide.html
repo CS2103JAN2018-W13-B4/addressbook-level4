@@ -79,14 +79,15 @@
 </li>
 <li><a href="#calendar-features">7. Calendar Features</a>
 <ul class="sectlevel2">
-<li><a href="#go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.1. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></li>
-<li><a href="#go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.2. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></li>
-<li><a href="#prioritask-features">7.3. PrioriTask Features</a></li>
-<li><a href="#listing-entered-commands-code-history-code">7.4. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">7.5. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">7.6. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#saving-the-data">7.7. Saving the data</a></li>
-<li><a href="#recover-past-data-code-coming-in-v2-0-code">7.8. Recover past data <code>[coming in v2.0]</code></a></li>
+<li><a href="#go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code">7.1. Go to current month: <code>cmonth</code> or <code>cm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.2. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.3. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#prioritask-features">7.4. PrioriTask Features</a></li>
+<li><a href="#listing-entered-commands-code-history-code">7.5. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">7.6. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">7.7. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#saving-the-data">7.8. Saving the data</a></li>
+<li><a href="#recover-past-data-code-coming-in-v2-0-code">7.9. Recover past data <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#reminders-code-coming-in-v2-0-code">8. Reminders <code>[coming in v2.0]</code></a></li>
@@ -1275,7 +1276,37 @@ Deletes the fourth subtask of the second task in th result of <code>find cleanin
 </ul>
 </div>
 <div class="sect2">
-<h3 id="go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code"><a class="link" href="#go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.1. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></h3>
+<h3 id="go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code"><a class="link" href="#go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code">7.1. Go to current month: <code>cmonth</code> or <code>cm</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Changes the view of the calendar to that of the current month.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>cmonth</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current month is <code>April 2018</code><br>
+Views <code>December 2018</code><br>
+<span class="example"><code>cmonth</code></span><br>
+Goes to <code>April 2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code"><a class="link" href="#go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.2. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Changes the view of the calendar to that of the previous month.<br></p>
 </div>
@@ -1304,7 +1335,7 @@ Goes to <code>February 2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code"><a class="link" href="#go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.2. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></h3>
+<h3 id="go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code"><a class="link" href="#go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.3. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Changes the view of the calendar to that of the next month.<br></p>
 </div>
@@ -1333,13 +1364,13 @@ Goes to <code>April 2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="prioritask-features"><a class="link" href="#prioritask-features">7.3. PrioriTask Features</a></h3>
+<h3 id="prioritask-features"><a class="link" href="#prioritask-features">7.4. PrioriTask Features</a></h3>
 <div class="paragraph">
 <p><em>{ To describe what this feature is about }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">7.4. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">7.5. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br></p>
 </div>
@@ -1366,7 +1397,7 @@ Goes to <code>April 2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">7.5. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">7.6. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the PrioriTask to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
@@ -1421,7 +1452,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">7.6. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">7.7. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br></p>
 </div>
@@ -1463,14 +1494,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">7.7. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">7.8. Saving the data</a></h3>
 <div class="paragraph">
 <p>PrioriTask data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="recover-past-data-code-coming-in-v2-0-code"><a class="link" href="#recover-past-data-code-coming-in-v2-0-code">7.8. Recover past data <code>[coming in v2.0]</code></a></h3>
+<h3 id="recover-past-data-code-coming-in-v2-0-code"><a class="link" href="#recover-past-data-code-coming-in-v2-0-code">7.9. Recover past data <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{ To explain what this feature is about }</em></p>
 </div>
@@ -1648,6 +1679,9 @@ e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
 <div class="ulist">
 <ul>
 <li>
+<p><strong>Go To Current Month</strong> : <span class="format-no-box"><code>cmonth</code></span></p>
+</li>
+<li>
 <p><strong>Go To Next Month</strong> : <span class="format-no-box"><code>nmonth</code></span></p>
 </li>
 <li>
@@ -1677,7 +1711,7 @@ e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-03 13:50:29 UTC
+Last updated 2018-04-04 03:56:09 UTC
 </div>
 </div>
 </body>
