@@ -70,10 +70,9 @@ public abstract class OrganizerSystemTest {
         setupHelper = new SystemTestSetupHelper();
         testApp = setupHelper.setupApplication(this::getInitialData, getDataFileLocation());
         mainWindowHandle = setupHelper.setupMainWindowHandle();
+        testApp.loginAdmin();
 
         assertApplicationStartingStateIsCorrect();
-
-        testApp.loginAdmin();
     }
 
     @After
