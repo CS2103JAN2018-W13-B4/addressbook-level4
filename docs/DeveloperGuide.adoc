@@ -1,6 +1,8 @@
 = PrioriTask - Developer Guide
 :linkcss:
 :icons: font
+:source-highlighter: coderay
+:coderay-css: style
 :toc:
 :toc-title:
 :toc-placement: preamble
