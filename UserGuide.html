@@ -43,12 +43,18 @@
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
 <li><a href="#signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code">4.2. Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></a></li>
 <li><a href="#logging-in-code-login-code-or-code-in-code-code-since-v1-4-code">4.3. Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></a></li>
-<li><a href="#logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code">4.4. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a></li>
-<li><a href="#deleting-an-account-code-coming-in-v2-0-code">4.5. Deleting an account <code>[coming in v2.0]</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.6. Exiting the program : <code>exit</code></a></li>
+<li><a href="#logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code">4.4. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a>
+<ul class="sectlevel3">
+<li><a href="#retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code">4.4.1. Retrieving question for user&#8217;s password: <code>forgotpassword</code> or <code>fp</code> <code>[since v1.4]</code></a></li>
+<li><a href="#answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code">4.4.2. Answering question: <code>answer</code> or <code>ans</code> <code>[since v1.4]</code></a></li>
 </ul>
 </li>
-<li><a href="#task-management-features">5. Task Management Features</a>
+<li><a href="#task-management-features">4.5. Task Management Features</a></li>
+<li><a href="#deleting-an-account-code-coming-in-v2-0-code">4.6. Deleting an account <code>[coming in v2.0]</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.7. Exiting the program : <code>exit</code></a></li>
+</ul>
+</li>
+<li><a href="#task-management-features-2">5. Task Management Features</a>
 <ul class="sectlevel2">
 <li><a href="#adding-a-task-code-add-code-or-code-a-code">5.1. Adding a task: <code>add</code> or <code>a</code></a></li>
 <li><a href="#listing-all-tasks-code-list-code-or-code-l-code">5.2. Listing all tasks : <code>list</code> or <code>l</code></a></li>
@@ -95,7 +101,7 @@
 <li><a href="#command-summary">10. Command Summary</a>
 <ul class="sectlevel2">
 <li><a href="#user-features-2">10.1. User Features</a></li>
-<li><a href="#task-management-features-2">10.2. Task Management Features</a></li>
+<li><a href="#task-management-features-3">10.2. Task Management Features</a></li>
 <li><a href="#subtask-management-features-2">10.3. Subtask Management Features</a></li>
 <li><a href="#calendar-features-2">10.4. Calendar Features</a></li>
 <li><a href="#prioritask-features-2">10.5. PrioriTask Features</a></li>
@@ -264,7 +270,7 @@ A warning message will be displayed in the result display box if your <span clas
 </div>
 </li>
 <li>
-<p>Proceed to <a href="#using-prioritask">Section 3, &#8220;Using PrioriTask&#8221;</a> to learn more about using the application, or head straight to <a href="#task-management-features">Section 5, &#8220;Task Management Features&#8221;</a> to start managing your tasks.</p>
+<p>Proceed to <a href="#using-prioritask">Section 3, &#8220;Using PrioriTask&#8221;</a> to learn more about using the application, or head straight to <a href="#task-management-features">Section 4.5, &#8220;Task Management Features&#8221;</a> to start managing your tasks.</p>
 </li>
 </ol>
 </div>
@@ -493,15 +499,79 @@ A warning message will be displayed in the result display box if your <span clas
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code"><a class="link" href="#retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code">4.4.1. Retrieving question for user&#8217;s password: <code>forgotpassword</code> or <code>fp</code> <code>[since v1.4]</code></a></h4>
+<div class="paragraph">
+<p>Retrieve question for user&#8217;s password<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> `forgotpassword u/USERNAME `</p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>forgotpassword u/patrick</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>forgotpassword u/mary</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code"><a class="link" href="#answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code">4.4.2. Answering question: <code>answer</code> or <code>ans</code> <code>[since v1.4]</code></a></h4>
+<div class="paragraph">
+<p>Answer a user&#8217;s question to retrieve the password<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>answer u/USERNAME a/ANSWER</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>answer u/patrick a/yes</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>answer u/mary a/no</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-account-code-coming-in-v2-0-code"><a class="link" href="#deleting-an-account-code-coming-in-v2-0-code">4.5. Deleting an account <code>[coming in v2.0]</code></a></h3>
+<h3 id="task-management-features"><a class="link" href="#task-management-features">4.5. Task Management Features</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="deleting-an-account-code-coming-in-v2-0-code"><a class="link" href="#deleting-an-account-code-coming-in-v2-0-code">4.6. Deleting an account <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{ Describe the command function }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.6. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.7. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br></p>
 </div>
@@ -516,7 +586,7 @@ A warning message will be displayed in the result display box if your <span clas
 </div>
 </div>
 <div class="sect1">
-<h2 id="task-management-features"><a class="link" href="#task-management-features">5. Task Management Features</a></h2>
+<h2 id="task-management-features-2"><a class="link" href="#task-management-features-2">5. Task Management Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>{ To explain what a task management feature is. }</em></p>
@@ -1603,7 +1673,7 @@ e.g. <span class="example-no-box"><code>signup u/patrick p/pat12351</code></span
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-management-features-2"><a class="link" href="#task-management-features-2">10.2. Task Management Features</a></h3>
+<h3 id="task-management-features-3"><a class="link" href="#task-management-features-3">10.2. Task Management Features</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1711,7 +1781,7 @@ e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-04 04:13:51 UTC
+Last updated 2018-04-04 04:39:35 UTC
 </div>
 </div>
 </body>
