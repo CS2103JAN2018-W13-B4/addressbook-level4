@@ -1,3 +1,4 @@
+
 = PrioriTask - User Guide
 :linkcss:
 :icons: font
@@ -201,13 +202,72 @@ Login to PrioriTask +
 * [example]#`login u/mary p/m4ry`#
 ====
 
-=== Logging out: `logout` or `out` `[since v1.4]`
+=== Adding question: `addqa` `[since v1.4]`
 
-Logout of PrioriTask +
+Adding a question for password retrieval +
 
 [.format]
 ====
-[format-title]#Format:# `logout`
+[format-title]#Format:# `addqa q/QUESTION a/ANSWER`
+====
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`addqa q/are you male? a/yes#
+* [example]#`addqa q/are you female? a/yes`#
+====
+
+=== Retrieving question for user's password: `forgotpassword` or `fp` `[since v1.4]`
+
+Retrieve question for user's password +
+
+[.format]
+====
+[format-title]#Format:# `forgotpassword u/USERNAME `
+====
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`forgotpassword u/patrick`#
+* [example]#`forgotpassword u/mary`#
+====
+
+=== Retrieving question for user's password: `forgotpassword` or `fp` `[since v1.4]`
+
+Retrieve question for user's password +
+
+[.format]
+====
+[format-title]#Format:# `forgotpassword u/USERNAME `
+====
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`forgotpassword u/patrick`#
+* [example]#`forgotpassword u/mary`#
+====
+
+=== Answering question: `answer` or `ans` `[since v1.4]`
+
+Answer a user's question to retrieve the password +
+
+[.format]
+====
+[format-title]#Format:# `answer u/USERNAME a/ANSWER`
+====
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`answer u/patrick a/yes`#
+* [example]#`answer u/mary a/no`#
 ====
 
 === Deleting an account `[coming in v2.0]`
@@ -596,6 +656,25 @@ The `Calendar` allows you to have a chronic overview of the deadlines of all you
 
 _{ TODO: Add a note about display }_
 
+=== Go to current month: `cmonth` or `cm` `[since v1.4]`
+
+Changes the view of the calendar to that of the current month. +
+
+[.format]
+====
+[format-title]#Format:# `cmonth`
+====
+
+[.example]
+====
+[example-title]#Example:#
+
+* Current month is `April 2018` +
+Views `December 2018` +
+[example]#`cmonth`# +
+Goes to `April 2018`
+====
+
 === Go to previous month: `pmonth` or `pm` `[since v1.4]`
 
 Changes the view of the calendar to that of the previous month. +
@@ -786,6 +865,7 @@ e.g. [example-no-box]#`delete-subtask 2 3`#
 e.g.[example-no-box]#`toggle-subtask 3 2`#
 
 === Calendar Features
+* *Go To Current Month* : [format-no-box]#`cmonth`#
 * *Go To Next Month* : [format-no-box]#`nmonth`#
 * *Go To Previous Month* : [format-no-box]#`pmonth`#
 
