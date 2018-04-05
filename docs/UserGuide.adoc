@@ -212,7 +212,7 @@ Logout of PrioriTask +
 
 === Deleting an account `[coming in v2.0]`
 
-_{ Describe the command function }_
+_{ TODO: Describe the command function }_
 
 === Exiting the program : `exit`
 
