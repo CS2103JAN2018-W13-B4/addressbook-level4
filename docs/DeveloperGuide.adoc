@@ -667,7 +667,7 @@ An `EntryCard` will be added to a specific date which reflects the deadline of t
 * Drawing the month view of the calendar, and populating the dates.
 
 * Adding the tasks’ entries onto the calendar, according to the last task listing. The calendar is also updated every time an undoable command is executed (refer to <<Undo/Redo feature>> for more details about an undoable command).
-* Aiding the `Logic` component by switching the month view accordingly when users execute the respective calendar feature commands (e.g. `pmonth`, `nmonth`, etc.). A calendar feature command is defined as a command that changes the display of the calendar. For the full list of calendar feature commands, head to <<UserGuide#_calendar_features, User Guide: Calendar Features>>.
+* Aiding the `Logic` component by switching the month view accordingly when users execute the respective calendar feature commands (e.g. `pmonth`, `nmonth`, etc.). A calendar feature command is defined as a command that changes the display of the calendar. For the full list of calendar feature commands, head to <<UserGuide#calendar-features, User Guide: Calendar Features>>.
 
 `MonthView` interacts very closely with its corresponding FXML file, `MonthView.fxml` to execute its tasks. The FXML file reflects the basic layout of the calendar feature, which is illustrated by the diagram below.
 
