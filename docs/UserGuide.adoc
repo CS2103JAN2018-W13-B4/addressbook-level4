@@ -650,7 +650,7 @@ The display of the calendar may differ from pictures on other computer screens.
 [[fig-UserGuideCalendarFeature1]]
 .PrioriTask's main page
 image::UserGuideCalendarFeature1.png[width="790"]
- 
+
 In future releases, the calendar will support,
 
 * Displaying of only the uncompleted tasks on the calendar.
