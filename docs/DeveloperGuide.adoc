@@ -490,6 +490,9 @@ image::UndoRedoActivityDiagram.png[width="650"]
 
 // tag::taskpriority[]
 === Task's Priority Auto-updating and Auto-sorting feature
+
+_{ TODO: Add preface }_
+
 ==== Current Implementation
 
 The autoupdating and autosorting mechanism resides inside `UniqueTaskList`. The `UniqueTaskList` is responsible for updating each Task’s priority level and sorting the `ObservableList<Task>` whenever a new `Task` is added. In addition, whenever a `Task` is edited, the `ObservableList<Task>` is sorted again.
@@ -547,7 +550,7 @@ private void sortTasks() {
 
 The `sortTasks` method makes use of the `ObservableList` class’s `sort` method and `Task`’s `priorityComparator` method. The `priorityComparator` method returns a `Comparator` that sorts `Task` s based on descending `Priority` levels. The `internalList` is sorted with respect to the comparator.
 
-===== Scenario
+==== Scenario
 
 Consider an `addTask` method call by the `Organizer`. The current date is 2018-03-19.
 
@@ -829,7 +832,7 @@ The following are steps to create a new release:
 
 .  Update the version number in link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp.java`].
 .  Generate a JAR file <<UsingGradle#creating-the-jar-file, using Gradle>>.
-.  Tag the repo with the version number. e.g. `v0.1`
+.  Tag the repo with the version number. e.g. `v0.1`.
 .  https://help.github.com/articles/creating-releases/[Create a new release using GitHub] and upload the JAR file you created.
 
 === Managing Dependencies
