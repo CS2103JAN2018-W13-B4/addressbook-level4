@@ -672,6 +672,9 @@ private void createMainView() throws IOException {
 
 // tag::subtask[]
 === Subtask
+
+_{ TODO: Add preface }_
+
 ==== Current Implementation
 
 Subtask feature allows user to split their tasks into multiple subtasks. This feature allows user to better
