@@ -667,7 +667,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
 </div>
-<div class="imageblock">
+<div id="fig-LogicSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/DeleteTaskSdForLogic.png" alt="DeleteTaskSdForLogic" width="800">
 </div>
@@ -1005,7 +1005,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire organizer.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire organizer</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1018,7 +1018,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1373,58 +1373,302 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </div>
 <div class="sect2">
 <h3 id="calendar-feature"><a class="link" href="#calendar-feature">4.3. Calendar Feature</a></h3>
+<div class="paragraph">
+<p>The <code>Calendar</code> resides mainly in the <code>UI</code> component, constantly interacting with the <code>Logic</code> and <code>Model</code> components to complete its tasks. It allows users to have a chronic overview of the deadlines of all their tasks. Tasks on the calendar changes according to the last task listing. By default, users will view the current month when they first open PrioriTask.</p>
+</div>
+<div class="paragraph">
+<p>The calendar feature is currently still in its early stages of implementation. At present, it only supports the switching between months, and is best viewed fully-maximised on a 13” computer screen.</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The calendar feature is facilitated by the <code>Calendar</code> class, which supports the <code>CalendarPanel</code>. The <code>Calendar</code> is responsible for displaying a monthly calendar view to the users through the <code>CalendarPanel</code>. The following diagram describes the structure of the calendar system:</p>
+<p>The calendar feature is facilitated by the <code>MonthView</code> class, which supports the <code>CalendarPanel</code>. The <code>MonthView</code> is responsible for displaying a monthly calendar view to the users through the <code>CalendarPanel</code>. The following diagram illustrates the structure of the calendar feature system:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CalendarComponentClassDiagram.png" alt="CalendarComponentClassDiagram" width="800">
+<img src="images/CalendarComponentClassDiagram.png" alt="CalendarComponentClassDiagram" width="700">
 </div>
-<div class="title">Figure 30. UML Class Diagram for Calendar</div>
-</div>
-<div class="paragraph">
-<p>As you can see from the diagram, <code>MonthView</code> facilitates the drawing of the calendar, while <code>Calendar</code> supports the display of the calendar onto the <code>CalendarPanel</code>. The <code>MonthView</code> interacts very closely with the corresponding FXML file.</p>
+<div class="title">Figure 30. Structure of the Calendar Feature</div>
 </div>
 <div class="paragraph">
-<p>The following diagram shows the basic layout of the calendar:</p>
+<p>The following sequence diagram illustrates how the different classes work together to display the calendar when users first run the application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 31. Calendar Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>Below describes the the implementation of the different classes supporting the calendar feature.</p>
+</div>
+<div class="sect4">
+<h5 id="implementation-of-code-entrycard-code"><a class="link" href="#implementation-of-code-entrycard-code">Implementation of <code>EntryCard</code></a></h5>
+<div class="paragraph">
+<p><code>EntryCard</code> is responsible for displaying the name of a <code>Task</code> on the calendar. It is called by <code>MonthView</code> when mapping each <code>Task</code> to an <code>EntryCard</code>. The method is implemented as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> ObservableList&lt;EntryCard&gt; getEntryCardsList(<span style="color:#339;font-weight:bold">int</span> year, <span style="color:#339;font-weight:bold">int</span> month) {
+    FilteredList&lt;Task&gt; filteredList = getFilteredTaskList(year, month);
+    SortedList&lt;Task&gt; taskSortedList = getSortedTaskList(filteredList);
+
+    <span style="color:#080;font-weight:bold">return</span> EasyBind.map(taskSortedList, (task) -&gt; <span style="color:#080;font-weight:bold">new</span> EntryCard(task));
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An <code>EntryCard</code> will be added to a specific date which reflects the deadline of the <code>Task</code>. It is displayed on the calendar with the help of the JavaFX <code>ListView</code> object. More details of how this is implemented is further discussed in <a href="#implementation-of-code-monthview-code">Section 4.3.1.2, &#8220;Implementation of <code>MonthView</code>&#8221;</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-of-code-monthview-code"><a class="link" href="#implementation-of-code-monthview-code">Implementation of <code>MonthView</code></a></h5>
+<div class="paragraph">
+<p><code>MonthView</code> is in charge of executing several tasks. It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Drawing the month view of the calendar, and populating the dates.</p>
+</li>
+<li>
+<p>Adding the tasks’ entries onto the calendar, according to the last task listing. The calendar is also updated every time an undoable command is executed (refer to <a href="#undo-redo-feature">Section 4.1, &#8220;Undo/Redo feature&#8221;</a> for more details about an undoable command).</p>
+</li>
+<li>
+<p>Aiding the <code>Logic</code> component by switching the month view accordingly when users execute the respective calendar feature commands (e.g. <code>pmonth</code>, <code>nmonth</code>, etc.). A calendar feature command is defined as a command that changes the display of the calendar. For the full list of calendar feature commands, head to <a href="UserGuide.html#calendar-features">User Guide: Calendar Features</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>MonthView</code> interacts very closely with its corresponding FXML file, <code>MonthView.fxml</code> to execute its tasks. The FXML file reflects the basic layout of the calendar feature, which is illustrated by the diagram below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/MonthViewLayoutDiagram.png" alt="MonthViewLayoutDiagram" width="700">
 </div>
-<div class="title">Figure 31. Basic Calendar Layout</div>
+<div class="title">Figure 32. Basic Calendar Layout</div>
 </div>
 <div class="paragraph">
-<p>The basic calendar layout (refer to Figure 25) is reflected in <code>MonthView.fxml</code>. It is loaded by <code>MonthView</code> which uses the JavaFX layout objects extensively when drawing the calendar. An example would be the <code>addMonthDate</code> method, which adds a particular date to the exact <code>column</code> and <code>row</code> of the <code>taskCalendar</code>.</p>
+<p>MonthView` uses the JavaFX layout objects extensively when executing its tasks. The following are some instances when JavaFX layout objects are called:</p>
 </div>
-<div class="paragraph">
-<p>The <code>addMonthDate</code> method is implemented as such:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Populating the dates in the calendar: Adding a <code>Text</code> object, which contains the numerical value of a particular date, to the exact column and row in the <code>taskCalendar</code>. The method is implemented as such:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> addMonthDate(Text dateToPrint, <span style="color:#339;font-weight:bold">int</span> column, <span style="color:#339;font-weight:bold">int</span> row) {
-    taskCalendar.add(dateToPrint, column, row);
+    <span style="color:#777">// To update the JavaFX component from a non-JavaFX thread</span>
+    Platform.runLater(<span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Runnable</span>() {
+        <span style="color:#007">@Override</span>
+        <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> run() {
+            taskCalendar.add(dateToPrint, column, row);
+        }
+    });
+
     taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
     taskCalendar.setValignment(dateToPrint, VPos.TOP)
+    dateToPrint.setId(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">date</span><span style="color:#710">&quot;</span></span> + <span style="color:#0a8;font-weight:bold">String</span>.valueOf(dateCount));
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding the tasks’ entries onto the calendar: Adding a <code>ListView</code> object, which contains a list of <code>EntryCard`s, to the exact column and row in the `taskCalendar</code>. An <code>EntryCard</code> represents a task entry, which will be added to the date which reflects the deadline of the task. The method is implemented as such:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> addEntryListView(ObservableList&lt;EntryCard&gt; toAddObservableList, <span style="color:#339;font-weight:bold">int</span> row, <span style="color:#339;font-weight:bold">int</span> column) {
+    <span style="color:#0a8;font-weight:bold">ListView</span>&lt;EntryCard&gt; entries = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ListView</span>&lt;&gt;();
+    entries.setId(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">entry</span><span style="color:#710">&quot;</span></span> + <span style="color:#0a8;font-weight:bold">String</span>.valueOf(row) + <span style="color:#0a8;font-weight:bold">String</span>.valueOf(column));
+    entries.setItems(toAddObservableList);
+    entries.setCellFactory(listView -&gt; <span style="color:#080;font-weight:bold">new</span> EntryListViewCell());
+    entries.setMaxHeight(<span style="color:#00D">60</span>);
+
+    <span style="color:#777">// To update the JavaFX component from a non-JavaFX thread</span>
+    Platform.runLater(<span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Runnable</span>() {
+        <span style="color:#007">@Override</span>
+        <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> run() {
+            taskCalendar.add(entries, column, row);
+        }
+    });
+
+    taskCalendar.setValignment(entries, VPos.BOTTOM);
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Both the <code>Calendar</code> and <code>CalendarPanel</code> use the JavaFX <code>StackPane</code> object as a placeholder for the <code>MonthView</code>. After loading the respective FXML files, methods in the <code>Calendar</code> and <code>CalendarPanel</code> fetch the display for the <code>MonthView</code> as such:</p>
+<p><code>MonthView</code> also works very closely with the <code>Logic</code> component to accomplish,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding of the tasks’ entries onto the calendar, by retrieving an unmodifiable <code>ObservableList</code> containing the list of <code>Task`s. A listener to added to the `ObservableList</code> so that the calendar is updated with the latest tasks’ entries when a change in the list is detected. The method is implemented as such:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> getCurrentMonth(YearMonth currentYearMonth) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">IOException</span> {
-    <span style="color:#777">// draws the calendar for the current month</span>
-    calendarPlaceholder.getChildren().add(monthView.getRoot());
-}
-
-<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> createMainView() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">IOException</span> {
-    <span style="color:#777">// fetches the calendar view</span>
-    calendarPane.getChildren().add(calendar.getRoot());
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> addListenerToTaskList() {
+    taskList.addListener(<span style="color:#080;font-weight:bold">new</span> ListChangeListener&lt;Task&gt;() {
+        <span style="color:#007">@Override</span>
+        <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> onChanged(Change change) {
+            <span style="color:#080;font-weight:bold">while</span> (change.next()) {
+                clearCalendar();
+                setMonthCalendarDatesAndEntries(viewYearMonth.getYear(), viewYearMonth.getMonthValue());
+            }
+        }
+    });
 }</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Switching the month view when users execute the respective calendar feature commands, by retrieving an <code>ObservableList</code> containing a list of executed commands by the user. A listener is added to the <code>ObservableList</code> so that the month view is changed accordingly when a calendar feature command in the list is detected. The method is implemented as such:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> addListenerToExecutedCommandsList() {
+    executedCommandsList.addListener(<span style="color:#080;font-weight:bold">new</span> ListChangeListener&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt;() {
+        <span style="color:#007">@Override</span>
+        <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> onChanged(Change change) {
+            <span style="color:#080;font-weight:bold">while</span> (change.next()) {
+                <span style="color:#339;font-weight:bold">int</span> size = executedCommandsList.size();
+                <span style="color:#0a8;font-weight:bold">String</span> executedCommand = executedCommandsList.get(size - <span style="color:#00D">1</span>);
+
+                <span style="color:#080;font-weight:bold">if</span> ((executedCommand.equals(CurrentMonthCommand.COMMAND_WORD)) || (executedCommand.equals(CurrentMonthCommand.COMMAND_ALIAS))) {
+                    goToCurrentMonth();
+                }
+
+                <span style="color:#777">// … other similiar if statements for the remaining calendar feature commands ...</span>
+            }
+        }
+    });
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-of-code-calendarpanel-code"><a class="link" href="#implementation-of-code-calendarpanel-code">Implementation of <code>CalendarPanel</code></a></h5>
+<div class="paragraph">
+<p><code>CalendarPanel</code> simply displays the calendar, by using the JavaFX <code>StackPane</code> object as a placeholder for <code>MonthView</code>, which contains the basic layout of the calendar. After loading its own FXML file, it will fetch the display for <code>MonthView</code> as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> createMainView() {
+    monthView.getMonthView(currentYearMonth);
+    calendarPane.getChildren().add(monthView.getRoot());
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scenario-3"><a class="link" href="#scenario-3">4.3.2. Scenario</a></h4>
+<div class="paragraph">
+<p>Suppose the user executes a calendar feature command. Given below is the sequence diagram for interactions within the <code>Logic</code> and <code>UI</code> components for the execute(“nmonth”) API call.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CalendarCommandExecutionSequenceDiagram.png" alt="CalendarCommandExecutionSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 33. Calendar Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>The sequence flow is slightly similar to that of the execution of a normal command (refer to <a href="#fig-LogicSequenceDiagram">Figure 14, &#8220;Interactions Inside the Logic Component for the <code>delete 1</code> Command&#8221;</a>), and is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>OrganizerParser</code> class to parse the calendar feature command.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution triggers the <code>MonthView</code> class in the <code>UI</code>, which will display the new month view.</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed to the <code>UI</code>. It will be shown in the <code>Result Display Box</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-calendar-feature"><a class="link" href="#aspect-implementation-of-calendar-feature">Aspect: Implementation of calendar feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Draw the calendar manually using the JavaFX library</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Feature is customised for the PrioriTask application.</p>
+</li>
+<li>
+<p>Cons: Too much time invested in creating a feature that has been already been developed and freely available.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a third-party framework / library</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Speed up development, especially if it has already been thoroughly tested and does not have many bugs.</p>
+</li>
+<li>
+<p>Cons: Not customised for the application, and may require much time to tweak or work around the framework / library to suit the application.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-updating-of-tasks-entries-on-the-calendar"><a class="link" href="#aspect-updating-of-tasks-entries-on-the-calendar">Aspect: Updating of tasks’ entries on the calendar</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Clears the calendar, and draws everything (i.e. the dates and entries) again</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues. There may be a lag after an undoable is executed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Track the <code>Task</code> that is being added / modified, and update the calendar accordingly</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Update of the calendar will be almost instantaneous. Chances of a lag is rare.</p>
+</li>
+<li>
+<p>Cons: Difficult to implement. Need to ensure that the tracking of `Task`s added / modified is accurate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1444,7 +1688,7 @@ manage their task. It is implemented using <code>Subtask</code> class and <code>
 <div class="content">
 <img src="images/SubtaskComponentDiagram.png" alt="SubtaskComponentDiagram" width="500">
 </div>
-<div class="title">Figure 32. Subtask UML Class Diagram</div>
+<div class="title">Figure 34. Subtask UML Class Diagram</div>
 </div>
 <div class="paragraph">
 <p><code>UniqueSubtaskList</code> is created to ensure that no task has a duplicated subtask.</p>
@@ -1634,7 +1878,7 @@ Asciidoc was chosen over Markdown as asciidoc provides more flexibility in forma
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 33. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 35. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -2560,7 +2804,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-06 00:46:27 UTC
+Last updated 2018-04-06 00:54:27 UTC
 </div>
 </div>
 </body>
