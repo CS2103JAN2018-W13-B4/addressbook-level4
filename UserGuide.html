@@ -72,9 +72,8 @@
 <li><a href="#locating-tasks-by-tag-code-coming-in-v2-0-code">5.5.5. Locating tasks by tag <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
-<li><a href="#selecting-a-task-code-select-code-or-code-s-code">5.6. Selecting a task : <code>select</code> or <code>s</code></a></li>
-<li><a href="#mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code">5.7. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></li>
-<li><a href="#clearing-all-tasks-code-clear-code-or-code-c-code">5.8. Clearing all tasks : <code>clear</code> or <code>c</code></a></li>
+<li><a href="#mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code">5.6. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></li>
+<li><a href="#clearing-all-tasks-code-clear-code-or-code-c-code">5.7. Clearing all tasks : <code>clear</code> or <code>c</code></a></li>
 </ul>
 </li>
 <li><a href="#subtask-management-features">6. Subtask Management Features</a>
@@ -1141,54 +1140,7 @@ Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-task-code-select-code-or-code-s-code"><a class="link" href="#selecting-a-task-code-select-code-or-code-s-code">5.6. Selecting a task : <code>select</code> or <code>s</code></a></h3>
-<div class="paragraph">
-<p>Select the task identified by the index number used in the last task listing.<br></p>
-</div>
-<div class="exampleblock format">
-<div class="content">
-<div class="paragraph">
-<p><span class="format-title">Format:</span> <code>select INDEX</code></p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the task and shows full details of the task at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
-</li>
-</ul>
-</div>
-<div class="exampleblock example">
-<div class="content">
-<div class="paragraph">
-<p><span class="example-title">Examples:</span></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><span class="example"><code>list</code></span><br>
-<span class="example"><code>select 2</code></span><br>
-Selects the 2nd task in the PrioriTask.</p>
-</li>
-<li>
-<p><span class="example"><code>find Developer</code></span><br>
-<span class="example"><code>select 1</code></span><br>
-Selects the 1st task in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code"><a class="link" href="#mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code">5.7. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></h3>
+<h3 id="mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code"><a class="link" href="#mark-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code">5.6. Mark task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></h3>
 <div class="paragraph">
 <p>Toggle the status of the task identified by the index number used in the last task listing
 between <code>Done</code> and <code>Not Done</code>.<br></p>
@@ -1236,7 +1188,7 @@ Toggle the first task in th result of <code>find homework</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-tasks-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-tasks-code-clear-code-or-code-c-code">5.8. Clearing all tasks : <code>clear</code> or <code>c</code></a></h3>
+<h3 id="clearing-all-tasks-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-tasks-code-clear-code-or-code-c-code">5.7. Clearing all tasks : <code>clear</code> or <code>c</code></a></h3>
 <div class="paragraph">
 <p>Clear all of your tasks from PrioriTask.<br></p>
 </div>
@@ -1860,10 +1812,6 @@ e.g. <span class="example-no-box"><code>findd 2018-03-17 2018-09-07</code></span
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong>Select</strong> : <span class="format-no-box"><code>select INDEX</code></span><br>
-e.g.<span class="example-no-box"><code>select 2</code></span></p>
 </li>
 <li>
 <p><strong>Toggle</strong> : <span class="format-no-box"><code>toggle INDEX</code></span><br>
