@@ -317,7 +317,7 @@ _This section explains what a *Task* is, and the commands to manage them._
 ** It is automatically set upon toggling a task's completion.
 * [parameters]#`DEADLINE`#
 ** A deadline is in the format of *YYYY-MM-DD*.
-** Deadlines should not be invalid (e.g. `2018-02-31` is an invalid dateline as there is not such date).
+** Deadlines should not be invalid (e.g. `2018-02-31` is an invalid dateline as there is no such date).
 ** It is *compulsory* to have a deadline.
 * [parameters]#`SUBTASK`#
 ** A task can have any number of subtasks (including 0).
