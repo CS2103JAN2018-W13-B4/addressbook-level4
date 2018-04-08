@@ -31,6 +31,11 @@ public class ArgumentMultimap {
         argMultimap.put(prefix, argValues);
     }
 
+    public int getSize(Prefix prefix) {
+        List<String> values = getAllValues(prefix);
+        return values.isEmpty() ? 0 : values.size();
+    }
+
     /**
      * Returns the last value of {@code prefix}.
      */

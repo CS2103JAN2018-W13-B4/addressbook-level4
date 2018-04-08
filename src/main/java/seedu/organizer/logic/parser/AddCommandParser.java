@@ -42,6 +42,10 @@ public class AddCommandParser implements Parser<AddCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
+        if (arePrefixesRepeated(argMultimap, PREFIX_NAME, PREFIX_DEADLINE, PREFIX_DESCRIPTION, PREFIX_PRIORITY)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }
+
         try {
             Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME)).get();
             //@@author dominickenn
@@ -51,8 +55,8 @@ public class AddCommandParser implements Parser<AddCommand> {
             } else {
                 priority = ParserUtil.parsePriority(Priority.LOWEST_PRIORITY_LEVEL);
             }
-            Deadline deadline = ParserUtil.parseDeadline(argMultimap.getValue(PREFIX_DEADLINE)).get();
             //@@author
+            Deadline deadline = ParserUtil.parseDeadline(argMultimap.getValue(PREFIX_DEADLINE)).get();
             Description description;
             if (arePrefixesPresent(argMultimap, PREFIX_DESCRIPTION)) {
                 description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION)).get();
@@ -75,6 +79,10 @@ public class AddCommandParser implements Parser<AddCommand> {
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
+    }
+
+    private static boolean arePrefixesRepeated(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
+        return Stream.of(prefixes).anyMatch(prefix -> (argumentMultimap.getSize(prefix) > 1));
     }
 
 }
