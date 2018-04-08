@@ -749,7 +749,7 @@ Undoable commands: those commands that modify the PrioriTask's content (`add`, `
 [example]#`list`# +
 [example]#`undo`# (reverses the `delete 1` command) +
 
-* [example]#`select 1`# +
+* [example]#`completed`# +
 [example]#`list`# +
 [example]#`undo`# +
 The `undo` command fails as there are no undoable commands executed previously.
