@@ -81,6 +81,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
 
+    //@author guekling
     /**
      * Returns true if any of the prefixes contains multiple values in the given {@code ArgumentMultimap}.
      */
