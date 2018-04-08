@@ -585,7 +585,7 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="exampleblock format">
 <div class="content">
 <div class="paragraph">
-<p><span class="format-title">Format:</span> `forgotpassword u/USERNAME `</p>
+<p><span class="format-title">Format:</span> <code>forgotpassword u/USERNAME</code></p>
 </div>
 </div>
 </div>
@@ -721,7 +721,7 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p>A description can be any value (i.e. alphabet, numbers, special symbols).</p>
+<p>A description can be of any value (i.e. alphabet, numbers, special symbols).</p>
 </li>
 <li>
 <p>It is <strong>optional</strong> to have a description.</p>
@@ -760,7 +760,10 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p>A deadline is in the format of YYYY-MM-DD.</p>
+<p>A deadline is in the format of <strong>YYYY-MM-DD</strong>.</p>
+</li>
+<li>
+<p>Deadlines should not be invalid (e.g. <code>2018-02-31</code> is an invalid dateline as there is no such date).</p>
 </li>
 <li>
 <p>It is <strong>compulsory</strong> to have a deadline.</p>
@@ -996,7 +999,7 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 <div class="sect3">
 <h4 id="locating-tasks-code-find-code-or-code-f-code"><a class="link" href="#locating-tasks-code-find-code-or-code-f-code">5.5.1. Locating tasks: <code>find</code> or <code>f</code></a></h4>
 <div class="paragraph">
-<p>Find tasks whose names, descriptions and deadlines contain any of the given keywords.<br></p>
+<p>Find tasks whose names, descriptions or deadlines contain any of the given keywords.<br></p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -1626,7 +1629,7 @@ Goes to <code>April 2018</code></p>
 <span class="example"><code>undo</code></span> (reverses the <code>delete 1</code> command)<br></p>
 </li>
 <li>
-<p><span class="example"><code>select 1</code></span><br>
+<p><span class="example"><code>completed</code></span><br>
 <span class="example"><code>list</code></span><br>
 <span class="example"><code>undo</code></span><br>
 The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
