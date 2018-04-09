@@ -1,6 +1,7 @@
 package seedu.organizer.logic.parser;
 
 import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.organizer.commons.core.Messages.MESSAGE_REPEATED_SAME_PREFIXES;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_REVISION;
 import static seedu.organizer.logic.commands.CommandTestUtil.DESCRIPTION_DESC_EXAM;
@@ -47,6 +48,8 @@ public class EditCommandParserTest {
 
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
+    private static final String MESSAGE_MULTIPLE_SAME_PREFIXES =
+            String.format(MESSAGE_REPEATED_SAME_PREFIXES, EditCommand.MESSAGE_USAGE);
 
     private EditCommandParser parser = new EditCommandParser();
 
@@ -183,21 +186,21 @@ public class EditCommandParserTest {
         // multiple name prefixes
         Index targetIndex = INDEX_THIRD_TASK;
         String userInput = targetIndex.getOneBased() + NAME_DESC_EXAM + NAME_DESC_REVISION;
-        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, userInput, MESSAGE_MULTIPLE_SAME_PREFIXES);
 
         // multiple priority prefixes
         targetIndex = INDEX_THIRD_TASK;
         userInput = targetIndex.getOneBased() + PRIORITY_DESC_EXAM + PRIORITY_DESC_REVISION;
-        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, userInput, MESSAGE_MULTIPLE_SAME_PREFIXES);
 
         // multiple deadline prefixes
         targetIndex = INDEX_THIRD_TASK;
         userInput = targetIndex.getOneBased() + DEADLINE_DESC_EXAM + DEADLINE_DESC_REVISION;
-        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, userInput, MESSAGE_MULTIPLE_SAME_PREFIXES);
 
         // multiple description prefixes
         targetIndex = INDEX_THIRD_TASK;
         userInput = targetIndex.getOneBased() + DESCRIPTION_DESC_EXAM + DESCRIPTION_DESC_REVISION;
-        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, userInput, MESSAGE_MULTIPLE_SAME_PREFIXES);
     }
 }

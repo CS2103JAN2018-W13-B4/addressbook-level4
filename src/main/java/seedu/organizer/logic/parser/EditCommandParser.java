@@ -2,6 +2,7 @@ package seedu.organizer.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.organizer.commons.core.Messages.MESSAGE_REPEATED_SAME_PREFIXES;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_NAME;
@@ -46,7 +47,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
 
         if (arePrefixesRepeated(argMultimap, PREFIX_NAME, PREFIX_DEADLINE, PREFIX_DESCRIPTION, PREFIX_PRIORITY)) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_REPEATED_SAME_PREFIXES, EditCommand.MESSAGE_USAGE));
         }
 
         EditTaskDescriptor editTaskDescriptor = new EditTaskDescriptor();

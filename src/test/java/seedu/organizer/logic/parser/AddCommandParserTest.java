@@ -1,6 +1,7 @@
 package seedu.organizer.logic.parser;
 
 import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.organizer.commons.core.Messages.MESSAGE_REPEATED_SAME_PREFIXES;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_EXAM;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_REVISION;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_STUDY;
@@ -136,7 +137,7 @@ public class AddCommandParserTest {
     //@@author guekling
     @Test
     public void parse_multipleSamePrefixes_failure() {
-        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
+        String expectedMessage = String.format(MESSAGE_REPEATED_SAME_PREFIXES, AddCommand.MESSAGE_USAGE);
 
         // multiple name prefixes
         assertParseFailure(parser, NAME_DESC_STUDY + NAME_DESC_REVISION + PRIORITY_DESC_STUDY
