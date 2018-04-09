@@ -27,7 +27,7 @@
 <li><a href="#getting-started">2. Getting Started</a>
 <ul class="sectlevel2">
 <li><a href="#installing-prerequisites">2.1. Installing prerequisites</a></li>
-<li><a href="#setting-up-the-project-in-your-computer">2.2. Setting up the project in your computer</a></li>
+<li><a href="#setting-up-the-project-on-your-computer">2.2. Setting up the project on your computer</a></li>
 <li><a href="#verifying-the-setup">2.3. Verifying the setup</a></li>
 <li><a href="#configuring-the-project-before-writing-code">2.4. Configuring the project before writing code</a>
 <ul class="sectlevel3">
@@ -35,24 +35,28 @@
 <li><a href="#setting-up-ci">2.4.2. Setting up CI</a></li>
 </ul>
 </li>
-<li><a href="#getting-started-with-developing">2.5. Getting started with developing</a></li>
+<li><a href="#getting-started-with-development">2.5. Getting started with development</a></li>
 </ul>
 </li>
 <li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a>
+<ul class="sectlevel3">
+<li><a href="#primary-components">3.1.1. Primary components</a></li>
+<li><a href="#secondary-components">3.1.2. Secondary components</a></li>
+</ul>
+</li>
 <li><a href="#Design-Ui">3.2. UI component</a></li>
 <li><a href="#Design-Logic">3.3. Logic component</a></li>
 <li><a href="#Design-Model">3.4. Model component</a></li>
 <li><a href="#Design-Storage">3.5. Storage component</a></li>
-<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">4. Implementation</a>
+<li><a href="#Design-Commons">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a>
 <ul class="sectlevel3">
-<li><a href="#current-implementation">4.1.1. Current Implementation</a></li>
+<li><a href="#current-implementation">4.1.1. Current implementation</a></li>
 <li><a href="#scenario">4.1.2. Scenario</a></li>
 <li><a href="#design-considerations">4.1.3. Design Considerations</a></li>
 </ul>
@@ -74,7 +78,7 @@
 <li><a href="#subtask">4.4. Subtask</a>
 <ul class="sectlevel3">
 <li><a href="#current-implementation-4">4.4.1. Current Implementation</a></li>
-<li><a href="#design-consideration">4.4.2. Design Consideration</a></li>
+<li><a href="#design-considerations-4">4.4.2. Design Considerations</a></li>
 </ul>
 </li>
 <li><a href="#logging">4.5. Logging</a></li>
@@ -124,35 +128,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of an automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month.</p>
+<p>PrioriTask is a desktop task management application. It is not just any task management application, but a combination of a to-do list, calendar and reminder features, with the added bonus of an automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks.</p>
 </div>
 <div class="paragraph">
-<p>PrioriTask is a fairly new application that has much room for improvement. We welcome any form of contributions to the PrioriTask project, be it from beginners or seasoned Java developers. Whether you&#8217;re a new developer or an experienced contributor, this guide can serve as a helpful reference and source for information about writing code for the PrioriTask project.</p>
-</div>
-<div class="paragraph">
-<p>This developer&#8217;s guide consists of the following sections.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#getting-started">Section 2, &#8220;Getting Started&#8221;</a></p>
-</li>
-<li>
-<p><a href="#design">Section 3, &#8220;Design&#8221;</a></p>
-</li>
-<li>
-<p><a href="#implementation">Section 4, &#8220;Implementation&#8221;</a></p>
-</li>
-<li>
-<p><a href="#documentation">Section 5, &#8220;Documentation&#8221;</a></p>
-</li>
-<li>
-<p><a href="#Testing">Section 6, &#8220;Testing&#8221;</a></p>
-</li>
-<li>
-<p><a href="#dev-ops">Section 7, &#8220;Dev Ops&#8221;</a></p>
-</li>
-</ul>
+<p>PrioriTask is a fairly new application that has much room for improvement. We welcome any form of contributions to PrioriTask project, be it from beginners or seasoned Java developers. Experienced or not, this guide can serve as a helpful reference and source for information for those who hope to contribute to the project.</p>
 </div>
 </div>
 </div>
@@ -160,31 +139,12 @@
 <h2 id="getting-started"><a class="link" href="#getting-started">2. Getting Started</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section contains information to help you get started developing for PrioriTask. The simple list below will ensure that you get up and running with the application in no time.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#installing-prerequisites">Section 2.1, &#8220;Installing prerequisites&#8221;</a></p>
-</li>
-<li>
-<p><a href="#setting-up-the-project-in-your-computer">Section 2.2, &#8220;Setting up the project in your computer&#8221;</a></p>
-</li>
-<li>
-<p><a href="#verifying-the-setup">Section 2.3, &#8220;Verifying the setup&#8221;</a></p>
-</li>
-<li>
-<p><a href="#configuring-the-project-before-writing-code">Section 2.4, &#8220;Configuring the project before writing code&#8221;</a></p>
-</li>
-<li>
-<p><a href="#getting-started-with-developing">Section 2.5, &#8220;Getting started with developing&#8221;</a></p>
-</li>
-</ul>
+<p>This section contains a list of steps to help you get started with developing for PrioriTask in no time.</p>
 </div>
 <div class="sect2">
 <h3 id="installing-prerequisites"><a class="link" href="#installing-prerequisites">2.1. Installing prerequisites</a></h3>
 <div class="paragraph">
-<p>Before working on PrioriTask, ensure that you have the following software installed.</p>
+<p>Before working on PrioriTask, ensure that you have the following software installed:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -224,9 +184,9 @@ IntelliJ has both plugins installed by default. If you have disabled them, go to
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-up-the-project-in-your-computer"><a class="link" href="#setting-up-the-project-in-your-computer">2.2. Setting up the project in your computer</a></h3>
+<h3 id="setting-up-the-project-on-your-computer"><a class="link" href="#setting-up-the-project-on-your-computer">2.2. Setting up the project on your computer</a></h3>
 <div class="paragraph">
-<p>After you&#8217;ve ensured that you&#8217;ve met all requirements, follow the steps below to setup this project in your computer.</p>
+<p>Follow these steps to setup the project on your computer:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -247,13 +207,18 @@ There may be slight variations in the steps if using other versions of IntelliJ.
 <p>Fork this repo, and clone the fork to your computer.</p>
 </li>
 <li>
-<p>Open IntelliJ. You should see the welcome screen (refer to <a href="#fig-GettingStarted1">Figure 1, &#8220;IntelliJ&#8217;s Welcome Screen&#8221;</a>).</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If you do not see the welcome screen, select <code>File</code> &gt; <code>Close Project</code> to close the existing project dialog first.</p>
-</li>
-</ol>
+<p>Open IntelliJ. You should see the welcome screen (refer to <a href="#fig-GettingStarted1">Figure 1, &#8220;IntelliJ&#8217;s welcome screen&#8221;</a>).</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you do not see the welcome screen, select <code>File</code> &gt; <code>Close Project</code> to close the existing project dialog before continuing.
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ol>
@@ -262,7 +227,7 @@ There may be slight variations in the steps if using other versions of IntelliJ.
 <div class="content">
 <img src="images/DeveloperGettingStarted1.png" alt="DeveloperGettingStarted1" width="600">
 </div>
-<div class="title">Figure 1. IntelliJ&#8217;s Welcome Screen</div>
+<div class="title">Figure 1. IntelliJ&#8217;s welcome screen</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
@@ -299,7 +264,7 @@ There may be slight variations in the steps if using other versions of IntelliJ.
 <p>Fill up the necessary information as follows, and click <code>Next</code>. You will be directed to the next window.</p>
 </li>
 <li>
-<p>Click <code>Next</code> until to reach the window to select the project SDK (refer to <a href="#fig-GettingStarted4">Figure 4, &#8220;Selecting project SDK in the <code>Import Project</code> window&#8221;</a>).</p>
+<p>Click <code>Next</code> repeatedly, until the window to select the project SDK appears (refer to <a href="#fig-GettingStarted4">Figure 4, &#8220;Selecting project SDK in the <code>Import Project</code> window&#8221;</a>).</p>
 </li>
 </ol>
 </div>
@@ -313,16 +278,21 @@ There may be slight variations in the steps if using other versions of IntelliJ.
 <ol class="arabic" start="8">
 <li>
 <p>Click on the JDK <code>1.8</code> folder in the left pane and click <code>Next</code>.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If you do not see a JDK <code>1.8</code> folder, click on <code>+</code> &gt; <code>JDK</code>, and find the directory of the JDK.</p>
-</li>
-</ol>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you do not see a JDK <code>1.8</code> folder, click on <code>+</code> &gt; <code>JDK</code>, and find the directory of the JDK.
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
-<p>Click <code>Next</code> until you reach the last window. Click <code>Finish</code> to complete the import of the project. The project will be loaded and you will be brought to the main project window (refer to <a href="#fig-GettingStarted5">Figure 5, &#8220;Main Project Window&#8221;</a>).</p>
+<p>Click <code>Next</code> until you reach the last window. Click <code>Finish</code> to complete the import of the project. The project will be loaded and you will be brought to the main project window (refer to <a href="#fig-GettingStarted5">Figure 5, &#8220;Main project window&#8221;</a>).</p>
 </li>
 </ol>
 </div>
@@ -330,7 +300,7 @@ There may be slight variations in the steps if using other versions of IntelliJ.
 <div class="content">
 <img src="images/DeveloperGettingStarted5.png" alt="DeveloperGettingStarted5" width="600">
 </div>
-<div class="title">Figure 5. Main Project Window</div>
+<div class="title">Figure 5. Main project window</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="10">
@@ -349,13 +319,13 @@ There may be slight variations in the steps if using other versions of IntelliJ.
 <div class="title">Figure 6. <code>Import Module from Gradle</code> Window</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="12">
 <li>
 <p>Click <code>OK</code> to accept the default settings.</p>
 </li>
 <li>
 <p>Open the <code>Terminal</code> (select <code>Tool Windows</code> &gt; <code>Terminal</code>) and run the command <code>gradlew processResources</code> (run <code>./gradlew processResources</code> for Mac/Linux users). It should finish with the <code>BUILD SUCCESSFUL</code> message.<br>
-This will generate all resources required by the application and tests.</p>
+This generates all the resources required by the application and its tests.</p>
 </li>
 </ol>
 </div>
@@ -363,12 +333,12 @@ This will generate all resources required by the application and tests.</p>
 <div class="sect2">
 <h3 id="verifying-the-setup"><a class="link" href="#verifying-the-setup">2.3. Verifying the setup</a></h3>
 <div class="paragraph">
-<p>After setting up the project, do the following steps to verify that the project has been correctly set up.</p>
+<p>Follow these steps to verify that the project has been correctly set up:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Run the <code>seedu.organizer.MainApp</code> and try a few commands. You may refer to the <a href="UserGuide.html">UserGuide.adoc</a> for more information about the commands.</p>
+<p>Run <code>seedu.organizer.MainApp</code> and try a few commands. You may refer to the <a href="UserGuide.html">UserGuide.adoc</a> for more information about the commands.</p>
 </li>
 <li>
 <p><a href="#Testing">Run the tests</a> to ensure they all pass.</p>
@@ -379,12 +349,15 @@ This will generate all resources required by the application and tests.</p>
 <div class="sect2">
 <h3 id="configuring-the-project-before-writing-code"><a class="link" href="#configuring-the-project-before-writing-code">2.4. Configuring the project before writing code</a></h3>
 <div class="paragraph">
-<p>Before you begin developing, there are a few configurations to be done to ensure that the code you write meets our project standards.</p>
+<p>Before you begin development, there are a few configurations to be done to ensure that the code you write meets our project standards.</p>
 </div>
 <div class="sect3">
 <h4 id="configuring-the-coding-style"><a class="link" href="#configuring-the-coding-style">2.4.1. Configuring the coding style</a></h4>
 <div class="paragraph">
-<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
+<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with the mentioned standard, but uses a different import order.</p>
+</div>
+<div class="paragraph">
+<p>Follow these steps to ensure that your code adheres to the required coding standards:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -395,14 +368,17 @@ This will generate all resources required by the application and tests.</p>
 <p>Select <code>Editor</code> &gt; <code>Code Style</code> &gt; <code>Java</code>.</p>
 </li>
 <li>
-<p>Click on the <code>Imports</code> tab to set the order.</p>
+<p>Click on the <code>Imports</code> tab to set the import order.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For <code>Class count to use import with '*'</code> and <code>Names count to use static import with '*'</code>: Set to <code>999</code> to prevent IntelliJ from contracting the import statements.</p>
+<p>Set <code>Class count to use import with '\*'</code> to <code>999</code>. This prevents the contraction of import statements.</p>
 </li>
 <li>
-<p>For <code>Import Layout</code>: The order is <code>import static all other imports</code>, <code>import java.*</code>, <code>import javax.*</code>, <code>import org.*</code>, <code>import com.*</code>, <code>import all other imports</code>. Add a <code>&lt;blank line&gt;</code> between each <code>import</code>.</p>
+<p>Set <code>Names count to use static import with '*'</code> to <code>999</code>. This prevents the contraction of import statements.</p>
+</li>
+<li>
+<p>Set the following order in <code>Import Layout</code>: <code>import static all other imports</code>, <code>import java.*</code>, <code>import javax.*</code>, <code>import org.*</code>, <code>import com.*</code>, <code>import all other imports</code>. Add a <code>&lt;blank line&gt;</code> between each <code>import</code>.</p>
 </li>
 </ul>
 </div>
@@ -410,7 +386,7 @@ This will generate all resources required by the application and tests.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Optionally, you can follow the <a href="UsingCheckstyle.html">UsingCheckstyle.adoc</a> document to configure Intellij to check style-compliance as you write the code.</p>
+<p>Optionally, you can follow the <a href="UsingCheckstyle.html">UsingCheckstyle.adoc</a> document to configure Intellij to check for style-compliance as you write code.</p>
 </div>
 </div>
 <div class="sect3">
@@ -428,7 +404,7 @@ This will generate all resources required by the application and tests.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Coverage reporting could be useful for a team repository that hosts the final version, but is not that useful for your personal fork.
+Coverage reporting could be useful for a team repository that hosts the final version, but is not particularly useful for your personal fork.
 </td>
 </tr>
 </table>
@@ -451,17 +427,17 @@ Having both Travis and AppVeyor ensures the application works on both Unix-based
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-started-with-developing"><a class="link" href="#getting-started-with-developing">2.5. Getting started with developing</a></h3>
+<h3 id="getting-started-with-development"><a class="link" href="#getting-started-with-development">2.5. Getting started with development</a></h3>
 <div class="paragraph">
-<p>When you are ready to start developing,</p>
+<p>When you are ready to start development:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Read <a href="#Design-Architecture">Section 3.1, &#8220;Architecture&#8221;</a> to get some sense of the overall design.</p>
+<p>Read <a href="#Design-Architecture">Section 3.1, &#8220;Architecture&#8221;</a> to get an understanding of the overall design.</p>
 </li>
 <li>
-<p>Look at <a href="#implementation">Section 4, &#8220;Implementation&#8221;</a> to find out more about the major features, and better understand how you can contribute enhancements to those features.</p>
+<p>Read <a href="#Design-Commons">Section 4, &#8220;Implementation&#8221;</a> to find out more about the major features, and how you can contribute enhancements to those features.</p>
 </li>
 </ol>
 </div>
@@ -477,7 +453,7 @@ Having both Travis and AppVeyor ensures the application works on both Unix-based
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given below explains the high-level design of the application.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given below (<a href="#fig-ArchitectureDiagram">Figure 7, &#8220;Architecture diagram&#8221;</a>) provides an overview of the high-level design of the application.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -491,32 +467,34 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </tr>
 </table>
 </div>
-<div class="imageblock">
+<div id="fig-ArchitectureDiagram" class="imageblock">
 <div class="content">
 <img src="images/Architecture.png" alt="Architecture" width="600">
 </div>
-<div class="title">Figure 7. Architecture Diagram</div>
+<div class="title">Figure 7. Architecture diagram</div>
 </div>
+<div class="sect3">
+<h4 id="primary-components"><a class="link" href="#primary-components">3.1.1. Primary components</a></h4>
 <div class="paragraph">
-<p>Given below is a quick overview of each component. The two main components of the application includes:</p>
+<p>There are two primary components of the application:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Main</code>, with only one class called <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code>, which contains only one class called <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Initializing the components in the correct sequence, and connecting them up with each other at application launch.</p>
+<p>Initializing all components in the correct sequence, and connecting them with each other at application launch.</p>
 </li>
 <li>
-<p>Shutting down the components and invoking cleanup method where necessary during shut down.</p>
+<p>Shutting down all components and invoking the cleanup method where necessary during application shut down.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a>, representing a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.</p>
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a>, contains a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -530,27 +508,30 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </li>
 </ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="secondary-components"><a class="link" href="#secondary-components">3.1.2. Secondary components</a></h4>
 <div class="paragraph">
-<p>The rest of the application consists of four components:</p>
+<p>The rest of the application comprises of four components:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: Represents the UI of the application</p>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: Represents the UI of the application.</p>
 </li>
 <li>
-<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: Executes commands</p>
+<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: Executes commands.</p>
 </li>
 <li>
-<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the application in-memory</p>
+<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the application in-memory.</p>
 </li>
 <li>
-<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk</p>
+<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Each of the four components,</p>
+<p>Each of the four components:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -563,13 +544,13 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (refer to <a href="#fig-LogicComponent">Figure 8, &#8220;Class Diagram of the Logic Component&#8221;</a>) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, <code>Logic</code> (refer to <a href="#fig-LogicComponent">Figure 8, &#8220;Class diagram of <code>Logic</code>&#8221;</a>) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
 </div>
 <div id="fig-LogicComponent" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
 </div>
-<div class="title">Figure 8. Class Diagram of the Logic Component</div>
+<div class="title">Figure 8. Class diagram of <code>Logic</code></div>
 </div>
 <div class="exampleblock infoblock">
 <div class="content">
@@ -578,9 +559,9 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </div>
 <h4 id="events-driven-nature-of-the-design" class="discrete">Events-Driven nature of the design</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> (refer to <a href="#fig-SDforDeleteTask">Figure 9, &#8220;Component interactions for <code>delete 1</code> command (part 1)&#8221;</a>) shows how the components interact in a scenario where the user issues the command <code>delete 1</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-SDforDeleteTask" class="imageblock">
 <div class="content">
 <img src="images/SDforDeleteTask.png" alt="SDforDeleteTask" width="800">
 </div>
@@ -599,9 +580,9 @@ Note how the <code>Model</code> simply raises a <code>OrganizerChangedEvent</cod
 </table>
 </div>
 <div class="paragraph">
-<p>The diagram below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
+<p>The following diagram (refer to <a href="#fig-SDforDeleteTaskEventHandling">Figure 10, &#8220;Component interactions for <code>delete 1</code> command (part 2)&#8221;</a>) below shows how the <code>EventsCenter</code> reacts to that event. This eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
 </div>
-<div class="imageblock">
+<div id="fig-SDforDeleteTaskEventHandling" class="imageblock">
 <div class="content">
 <img src="images/SDforDeleteTaskEventHandling.png" alt="SDforDeleteTaskEventHandling" width="800">
 </div>
@@ -622,42 +603,45 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="paragraph">
-<p>The sections below give more details of each component.</p>
+<p>The following sections will provide more details on each of the 4 secondary components.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of numerous parts (e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>, <code>StatusBarFooter</code>, <code>CalendarPanel</code>, etc.). All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p><code>UI</code> consists of a <code>MainWindow</code> that is made up of numerous parts (e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>, <code>StatusBarFooter</code>, <code>CalendarPanel</code>, etc.).
+These parts, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The class diagram below describes the structure of the <code>UI</code> component.</p>
+<p>The class diagram below (refer to <a href="#fig-UIClassDiagram">Figure 11, &#8220;Structure of <code>UI</code>&#8221;</a>) describes the structure of <code>UI</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-UIClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
 </div>
-<div class="title">Figure 11. Structure of the UI Component</div>
+<div class="title">Figure 11. Structure of <code>UI</code></div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/organizer/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFX UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The JavaFX UI framework is used to build this component.
+The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component,</p>
+<p><code>UI</code>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Executes user commands using the <code>Logic</code> component.</p>
+<p>Executes user commands using <code>Logic</code>.</p>
 </li>
 <li>
-<p>Binds itself to some data in the <code>Model</code> so that the UI can auto-update when data in the <code>Model</code> change.</p>
+<p>Binds itself to some data in <code>Model</code> so that the UI can auto-update when data in the <code>Model</code> changes.</p>
 </li>
 <li>
-<p>Responds to events raised from various parts of the App and updates the UI accordingly.</p>
+<p>Responds to events raised from various parts of the application and updates the UI accordingly.</p>
 </li>
 </ul>
 </div>
@@ -665,44 +649,48 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div class="paragraph">
-<p>The <code>Logic</code> component consists of the commands and their respective parsers (if necessary). For commands requiring parsers, they are defined in <code>.java</code> files prefixed with <em>'-Parser'</em> that are in the <code>src/main/java/logic/parser</code> folder. For example, the parser for <code>AddCommand</code> is specified in <code>AddCommandParser.java</code>.</p>
+<p><code>Logic</code> consists of the commands and their respective parsers (if necessary).
+Parser classes are defined in <code>.java</code> files suffixed with <em>'Parser'</em>, and are found in the <code>src/main/java/logic/parser</code> folder.
+For example, the parser for <code>AddCommand</code> is defined in <code>AddCommandParser.java</code>.</p>
 </div>
 <div class="paragraph">
-<p>The class diagram below gives an overview of the structure of the <code>Logic</code> component.</p>
+<p>The class diagram below (refer to <a href="#fig-LogicClassDiagram">Figure 12, &#8220;Structure of <code>Logic</code>&#8221;</a>) gives an overview of the structure of <code>Logic</code>.</p>
 </div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
 </div>
-<div class="title">Figure 12. Structure of the Logic Component</div>
+<div class="title">Figure 12. Structure of <code>Logic</code></div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
 <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/organizer/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>There are two types of commands. Commands that modify the state of the organizer inherit from the <code>UndoableCommand</code> class, to be used by the undo/redo mechanism (see <a href="#undo-redo-feature">Section 4.1, &#8220;Undo/Redo feature&#8221;</a> for more information). Commands that do not modify the state of the organizer, and cannot be undone, inherit from the <code>Command</code> class instead.</p>
+<p>There are two types of commands.
+Commands that modify the state of the organizer inherit from the <code>UndoableCommand</code> class, and are used by the undo/redo mechanism (see <a href="#undo-redo-feature">Section 4.1, &#8220;Undo/Redo feature&#8221;</a> for more information).
+Commands that do not modify the state of the organizer, and cannot be undone, inherit from the <code>Command</code> class instead.</p>
 </div>
 <div class="paragraph">
-<p>The class diagram below gives a more detailed overview of how the command system in the <code>Logic</code> component works. It shows the finer details concerning <code>XYZCommand</code> and <code>Command</code> in <a href="#fig-LogicClassDiagram">Figure 12, &#8220;Structure of the Logic Component&#8221;</a>.</p>
+<p>The class diagram below (refer to <a href="#fig-CommandsDiagram">Figure 13, &#8220;Structure of commands in <code>Logic</code>&#8221;</a>) gives a more detailed overview of how the command system in <code>Logic</code> works. It shows the finer details concerning <code>XYZCommand</code> and <code>Command</code> in <a href="#fig-LogicClassDiagram">Figure 12, &#8220;Structure of <code>Logic</code>&#8221;</a>.</p>
 </div>
 <div id="fig-CommandsDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
 </div>
-<div class="title">Figure 13. Structure of Commands in the Logic Component</div>
+<div class="title">Figure 13. Structure of commands in <code>Logic</code></div>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below (refer to <a href="#fig-LogicSequenceDiagram">Figure 14, &#8220;Interactions inside <code>Logic</code> for the <code>delete 1</code> command&#8221;</a>) is the sequence diagram for interactions within <code>Logic</code> for the <code>execute("delete 1")</code> API call.</p>
 </div>
 <div id="fig-LogicSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/DeleteTaskSdForLogic.png" alt="DeleteTaskSdForLogic" width="800">
 </div>
-<div class="title">Figure 14. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 14. Interactions inside <code>Logic</code> for the <code>delete 1</code> command</div>
 </div>
 <div class="paragraph">
-<p>The sequence flow is as follows:</p>
+<p>The sequence flows as such:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -710,13 +698,28 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><code>Logic</code> uses the <code>OrganizerParser</code> class to parse the user command.</p>
 </li>
 <li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+<p><code>Command</code> object is created.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a task) and/or raise events.</p>
+<p><code>Command</code> object is executed by the <code>LogicManager</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The command execution can affect the <code>Model</code> (e.g. adding a task) and/or raise events.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>UI</code>.</p>
+<p><code>CommandResult</code> object is created as an encapsulation of the result of the command execution.</p>
+</li>
+<li>
+<p><code>CommandResult</code> object is passed to <code>UI</code>.</p>
 </li>
 </ol>
 </div>
@@ -724,22 +727,22 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="paragraph">
-<p>The <code>Model</code> component consists of a <code>UniqueTaskList</code> and <code>UniqueTagList</code> that contains and manipulates the data within the application using an <code>ObservableList</code>. The component also includes <code>Task</code>, and its respective parameters (e.g. <code>Name</code>, <code>Priority</code>, <code>Date Added</code>, etc.).</p>
+<p><code>Model</code> consists of a <code>UniqueTaskList</code>, <code>UniqueTagList</code>, and <code>UniqueUserList</code> that contains and manipulates the data within the application using an <code>ObservableList</code>. The component also includes <code>Task</code>, and its respective parameters (e.g. <code>Name</code>, <code>Priority</code>, <code>Date Added</code>, etc.).</p>
 </div>
 <div class="paragraph">
-<p>The class diagram below gives an overview of the structure of the <code>Model</code> component.</p>
+<p>The class diagram below (refers to <a href="#fig-ModelComponent">Figure 15, &#8220;Structure of <code>Model</code>&#8221;</a>) gives an overview of the structure of <code>Model</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-ModelComponent" class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
 </div>
-<div class="title">Figure 15. Structure of the Model Component</div>
+<div class="title">Figure 15. Structure of <code>Model</code></div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/organizer/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Model</code>,</p>
+<p>The <code>Model</code>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -767,22 +770,24 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="paragraph">
-<p>The <code>Storage</code> component consists of the <code>XmlOrganizerStorage</code>, which reads data from, and writes data to, the hard disk. Data is stored in XML format, and can be retrieved from <code>data</code> &gt; <code>organizer.xml</code>. The component also contains the <code>UserPrefsStorage</code>, which stores user preferences (e.g. the application window&#8217;s preferred height and width) in a JSON file. The file is titled <code>preferences.json</code>, and can be retrieved from the main folder.</p>
+<p><code>Storage</code> consists of the <code>XmlOrganizerStorage</code>, which reads data from, and writes data to, the hard disk.
+Data is stored in XML format, and can be retrieved from <code>data</code> &gt; <code>organizer.xml</code>.
+This component also contains the <code>UserPrefsStorage</code>, which stores user preferences (e.g. the application window&#8217;s preferred height and width) in a JSON file. The file is titled <code>preferences.json</code>, and can be retrieved from the main folder.</p>
 </div>
 <div class="paragraph">
-<p>The class diagram below gives an overview of the structure of the <code>Storage</code> component.</p>
+<p>The class diagram below (refer to <a href="#fig-StorageClassDiagram">Figure 16, &#8220;Structure of <code>Storage</code>&#8221;</a>) gives an overview of the structure of <code>Storage</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-StorageClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
 </div>
-<div class="title">Figure 16. Structure of the Storage Component</div>
+<div class="title">Figure 16. Structure of <code>Storage</code></div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/CS2103JAN2018-W13-B4/main/src/main/java/seedu/organizer/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Storage</code> component,</p>
+<p><code>Storage</code>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -795,16 +800,10 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
-<div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.organizer.commons</code> package. Such classes include the <code>EventsCenter</code> and <code>LogsCenter</code>.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
+<h2 id="Design-Commons"><a class="link" href="#Design-Commons">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>PrioriTask consists of many different features. This section describes some noteworthy details on how certain features are implemented.</p>
@@ -812,24 +811,25 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1. Undo/Redo feature</a></h3>
 <div class="paragraph">
-<p>The <code>undo</code> feature restores the PrioriTask to the state before the previous undoable command was executed. Undoable commands are defined as commands that modify the PrioriTask’s content (e.g. <code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>The <code>undo</code> feature restores PrioriTask to the state before the previous undoable command was executed. Undoable commands are defined as commands that modify PrioriTask’s content (e.g. <code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> feature does the opposite - it reverses the most recent <code>undo</code> command.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the organizer (e.g. <code>add</code>, <code>edit</code>). Such commands inherit from <code>UndoableCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
+<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone inherit from <code>Command</code> instead.
+The following diagram (refer to <a href="#fig-LogicCommandClassDiagram">Figure 17, &#8220;Structure of commands in the <code>Logic</code>&#8221;</a>) shows the inheritance diagram for commands:</p>
 </div>
-<div class="imageblock">
+<div id="fig-LogicCommandClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
 </div>
-<div class="title">Figure 17. Structure of Commands in the Logic Component</div>
+<div class="title">Figure 17. Structure of commands in the <code>Logic</code></div>
 </div>
 <div class="paragraph">
 <p><code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the organizer before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while child classes implement the details of how to execute the class-specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
@@ -891,9 +891,9 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/Study &#8230;&#8203;</code> to add a new task.</p>
 </div>
 <div class="paragraph">
-<p>The diagram below illustrates how the execution of the <code>add n/Study</code> command affects the <code>UndoRedoStack</code>.</p>
+<p>The diagram below (refers to <a href="#fig-UndoRedoNewCommand1StackDiagram">Figure 19, &#8220;UndoRedoStack <code>add n/Study &#8230;&#8203;</code> command execution&#8221;</a>) illustrates how the execution of the <code>add n/Study</code> command affects the <code>UndoRedoStack</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-UndoRedoNewCommand1StackDiagram" class="imageblock">
 <div class="content">
 <img src="images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
 </div>
@@ -918,9 +918,9 @@ If a command fails its execution, it will not be pushed to the <code>UndoRedoSta
 <p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the organizer to the state before the <code>add</code> command executed.</p>
 </div>
 <div class="paragraph">
-<p>The diagram below illustrates the process of the execution of the <code>undo</code> command on the <code>UndoRedoStack</code>.</p>
+<p>The diagram below (refer to <a href="#fig-UndoRedoExecuteUndoStackDiagram">Figure 20, &#8220;UndoRedoStack <code>undo</code> command execution&#8221;</a>) illustrates the process of the execution of the <code>undo</code> command on the <code>UndoRedoStack</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-UndoRedoExecuteUndoStackDiagram" class="imageblock">
 <div class="content">
 <img src="images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
 </div>
@@ -939,16 +939,16 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p>The following sequence diagram (refer to <a href="#fig-UndoRedoSequenceDiagram">Figure 21, &#8220;UndeRedoStack sequence diagram&#8221;</a>) shows how the undo operation works:</p>
 </div>
-<div class="imageblock">
+<div id="fig-UndoRedoSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
 <div class="title">Figure 21. UndeRedoStack sequence diagram</div>
 </div>
 <div class="paragraph">
-<p>Redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the organizer to the state after the command is executed).</p>
+<p>Redo does the exact opposite (pops from <code>redoStack</code>, pushes to <code>undoStack</code>, and restores the organizer to the state after the command is executed).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -966,9 +966,9 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p>The user now decides to execute a new command, <code>clear</code>. As before, <code>clear</code> will be pushed into the <code>undoStack</code>. This time the <code>redoStack</code> is no longer empty. It will be purged as it no longer make sense to redo the <code>add n/Study</code> command (this is the behavior that most modern desktop applications follow).</p>
 </div>
 <div class="paragraph">
-<p>The diagram below illustrates how the execution of the <code>clear</code> command affects the <code>UndoRedoStack</code>.</p>
+<p>The diagram below (refer to <a href="#fig-UndoRedoNewCommand2StackDiagram">Figure 22, &#8220;UndoRedoStack <code>clear</code> command execution&#8221;</a>) illustrates how the execution of the <code>clear</code> command affects the <code>UndoRedoStack</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-UndoRedoNewCommand2StackDiagram" class="imageblock">
 <div class="content">
 <img src="images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
 </div>
@@ -984,9 +984,9 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="title">Figure 23. UndoRedoStack <code>list</code> command execution</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
+<p>The following activity diagram (refer to <a href="#fig-UndoRedoActivityDiagram">Figure 24, &#8220;UndoRedoStack activity diagram&#8221;</a>) summarizes what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
 </div>
-<div class="imageblock">
+<div id="fig-UndoRedoActivityDiagram" class="imageblock">
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
@@ -1007,7 +1007,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p>Pros: Any undone/redone functionality is not lost as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.</p>
 </li>
 <li>
-<p>Cons: Hard for new developers to understand the template pattern.</p>
+<p>Cons: It is hard for new developers to understand the template pattern.</p>
 </li>
 </ul>
 </div>
@@ -1017,7 +1017,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Does not involve the template pattern, easier for new developers to understand.</p>
+<p>Pros: It does not involve the template pattern, easier for new developers to understand.</p>
 </li>
 <li>
 <p>Cons: Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
@@ -1037,10 +1037,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: It is easy to implement.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: There may be performance issues in terms of memory usage.</p>
 </li>
 </ul>
 </div>
@@ -1050,10 +1050,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the task being deleted).</p>
+<p>Pros: It will use less memory (e.g. for <code>delete</code>, just save the task being deleted).</p>
 </li>
 <li>
-<p>Cons: Need to ensure that the implementation of the counter to each command is correct.</p>
+<p>Cons: There is a need to ensure that the implementation of the counter to each command is correct.</p>
 </li>
 </ul>
 </div>
@@ -1070,10 +1070,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Only reverts changes that are hard to change back (the view can easily be re-modified as no data are * lost).</p>
+<p>Pros: It only reverts changes that are hard to change back (the view can easily be re-modified as no data are * lost).</p>
 </li>
 <li>
-<p>Cons: User might think that undo also applies when the list is modified (undoing filtering for example), * only to realize that it does not do that, after executing <code>undo</code>.</p>
+<p>Cons: A user might think that undo also applies when the list is modified (undoing filtering for example), * only to realize that it does not do that, after executing <code>undo</code>.</p>
 </li>
 </ul>
 </div>
@@ -1083,10 +1083,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Might be more intuitive for the user.</p>
+<p>Pros: It might be more intuitive for the user.</p>
 </li>
 <li>
-<p>Cons: User have no way of skipping such commands if he or she just want to reset the state of the organizer and not the view.
+<p>Cons: A user has no way of skipping such commands if he or she just want to reset the state of the organizer and not the view.
 <strong>Additional Info:</strong> See our discussion  <a href="https://github.com/se-edu/addressbook-level4/issues/390#issuecomment-298936672">here</a>.</p>
 </li>
 </ul>
@@ -1232,27 +1232,27 @@ newPriority = currentPriority + priorityToIncrease</code></pre>
 <p>Consider an <code>addTask</code> method call by the <code>Organizer</code>. The current date is 2018-03-19.</p>
 </div>
 <div class="paragraph">
-<p>The following is a sequence diagram which represents the <code>Organizer</code> adding a Study <code>Task</code>.</p>
+<p>The following is a sequence diagram (refer to <a href="#fig-OrganizerAddTaskSequenceDiagram">Figure 25, &#8220;addTask(Study) method execution sequence diagram&#8221;</a>) which represents the <code>Organizer</code> adding a Study <code>Task</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-OrganizerAddTaskSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/OrganizerAddTaskSequenceDiagram.png" alt="OrganizerAddTaskSequenceDiagram" width="800">
 </div>
 <div class="title">Figure 25. addTask(Study) method execution sequence diagram</div>
 </div>
 <div class="paragraph">
-<p>Suppose the <code>tasks</code> currently contains the following two <code>Task</code> s.</p>
+<p>Suppose the <code>tasks</code> currently contains the following two <code>Task</code> s as shown in <a href="#fig-OrganizerAddTaskDiagram1">Figure 26, &#8220;<code>tasks</code> 's initial <code>Task</code> s&#8221;</a>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-OrganizerAddTaskDiagram1" class="imageblock">
 <div class="content">
 <img src="images/OrganizerAddTaskDiagram1.png" alt="OrganizerAddTaskDiagram1" width="600">
 </div>
 <div class="title">Figure 26. <code>tasks</code> 's initial <code>Task</code> s</div>
 </div>
 <div class="paragraph">
-<p>The following figure represents the "Study" <code>Task</code>.</p>
+<p><a href="#fig-OrganizerAddTaskDiagram2">Figure 27, &#8220;"Study" <code>Task</code>&#8221;</a> represents the "Study" <code>Task</code>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-OrganizerAddTaskDiagram2" class="imageblock">
 <div class="content">
 <img src="images/OrganizerAddTaskDiagram2.png" alt="OrganizerAddTaskDiagram2" width="200">
 </div>
@@ -1275,18 +1275,18 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </div>
 </div>
 <div class="paragraph">
-<p>A new "Study" <code>Task</code> is created and added to the <code>internalList</code>.</p>
+<p>A new "Study" <code>Task</code> is created and added to the <code>internalList</code> as shown in <a href="#fig-OrganizeAddTaskDiagram3">Figure 28, &#8220;<code>internalList</code> after "Study" <code>Task</code> is added&#8221;</a>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-OrganizeAddTaskDiagram3" class="imageblock">
 <div class="content">
 <img src="images/OrganizerAddTaskDiagram3.png" alt="OrganizerAddTaskDiagram3" width="600">
 </div>
 <div class="title">Figure 28. <code>internalList</code> after "Study" <code>Task</code> is added</div>
 </div>
 <div class="paragraph">
-<p>The <code>sortTasks</code> method is then called, which calls the <code>priorityCompartor</code> method, and uses the <code>Comparator</code> returned to sort the <code>Task</code> s. This results in the following <code>UniqueTaskList</code>.</p>
+<p>The <code>sortTasks</code> method is then called, which calls the <code>priorityCompartor</code> method, and uses the <code>Comparator</code> returned to sort the <code>Task</code> s. This results in the following <code>UniqueTaskList</code> as show in <a href="#fig-OrganizerAddTaskDiagram4">Figure 29, &#8220;<code>internalList</code> after <code>sortTasks</code> is called&#8221;</a>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-OrganizerAddTaskDiagram4" class="imageblock">
 <div class="content">
 <img src="images/OrganizerAddTaskDiagram4.png" alt="OrganizerAddTaskDiagram4" width="600">
 </div>
@@ -1304,10 +1304,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros : Convenient to update the priority during this method call; since during initialization of <code>Organizer</code>, <code>add</code> is called for every <code>Task</code> to initialize the <code>UniqueTaskList</code>.</p>
+<p>Pros : It is convenient to update the priority during this method call; since during initialization of <code>Organizer</code>, <code>add</code> is called for every <code>Task</code> to initialize the <code>UniqueTaskList</code>.</p>
 </li>
 <li>
-<p>Cons : Possible violation of Single Responsibility Principle and Separation of Concerns as <code>UniqueTaskList</code> now updates <code>Task</code> priorities and stores <code>Task</code> s.</p>
+<p>Cons : There is a possible violation of Single Responsibility Principle and Separation of Concerns as <code>UniqueTaskList</code> now updates <code>Task</code> priorities and stores <code>Task</code> s.</p>
 </li>
 </ul>
 </div>
@@ -1317,10 +1317,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros : Removes violation of Single Responsibility Principle and Separation of Concerns in Alternative 1.</p>
+<p>Pros : This prevents the violation of Single Responsibility Principle and Separation of Concerns in Alternative 1.</p>
 </li>
 <li>
-<p>Cons : Repeats the logic in <code>UniqueTaskList</code> while adding one method.</p>
+<p>Cons : This repeats the logic in <code>UniqueTaskList</code> by adding one method.</p>
 </li>
 </ul>
 </div>
@@ -1337,7 +1337,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros : Easy to implement.</p>
+<p>Pros : It is easy to implement.</p>
 </li>
 <li>
 <p>Cons : A new object is created twice during every addition, even if <code>Priority</code> is not updated; Hence slightly inefficient.</p>
@@ -1353,7 +1353,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <p>Pros : No new objects are created.</p>
 </li>
 <li>
-<p>Cons : Requires major overhaul of <code>Task</code> and it’s parameters to be mutable.</p>
+<p>Cons : It requires a major overhaul of <code>Task</code> and it’s parameters to be mutable.</p>
 </li>
 </ul>
 </div>
@@ -1370,10 +1370,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros : No need to deal with commands, and fits with the idea of automation.</p>
+<p>Pros : There is no need to deal with commands, and fits with the idea of automation.</p>
 </li>
 <li>
-<p>Cons : Concern of updating priorities and sorting tasks may not lie with <code>Model</code> but <code>Logic</code>.</p>
+<p>Cons : The concern of updating priorities and sorting tasks may not lie with <code>Model</code> but <code>Logic</code>.</p>
 </li>
 </ul>
 </div>
@@ -1383,10 +1383,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros : Fits with the concern of updating priorities and sorting tasks.</p>
+<p>Pros : It fits with the concern of updating priorities and sorting tasks.</p>
 </li>
 <li>
-<p>Cons : Requires development of commands and extra command calls to be automatically called upon start of application; unnecessary trouble for same feature.</p>
+<p>Cons : It requires development of commands and extra command calls to be automatically called upon start of application; unnecessary trouble for same feature.</p>
 </li>
 </ul>
 </div>
@@ -1399,26 +1399,26 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="sect2">
 <h3 id="calendar-feature"><a class="link" href="#calendar-feature">4.3. Calendar Feature</a></h3>
 <div class="paragraph">
-<p>The <code>Calendar</code> resides mainly in the <code>UI</code> component, constantly interacting with the <code>Logic</code> and <code>Model</code> components to complete its tasks. It allows users to have a chronic overview of the deadlines of all their tasks. Tasks on the calendar changes according to the last task listing. By default, users will view the current month when they first open PrioriTask.</p>
+<p>The <code>Calendar</code> resides mainly in the <code>UI</code> component, constantly interacting with the <code>Logic</code> and <code>Model</code> components to complete its tasks. It allows users to have a chronological overview of the deadlines of all their tasks. Tasks on the calendar changes according to the last task listing. By default, users will view the current month when they first open PrioriTask.</p>
 </div>
 <div class="paragraph">
-<p>The calendar feature is currently still in its early stages of implementation. At present, it only supports the switching between months, and is best viewed fully-maximised on a 13” computer screen.</p>
+<p>The calendar feature is currently in its early stages of implementation. At present, it only supports the switching between months, and is best viewed fully-maximised on a 13” computer screen.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The calendar feature is facilitated by the <code>MonthView</code> class, which supports the <code>CalendarPanel</code>. The <code>MonthView</code> is responsible for displaying a monthly calendar view to the users through the <code>CalendarPanel</code>. The following diagram illustrates the structure of the calendar feature system:</p>
+<p>The calendar feature is facilitated by the <code>MonthView</code> class, which supports the <code>CalendarPanel</code>. The <code>MonthView</code> is responsible for displaying a monthly calendar view to the users through the <code>CalendarPanel</code>. The following diagram (refer to <a href="#fig-CalendarComponentClassDiagram">Figure 30, &#8220;Structure of the Calendar Feature&#8221;</a>) illustrates the structure of the calendar feature system:</p>
 </div>
-<div class="imageblock">
+<div id="fig-CalendarComponentClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/CalendarComponentClassDiagram.png" alt="CalendarComponentClassDiagram" width="700">
 </div>
 <div class="title">Figure 30. Structure of the Calendar Feature</div>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how the different classes work together to display the calendar when users first run the application.</p>
+<p>The following sequence diagram (refer to <a href="#fig-CalendarSequenceDiagram">Figure 31, &#8220;Calendar Sequence Diagram&#8221;</a>) illustrates how the different classes work together to display the calendar when users first run the application.</p>
 </div>
-<div class="imageblock">
+<div id="fig-CalendarSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram" width="700">
 </div>
@@ -1465,9 +1465,9 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </ul>
 </div>
 <div class="paragraph">
-<p><code>MonthView</code> interacts very closely with its corresponding FXML file, <code>MonthView.fxml</code> to execute its tasks. The FXML file reflects the basic layout of the calendar feature, which is illustrated by the diagram below.</p>
+<p><code>MonthView</code> interacts very closely with its corresponding FXML file, <code>MonthView.fxml</code> to execute its tasks. The FXML file reflects the basic layout of the calendar feature, which is illustrated by <a href="#fig-MonthViewLayoutDiagram">Figure 32, &#8220;Basic Calendar Layout&#8221;</a>.</p>
 </div>
-<div class="imageblock">
+<div id="fig-MonthViewLayoutDiagram" class="imageblock">
 <div class="content">
 <img src="images/MonthViewLayoutDiagram.png" alt="MonthViewLayoutDiagram" width="600">
 </div>
@@ -1600,16 +1600,16 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="sect3">
 <h4 id="scenario-3"><a class="link" href="#scenario-3">4.3.2. Scenario</a></h4>
 <div class="paragraph">
-<p>Suppose the user executes a calendar feature command. Given below is the sequence diagram for interactions within the <code>Logic</code> and <code>UI</code> components for the execute(“nmonth”) API call.</p>
+<p>Suppose the user executes a calendar feature command. <a href="#fig-CalendarCommandExecutionSequenceDiagram">Figure 33, &#8220;Calendar Sequence Diagram&#8221;</a> shows the interactions within the <code>Logic</code> and <code>UI</code> components for the execute(“nmonth”) API call.</p>
 </div>
-<div class="imageblock">
+<div id="fig-CalendarCommandExecutionSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/CalendarCommandExecutionSequenceDiagram.png" alt="CalendarCommandExecutionSequenceDiagram" width="700">
 </div>
 <div class="title">Figure 33. Calendar Sequence Diagram</div>
 </div>
 <div class="paragraph">
-<p>The sequence flow is slightly similar to that of the execution of a normal command (refer to <a href="#fig-LogicSequenceDiagram">Figure 14, &#8220;Interactions Inside the Logic Component for the <code>delete 1</code> Command&#8221;</a>), and is as follows:</p>
+<p>The sequence flow is slightly similar to that of the execution of a normal command (refer to <a href="#fig-LogicSequenceDiagram">Figure 14, &#8220;Interactions inside <code>Logic</code> for the <code>delete 1</code> command&#8221;</a>), and is as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1639,10 +1639,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Feature is customised for the PrioriTask application.</p>
+<p>Pros: The feature is customised for PrioriTask.</p>
 </li>
 <li>
-<p>Cons: Too much time invested in creating a feature that has been already been developed and freely available.</p>
+<p>Cons: There is a need to invest a lot of time into creating a feature that has been already been developed and freely available.</p>
 </li>
 </ul>
 </div>
@@ -1652,10 +1652,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Speed up development, especially if it has already been thoroughly tested and does not have many bugs.</p>
+<p>Pros: This speeds up development, especially if it has already been thoroughly tested and does not have many bugs.</p>
 </li>
 <li>
-<p>Cons: Not customised for the application, and may require much time to tweak or work around the framework / library to suit the application.</p>
+<p>Cons: It is not customised for the application, and may require much time to tweak or work around the framework / library to suit the application.</p>
 </li>
 </ul>
 </div>
@@ -1672,10 +1672,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: It is easy to implement.</p>
 </li>
 <li>
-<p>Cons: May have performance issues. There may be a lag after an undoable is executed.</p>
+<p>Cons: There may be performance issues (there may be lag during execution of undoable commands).</p>
 </li>
 </ul>
 </div>
@@ -1685,10 +1685,10 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Update of the calendar will be almost instantaneous. Chances of a lag is rare.</p>
+<p>Pros: The update of the calendar will be almost instantaneous. The chances of lag is rare.</p>
 </li>
 <li>
-<p>Cons: Difficult to implement. Need to ensure that the tracking of `Task`s added / modified is accurate.</p>
+<p>Cons: It is difficult to implement. There is a need to ensure that the tracking of <code>Task</code> s added / modified is accurate.</p>
 </li>
 </ul>
 </div>
@@ -1704,9 +1704,9 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Subtask feature allows user to split their tasks into multiple subtasks. This feature allows user to better
-manage their task. It is implemented using <code>Subtask</code> class and <code>UniqueSubtaskList</code> class as shown by the diagram below:</p>
+manage their task. It is implemented using <code>Subtask</code> class and <code>UniqueSubtaskList</code> class as shown by <a href="#fig-SubtaskComponentDiagram">Figure 34, &#8220;Subtask UML Class Diagram&#8221;</a> below:</p>
 </div>
-<div class="imageblock">
+<div id="fig-SubtaskComponentDiagram" class="imageblock">
 <div class="content">
 <img src="images/SubtaskComponentDiagram.png" alt="SubtaskComponentDiagram" width="400">
 </div>
@@ -1723,7 +1723,7 @@ manage their task. It is implemented using <code>Subtask</code> class and <code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.2. Design Consideration</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-subtask-code"><a class="link" href="#aspect-implementation-of-code-subtask-code">Aspect: Implementation of <code>Subtask</code></a></h5>
 <div class="ulist">
@@ -1733,10 +1733,10 @@ manage their task. It is implemented using <code>Subtask</code> class and <code>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Better isolation and easier modification to <code>Subtask</code> if needed.</p>
+<p>Pros: There is better isolation, and allows for easier modification to <code>Subtask</code> if needed.</p>
 </li>
 <li>
-<p>Cons: Restricts the possibility of having a subtask that has subtasks.</p>
+<p>Cons: It restricts the possibility of having a subtask that has subtasks.</p>
 </li>
 </ul>
 </div>
@@ -1746,10 +1746,10 @@ manage their task. It is implemented using <code>Subtask</code> class and <code>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement and subtask will share the same properties with <code>Task</code>.</p>
+<p>Pros: It is easier to implement and subtask will share the same properties with <code>Task</code>.</p>
 </li>
 <li>
-<p>Cons: Possibility of having a cyclic subtask (a task that is also a subtask of it self) if not handled carefully.</p>
+<p>Cons: There is a ossibility of having a cyclic subtask (a task that is also a subtask of it self) if not handled carefully.</p>
 </li>
 </ul>
 </div>
@@ -1766,10 +1766,10 @@ manage their task. It is implemented using <code>Subtask</code> class and <code>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement.</p>
+<p>Pros: It is easier to implement.</p>
 </li>
 <li>
-<p>Cons: Performance issues when data is large, since most operations in <code>UniqueSubtaskList</code>
+<p>Cons: There will be performance issues when data is large, since most operations in <code>UniqueSubtaskList</code>
 is <code>O(n)</code>.</p>
 </li>
 </ul>
@@ -1780,10 +1780,10 @@ is <code>O(n)</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Faster than the first alternative since each operation is <code>O(log n)</code>.</p>
+<p>Pros: If is faster than the first alternative since each operation is <code>O(log n)</code>.</p>
 </li>
 <li>
-<p>Cons: Harder to implement and more robust testing is required since it is more bug prone.</p>
+<p>Cons: It is harder to implement and more robust testing is required since it is more bug prone.</p>
 </li>
 </ul>
 </div>
@@ -1813,6 +1813,9 @@ is <code>O(n)</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Logging Levels</strong></p>
+</div>
+<div class="paragraph">
+<p>The following are breif descriptions of different logging levels:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1892,11 +1895,11 @@ Asciidoc was chosen over Markdown as asciidoc provides more flexibility in forma
 <p>Within Chrome, click on the <code>Print</code> option in Chrome&#8217;s menu.</p>
 </li>
 <li>
-<p>Set the destination to <code>Save as PDF</code>, then click <code>Save</code> to save a copy of the file in PDF format. For the best results, use the settings indicated in the screenshot below.</p>
+<p>Set the destination to <code>Save as PDF</code>, then click <code>Save</code> to save a copy of the file in PDF format. For the best results, use the settings indicated in <a href="#fig-chrome_save_as_pdf">Figure 35, &#8220;Saving documentation as PDF files in Chrome&#8221;</a>.</p>
 </li>
 </ol>
 </div>
-<div class="imageblock">
+<div id="fig-chrome_save_as_pdf" class="imageblock">
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
@@ -1934,19 +1937,15 @@ The most reliable way to run tests is the third method. The first two methods mi
 <p>To run all tests, right-click on the <code>src/test/java</code> folder and choose <code>Run 'All Tests'</code>.</p>
 </li>
 <li>
-<p>To run a subset of tests, you can right-click on a test package, test class, or a test and choose <code>Run 'ABC'</code>.</p>
+<p>To run a subset of tests, right-click on a test package, test class, or a test and choose <code>Run 'ABC'</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p><strong>Method 2: Using Gradle</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Open a console and run the command <code>gradlew clean allTests</code> (Mac/Linux: <code>./gradlew clean allTests</code>).</p>
-</li>
-</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1964,10 +1963,19 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <p><strong>Method 3: Using Gradle (headless)</strong></p>
 </div>
 <div class="paragraph">
-<p>Thanks to the <a href="https://github.com/TestFX/TestFX">TestFX</a> library, GUI tests can be run in the <em>headless</em> mode. In the headless mode, GUI tests do not show up on the screen. This means that the developer is free to do something else while the tests are running.</p>
+<p>Open a console and run the command <code>gradlew clean headless allTests</code> (Mac/Linux: <code>./gradlew clean headless allTests</code>)</p>
 </div>
-<div class="paragraph">
-<p>To run the tests in headless mode, open a console and run the command <code>gradlew clean headless allTests</code> (Mac/Linux: <code>./gradlew clean headless allTests</code>).</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Thanks to the <a href="https://github.com/TestFX/TestFX">TestFX</a> library, GUI tests can be run in the <em>headless</em> mode. In the headless mode, GUI tests do not show up on the screen. This means that the developer is free to do something else while the tests are running.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2083,8 +2091,8 @@ e.g. <code>seedu.organizer.logic.LogicManagerTest</code></p>
 <h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.6. Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries. For example, PrioriTask depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than the following alternatives:<br>
-a. Include those libraries in the repo (this bloats the repo size)<br>
-b. Require developers to download those libraries manually (this creates extra work for developers)</p>
+a. Including those libraries in the repo (this bloats the repo size)<br>
+b. Requiring developers to download those libraries manually (this creates extra work for developers)</p>
 </div>
 </div>
 </div>
