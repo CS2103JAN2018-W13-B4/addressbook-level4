@@ -57,22 +57,6 @@ public class AddCommandParserTest {
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_STUDY + PRIORITY_DESC_STUDY + DEADLINE_DESC_STUDY
                 + DESCRIPTION_DESC_STUDY + TAG_DESC_FRIEND, new AddCommand(expectedTask));
 
-        // multiple names - last name accepted
-        assertParseSuccess(parser, NAME_DESC_EXAM + NAME_DESC_STUDY + PRIORITY_DESC_STUDY + DEADLINE_DESC_STUDY
-                + DESCRIPTION_DESC_STUDY + TAG_DESC_FRIEND, new AddCommand(expectedTask));
-
-        // multiple prioritys - last priority accepted
-        assertParseSuccess(parser, NAME_DESC_STUDY + PRIORITY_DESC_EXAM + PRIORITY_DESC_STUDY + DEADLINE_DESC_STUDY
-                + DESCRIPTION_DESC_STUDY + TAG_DESC_FRIEND, new AddCommand(expectedTask));
-
-        // multiple deadlines - last deadline accepted
-        assertParseSuccess(parser, NAME_DESC_STUDY + PRIORITY_DESC_STUDY + DEADLINE_DESC_EXAM + DEADLINE_DESC_STUDY
-                + DESCRIPTION_DESC_STUDY + TAG_DESC_FRIEND, new AddCommand(expectedTask));
-
-        // multiple descriptions - last organizer accepted
-        assertParseSuccess(parser, NAME_DESC_STUDY + PRIORITY_DESC_STUDY + DEADLINE_DESC_STUDY + DESCRIPTION_DESC_EXAM
-                + DESCRIPTION_DESC_STUDY + TAG_DESC_FRIEND, new AddCommand(expectedTask));
-
         // multiple tags - all accepted
         Task expectedTaskMultipleTags = new TaskBuilder().withName(VALID_NAME_STUDY).withPriority(VALID_PRIORITY_STUDY)
                 .withDeadline(VALID_DEADLINE_STUDY).withDescription(VALID_DESCRIPTION_STUDY)
@@ -168,7 +152,8 @@ public class AddCommandParserTest {
 
         // multiple description prefixes
         assertParseFailure(parser, NAME_DESC_STUDY + PRIORITY_DESC_STUDY + DEADLINE_DESC_STUDY
-                + DESCRIPTION_DESC_STUDY + DESCRIPTION_DESC_REVISION + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, expectedMessage);
+                + DESCRIPTION_DESC_STUDY + DESCRIPTION_DESC_REVISION + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                expectedMessage);
 
     }
 }
