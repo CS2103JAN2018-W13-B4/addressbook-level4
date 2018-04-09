@@ -2,13 +2,17 @@ package seedu.organizer.logic.parser;
 
 import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_EXAM;
+import static seedu.organizer.logic.commands.CommandTestUtil.DEADLINE_DESC_REVISION;
 import static seedu.organizer.logic.commands.CommandTestUtil.DESCRIPTION_DESC_EXAM;
+import static seedu.organizer.logic.commands.CommandTestUtil.DESCRIPTION_DESC_REVISION;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_DEADLINE_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_PRIORITY_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.NAME_DESC_EXAM;
+import static seedu.organizer.logic.commands.CommandTestUtil.NAME_DESC_REVISION;
 import static seedu.organizer.logic.commands.CommandTestUtil.PRIORITY_DESC_EXAM;
+import static seedu.organizer.logic.commands.CommandTestUtil.PRIORITY_DESC_REVISION;
 import static seedu.organizer.logic.commands.CommandTestUtil.PRIORITY_DESC_STUDY;
 import static seedu.organizer.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.organizer.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
@@ -170,5 +174,30 @@ public class EditCommandParserTest {
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
+    }
+
+    //@@author guekling
+    @Test
+    public void parse_multipleSamePrefixes_failure() {
+
+        // multiple name prefixes
+        Index targetIndex = INDEX_THIRD_TASK;
+        String userInput = targetIndex.getOneBased() + NAME_DESC_EXAM + NAME_DESC_REVISION;
+        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
+
+        // multiple priority prefixes
+        targetIndex = INDEX_THIRD_TASK;
+        userInput = targetIndex.getOneBased() + PRIORITY_DESC_EXAM + PRIORITY_DESC_REVISION;
+        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
+
+        // multiple deadline prefixes
+        targetIndex = INDEX_THIRD_TASK;
+        userInput = targetIndex.getOneBased() + DEADLINE_DESC_EXAM + DEADLINE_DESC_REVISION;
+        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
+
+        // multiple description prefixes
+        targetIndex = INDEX_THIRD_TASK;
+        userInput = targetIndex.getOneBased() + DESCRIPTION_DESC_EXAM + DESCRIPTION_DESC_REVISION;
+        assertParseFailure(parser, userInput, MESSAGE_INVALID_FORMAT);
     }
 }
