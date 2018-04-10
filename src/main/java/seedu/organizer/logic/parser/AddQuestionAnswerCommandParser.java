@@ -37,7 +37,6 @@ public class AddQuestionAnswerCommandParser implements Parser<AddQuestionAnswerC
             throw new ParseException(String.format(MESSAGE_REPEATED_SAME_PREFIXES, AddQuestionAnswerCommand
                     .MESSAGE_USAGE));
         }
-        
         try {
             String question = ParserUtil.parseQuestion(argMultimap.getValue(PREFIX_QUESTION)).get();
             String answer = ParserUtil.parseAnswer(argMultimap.getValue(PREFIX_ANSWER)).get();
