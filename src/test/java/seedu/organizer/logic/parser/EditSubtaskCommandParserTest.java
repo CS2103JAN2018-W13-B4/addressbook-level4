@@ -4,7 +4,6 @@ package seedu.organizer.logic.parser;
 import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.organizer.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.organizer.logic.commands.CommandTestUtil.VALID_NAME_EXAM;
-import static seedu.organizer.logic.commands.CommandTestUtil.VALID_PRIORITY_STUDY;
 import static seedu.organizer.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.organizer.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.organizer.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -14,12 +13,9 @@ import static seedu.organizer.testutil.TypicalIndexes.INDEX_SECOND_TASK;
 import org.junit.Test;
 
 import seedu.organizer.commons.core.index.Index;
-import seedu.organizer.logic.commands.AddSubtaskCommand;
 import seedu.organizer.logic.commands.EditSubtaskCommand;
-import seedu.organizer.logic.commands.util.EditTaskDescriptor;
 import seedu.organizer.model.subtask.Subtask;
 import seedu.organizer.model.task.Name;
-import seedu.organizer.testutil.EditTaskDescriptorBuilder;
 
 public class EditSubtaskCommandParserTest {
 

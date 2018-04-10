@@ -71,7 +71,7 @@ public class EditSubtaskCommandTest {
         Subtask subtask = new Subtask(new Name(VALID_NAME_EXAM));
 
         Index outOfBoundsIndex = Index.fromOneBased(model.getFilteredTaskList().size() + 1);
-        EditSubtaskCommand editSubtaskCommand= prepareCommand(outOfBoundsIndex, INDEX_FIRST_TASK, subtask);
+        EditSubtaskCommand editSubtaskCommand = prepareCommand(outOfBoundsIndex, INDEX_FIRST_TASK, subtask);
 
         assertCommandFailure(editSubtaskCommand, model, Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
     }
@@ -81,7 +81,7 @@ public class EditSubtaskCommandTest {
         Subtask subtask = new Subtask(new Name(VALID_NAME_EXAM));
 
         Index outOfBoundsIndex = Index.fromOneBased(model.getFilteredTaskList().get(0).getSubtasks().size() + 1);
-        EditSubtaskCommand editSubtaskCommand= prepareCommand(INDEX_FIRST_TASK, outOfBoundsIndex, subtask);
+        EditSubtaskCommand editSubtaskCommand = prepareCommand(INDEX_FIRST_TASK, outOfBoundsIndex, subtask);
 
         assertCommandFailure(editSubtaskCommand, model, Messages.MESSAGE_INVALID_SUBTASK_DISPLAYED_INDEX);
     }

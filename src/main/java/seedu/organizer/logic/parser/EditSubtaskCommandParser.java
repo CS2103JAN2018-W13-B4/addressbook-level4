@@ -1,6 +1,11 @@
 package seedu.organizer.logic.parser;
 
 //@@author agus
+import static java.util.Objects.requireNonNull;
+import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.organizer.logic.parser.CliSyntax.PREFIX_NAME;
+
+import java.util.Optional;
 
 import seedu.organizer.commons.core.index.Index;
 import seedu.organizer.commons.exceptions.IllegalValueException;
@@ -9,12 +14,9 @@ import seedu.organizer.logic.parser.exceptions.ParseException;
 import seedu.organizer.model.subtask.Subtask;
 import seedu.organizer.model.task.Name;
 
-import java.util.Optional;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.organizer.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.organizer.logic.parser.CliSyntax.PREFIX_NAME;
-
+/**
+ * Parses input arguments and creates a new EditSubtaskCommand object
+ */
 public class EditSubtaskCommandParser implements Parser<EditSubtaskCommand> {
 
     /**
