@@ -30,6 +30,8 @@ public class ForgotPasswordCommandParser implements Parser<ForgotPasswordCommand
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ForgotPasswordCommand.MESSAGE_USAGE));
         }
+
+
         try {
             String username = ParserUtil.parseUsername(argMultimap.getValue(PREFIX_USERNAME)).get();
             return new ForgotPasswordCommand(username);
