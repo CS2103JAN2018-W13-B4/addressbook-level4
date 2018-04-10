@@ -25,6 +25,7 @@ public class SignUpCommandParser implements Parser<SignUpCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public SignUpCommand parse(String args) throws ParseException {
+
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_USERNAME, PREFIX_PASSWORD);
 
@@ -41,7 +42,6 @@ public class SignUpCommandParser implements Parser<SignUpCommand> {
             String username = ParserUtil.parseUsername(argMultimap.getValue(PREFIX_USERNAME)).get();
             String password = ParserUtil.parsePassword(argMultimap.getValue(PREFIX_PASSWORD)).get();
             User user = new User(username, password);
-
             return new SignUpCommand(user);
         } catch (IllegalValueException ive) {
             throw new ParseException(ive.getMessage(), ive);
@@ -64,5 +64,4 @@ public class SignUpCommandParser implements Parser<SignUpCommand> {
         return Stream.of(prefixes).anyMatch(prefix -> (argumentMultimap.getSize(prefix) > 1));
     }
     //@@author
-
 }

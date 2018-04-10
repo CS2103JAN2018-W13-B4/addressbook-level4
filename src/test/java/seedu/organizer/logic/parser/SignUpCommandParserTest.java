@@ -42,6 +42,15 @@ public class SignUpCommandParserTest {
 
         // all prefixes missing
         assertParseFailure(parser, " bobby b0bby", MESSAGE_INVALID_FORMAT);
+
+        // missing username
+        assertParseFailure(parser, "u/ p/b0bby", MESSAGE_INVALID_FORMAT);
+
+        // missing password
+        assertParseFailure(parser, "u/bobby p/ ", MESSAGE_INVALID_FORMAT);
+
+        // missing fields
+        assertParseFailure(parser, "u/ p/ ", MESSAGE_INVALID_FORMAT);
     }
 
     @Test

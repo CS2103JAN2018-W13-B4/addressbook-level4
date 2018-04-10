@@ -24,8 +24,10 @@ public class AddQuestionAnswerCommandParser implements Parser<AddQuestionAnswerC
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddQuestionAnswerCommand parse(String args) throws ParseException {
+
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_QUESTION, PREFIX_ANSWER);
+
         if (!arePrefixesPresent(argMultimap, PREFIX_QUESTION, PREFIX_ANSWER)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     AddQuestionAnswerCommand.MESSAGE_USAGE));
@@ -35,7 +37,7 @@ public class AddQuestionAnswerCommandParser implements Parser<AddQuestionAnswerC
             throw new ParseException(String.format(MESSAGE_REPEATED_SAME_PREFIXES, AddQuestionAnswerCommand
                     .MESSAGE_USAGE));
         }
-
+        
         try {
             String question = ParserUtil.parseQuestion(argMultimap.getValue(PREFIX_QUESTION)).get();
             String answer = ParserUtil.parseAnswer(argMultimap.getValue(PREFIX_ANSWER)).get();
@@ -61,5 +63,4 @@ public class AddQuestionAnswerCommandParser implements Parser<AddQuestionAnswerC
         return Stream.of(prefixes).anyMatch(prefix -> (argumentMultimap.getSize(prefix) > 1));
     }
     //@@author
-
 }

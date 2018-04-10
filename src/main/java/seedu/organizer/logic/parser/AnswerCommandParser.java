@@ -24,6 +24,7 @@ public class AnswerCommandParser implements Parser<AnswerCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public AnswerCommand parse(String args) throws ParseException {
+
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_USERNAME, PREFIX_ANSWER);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_USERNAME, PREFIX_ANSWER)) {
@@ -61,4 +62,3 @@ public class AnswerCommandParser implements Parser<AnswerCommand> {
     }
     //@@author
 }
-

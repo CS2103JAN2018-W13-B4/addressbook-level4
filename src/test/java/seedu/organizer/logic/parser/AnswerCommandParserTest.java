@@ -40,6 +40,18 @@ public class AnswerCommandParserTest {
 
         // missing all prefixes
         assertParseFailure(parser, " admin answer", MESSAGE_INVALID_FORMAT);
+
+        // missing username
+        assertParseFailure(parser, "u/ a/answer", MESSAGE_INVALID_FORMAT);
+
+        // missing answer
+        assertParseFailure(parser, "u/admin a/", MESSAGE_INVALID_FORMAT);
+
+        // missing all fields
+        assertParseFailure(parser, "u/ a/", MESSAGE_INVALID_FORMAT);
+
+        // no arguments
+        assertParseFailure(parser, "", MESSAGE_INVALID_FORMAT);
     }
 
     //@@author guekling
