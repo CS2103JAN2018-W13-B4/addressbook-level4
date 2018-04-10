@@ -38,7 +38,7 @@ public class EditSubtaskCommandTest {
     private Model model = new ModelManager(getTypicalOrganizer(), new UserPrefs());
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         try {
             model.loginUser(ADMIN_USER);
         } catch (UserNotFoundException e) {
