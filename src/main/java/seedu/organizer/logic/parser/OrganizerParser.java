@@ -123,6 +123,7 @@ public class OrganizerParser {
         case EditCommand.COMMAND_ALIAS:
             return new EditCommandParser().parse(arguments);
 
+        //@@author agus
         case EditSubtaskCommand.COMMAND_WORD:
             return new EditSubtaskCommandParser().parse(arguments);
 
@@ -140,6 +141,7 @@ public class OrganizerParser {
 
         case ToggleSubtaskCommand.COMMAND_ALIAS:
             return new ToggleSubtaskCommandParser().parse(arguments);
+        //@@author
 
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
@@ -147,6 +149,7 @@ public class OrganizerParser {
         case DeleteCommand.COMMAND_ALIAS:
             return new DeleteCommandParser().parse(arguments);
 
+        //@@author agus
         case DeleteSubtaskCommand.COMMAND_WORD:
             return new DeleteSubtaskCommandParser().parse(arguments);
 
@@ -158,6 +161,7 @@ public class OrganizerParser {
 
         case AddSubtaskCommand.COMMAND_ALIAS:
             return new AddSubtaskCommandParser().parse(arguments);
+        //@@author
 
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
