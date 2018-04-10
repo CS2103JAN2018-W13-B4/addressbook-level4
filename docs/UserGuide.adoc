@@ -567,6 +567,7 @@ Clear all of your tasks from PrioriTask. +
 [format-title]#Format:# `clear`
 ====
 
+// tag::subtaskFeatureSummary[]
 == Subtask Management Features
 
 _This section explains what a *Subtask* is, and the commands to manage them._
@@ -661,6 +662,7 @@ Toggles the fourth subtask of the second task in th result of `find homework` co
 === Reorder subtask `[coming in v2.0]`
 
 _Reorder subtasks using a given condition_
+// end::subtaskFeatureSummary[]
 
 == Calendar Features
 
@@ -885,6 +887,7 @@ e.g. [example-no-box]#`findd 2018-03-17 2018-09-07`#
 e.g.[example-no-box]#`toggle 3`#
 * *Clear* : [format-no-box]#`clear`#
 
+// tag::subtaskFeatureSummary[]
 === Subtask Management Features
 * *Add Subtask* : [format-no-box]#`adds INDEX n/NAME`# +
 e.g. [example-no-box]#`adds 1 n/Submit Report`#
@@ -892,6 +895,7 @@ e.g. [example-no-box]#`adds 1 n/Submit Report`#
 e.g. [example-no-box]#`delete-subtask 2 3`#
 * *Toggle Subtask* : [format-no-box]#`toggle-subtask TASK_INDEX SUBTASK_INDEX`# +
 e.g.[example-no-box]#`toggle-subtask 3 2`#
+// end::subtaskFeatureSummary[]
 
 === Calendar Features
 * *Go To Current Month* : [format-no-box]#`cmonth`#
