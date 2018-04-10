@@ -15,11 +15,204 @@
 <h1>Dominic Kenn Lim - Project Portfolio</h1>
 </div>
 <div id="content">
-
+<div class="sect1">
+<h2 id="project-prioritask"><a class="link" href="#project-prioritask">PROJECT: PrioriTask</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PrioriTask is a desktop task manager application written in Java (10~20kLOC).
+It helps users manage their tasks and priorities through automatic priority updating and sorting.
+The application also features a calendar which provides users with a chronological overview of upcoming deadlines.
+The user interacts with PrioriTask by using a Command Line Interface (CLI), and has a Graphical User Interface (GUI) created with JavaFX.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+PrioriTask used <a href="https://github.com/nus-cs2103-AY1718S2/addressbook-level4">AddressBook-Level 4</a> as a base for development.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added the <strong>login system</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the multiple users to use the application on the same machine. Supports account creation, login, logout, password retrieval, and most importantly private task management.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because a user now has an additional layer of security for the privacy of their own tasks.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affected all four components : <code>Logic</code>, <code>Model</code>, <code>Storage</code> and <code>UI</code>. Due to the the reliance of this feature on data structures and logic, changes were mainly made to <code>Logic</code>, <code>Model</code>, and <code>Storage</code>. Code was also ammended in <code>UI</code> as the login system presents a stricter restriction on what is displayed on the GUI. Due to the already existing data structure of <strong><a href="https://github.com/nus-cs2103-AY1718S2/addressbook-level4">AddressBook-Level 4</a></strong>, numerous challenges were faced as the initial design was not optimized for a login system. The current implementation, although not optimally designed due to the amount of time required to rework the data structure and tests, currently works as intended.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a <strong>Priority</strong> parameter, and its corresponding <strong>auto-updating and autosorting feature</strong> (Refer to <a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/docs/DeveloperGuide.adoc#task-s-priority-auto-updating-and-auto-sorting-feature">PrioriTask - Developer Guide : 4.2. Task’s Priority Auto-updating and Auto-sorting feature</a> to find our more).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Automatically updates <code>Priority</code> levels of tasks upon application launch and sorts then in descending order.</p>
+</li>
+<li>
+<p>Justification: This feature helps automate task management for the user, which is a key distinction that seperates PrioriTask from other applications.</p>
+</li>
+<li>
+<p>Highlights: This enhancement mainly dealt with <code>UniqueTaskList</code> in <code>Model</code>. The formula and algorithm for appropriate priority updating faced many challenges due to its dependence on the current date, resulting in the need for in-depth testing to constantly refine it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/dominickenn.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/test/dominickenn.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project initialization:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up <a href="https://github.com/orgs/CS2103JAN2018-W13-B4/teams/developers">GitHub organization</a> and <a href="https://github.com/CS2103JAN2018-W13-B4/main">team repo</a>.</p>
+</li>
+<li>
+<p>Set up labels for issue management.</p>
+</li>
+<li>
+<p>Refactor (<em>renaming</em>) 1703LOC before team starts development (Pull request <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/17">#17</a>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Summarize to-dos and assign tasks to group members in v1.1 and v1.2 (<a href="https://docs.google.com/document/d/1mB1hgwC1VGD5lrTkx3bI4fXZuGD69iKaZXdVfOvWxZo/edit?usp=sharing">Google Drive link</a>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix a GUI bug that resulted in the application not appearing (Pull request <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/211">#211</a>)</p>
+</li>
+<li>
+<p>Replace GUI displaying total tasks with the currently logged in user (Pull request <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/247">#247</a>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Update UML diagrams when changes were made to code (Pull requests <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/15">#15</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/23">#23</a>, and others).</p>
+</li>
+<li>
+<p>Restructure and language check of User Guide and Developer Guide (Pull requests <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/121">#121</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/184">#184</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/254">#254</a>, and others.)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed <a href="https://github.com/CS2103JAN2018-W13-B4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+reviewed-by%3Adominickenn">39 PRs</a> on GitHub (with comments when required).</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (Issues <a href="https://github.com/CS2103JAN2018-W09-B2/main/issues/163">#163</a>, <a href="https://github.com/CS2103JAN2018-W09-B2/main/issues/172">#172</a>, <a href="https://github.com/CS2103JAN2018-W09-B2/main/issues/176">#176</a>, <a href="https://github.com/CS2103JAN2018-W09-B2/main/issues/195">#195</a>, and others).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up Travis on the team&#8217;s GitHub repo.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>User Features.</p>
+</div>
+<div class="paragraph">
+<p>Priority Description</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Priority autoupdating</p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-09 14:24:27 UTC
+Last updated 2018-04-10 13:59:18 UTC
 </div>
 </div>
 </body>
