@@ -15,11 +15,213 @@
 <h1>Natania Djohari - Project Portfolio</h1>
 </div>
 <div id="content">
-
+<div class="sect1">
+<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PrioriTask is a desktop task manager application written in Java (10~20kLOC).
+It helps users manage their tasks and priorities through automatic priority updating and sorting.
+The application also features a calendar which provides users with a chronological overview of upcoming deadlines.
+The user interacts with PrioriTask by using a Command Line Interface (CLI), and has a Graphical User Interface (GUI) created with JavaFX.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the ability to recur tasks weekly</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to recur tasks weekly. The tasks that are recurred have deadlines that are on the same day of the week as the original task.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because a user can add tasks that need to be done weekly much more quickly, as compared to with just the feature to add tasks one by one.</p>
+</li>
+<li>
+<p>Highlights: This feature was difficult to implement because there are many ways a user may want to recur a task. Finding a way to recur tasks that can fit most users' needs was a challenge.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a remove tag command that allows the user to remove a specified tag from all entries in PrioriTask.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/natania.md">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+<li>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+</li>
+<li>
+<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
+</li>
+<li>
+<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>{you can add/remove categories in the list above}</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="recurring-a-task-code-recurw-code-or-code-rw-code-code-since-v1-5rc-code"><a class="link" href="#recurring-a-task-code-recurw-code-or-code-rw-code-code-since-v1-5rc-code">Recurring a task : <code>recurw</code> or <code>rw</code> <code>[since v1.5rc]</code></a></h3>
+<div class="paragraph">
+<p>Recurs an existing task in PrioriTask.</p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>recurw INDEX x/TIMES</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Recurs the task at the specified <code>INDEX</code>. The index refers to the index number shown in the last task listing. The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+<li>
+<p>The task is recurred for the specified number of <code>TIMES</code>, not inclusive of the original existing task.</p>
+</li>
+<li>
+<p>The 1st recurred task has the deadline set to be 1 week after the original task&#8217;s deadline. The 2nd recurred task has the deadline set to be 2 weeks after the original task&#8217;s deadline, and so on.</p>
+</li>
+<li>
+<p>Priority of the recurred tasks is set to be the original task&#8217;s priority when it was last edited using <code>edit</code> or when it was first set using <code>add</code>.</p>
+</li>
+<li>
+<p>The recurred tasks will be set set as <code>Not Completed</code> by default.</p>
+</li>
+<li>
+<p>All subtasks of the recurred tasks will also be set as <code>Not Completed</code> by default.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example">`recurw 1 x/3</span><br>
+Recurs the 1st task weekly for 3 times.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 04:10:09 UTC
+Last updated 2018-04-11 04:36:00 UTC
 </div>
 </div>
 </body>
