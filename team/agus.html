@@ -15,11 +15,441 @@
 <h1>Agus Sentosa Hermawan - Project Portfolio</h1>
 </div>
 <div id="content">
-
+<div class="sect1">
+<h2 id="project-prioritask"><a class="link" href="#project-prioritask">PROJECT: PrioriTask</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PrioriTask is a desktop task manager application written in Java (10~20kLOC).
+It helps users manage their tasks and priorities through automatic priority updating and sorting.
+The application also features a calendar which provides users with a chronological overview of upcoming deadlines.
+The user interacts with PrioriTask by using a Command Line Interface (CLI), and has a Graphical User Interface (GUI) created with JavaFX.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+PrioriTask used <a href="https://github.com/nus-cs2103-AY1718S2/addressbook-level4">AddressBook-Level 4</a> as a base for development.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added the <strong>Subtask management system</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows users to split and manage their task separately. Support Adding, removing, editing, and setting status for each subtask.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because users will be able to better manage big tasks (epic) becuase they will be able to split those into smaller, more independent task.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affected four components : <code>Model</code>, <code>Storage</code>, <code>Logic</code>, and <code>UI</code>. <code>UI</code> component is touch only becuase we need to show the subtask somewhere on the ui. Most of the changes happened in the other three components. The most challenging part is to decide how the sutbask data structure will be implemented. Even though it is possible to use faster and more efficient data structure, limited time and the bug-prone nature of the algorithm pushed me to do a compromise between speed and code correctness.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a <strong>Status</strong> parameter, and its corresponding <strong>toggle function</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It gives user ability to mark their task/subtask as <strong>completed</strong> or <strong>not completed</strong></p>
+</li>
+<li>
+<p>Justification: It helps user to differentiate completed task without actually deleting them.</p>
+</li>
+<li>
+<p>Highlights: Mainly highlights the immutability of the task. Since I have to preserve the task immutability.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/agus.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/test/agus.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project initialization:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Refactor (<em>renaming</em>) 1669LOC before team starts development (Pull request <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/17">#17</a>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Helped team member with git (Cleaning PR <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/67">#67</a>)</p>
+</li>
+<li>
+<p>Reviewed <a href="https://github.com/CS2103JAN2018-W13-B4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+reviewed-by%3Aaguss787">some PRs</a> on GitHub (with comments when required).</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (Issues <a href="https://github.com/CS2103JAN2018-T11-B3/main/issues/133">#113</a>, <a href="https://github.com/CS2103JAN2018-T11-B3/main/issues/131">#131</a>, <a href="https://github.com/CS2103JAN2018-T11-B3/main/issues/130">#130</a> and others).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Subtask Features</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="subtask-management-features"><a class="link" href="#subtask-management-features">Subtask Management Features</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>This section explains what a <strong>Subtask</strong> is, and the commands to manage them.</em></p>
+</div>
+<div class="exampleblock noteblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="noteblock-title"><strong>Subtask Parameters</strong></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="parameters"><code>NAME</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A name can only be alphanumeric characters and spaces, and should not be blank.</p>
+</li>
+<li>
+<p>It is <strong>compulsory</strong> to set a name.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="parameters"><code>STATUS</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A state can only be one of two values : <strong>Done</strong> or <strong>Not Done</strong>.</p>
+</li>
+<li>
+<p>By <strong>default</strong>, every new task is marked as <strong>Not Done</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code"><a class="link" href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code">Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></a></h3>
+<div class="paragraph">
+<p>Add a subtask to an existing task.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>adds INDEX [n/NAME]</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds the subtask at the specified <code>INDEX</code>. The index refers to the index number shown in the last subtask listing. The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>adds 1 n/Submit report</code></span><br>
+Adds a subtask with name <code>Submit report</code> to the 1st task.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-subtask-from-a-task-code-delete-subtask-code-or-code-ds-code-code-since-v1-3-code"><a class="link" href="#deleting-a-subtask-from-a-task-code-delete-subtask-code-or-code-ds-code-code-since-v1-3-code">Deleting a subtask from a task: <code>delete-subtask</code> or <code>ds</code> <code>[since v1.3]</code></a></h3>
+<div class="paragraph">
+<p>Delete the specified subtask from PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Delete the <code>SUBTASK_INDEX</code>-th subtask of task at the specified by <code>SUBTASK_INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>delete-subtask 1 1</code></span><br>
+Deletes the first subtask of the first task in PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find cleaning</code></span><br>
+<span class="example"><code>delete-subtask 2 4</code></span><br>
+Deletes the fourth subtask of the second task in th result of <code>find cleaning</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-subtask-code-coming-in-v2-0-code"><a class="link" href="#editing-a-subtask-code-coming-in-v2-0-code">Editing a subtask <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>Edit the name of a subtask</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mark-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code"><a class="link" href="#mark-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code">Mark subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></h3>
+<div class="paragraph">
+<p>Toggle the status of the subtask identified by the index number used in the last subtask listing
+between <code>Completed</code> and <code>Not Completed</code>.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Toggle the status of the <code>SUBTASK_INDEX</code>-th subtask of task at the specified by <code>TASK_INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>toggle-subtask 1 1</code></span><br>
+Toggles the first subtask of the first task in PrioriTask.</p>
+</li>
+<li>
+<p><span class="example"><code>find homework</code></span><br>
+<span class="example"><code>toggle-subtask 2 4</code></span><br>
+Toggles the fourth subtask of the second task in th result of <code>find homework</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reorder-subtask-code-coming-in-v2-0-code"><a class="link" href="#reorder-subtask-code-coming-in-v2-0-code">Reorder subtask <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>Reorder subtasks using a given condition</em>
+=== Subtask Management Features
+* <strong>Add Subtask</strong> : <span class="format-no-box"><code>adds INDEX n/NAME</code></span><br>
+e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span>
+* <strong>Delete Subtask</strong> : <span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span>
+* <strong>Toggle Subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Subtask Implementation</p>
+</div>
+<div class="sect2">
+<h3 id="subtask"><a class="link" href="#subtask">Subtask</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Subtask feature allows user to split their tasks into multiple subtasks. This feature allows user to better
+manage their task. It is implemented using <code>Subtask</code> class and <code>UniqueSubtaskList</code> class as shown by <a href="#fig-SubtaskComponentDiagram">Subtask UML Class Diagram</a> below:</p>
+</div>
+<div id="fig-SubtaskComponentDiagram" class="imageblock">
+<div class="content">
+<img src="../images/SubtaskComponentDiagram.png" alt="SubtaskComponentDiagram" width="400">
+</div>
+<div class="title">Figure 1. Subtask UML Class Diagram</div>
+</div>
+<div class="paragraph">
+<p><code>UniqueSubtaskList</code> is created to ensure that no task has a duplicated subtask.</p>
+</div>
+<div class="paragraph">
+<p><strong>Subtask management</strong></p>
+</div>
+<div class="paragraph">
+<p>To manage the subtasks (Add, edit, etc), a copy of the <code>Task</code> object is created, since <code>Task</code> is immutable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-subtask-code"><a class="link" href="#aspect-implementation-of-code-subtask-code">Aspect: Implementation of <code>Subtask</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> Add a new class <code>Subtask</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: There is better isolation, and allows for easier modification to <code>Subtask</code> if needed.</p>
+</li>
+<li>
+<p>Cons: It restricts the possibility of having a subtask that has subtasks.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use current <code>Task</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easier to implement and subtask will share the same properties with <code>Task</code>.</p>
+</li>
+<li>
+<p>Cons: There is a ossibility of having a cyclic subtask (a task that is also a subtask of it self) if not handled carefully.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-uniquesubtasklist-code"><a class="link" href="#aspect-implementation-of-code-uniquesubtasklist-code">Aspect: Implementation of <code>UniqueSubtaskList</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> Use <code>List</code> to store subtasks.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easier to implement.</p>
+</li>
+<li>
+<p>Cons: There will be performance issues when data is large, since most operations in <code>UniqueSubtaskList</code>
+is <code>O(n)</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (Planned for implementation):</strong> Use a combination of BBST and LinkedList to store subtasks.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: If is faster than the first alternative since each operation is <code>O(log n)</code>.</p>
+</li>
+<li>
+<p>Cons: It is harder to implement and more robust testing is required since it is more bug prone.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 04:36:00 UTC
+Last updated 2018-04-11 04:48:10 UTC
 </div>
 </div>
 </body>
