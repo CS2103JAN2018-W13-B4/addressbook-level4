@@ -15,11 +15,782 @@
 <h1>Yeo Guek Ling - Project Portfolio</h1>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="project-prioritask"><a class="link" href="#project-prioritask">PROJECT: PrioriTask</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PrioriTask is a desktop task management application. It is a combination of the to-do list, and calendar features, with an added bonus of automatic updating and sorting of the tasks based on priority levels.</p>
+</div>
+<div class="paragraph">
+<p>The user interacts with PrioriTask by using a Command Line Interface (CLI), and has a Graphical User Interface (GUI) created with JavaFX.</p>
+</div>
+<div class="paragraph">
+<p>This application is based on the <a href="https://github.com/se-edu/addressbook-level4">AddressBook-Level4 (AB4)</a> project created by <em><a href="https://github.com/se-edu/">SE-EDU</a> initiative</em>. It is written in Java, and has about 10 ~ 20 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>a calendar</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows users to have a have a chronological overview of the deadlines of all their tasks, and to switch between different months.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because users  would want at-a-glance views of upcoming tasks by month so that they can effectively keep track of their tasks. The GUI was created with JavaFX, and interacts with the <code>Model</code> and <code>Logic</code> components for users to execute the respective CLI commands. This enhancement  required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to the existing GUI, and no third-party calendar library was used to draw the calendar.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+</li>
+<li>
+<p>PRs: <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/145">#145</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/154">#154</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/165">#165</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/167">#167</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/180">#180</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/183">#183</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/191">#191</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Extended the <code>Find</code> command to allow users to either:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Search the <code>NAME</code>, <code>DESCRIPTION</code>, and <code>DEADLINE</code> parameters to locate tasks containing any of the given keywords. (PR <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/113">#113</a>)</p>
+</li>
+<li>
+<p>Search either the <code>DESCRIPTION</code>, or <code>DEADLINE</code> parameter to locate tasks containing any of the given keywords. (PRs <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/100">#100</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/118">#118</a>)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/guekling.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/test/guekling.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.2</code> - <code>v1.4</code> (3 releases) on GitHub.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Change existing <code>Email</code> field to <code>Deadline</code> field. (PRs <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/75">#75</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/114">#114</a>)</p>
+</li>
+<li>
+<p>Change existing <code>Address</code> field to <code>Description</code> field. (PRs <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/79">#79</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/94">#94</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Fix bugs:</p>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide. (PR <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/146">#146</a>)</p>
+</li>
+<li>
+<p>Made changes to existing sections of the Developer Guide to fix mistakes and to reflect our current product. (PRs <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/18">#18</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/82">#82</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/150">#150</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/172">#172</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/198">#198</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/207">#207</a>)</p>
+</li>
+<li>
+<p>Made changes to existing sections of the User Guide to reflect our current product. (PRs <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/16">#16</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/96">#96</a>)</p>
+</li>
+<li>
+<p>Updated README and About Us to reflect our current team and our current product. (PRs <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/69">#69</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/70">#70</a>)</p>
+</li>
+<li>
+<p>Modified the User Guide so that it is more organised, and more information is provided for first-time users. (e.g. how to install the application, how to sign up and login, etc.) (PR <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/190">#190</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/93">#93</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/101">#101</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/123">#123</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/159">#159</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/82">1</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/87">2</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/92">3</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/94">4</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/95">5</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/98">6</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/104">7</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/109">8</a>, <a href="https://github.com/CS2103JAN2018-T11-B2/main/issues/113">9</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated new Github plugins (<code>AppVeyor</code>, <code>Coveralls</code>, and <code>Netlify</code>) to the team repo</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="locating-tasks-code-find-code-or-code-f-code"><a class="link" href="#locating-tasks-code-find-code-or-code-f-code">Locating tasks: <code>find</code> or <code>f</code></a></h4>
+<div class="paragraph">
+<p>Find tasks whose names, descriptions or deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the name, description and deadline are searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>find Guide</code></span><br>
+Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+</li>
+<li>
+<p><span class="example"><code>f CS2101 Developer User</code></span><br>
+Returns any task having names or descriptions <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-tasks-by-name-code-findn-code-or-code-fn-code"><a class="link" href="#locating-tasks-by-name-code-findn-code-or-code-fn-code">Locating tasks by name: <code>findn</code> or <code>fn</code></a></h4>
+<div class="paragraph">
+<p>Find tasks whose names contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the name is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>findn Guide</code></span><br>
+Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+</li>
+<li>
+<p><span class="example"><code>fn CS2101 Developer User</code></span><br>
+Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-tasks-by-description-code-finddes-code-or-code-fdes-code"><a class="link" href="#locating-tasks-by-description-code-finddes-code-or-code-fdes-code">Locating tasks by description: <code>finddes</code> or <code>fdes</code></a></h4>
+<div class="paragraph">
+<p>Find tasks whose descriptions contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the description is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>finddes Study</code></span><br>
+Returns tasks with descriptions <code>Study midterms</code> and <code>study chapter 2</code>.</p>
+</li>
+<li>
+<p><span class="example"><code>fdes Study Update Chapter</code></span><br>
+Returns any task having descriptions containing words <code>Study</code>, <code>Update</code>, or <code>Chapter</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-tasks-by-deadline-code-findd-code-or-code-fd-code"><a class="link" href="#locating-tasks-by-deadline-code-findd-code-or-code-fd-code">Locating tasks by deadline: <code>findd</code> or <code>fd</code></a></h4>
+<div class="paragraph">
+<p>Find tasks whose deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only the deadline is searched.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>findd 2018-03-17</code></span><br>
+Returns tasks with deadlines <code>2018-03-17</code>.</p>
+</li>
+<li>
+<p><span class="example"><code>fd 2018-03-17 2018-09-04 2018-03-21</code></span><br>
+Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="calendar-features"><a class="link" href="#calendar-features">Calendar Features</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The calendar allows you to have a chronic overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask. The diagram below (refer to <a href="#fig-UserGuideCalendarFeature1">PrioriTask&#8217;s main page</a>) shows how the calendar would look like when displayed with task entries.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The calendar is best viewed fully-maximised on a 13” computer screen.<br>
+The display of the calendar may differ from pictures on other computer screens.
+</td>
+</tr>
+</table>
+</div>
+<div id="fig-UserGuideCalendarFeature1" class="imageblock">
+<div class="content">
+<img src="../images/UserGuideCalendarFeature1.png" alt="UserGuideCalendarFeature1" width="650">
+</div>
+<div class="title">Figure 1. PrioriTask&#8217;s main page</div>
+</div>
+<div class="paragraph">
+<p>In future releases, the calendar will support,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Displaying of only the uncompleted tasks on the calendar.</p>
+</li>
+<li>
+<p>Viewing of the calendar by days, weeks and years.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code"><a class="link" href="#go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code">Go to current month: <code>cmonth</code> or <code>cm</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Change the view of the calendar to that of the current month.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>cmonth</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current month is <code>April 2018</code><br>
+Views <code>December 2018</code><br>
+<span class="example"><code>cmonth</code></span><br>
+Goes to <code>April 2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code"><a class="link" href="#go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Chang the view of the calendar to that of the previous month.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>pmonth</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Views <code>March 2018</code><br>
+<span class="example"><code>pmonth</code></span><br>
+Goes to <code>February 2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code"><a class="link" href="#go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Chang the view of the calendar to that of the next month.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>nmonth</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Example:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Views <code>March 2018</code><br>
+<span class="example"><code>nmonth</code></span><br>
+Goes to <code>April 2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="calendar-feature"><a class="link" href="#calendar-feature">Calendar Feature</a></h3>
+<div class="paragraph">
+<p>The <code>Calendar</code> resides mainly in the <code>UI</code> component, constantly interacting with the <code>Logic</code> and <code>Model</code> components to complete its tasks. It allows users to have a chronological overview of the deadlines of all their tasks. Tasks on the calendar changes according to the last task listing. By default, users will view the current month when they first open PrioriTask.</p>
+</div>
+<div class="paragraph">
+<p>The calendar feature is currently in its early stages of implementation. At present, it only supports the switching between months, and is best viewed fully-maximised on a 13” computer screen.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The calendar feature is facilitated by the <code>MonthView</code> class, which supports the <code>CalendarPanel</code>. The <code>MonthView</code> is responsible for displaying a monthly calendar view to the users through the <code>CalendarPanel</code>. The following diagram (refer to <a href="#fig-CalendarComponentClassDiagram">Structure of the Calendar Feature</a>) illustrates the structure of the calendar feature system:</p>
+</div>
+<div id="fig-CalendarComponentClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/CalendarComponentClassDiagram.png" alt="CalendarComponentClassDiagram" width="700">
+</div>
+<div class="title">Figure 2. Structure of the Calendar Feature</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram (refer to <a href="#fig-CalendarSequenceDiagram">Calendar Sequence Diagram</a>) illustrates how the different classes work together to display the calendar when users first run the application.</p>
+</div>
+<div id="fig-CalendarSequenceDiagram" class="imageblock">
+<div class="content">
+<img src="../images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 3. Calendar Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>Below describes the the implementation of the different classes supporting the calendar feature.</p>
+</div>
+<div class="sect4">
+<h5 id="implementation-of-code-entrycard-code"><a class="link" href="#implementation-of-code-entrycard-code">Implementation of <code>EntryCard</code></a></h5>
+<div class="paragraph">
+<p><code>EntryCard</code> is responsible for displaying the name of a <code>Task</code> on the calendar. It is called by <code>MonthView</code> when mapping each <code>Task</code> to an <code>EntryCard</code>. The method is implemented as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> ObservableList&lt;EntryCard&gt; getEntryCardsList(<span class="type">int</span> year, <span class="type">int</span> month) {
+    FilteredList&lt;Task&gt; filteredList = getFilteredTaskList(year, month);
+    SortedList&lt;Task&gt; taskSortedList = getSortedTaskList(filteredList);
 
+    <span class="keyword">return</span> EasyBind.map(taskSortedList, (task) -&gt; <span class="keyword">new</span> EntryCard(task));
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An <code>EntryCard</code> will be added to a specific date which reflects the deadline of the <code>Task</code>. It is displayed on the calendar with the help of the JavaFX <code>ListView</code> object. More details of how this is implemented is further discussed in <a href="#implementation-of-code-monthview-code">Implementation of <code>MonthView</code></a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-of-code-monthview-code"><a class="link" href="#implementation-of-code-monthview-code">Implementation of <code>MonthView</code></a></h5>
+<div class="paragraph">
+<p><code>MonthView</code> is in charge of executing several tasks. It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Drawing the month view of the calendar, and populating the dates.</p>
+</li>
+<li>
+<p>Adding the tasks’ entries onto the calendar, according to the last task listing. The calendar is also updated every time an undoable command is executed (refer to <a href="#Undo/Redo feature">[Undo/Redo feature]</a> for more details about an undoable command).</p>
+</li>
+<li>
+<p>Aiding the <code>Logic</code> component by switching the month view accordingly when users execute the respective calendar feature commands (e.g. <code>pmonth</code>, <code>nmonth</code>, etc.). A calendar feature command is defined as a command that changes the display of the calendar. For the full list of calendar feature commands, head to <a href="UserGuide.html#calendar-features">User Guide: Calendar Features</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>MonthView</code> interacts very closely with its corresponding FXML file, <code>MonthView.fxml</code> to execute its tasks. The FXML file reflects the basic layout of the calendar feature, which is illustrated by <a href="#fig-MonthViewLayoutDiagram">Basic Calendar Layout</a>.</p>
+</div>
+<div id="fig-MonthViewLayoutDiagram" class="imageblock">
+<div class="content">
+<img src="../images/MonthViewLayoutDiagram.png" alt="MonthViewLayoutDiagram" width="600">
+</div>
+<div class="title">Figure 4. Basic Calendar Layout</div>
+</div>
+<div class="paragraph">
+<p>MonthView` uses the JavaFX layout objects extensively when executing its tasks. The following are some instances when JavaFX layout objects are called:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Populating the dates in the calendar: Adding a <code>Text</code> object, which contains the numerical value of a particular date, to the exact column and row in the <code>taskCalendar</code>. The method is implemented as such:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="type">void</span> addMonthDate(Text dateToPrint, <span class="type">int</span> column, <span class="type">int</span> row) {
+    <span class="comment">// To update the JavaFX component from a non-JavaFX thread</span>
+    Platform.runLater(<span class="keyword">new</span> <span class="predefined-type">Runnable</span>() {
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> run() {
+            taskCalendar.add(dateToPrint, column, row);
+        }
+    });
+
+    taskCalendar.setHalignment(dateToPrint, HPos.LEFT);
+    taskCalendar.setValignment(dateToPrint, VPos.TOP)
+    dateToPrint.setId(<span class="string"><span class="delimiter">&quot;</span><span class="content">date</span><span class="delimiter">&quot;</span></span> + <span class="predefined-type">String</span>.valueOf(dateCount));
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding the tasks’ entries onto the calendar: Adding a <code>ListView</code> object, which contains a list of <code>EntryCard`s, to the exact column and row in the `taskCalendar</code>. An <code>EntryCard</code> represents a task entry, which will be added to the date which reflects the deadline of the task. The method is implemented as such:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="type">void</span> addEntryListView(ObservableList&lt;EntryCard&gt; toAddObservableList, <span class="type">int</span> row, <span class="type">int</span> column) {
+    <span class="predefined-type">ListView</span>&lt;EntryCard&gt; entries = <span class="keyword">new</span> <span class="predefined-type">ListView</span>&lt;&gt;();
+    entries.setId(<span class="string"><span class="delimiter">&quot;</span><span class="content">entry</span><span class="delimiter">&quot;</span></span> + <span class="predefined-type">String</span>.valueOf(row) + <span class="predefined-type">String</span>.valueOf(column));
+    entries.setItems(toAddObservableList);
+    entries.setCellFactory(listView -&gt; <span class="keyword">new</span> EntryListViewCell());
+    entries.setMaxHeight(<span class="integer">60</span>);
+
+    <span class="comment">// To update the JavaFX component from a non-JavaFX thread</span>
+    Platform.runLater(<span class="keyword">new</span> <span class="predefined-type">Runnable</span>() {
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> run() {
+            taskCalendar.add(entries, column, row);
+        }
+    });
+
+    taskCalendar.setValignment(entries, VPos.BOTTOM);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>MonthView</code> also works very closely with the <code>Logic</code> component to accomplish,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding of the tasks’ entries onto the calendar, by retrieving an unmodifiable <code>ObservableList</code> containing the list of <code>Task`s. A listener to added to the `ObservableList</code> so that the calendar is updated with the latest tasks’ entries when a change in the list is detected. The method is implemented as such:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="type">void</span> addListenerToTaskList() {
+    taskList.addListener(<span class="keyword">new</span> ListChangeListener&lt;Task&gt;() {
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> onChanged(Change change) {
+            <span class="keyword">while</span> (change.next()) {
+                clearCalendar();
+                setMonthCalendarDatesAndEntries(viewYearMonth.getYear(), viewYearMonth.getMonthValue());
+            }
+        }
+    });
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Switching the month view when users execute the respective calendar feature commands, by retrieving an <code>ObservableList</code> containing a list of executed commands by the user. A listener is added to the <code>ObservableList</code> so that the month view is changed accordingly when a calendar feature command in the list is detected. The method is implemented as such:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="type">void</span> addListenerToExecutedCommandsList() {
+    executedCommandsList.addListener(<span class="keyword">new</span> ListChangeListener&lt;<span class="predefined-type">String</span>&gt;() {
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> onChanged(Change change) {
+            <span class="keyword">while</span> (change.next()) {
+                <span class="type">int</span> size = executedCommandsList.size();
+                <span class="predefined-type">String</span> executedCommand = executedCommandsList.get(size - <span class="integer">1</span>);
+
+                <span class="keyword">if</span> ((executedCommand.equals(CurrentMonthCommand.COMMAND_WORD)) || (executedCommand.equals(CurrentMonthCommand.COMMAND_ALIAS))) {
+                    goToCurrentMonth();
+                }
+
+                <span class="comment">// … other similiar if statements for the remaining calendar feature commands ...</span>
+            }
+        }
+    });
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-of-code-calendarpanel-code"><a class="link" href="#implementation-of-code-calendarpanel-code">Implementation of <code>CalendarPanel</code></a></h5>
+<div class="paragraph">
+<p><code>CalendarPanel</code> simply displays the calendar, by using the JavaFX <code>StackPane</code> object as a placeholder for <code>MonthView</code>, which contains the basic layout of the calendar. After loading its own FXML file, it will fetch the display for <code>MonthView</code> as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="type">void</span> createMainView() {
+    monthView.getMonthView(currentYearMonth);
+    calendarPane.getChildren().add(monthView.getRoot());
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scenario"><a class="link" href="#scenario">Scenario</a></h4>
+<div class="paragraph">
+<p>Suppose the user executes a calendar feature command. <a href="#fig-CalendarCommandExecutionSequenceDiagram">Calendar Sequence Diagram</a> shows the interactions within the <code>Logic</code> and <code>UI</code> components for the execute(“nmonth”) API call.</p>
+</div>
+<div id="fig-CalendarCommandExecutionSequenceDiagram" class="imageblock">
+<div class="content">
+<img src="../images/CalendarCommandExecutionSequenceDiagram.png" alt="CalendarCommandExecutionSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 5. Calendar Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>The sequence flow is slightly similar to that of the execution of a normal command (refer to <a href="#fig-LogicSequenceDiagram">[fig-LogicSequenceDiagram]</a>), and is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>OrganizerParser</code> class to parse the calendar feature command.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution triggers the <code>MonthView</code> class in the <code>UI</code>, which will display the new month view.</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed to the <code>UI</code>. It will be shown in the <code>Result Display Box</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-calendar-feature"><a class="link" href="#aspect-implementation-of-calendar-feature">Aspect: Implementation of calendar feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Draw the calendar manually using the JavaFX library</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The feature is customised for PrioriTask.</p>
+</li>
+<li>
+<p>Cons: There is a need to invest a lot of time into creating a feature that has been already been developed and freely available.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a third-party framework / library</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This speeds up development, especially if it has already been thoroughly tested and does not have many bugs.</p>
+</li>
+<li>
+<p>Cons: It is not customised for the application, and may require much time to tweak or work around the framework / library to suit the application.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-updating-of-tasks-entries-on-the-calendar"><a class="link" href="#aspect-updating-of-tasks-entries-on-the-calendar">Aspect: Updating of tasks’ entries on the calendar</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Clears the calendar, and draws everything (i.e. the dates and entries) again</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: There may be performance issues (there may be lag during execution of undoable commands).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Track the <code>Task</code> that is being added / modified, and update the calendar accordingly</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The update of the calendar will be almost instantaneous. The chances of lag is rare.</p>
+</li>
+<li>
+<p>Cons: It is difficult to implement. There is a need to ensure that the tracking of <code>Task</code> s added / modified is accurate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 13:59:18 UTC
+Last updated 2018-04-11 03:59:22 UTC
 </div>
 </div>
 </body>
