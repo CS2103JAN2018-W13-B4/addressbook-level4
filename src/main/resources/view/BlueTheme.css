@@ -1,3 +1,5 @@
+/* @@author guekling */
+
 .background {
     -fx-background-color: derive(#0B0C10, 20%);
     background-color: #1F2833; /* Used in the default.html file */
@@ -311,7 +313,7 @@
 #commandTextField {
     -fx-background-color: #1F2833 #383838 #1F2833 #383838;
     -fx-background-insets: 0;
-    -fx-border-color: #383838 #383838 #66FCF1 #383838;
+    -fx-border-color: #1F2833 #1F2833 #1F2833 #1F2833;
     -fx-border-insets: 0;
     -fx-border-width: 1;
     -fx-font-family: "Segoe UI Light";
@@ -326,6 +328,10 @@
 #resultDisplay .content {
     -fx-background-color: transparent, #1F2833, transparent, #1F2833;
     -fx-background-radius: 0;
+}
+
+#resultDisplayPlaceholder {
+    -fx-border-color: #66FCF1 #383838 #66FCF1 #383838;
 }
 
 #tags {
@@ -391,8 +397,6 @@
     -fx-text-fill: #000000;
     -fx-background-color: #FFFF00;
 }
-
-/* @@author guekling */
 
 #calendarPane {
     -fx-background-color: #1F2833;
