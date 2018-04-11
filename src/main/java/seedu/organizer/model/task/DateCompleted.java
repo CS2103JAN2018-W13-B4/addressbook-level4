@@ -20,7 +20,7 @@ public class DateCompleted {
      * Format of string is YYYY-MM-DD.
      */
     public static final String DATECOMPLETED_VALIDATION_REGEX = "\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])";
-    public static final String TASK_NOTCOMPLETED = "Not Completed";
+    public static final String TASK_NOTCOMPLETED = "not completed";
 
     public final LocalDate date;
 
