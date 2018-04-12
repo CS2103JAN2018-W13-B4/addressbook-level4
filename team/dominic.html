@@ -183,11 +183,310 @@ PrioriTask used <a href="https://github.com/nus-cs2103-AY1718S2/addressbook-leve
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>User Features.</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="user-features"><a class="link" href="#user-features">User Features</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Priority Description</p>
+<p><em>This section explains the commands specific to command inquiry and <strong>User</strong> account management.</em></p>
+</div>
+<div class="exampleblock noteblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="noteblock-title"><strong>User Parameters</strong></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="parameters"><code>USERNAME</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A username can only be alphanumeric characters, must be a minimum of length 5, and must not contain spaces.</p>
+</li>
+<li>
+<p>It is <strong>compulsory</strong> to set a username.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="parameters"><code>PASSWORD</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A password can only be alphanumeric characters, must be a minimum of length 5, and must not contain spaces.</p>
+</li>
+<li>
+<p>It is <strong>compulsory</strong> to set a password.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">Viewing help : <code>help</code></a></h3>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>help</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code"><a class="link" href="#signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code">Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></a></h3>
+<div class="paragraph">
+<p>Sign up for a PrioriTask account.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>signup u/USERNAME p/PASSWORD</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>signup u/patrick p/pat19503</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>signup u/mary p/m4ry</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-in-code-login-code-or-code-in-code-code-since-v1-4-code"><a class="link" href="#logging-in-code-login-code-or-code-in-code-code-since-v1-4-code">Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Login to PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>login u/USERNAME p/PASSWORD</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>login u/patrick p/pat19503</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>login u/mary p/m4ry</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code"><a class="link" href="#logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code">Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Logout of PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>logout</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-question-code-addqa-code-code-since-v1-4-code"><a class="link" href="#adding-question-code-addqa-code-code-since-v1-4-code">Adding question: <code>addqa</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Add a question answer set for password retrieval. If one currently exists, the new question answer set will replace the current set.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Must be currently logged in to a user account on PrioriTask.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>addqa q/QUESTION a/ANSWER</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>addqa q/are you male? a/yes</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>addqa q/are you female? a/yes</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code"><a class="link" href="#retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code">Retrieving question for user&#8217;s password: <code>forgotpassword</code> or <code>fp</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Retrieve question for user&#8217;s password.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>forgotpassword u/USERNAME</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>forgotpassword u/patrick</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>forgotpassword u/mary</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code"><a class="link" href="#answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code">Answering question: <code>answer</code> or <code>ans</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Answer a user&#8217;s question to retrieve the password. The question need not be retrieved before an attempt at answering the question.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>answer u/USERNAME a/ANSWER</code></p>
+</div>
+</div>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>answer u/patrick a/yes</code></span></p>
+</li>
+<li>
+<p><span class="example"><code>answer u/mary a/no</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-account-code-coming-in-v2-0-code"><a class="link" href="#deleting-an-account-code-coming-in-v2-0-code">Deleting an account <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Delete a user account to stop using PrioriTask.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exit the program.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>exit</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="parameters"><code>PRIORITY LEVEL</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A priority level can range from <strong>0</strong> (lowest) to <strong>9</strong> (highest).</p>
+</li>
+<li>
+<p>It is <strong>optional</strong> to set a priority level. If the user does not specify a priority level, PrioriTask will automatically set it to its <strong>default level</strong> : <strong>0</strong>.</p>
+</li>
+<li>
+<p>Priority levels are automatically updated by gradual incremental steps, based on the date added, current date, and deadline.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the current date is equal to the date added, and the current date is equals or after the deadline.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The priority level remains the same.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the current date is past the <code>Deadline</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The priority level is set to its <strong>maximum level : 9</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the current date is before the deadline and not equal to the date added.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The priority level is set based on how close the current date is to the deadline, and the time span between the date added and the deadline.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -204,15 +503,278 @@ PrioriTask used <a href="https://github.com/nus-cs2103-AY1718S2/addressbook-leve
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="task-s-priority-auto-updating-and-auto-sorting-feature"><a class="link" href="#task-s-priority-auto-updating-and-auto-sorting-feature">Task&#8217;s Priority Auto-updating and Auto-sorting feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Priority autoupdating</p>
+<p>The autoupdating and autosorting mechanism resides inside <code>UniqueTaskList</code>. The <code>UniqueTaskList</code> is responsible for updating each Task’s priority level and sorting the <code>ObservableList&lt;Task&gt;</code> whenever a new <code>Task</code> is added. In addition, whenever a <code>Task</code> is edited, the <code>ObservableList&lt;Task&gt;</code> is sorted again.</p>
+</div>
+<div class="sect4">
+<h5 id="description-of-code-uniquetasklist-code-s-code-add-code-method"><a class="link" href="#description-of-code-uniquetasklist-code-s-code-add-code-method">Description of <code>UniqueTaskList</code> 's <code>add</code> method</a></h5>
+<div class="paragraph">
+<p>The <code>add</code> method of the <code>UniqueTaskList</code> class is implemented as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> add(Task toAdd) <span class="directive">throws</span> DuplicateTaskException {
+    <span class="comment">//check non null and no duplicate task</span>
+    toAdd = updatePriority(toAdd);
+    internalList.add(toAdd);
+    sortTasks();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="priority-auto-updating-feature"><a class="link" href="#priority-auto-updating-feature">Priority Auto-updating feature</a></h5>
+<div class="paragraph">
+<p>The <code>updatePriority</code> method returns a new <code>Task</code> with a new <code>Priority</code> based on the current date, <code>AddedDate</code>, and <code>Deadline</code>.</p>
+</div>
+<div class="paragraph">
+<p>The new <code>Priority</code> level will remain within the range of 0 - 9. The new <code>Priority</code> is calculated as such :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the current date is equal to the <code>AddedDate</code>, and the current date is equals or after the <code>Deadline</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Priority</code> remains the same.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the current date is past the <code>Deadline</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Priority</code> is set to the <code>HIGHEST_SETTABLE_PRIORITY_LEVEL</code> : 9</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the current date is before the <code>Deadline</code> and not equal to the <code>AddedDate</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Priority</code> is calculated via the following formula :</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">priorityDifferenceFromMax = HIGHEST_SETTABLE_PRIORITY_LEVEL - currentPriority
+
+dayDifferenceCurrentToDeadline = <span class="predefined-type">Duration</span>.between(currentDate, deadline)
+
+dayDifferenceAddedToDeadline = <span class="predefined-type">Duration</span>.between(dateAdded, deadline)
+
+priorityToIncrease = priorityDifferenceFromMax * ((dayDifferenceAddedToDeadline - dayDifferenceCurrentToDeadline) / dayDifferenceAddedToDeadline)
+
+newPriority = currentPriority + priorityToIncrease</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The new <code>Task</code> with its updated <code>Priority</code> will then be added to <code>UniqueTaskList</code>’s <code>internalList</code>. Following that, the <code>internalList</code> is sorted via the <code>sortTasks</code> method. The <code>sortTasks</code> method is implemented as such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="type">void</span> sortTasks() {
+    internalList.sort(Task.priorityComparator());
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="task-auto-sorting-feature"><a class="link" href="#task-auto-sorting-feature">Task Auto-sorting feature</a></h5>
+<div class="paragraph">
+<p>The <code>sortTasks</code> method makes use of the <code>ObservableList</code> class’s <code>sort</code> method and <code>Task</code>’s <code>priorityComparator</code> method. The <code>priorityComparator</code> method returns a <code>Comparator</code> that sorts <code>Task</code> s based on descending <code>Priority</code> levels. The <code>internalList</code> is sorted with respect to the comparator.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scenario"><a class="link" href="#scenario">Scenario</a></h4>
+<div class="paragraph">
+<p>Consider an <code>addTask</code> method call by the <code>Organizer</code>. The current date is 2018-03-19.</p>
+</div>
+<div class="paragraph">
+<p>The following is a sequence diagram (refer to <a href="#fig-OrganizerAddTaskSequenceDiagram">addTask(Study) method execution sequence diagram</a>) which represents the <code>Organizer</code> adding a Study <code>Task</code>.</p>
+</div>
+<div id="fig-OrganizerAddTaskSequenceDiagram" class="imageblock">
+<div class="content">
+<img src="../images/OrganizerAddTaskSequenceDiagram.png" alt="OrganizerAddTaskSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. addTask(Study) method execution sequence diagram</div>
+</div>
+<div class="paragraph">
+<p>Suppose the <code>tasks</code> currently contains the following two <code>Task</code> s as shown in <a href="#fig-OrganizerAddTaskDiagram1"><code>tasks</code> 's initial <code>Task</code> s</a>.</p>
+</div>
+<div id="fig-OrganizerAddTaskDiagram1" class="imageblock">
+<div class="content">
+<img src="../images/OrganizerAddTaskDiagram1.png" alt="OrganizerAddTaskDiagram1" width="600">
+</div>
+<div class="title">Figure 2. <code>tasks</code> 's initial <code>Task</code> s</div>
+</div>
+<div class="paragraph">
+<p><a href="#fig-OrganizerAddTaskDiagram2">"Study" <code>Task</code></a> represents the "Study" <code>Task</code>.</p>
+</div>
+<div id="fig-OrganizerAddTaskDiagram2" class="imageblock">
+<div class="content">
+<img src="../images/OrganizerAddTaskDiagram2.png" alt="OrganizerAddTaskDiagram2" width="200">
+</div>
+<div class="title">Figure 3. "Study" <code>Task</code></div>
+</div>
+<div class="paragraph">
+<p>When <code>tasks</code> calls <code>updatePriority(Study)</code>, the new priority level is calculated as such :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">priorityDifferenceFromMax = <span class="integer">9</span> - <span class="integer">0</span> = <span class="integer">9</span>
+
+dayDifferenceCurrentToDeadline = <span class="integer">14</span>
+
+dayDifferenceAddedToDeadline = <span class="integer">31</span>
+
+priorityToIncrease = <span class="integer">9</span> * ((<span class="integer">31</span> - <span class="integer">14</span>) / <span class="integer">31</span>) = <span class="integer">4</span>
+
+newPriority = <span class="integer">0</span> + <span class="integer">4</span> = <span class="integer">4</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A new "Study" <code>Task</code> is created and added to the <code>internalList</code> as shown in <a href="#fig-OrganizeAddTaskDiagram3"><code>internalList</code> after "Study" <code>Task</code> is added</a>.</p>
+</div>
+<div id="fig-OrganizeAddTaskDiagram3" class="imageblock">
+<div class="content">
+<img src="../images/OrganizerAddTaskDiagram3.png" alt="OrganizerAddTaskDiagram3" width="600">
+</div>
+<div class="title">Figure 4. <code>internalList</code> after "Study" <code>Task</code> is added</div>
+</div>
+<div class="paragraph">
+<p>The <code>sortTasks</code> method is then called, which calls the <code>priorityCompartor</code> method, and uses the <code>Comparator</code> returned to sort the <code>Task</code> s. This results in the following <code>UniqueTaskList</code> as show in <a href="#fig-OrganizerAddTaskDiagram4"><code>internalList</code> after <code>sortTasks</code> is called</a>.</p>
+</div>
+<div id="fig-OrganizerAddTaskDiagram4" class="imageblock">
+<div class="content">
+<img src="../images/OrganizerAddTaskDiagram4.png" alt="OrganizerAddTaskDiagram4" width="600">
+</div>
+<div class="title">Figure 5. <code>internalList</code> after <code>sortTasks</code> is called</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-updatepriority-code"><a class="link" href="#aspect-implementation-of-code-updatepriority-code">Aspect : Implementation of <code>updatePriority</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Add a new method <code>updatePriority</code> in UniqueTaskList’s <code>add</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : It is convenient to update the priority during this method call; since during initialization of <code>Organizer</code>, <code>add</code> is called for every <code>Task</code> to initialize the <code>UniqueTaskList</code>.</p>
+</li>
+<li>
+<p>Cons : There is a possible violation of Single Responsibility Principle and Separation of Concerns as <code>UniqueTaskList</code> now updates <code>Task</code> priorities and stores <code>Task</code> s.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Add a new class <code>UpdatedUniqueTaskList</code> which extends <code>UniqueTaskList</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : This prevents the violation of Single Responsibility Principle and Separation of Concerns in Alternative 1.</p>
+</li>
+<li>
+<p>Cons : This repeats the logic in <code>UniqueTaskList</code> by adding one method.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-code-updatepriority-code-executes"><a class="link" href="#aspect-how-code-updatepriority-code-executes">Aspect : How <code>updatePriority</code> executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice) : Return a new <code>Task</code> with new <code>Priority</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : It is easy to implement.</p>
+</li>
+<li>
+<p>Cons : A new object is created twice during every addition, even if <code>Priority</code> is not updated; Hence slightly inefficient.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Edit the <code>Priority</code> parameter of the <code>Task</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : No new objects are created.</p>
+</li>
+<li>
+<p>Cons : It requires a major overhaul of <code>Task</code> and it’s parameters to be mutable.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code"><a class="link" href="#aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code">Aspect : Scope of <code>updatePriority</code> and <code>sortTasks</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice) : Implement within <code>Model</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : There is no need to deal with commands, and fits with the idea of automation.</p>
+</li>
+<li>
+<p>Cons : The concern of updating priorities and sorting tasks may not lie with <code>Model</code> but <code>Logic</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Implement within <code>Logic</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros : It fits with the concern of updating priorities and sorting tasks.</p>
+</li>
+<li>
+<p>Cons : It requires development of commands and extra command calls to be automatically called upon start of application; unnecessary trouble for same feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 04:26:54 UTC
+Last updated 2018-04-12 04:37:15 UTC
 </div>
 </div>
 </body>
