@@ -157,7 +157,8 @@ public class EditSubtaskCommandTest {
         subtasks.set(index.getZeroBased(), subtask);
         return new Task(
                 task.getName(),
-                task.getPriority(),
+                task.getUpdatedPriority(),
+                task.getBasePriority(),
                 task.getDeadline(),
                 task.getDateAdded(),
                 task.getDateCompleted(),
@@ -165,7 +166,8 @@ public class EditSubtaskCommandTest {
                 task.getStatus(),
                 task.getTags(),
                 subtasks,
-                task.getUser()
+                task.getUser(),
+                task.getRecurrence()
         );
     }
 

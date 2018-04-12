@@ -13,6 +13,7 @@ import java.util.Set;
 import seedu.organizer.commons.core.Messages;
 import seedu.organizer.commons.core.index.Index;
 import seedu.organizer.logic.commands.exceptions.CommandException;
+import seedu.organizer.model.recurrence.Recurrence;
 import seedu.organizer.model.subtask.Subtask;
 import seedu.organizer.model.subtask.UniqueSubtaskList;
 import seedu.organizer.model.tag.Tag;
@@ -97,19 +98,22 @@ public class EditSubtaskCommand extends UndoableCommand {
         assert taskToEdit != null;
 
         Name updatedName = taskToEdit.getName();
-        Priority updatedPriority = taskToEdit.getPriority();
+        Priority updatedPriority = taskToEdit.getUpdatedPriority();
+        Priority basePriority = taskToEdit.getBasePriority();
         Deadline updatedDeadline = taskToEdit.getDeadline();
         DateAdded oldDateAdded = taskToEdit.getDateAdded();
         DateCompleted oldDateCompleted = taskToEdit.getDateCompleted();
         Description updatedDescription = taskToEdit.getDescription();
         Set<Tag> updatedTags = taskToEdit.getTags();
         Status updatedStatus = taskToEdit.getStatus();
+        Recurrence updatedRecurrence = taskToEdit.getRecurrence();
 
         UniqueSubtaskList updatedSubtasks = new UniqueSubtaskList(taskToEdit.getSubtasks());
         updatedSubtasks.set(subtaskIndex, toAdd);
 
-        return new Task(updatedName, updatedPriority, updatedDeadline, oldDateAdded, oldDateCompleted,
-                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList(), getCurrentlyLoggedInUser());
+        return new Task(updatedName, updatedPriority, basePriority, updatedDeadline, oldDateAdded, oldDateCompleted,
+                updatedDescription, updatedStatus, updatedTags, updatedSubtasks.toList(), getCurrentlyLoggedInUser(),
+                updatedRecurrence);
     }
 
     @Override
