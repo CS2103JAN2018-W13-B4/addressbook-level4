@@ -81,7 +81,7 @@
 <ul class="sectlevel2">
 <li><a href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code">6.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></a></li>
 <li><a href="#deleting-a-subtask-from-a-task-code-delete-subtask-code-or-code-ds-code-code-since-v1-3-code">6.2. Deleting a subtask from a task: <code>delete-subtask</code> or <code>ds</code> <code>[since v1.3]</code></a></li>
-<li><a href="#editing-a-subtask-code-coming-in-v2-0-code">6.3. Editing a subtask <code>[coming in v2.0]</code></a></li>
+<li><a href="#editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code">6.3. Editing a subtask: <code>edits</code> or <code>es</code> <code>[since v1.5]</code></a></li>
 <li><a href="#mark-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code">6.4. Mark subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></li>
 <li><a href="#reorder-subtask-code-coming-in-v2-0-code">6.5. Reorder subtask <code>[coming in v2.0]</code></a></li>
 </ul>
@@ -453,6 +453,9 @@ A warning message will be displayed in the result display box if your <span clas
 </div>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Show all available commands in PrioriTask ..</p>
+</div>
 <div class="exampleblock format">
 <div class="content">
 <div class="paragraph">
@@ -481,10 +484,12 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p><span class="example"><code>signup u/patrick p/pat19503</code></span></p>
+<p><span class="example"><code>signup u/patrick p/pat19503</code></span><br>
+Add user <code>patrick</code> with password <code>pat19503</code> to PrioriTask.</p>
 </li>
 <li>
-<p><span class="example"><code>signup u/mary p/m4ry</code></span></p>
+<p><span class="example"><code>signup u/mary p/m4ry</code></span><br>
+Add user <code>mary</code> with password <code>m4ry</code> to PrioriTask.</p>
 </li>
 </ul>
 </div>
@@ -511,10 +516,12 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p><span class="example"><code>login u/patrick p/pat19503</code></span></p>
+<p><span class="example"><code>login u/patrick p/pat19503</code></span><br>
+Login to user <code>patrick</code>.</p>
 </li>
 <li>
-<p><span class="example"><code>login u/mary p/m4ry</code></span></p>
+<p><span class="example"><code>login u/mary p/m4ry</code></span><br>
+Login to user <code>mary</code>.</p>
 </li>
 </ul>
 </div>
@@ -568,10 +575,12 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p><span class="example"><code>addqa q/are you male? a/yes</code></span></p>
+<p><span class="example"><code>addqa q/are you male? a/yes</code></span><br>
+Add question <code>are you male?</code> with answer <code>yes</code> to current logged user.</p>
 </li>
 <li>
-<p><span class="example"><code>addqa q/are you female? a/yes</code></span></p>
+<p><span class="example"><code>addqa q/are you female? a/yes</code></span><br>
+Add question <code>are you female?</code> with answer <code>yes</code> to current logged user.</p>
 </li>
 </ul>
 </div>
@@ -598,10 +607,12 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p><span class="example"><code>forgotpassword u/patrick</code></span></p>
+<p><span class="example"><code>forgotpassword u/patrick</code></span><br>
+Retrive question for user <code>patrick</code>.</p>
 </li>
 <li>
-<p><span class="example"><code>forgotpassword u/mary</code></span></p>
+<p><span class="example"><code>forgotpassword u/mary</code></span><br>
+Retrive question for user <code>mary</code>.</p>
 </li>
 </ul>
 </div>
@@ -628,10 +639,12 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p><span class="example"><code>answer u/patrick a/yes</code></span></p>
+<p><span class="example"><code>answer u/patrick a/yes</code></span><br>
+Answer password question for user <code>patrick</code> with <code>yes</code>.</p>
 </li>
 <li>
-<p><span class="example"><code>answer u/mary a/no</code></span></p>
+<p><span class="example"><code>answer u/mary a/no</code></span><br>
+Answer password question for user <code>mary</code> with <code>no</code>.</p>
 </li>
 </ul>
 </div>
@@ -889,10 +902,8 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="ulist">
 <ul>
 <li>
-<p><span class="example"><code>add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction</code></span></p>
-</li>
-<li>
-<p><span class="example"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101</code></span></p>
+<p><span class="example"><code>add n/CS2103T Developer Guide p/9 d/2018-03-02 des/Write Introduction</code></span><br>
+Add a task with name <code>CS2103T Developer Guide</code>, due on 2nd march 2018, with priority level of 9, with detailed description as <code>Write Introduction</code>.</p>
 </li>
 </ul>
 </div>
@@ -1086,14 +1097,16 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 </div>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only the name, description and deadline are searched.
+<div class="paragraph">
+<p>Only the name, description and deadline are searched.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -1130,14 +1143,16 @@ Returns any task having names or descriptions <code>CS2101</code>, <code>Develop
 </div>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only the name is searched.
+<div class="paragraph">
+<p>Only the name is searched.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -1174,14 +1189,16 @@ Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <c
 </div>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only the description is searched.
+<div class="paragraph">
+<p>Only the description is searched.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -1218,14 +1235,16 @@ Returns any task having descriptions containing words <code>Study</code>, <code>
 </div>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only the deadline is searched.
+<div class="paragraph">
+<p>Only the deadline is searched.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -1496,9 +1515,50 @@ Deletes the fourth subtask of the second task in th result of <code>find cleanin
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-subtask-code-coming-in-v2-0-code"><a class="link" href="#editing-a-subtask-code-coming-in-v2-0-code">6.3. Editing a subtask <code>[coming in v2.0]</code></a></h3>
+<h3 id="editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code"><a class="link" href="#editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code">6.3. Editing a subtask: <code>edits</code> or <code>es</code> <code>[since v1.5]</code></a></h3>
 <div class="paragraph">
-<p><em>Edit the name of a subtask</em></p>
+<p>Edit name of a subtask</p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edit the <code>SUBTASK_INDEX</code>-th subtask of task at the specified by <code>SUBTASK_INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>delete-subtask 1 1 n/Do some research</code></span><br>
+Changes the first subtask of the first task name to <code>Do some research</code>.</p>
+</li>
+<li>
+<p><span class="example"><code>find cleaning</code></span><br>
+<span class="example"><code>delete-subtask 2 4 n/Run for 7.87 Km</code></span><br>
+Change the fourth subtask of the second task in the result of <code>find cleaning</code> command name to <code>Run for 7.87 Km</code>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2000,7 +2060,7 @@ e.g.<span class="example-no-box"><code>recurw 2 x/2</code></span></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add Subtask</strong> : <span class="format-no-box"><code>adds INDEX n/NAME</code></span><br>
+<p><strong>Add Subtask</strong> : <span class="format-no-box"><code>adds TASK_INDEX n/NAME</code></span><br>
 e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
 </li>
 <li>
@@ -2010,6 +2070,10 @@ e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span></p>
 <li>
 <p><strong>Toggle Subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
 e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
+</li>
+<li>
+<p><strong>Edit Subtask</strong> : <span class="format-no-box"><code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></span><br>
+e.g.<span class="example-no-box"><code>edits 3 2 n/Feed cats</code></span></p>
 </li>
 </ul>
 </div>

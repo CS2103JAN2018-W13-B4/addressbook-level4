@@ -265,9 +265,50 @@ Deletes the fourth subtask of the second task in th result of <code>find cleanin
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-subtask-code-coming-in-v2-0-code"><a class="link" href="#editing-a-subtask-code-coming-in-v2-0-code">Editing a subtask <code>[coming in v2.0]</code></a></h3>
+<h3 id="editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code"><a class="link" href="#editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code">Editing a subtask: <code>edits</code> or <code>es</code> <code>[since v1.5]</code></a></h3>
 <div class="paragraph">
-<p><em>Edit the name of a subtask</em></p>
+<p>Edit name of a subtask</p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edit the <code>SUBTASK_INDEX</code>-th subtask of task at the specified by <code>SUBTASK_INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. <code>1, 2, 3, &#8230;&#8203;</code>).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>delete-subtask 1 1 n/Do some research</code></span><br>
+Changes the first subtask of the first task name to <code>Do some research</code>.</p>
+</li>
+<li>
+<p><span class="example"><code>find cleaning</code></span><br>
+<span class="example"><code>delete-subtask 2 4 n/Run for 7.87 Km</code></span><br>
+Change the fourth subtask of the second task in the result of <code>find cleaning</code> command name to <code>Run for 7.87 Km</code>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -321,14 +362,30 @@ Toggles the fourth subtask of the second task in th result of <code>find homewor
 <div class="sect2">
 <h3 id="reorder-subtask-code-coming-in-v2-0-code"><a class="link" href="#reorder-subtask-code-coming-in-v2-0-code">Reorder subtask <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>Reorder subtasks using a given condition</em>
-=== Subtask Management Features
-* <strong>Add Subtask</strong> : <span class="format-no-box"><code>adds INDEX n/NAME</code></span><br>
-e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span>
-* <strong>Delete Subtask</strong> : <span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
-e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span>
-* <strong>Toggle Subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+<p><em>Reorder subtasks using a given condition</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="subtask-management-features-2"><a class="link" href="#subtask-management-features-2">Subtask Management Features</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add Subtask</strong> : <span class="format-no-box"><code>adds TASK_INDEX n/NAME</code></span><br>
+e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
+</li>
+<li>
+<p><strong>Delete Subtask</strong> : <span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span></p>
+</li>
+<li>
+<p><strong>Toggle Subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
 e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
+</li>
+<li>
+<p><strong>Edit Subtask</strong> : <span class="format-no-box"><code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></span><br>
+e.g.<span class="example-no-box"><code>edits 3 2 n/Feed cats</code></span></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -449,7 +506,7 @@ is <code>O(n)</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 04:56:58 UTC
+Last updated 2018-04-13 16:32:24 UTC
 </div>
 </div>
 </body>
