@@ -692,9 +692,30 @@ Deletes the first subtask of the first task in PrioriTask.
 Deletes the fourth subtask of the second task in th result of `find cleaning` command.
 ====
 
-=== Editing a subtask `[coming in v2.0]`
+=== Editing a subtask: `edits` or `es` `[since v1.5]`
 
-_Edit the name of a subtask_
+Edit name of a subtask
+
+[.format]
+====
+[format-title]#Format:# `edits TASK_INDEX SUBTASK_INDEX n/NAME`
+====
+
+* Edit the `SUBTASK_INDEX`-th subtask of task at the specified by `SUBTASK_INDEX`.
+* The index refers to the index number shown in the most recent listing.
+* The index *must be a positive integer* (i.e. `1, 2, 3, ...`).
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`list`# +
+[example]#`delete-subtask 1 1 n/Do some research`# +
+Changes the first subtask of the first task name to `Do some research`.
+* [example]#`find cleaning`# +
+[example]#`delete-subtask 2 4 n/Run for 7.87 Km`# +
+Change the fourth subtask of the second task in the result of `find cleaning` command name to `Run for 7.87 Km`.
+====
 
 === Mark subtask as complete: `toggle-subtask` or `ts` `[since v1.3]`
 
@@ -956,12 +977,14 @@ e.g.[example-no-box]#`recurw 2 x/2`#
 
 // tag::subtaskFeatureSummary[]
 === Subtask Management Features
-* *Add Subtask* : [format-no-box]#`adds INDEX n/NAME`# +
+* *Add Subtask* : [format-no-box]#`adds TASK_INDEX n/NAME`# +
 e.g. [example-no-box]#`adds 1 n/Submit Report`#
 * *Delete Subtask* : [format-no-box]#`delete-subtask TASK_INDEX SUBTASK_INDEX`# +
 e.g. [example-no-box]#`delete-subtask 2 3`#
 * *Toggle Subtask* : [format-no-box]#`toggle-subtask TASK_INDEX SUBTASK_INDEX`# +
 e.g.[example-no-box]#`toggle-subtask 3 2`#
+* *Edit Subtask* : [format-no-box]#`edits TASK_INDEX SUBTASK_INDEX n/NAME`# +
+e.g.[example-no-box]#`edits 3 2 n/Feed cats`#
 // end::subtaskFeatureSummary[]
 
 === Calendar Features
