@@ -606,7 +606,7 @@ Recurs the 1st task weekly for 3 times.
 ====
 // end::recurw[]
 
-// tag::subtaskFeatureSummary[]
+// tag::subtaskFeature[]
 == Subtask Management Features
 
 _This section explains what a *Subtask* is, and the commands to manage them._
@@ -701,7 +701,7 @@ Toggles the fourth subtask of the second task in th result of `find homework` co
 === Reorder subtask `[coming in v2.0]`
 
 _Reorder subtasks using a given condition_
-// end::subtaskFeatureSummary[]
+// end::subtaskFeature[]
 
 // tag::calendar[]
 == Calendar Features
