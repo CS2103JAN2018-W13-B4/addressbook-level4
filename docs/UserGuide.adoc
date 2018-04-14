@@ -25,13 +25,15 @@ By: `CS2103JAN2018-W13-B4`      Since: `March 2018`      Licence: `MIT`
 
 PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to interact with an application by typing commands instead of clicking on buttons.
 
+This guide will show you how to get started using PrioriTask, and will introduce you to the different features PrioriTask has.
+
 Interested? Jump to <<Getting Started>> to get started. Enjoy!
 
 == Getting Started
 
-_This section explains how to download, launch, and start using PrioriTask._
-
 === Setting Up
+
+Follow the steps to setup PrioriTask:
 
 .  Ensure that you have Java `1.8.0_60` or later installed in your computer. You may download the latest version of Java http://www.oracle.com/technetwork/java/javase/downloads/index.html[here].
 
@@ -41,52 +43,53 @@ PrioriTask works best on Java `1.8.0_60` or later. +
 It will not work with earlier versions of Java 8 (i.e. Java `1.8.0_51` and below).
 +
 
-.  Download the latest `organizer.jar` link:{repoURL}/releases[here].
+.  Download the latest `organizer.jar` link:{repoURL}/releases[here] (Refer to <<fig-UserGuideQuickStart1>>)..
 
 +
+[[fig-UserGuideQuickStart1]]
 .Downloading the latest `organizer.jar`
 image::UserGuideQuickStart1.png[width="650"]
 +
 
 .  Copy the file to the folder you want to use as the home folder for PrioriTask.
-.  Double-click the file to start the application. The main page should appear in a few seconds (refer to <<fig-Ui>>).
+.  Double-click the file to start the application. The main page should appear in a few seconds (refer to <<fig-Ui>>). If the application is unable to start, refer to <<FAQ>> for the solution.
 
 +
 [[fig-Ui]]
 .PrioriTask's main page
 image::Ui.png[width="650"]
-+
 
-.. If the application is unable to start, refer to <<FAQ>> for the solution.
-
-. Proceed to <<Signing Up>> for instructions on creating an account on PrioriTask.
 
 === Signing Up
 
-. Type the command [example-no-box]#`signup u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own.
+This sections provides instructions on creating an account on PrioriTask.
 
+. Type the command [example-no-box]#`signup u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own (refer to <<fig-QuickStart2>>).
+[NOTE]
+The [parameters]#`USERNAME`# and [parameters]#`PASSWORD`# parameters can only take in alphabetical and numerical values. They will not accept spaces and special symbols (e.g. %, $, etc.), and have to be at least 5 characters long.
 +
+[[fig-QuickStart2]]
 .Signing up for an account
 image::UserGuideQuickStart2.png[width="650"]
 +
 
 . Press kbd:[Enter] to execute the command. Your sign up will be confirmed in the result display box upon a successful registration (refer to <<fig-QuickStart3>>).
 [NOTE]
-The [parameters]#`USERNAME`# and [parameters]#`PASSWORD`# parameters can only take in alphabetical and numerical values. They will not accept spaces and special symbols (e.g. %, $, etc.). +
-A warning message will be displayed in the result display box if your [parameters]#`USERNAME`# or [parameters]#`PASSWORD`# contains characters that are not allowed.
+A warning message will be displayed in the result display box if your [parameters]#`USERNAME`# or [parameters]#`PASSWORD`# contain characters that are not allowed, or if your [parameters]#`USERNAME`# or [parameters]#`PASSWORD`# do not have a minimum of 5 characters.
 +
 [[fig-QuickStart3]]
 .Confirmation message upon successful sign up
 image::UserGuideQuickStart3.png[width="650"]
-+
 
-. Proceed to <<Logging In>> for instructions on logging into your account on PrioriTask.
 
 === Logging In
 
-. Type the command [example-no-box]#`login u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own.
+This section will guide you through logging into your account on PrioriTask.
+
+. Type the command [example-no-box]#`login u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own (refer to <<fig-QuickStart4>>).
 
 +
+[[fig-QuickStart4]]
 .Logging into an account
 image::UserGuideQuickStart4.png[width="650"]
 +
@@ -97,15 +100,12 @@ image::UserGuideQuickStart4.png[width="650"]
 [[fig-QuickStart6]]
 .Confirmation message upon successful login
 image::UserGuideQuickStart5.png[width="650"]
-+
-
-. Proceed to <<Using PrioriTask>> to learn more about using the application, or head straight to <<Task Management Features>> to start managing your tasks.
 
 == Using PrioriTask
 
-_This section explains the functions and usages of PrioriTask's different features._
+This section explains the functions and usages of PrioriTask's different features.
 
-=== The Different Sections of PrioriTask
+=== User Interface of PrioriTask
 
 PrioriTask consists of six different sections (refer to <<fig-DifferentComponents>>).
 
@@ -121,18 +121,18 @@ Given below is a quick overview of each section.
 . `Command Box`, where you input the command to be executed. Press kbd:[Enter] to execute the command after you have finished typing.
 . `Result Display Box`, which displays a successful or warning message depending on the command you execute.
 . `Task List Panel`, which displays the tasks and their respective details. The tasks are organised by their priority levels, with the highest priority level at the top.
-. `Calendar Panel`, which displays the calendar a chronic overview of the deadlines of all your tasks. It will display the current month by default.
+. `Calendar Panel`, which displays the calendar a chronological overview of the deadlines of all your tasks. It will display the current month by default.
 . `Status Bar Footer`, which displays,
 .. The date and time of the last time you have made changes to the data.
-.. The total number of tasks being shown in the `Task List Panel`.
+.. The user status.
 .. The folder address of where your data file is being stored.
 
 === Command Format
 
-PrioriTask is a CLI application. All features are executed primarily via the command box.
-
 In the following sections, you will be introduced to several commands and their command formats. Here are a few things to take note of:
 
+* Most command words have aliases.
+** E.g. `a` is the alias for the add command. Both `add` and `a` executes the same command.
 * The command word and alias are case-sensitive.
 ** icon:check[] Typing `help` executes the command.
 ** icon:times[] Typing `Help`, `heLp` or `HELP` does not execute the command.
