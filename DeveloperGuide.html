@@ -117,8 +117,9 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-task">F.2. Deleting a task</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#user-management">F.2. User management</a></li>
+<li><a href="#task-management">F.3. Task Management</a></li>
+<li><a href="#calendar">F.4. Calendar</a></li>
 </ul>
 </li>
 </ul>
@@ -2713,10 +2714,6 @@ b. Requiring developers to download those libraries manually (this creates extra
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
-<dd>
-<p>A contact detail that is not meant to be shared with others</p>
-</dd>
 </dl>
 </div>
 </div>
@@ -2725,7 +2722,7 @@ b. Requiring developers to download those libraries manually (this creates extra
 <h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
+<p>Given below are instructions to test the app manually:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2773,60 +2770,145 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the window size is smaller than the default height and width, the window size will be reset to default upon app re-launch.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">F.2. Deleting a task</a></h3>
+<h3 id="user-management"><a class="link" href="#user-management">F.2. User management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a task while all tasks are listed</p>
+<p>Signing up</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all tasks using the <code>list</code> command. Multiple tasks in the list.</p>
+<p>Prerequisites: App is not currently logged in.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>signup u/dave p/dave</code><br>
+Expected: No user account is created. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No task is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Test case: <code>signup u/admin p/admin</code><br>
+Expected: A user account is created. Username of the created user account is shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Logging in</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User account with username 'admin' and password 'admin' has been created.</p>
+</li>
+<li>
+<p>Test case: <code>login u/admin123 p/admin123</code><br>
+Expected: Login attempt fails. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>login u/dave p/dave</code><br>
+Expected: Login attempt fails. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>login u/admin p/admin</code><br>
+Expected: Login attempt is successful. Username of currently logged in user is shown in the status message. Timestamp in the status bar is updated. Currently logged in user in status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a question answer set</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: App is currently logged in.</p>
+</li>
+<li>
+<p>Test case: <code>addqa q/ a/</code><br>
+Expected: No question answer set is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addqa q/are cats cool? a/yes</code><br>
+Expected: Question answer set is added. Username of the currently logged in user and the command success is shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Retrieving a question for password retrieval</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: App is not currently logged in. User account with username 'admin' and password 'admin' has been created. UserQuestion answer set has been added to user : 'admin'.</p>
+</li>
+<li>
+<p>Test case: <code>forgotpassword u/admin123</code><br>
+Expected: Question retrieval fails. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>forgotpassword u/admin</code><br>
+Expected: Question retrieval successful. Question of 'admin` shown in the status message. Status bar reminas the same.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Answering a question for password retrieval</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: App is not currently logged in. User account with username 'admin' and password 'admin' has been created. UserQuestion answer set with answer 'yes' has been added to user : 'admin'.</p>
+</li>
+<li>
+<p>Test case: <code>answer u/admin123 a/yes</code><br>
+Expected: Password retrieval fails. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>answer u/admin a/no</code><br>
+Expected: Password retrieval fails. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>answer u/admin a/yes</code><br>
+Expected: Password retrieval successful. Password of 'admin' shown in the status message. Status bar remains the same.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
+<h3 id="task-management"><a class="link" href="#task-management">F.3. Task Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<p>Natania add your recurring task testing here</p>
+</li>
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Agus add your subtask testing here</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="calendar"><a class="link" href="#calendar">F.4. Calendar</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Guek Ling add your calendar testing here.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 </div>
