@@ -997,7 +997,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-implementation-of-code-undoablecommand-code"><a class="link" href="#aspect-implementation-of-code-undoablecommand-code">Aspect: Implementation of <code>UndoableCommand</code></a></h5>
+<h5 id="aspect-implementation-of-code-undoablecommand-code"><a class="link" href="#aspect-implementation-of-code-undoablecommand-code">4.1.3.1. Aspect: Implementation of <code>UndoableCommand</code></a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1030,7 +1030,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">4.1.3.2. Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1063,7 +1063,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-type-of-commands-that-can-be-undone-redone"><a class="link" href="#aspect-type-of-commands-that-can-be-undone-redone">Aspect: Type of commands that can be undone/redone</a></h5>
+<h5 id="aspect-type-of-commands-that-can-be-undone-redone"><a class="link" href="#aspect-type-of-commands-that-can-be-undone-redone">4.1.3.3. Aspect: Type of commands that can be undone/redone</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1097,7 +1097,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">4.1.3.4. Aspect: Data structure to support the undo/redo commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1139,7 +1139,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p>The autoupdating and autosorting mechanism resides inside <code>UniqueTaskList</code>. The <code>UniqueTaskList</code> is responsible for updating each Task’s priority level and sorting the <code>ObservableList&lt;Task&gt;</code> whenever a new <code>Task</code> is added. In addition, whenever a <code>Task</code> is edited, the <code>ObservableList&lt;Task&gt;</code> is sorted again.</p>
 </div>
 <div class="sect4">
-<h5 id="description-of-code-uniquetasklist-code-s-code-add-code-method"><a class="link" href="#description-of-code-uniquetasklist-code-s-code-add-code-method">Description of <code>UniqueTaskList</code> 's <code>add</code> method</a></h5>
+<h5 id="description-of-code-uniquetasklist-code-s-code-add-code-method"><a class="link" href="#description-of-code-uniquetasklist-code-s-code-add-code-method">4.2.1.1. Description of <code>UniqueTaskList</code> 's <code>add</code> method</a></h5>
 <div class="paragraph">
 <p>The <code>add</code> method of the <code>UniqueTaskList</code> class is implemented as such:</p>
 </div>
@@ -1155,7 +1155,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect4">
-<h5 id="priority-auto-updating-feature"><a class="link" href="#priority-auto-updating-feature">Priority Auto-updating feature</a></h5>
+<h5 id="priority-auto-updating-feature"><a class="link" href="#priority-auto-updating-feature">4.2.1.2. Priority Auto-updating feature</a></h5>
 <div class="paragraph">
 <p>The <code>updatePriority</code> method returns a new <code>Task</code> with a new <code>Priority</code> based on the current date, <code>AddedDate</code>, and <code>Deadline</code>.</p>
 </div>
@@ -1221,7 +1221,7 @@ newPriority = currentPriority + priorityToIncrease</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="task-auto-sorting-feature"><a class="link" href="#task-auto-sorting-feature">Task Auto-sorting feature</a></h5>
+<h5 id="task-auto-sorting-feature"><a class="link" href="#task-auto-sorting-feature">4.2.1.3. Task Auto-sorting feature</a></h5>
 <div class="paragraph">
 <p>The <code>sortTasks</code> method makes use of the <code>ObservableList</code> class’s <code>sort</code> method and <code>Task</code>’s <code>priorityComparator</code> method. The <code>priorityComparator</code> method returns a <code>Comparator</code> that sorts <code>Task</code> s based on descending <code>Priority</code> levels. The <code>internalList</code> is sorted with respect to the comparator.</p>
 </div>
@@ -1297,7 +1297,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-implementation-of-code-updatepriority-code"><a class="link" href="#aspect-implementation-of-code-updatepriority-code">Aspect : Implementation of <code>updatePriority</code></a></h5>
+<h5 id="aspect-implementation-of-code-updatepriority-code"><a class="link" href="#aspect-implementation-of-code-updatepriority-code">4.2.3.1. Aspect : Implementation of <code>updatePriority</code></a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1330,7 +1330,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-code-updatepriority-code-executes"><a class="link" href="#aspect-how-code-updatepriority-code-executes">Aspect : How <code>updatePriority</code> executes</a></h5>
+<h5 id="aspect-how-code-updatepriority-code-executes"><a class="link" href="#aspect-how-code-updatepriority-code-executes">4.2.3.2. Aspect : How <code>updatePriority</code> executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1363,7 +1363,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code"><a class="link" href="#aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code">Aspect : Scope of <code>updatePriority</code> and <code>sortTasks</code></a></h5>
+<h5 id="aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code"><a class="link" href="#aspect-scope-of-code-updatepriority-code-and-code-sorttasks-code">4.2.3.3. Aspect : Scope of <code>updatePriority</code> and <code>sortTasks</code></a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1429,7 +1429,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <p>Below describes the the implementation of the different classes supporting the calendar feature.</p>
 </div>
 <div class="sect4">
-<h5 id="implementation-of-code-entrycard-code"><a class="link" href="#implementation-of-code-entrycard-code">Implementation of <code>EntryCard</code></a></h5>
+<h5 id="implementation-of-code-entrycard-code"><a class="link" href="#implementation-of-code-entrycard-code">4.3.1.1. Implementation of <code>EntryCard</code></a></h5>
 <div class="paragraph">
 <p><code>EntryCard</code> is responsible for displaying the name of a <code>Task</code> on the calendar. It is called by <code>MonthView</code> when mapping each <code>Task</code> to an <code>EntryCard</code>. The method is implemented as such:</p>
 </div>
@@ -1448,7 +1448,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </div>
 </div>
 <div class="sect4">
-<h5 id="implementation-of-code-monthview-code"><a class="link" href="#implementation-of-code-monthview-code">Implementation of <code>MonthView</code></a></h5>
+<h5 id="implementation-of-code-monthview-code"><a class="link" href="#implementation-of-code-monthview-code">4.3.1.2. Implementation of <code>MonthView</code></a></h5>
 <div class="paragraph">
 <p><code>MonthView</code> is in charge of executing several tasks. It is responsible for,</p>
 </div>
@@ -1584,7 +1584,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </div>
 </div>
 <div class="sect4">
-<h5 id="implementation-of-code-calendarpanel-code"><a class="link" href="#implementation-of-code-calendarpanel-code">Implementation of <code>CalendarPanel</code></a></h5>
+<h5 id="implementation-of-code-calendarpanel-code"><a class="link" href="#implementation-of-code-calendarpanel-code">4.3.1.3. Implementation of <code>CalendarPanel</code></a></h5>
 <div class="paragraph">
 <p><code>CalendarPanel</code> simply displays the calendar, by using the JavaFX <code>StackPane</code> object as a placeholder for <code>MonthView</code>, which contains the basic layout of the calendar. After loading its own FXML file, it will fetch the display for <code>MonthView</code> as such:</p>
 </div>
@@ -1632,7 +1632,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-implementation-of-calendar-feature"><a class="link" href="#aspect-implementation-of-calendar-feature">Aspect: Implementation of calendar feature</a></h5>
+<h5 id="aspect-implementation-of-calendar-feature"><a class="link" href="#aspect-implementation-of-calendar-feature">4.3.3.1. Aspect: Implementation of calendar feature</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1665,7 +1665,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-updating-of-tasks-entries-on-the-calendar"><a class="link" href="#aspect-updating-of-tasks-entries-on-the-calendar">Aspect: Updating of tasks’ entries on the calendar</a></h5>
+<h5 id="aspect-updating-of-tasks-entries-on-the-calendar"><a class="link" href="#aspect-updating-of-tasks-entries-on-the-calendar">4.3.3.2. Aspect: Updating of tasks’ entries on the calendar</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1726,7 +1726,7 @@ manage their task. It is implemented using <code>Subtask</code> class and <code>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-implementation-of-code-subtask-code"><a class="link" href="#aspect-implementation-of-code-subtask-code">Aspect: Implementation of <code>Subtask</code></a></h5>
+<h5 id="aspect-implementation-of-code-subtask-code"><a class="link" href="#aspect-implementation-of-code-subtask-code">4.4.2.1. Aspect: Implementation of <code>Subtask</code></a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1759,7 +1759,7 @@ manage their task. It is implemented using <code>Subtask</code> class and <code>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-implementation-of-code-uniquesubtasklist-code"><a class="link" href="#aspect-implementation-of-code-uniquesubtasklist-code">Aspect: Implementation of <code>UniqueSubtaskList</code></a></h5>
+<h5 id="aspect-implementation-of-code-uniquesubtasklist-code"><a class="link" href="#aspect-implementation-of-code-uniquesubtasklist-code">4.4.2.2. Aspect: Implementation of <code>UniqueSubtaskList</code></a></h5>
 <div class="ulist">
 <ul>
 <li>

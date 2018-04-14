@@ -164,6 +164,59 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="locating-tasks-code-since-v1-2-code"><a class="link" href="#locating-tasks-code-since-v1-2-code">Locating tasks <code>[since v1.2]</code></a></h3>
+<div class="paragraph">
+<p>Depending on the suffix (or lack of) at the end of the <code>find</code> command, you can find tasks whose names, descriptions and/or deadlines contain any of the given keywords.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g <code>Developer</code> will match <code>developer</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The order of the keywords does not matter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>Guide Developer</code> will match <code>Developer Guide</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Only full words will be matched</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>Guide</code> will not match <code>Guides</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tasks matching at least one keyword will be returned.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>find CS2101 Guide</code> will return <code>CS2101 Script</code> and <code>Developer Guide</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="locating-tasks-code-find-code-or-code-f-code"><a class="link" href="#locating-tasks-code-find-code-or-code-f-code">Locating tasks: <code>find</code> or <code>f</code></a></h4>
 <div class="paragraph">
@@ -199,11 +252,18 @@
 <ul>
 <li>
 <p><span class="example"><code>find Guide</code></span><br>
-Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+Returns tasks whose names and/or descriptions contain <code>User Guide</code> and <code>Developer Guide</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>f CS2101 Developer User</code></span><br>
-Returns any task having names or descriptions <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+Returns any task having names and/or descriptions <code>CS2101</code>, <code>Developer</code>, or <code>User</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
+</li>
+<li>
+<p><span class="example"><code>find User 2018-03-17</code></span><br>
+Returns tasks whose names and/or descriptions containing <code>User</code>, and tasks with deadlines <code>2018-03-17</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
 </div>
@@ -245,11 +305,13 @@ Returns any task having names or descriptions <code>CS2101</code>, <code>Develop
 <ul>
 <li>
 <p><span class="example"><code>findn Guide</code></span><br>
-Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+Returns <code>User Guide</code> and <code>Developer Guide</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>fn CS2101 Developer User</code></span><br>
-Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <code>User</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
 </div>
@@ -291,11 +353,13 @@ Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <c
 <ul>
 <li>
 <p><span class="example"><code>finddes Study</code></span><br>
-Returns tasks with descriptions <code>Study midterms</code> and <code>study chapter 2</code>.</p>
+Returns tasks with descriptions <code>Study midterms</code> and <code>study chapter 2</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>fdes Study Update Chapter</code></span><br>
-Returns any task having descriptions containing words <code>Study</code>, <code>Update</code>, or <code>Chapter</code>.</p>
+Returns any task having descriptions containing words <code>Study</code>, <code>Update</code>, or <code>Chapter</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
 </div>
@@ -322,7 +386,8 @@ Returns any task having descriptions containing words <code>Study</code>, <code>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Only the deadline is searched.</p>
+<p>Only the deadline is searched.<br>
+Keywords for deadlines should be in the format of YYYY-MM-DD. If the keywords are in the wrong format, the command will still be executed, but will return no results.</p>
 </div>
 </td>
 </tr>
@@ -337,13 +402,16 @@ Returns any task having descriptions containing words <code>Study</code>, <code>
 <ul>
 <li>
 <p><span class="example"><code>findd 2018-03-17</code></span><br>
-Returns tasks with deadlines <code>2018-03-17</code>.</p>
+Returns tasks with deadlines <code>2018-03-17</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>fd 2018-03-17 2018-09-04 2018-03-21</code></span><br>
-Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code>.</p>
+Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -354,7 +422,7 @@ Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</cod
 <h2 id="calendar-features"><a class="link" href="#calendar-features">Calendar Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The calendar allows you to have a chronic overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask. The diagram below (refer to <a href="#fig-UserGuideCalendarFeature1">PrioriTask&#8217;s main page</a>) shows how the calendar would look like when displayed with task entries.</p>
+<p>The calendar allows you to have a chronological overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask. The diagram below (refer to <a href="#fig-UserGuideCalendarFeature1">PrioriTask&#8217;s main page</a>) shows how the calendar would look like when displayed with task entries.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -363,7 +431,7 @@ Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</cod
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The calendar is best viewed fully-maximised on a 13” computer screen.<br>
+The calendar is best viewed fully-maximised on a 1280 x 720 screen (usually a 13” computer screen).<br>
 The display of the calendar may differ from pictures on other computer screens.
 </td>
 </tr>
@@ -381,10 +449,10 @@ The display of the calendar may differ from pictures on other computer screens.
 <div class="ulist">
 <ul>
 <li>
-<p>Displaying of only the uncompleted tasks on the calendar.</p>
+<p>Displaying of only the completed or uncompleted tasks on the calendar, regardless of the last task listing <code>[coming in v2.0]</code>.</p>
 </li>
 <li>
-<p>Viewing of the calendar by days, weeks and years.</p>
+<p>Viewing of the calendar by days, weeks and years <code>[coming in v2.0]</code>.</p>
 </li>
 </ul>
 </div>
@@ -798,7 +866,7 @@ Goes to <code>April 2018</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 15:53:44 UTC
+Last updated 2018-04-14 19:51:07 UTC
 </div>
 </div>
 </body>

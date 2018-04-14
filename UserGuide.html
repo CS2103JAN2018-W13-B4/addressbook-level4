@@ -34,21 +34,19 @@
 </li>
 <li><a href="#using-prioritask">3. Using PrioriTask</a>
 <ul class="sectlevel2">
-<li><a href="#the-different-sections-of-prioritask">3.1. The Different Sections of PrioriTask</a></li>
+<li><a href="#user-interface-of-prioritask">3.1. User Interface of PrioriTask</a></li>
 <li><a href="#command-format">3.2. Command Format</a></li>
 </ul>
 </li>
 <li><a href="#user-features">4. User Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code">4.2. Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></a></li>
-<li><a href="#logging-in-code-login-code-or-code-in-code-code-since-v1-4-code">4.3. Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></a></li>
-<li><a href="#logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code">4.4. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a></li>
-<li><a href="#adding-question-code-addqa-code-code-since-v1-4-code">4.5. Adding question: <code>addqa</code> <code>[since v1.4]</code></a></li>
-<li><a href="#retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code">4.6. Retrieving question for user&#8217;s password: <code>forgotpassword</code> or <code>fp</code> <code>[since v1.4]</code></a></li>
-<li><a href="#answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code">4.7. Answering question: <code>answer</code> or <code>ans</code> <code>[since v1.4]</code></a></li>
-<li><a href="#deleting-an-account-code-coming-in-v2-0-code">4.8. Deleting an account <code>[coming in v2.0]</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.9. Exiting the program : <code>exit</code></a></li>
+<li><a href="#signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code">4.1. Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></a></li>
+<li><a href="#logging-in-code-login-code-or-code-in-code-code-since-v1-4-code">4.2. Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></a></li>
+<li><a href="#logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code">4.3. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a></li>
+<li><a href="#adding-question-code-addqa-code-code-since-v1-4-code">4.4. Adding question: <code>addqa</code> <code>[since v1.4]</code></a></li>
+<li><a href="#retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code">4.5. Retrieving question for user&#8217;s password: <code>forgotpassword</code> or <code>fp</code> <code>[since v1.4]</code></a></li>
+<li><a href="#answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code">4.6. Answering question: <code>answer</code> or <code>ans</code> <code>[since v1.4]</code></a></li>
+<li><a href="#deleting-an-account-code-coming-in-v2-0-code">4.7. Deleting an account <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#task-management-features">5. Task Management Features</a>
@@ -95,11 +93,13 @@
 </li>
 <li><a href="#prioritask-features">8. PrioriTask Features</a>
 <ul class="sectlevel2">
-<li><a href="#listing-entered-commands-code-history-code">8.1. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">8.2. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">8.3. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#saving-the-data">8.4. Saving the data</a></li>
-<li><a href="#recover-past-data-code-coming-in-v2-0-code">8.5. Recover past data <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-help-code-help-code">8.1. Viewing help : <code>help</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">8.2. Exiting the program : <code>exit</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">8.3. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">8.4. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">8.5. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#saving-the-data">8.6. Saving the data</a></li>
+<li><a href="#recover-past-data-code-coming-in-v2-0-code">8.7. Recover past data <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#reminders-code-coming-in-v2-0-code">9. Reminders <code>[coming in v2.0]</code></a></li>
@@ -120,23 +120,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of an automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).</p>
+<p>PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to interact with an application by typing commands instead of clicking on buttons.</p>
 </div>
 <div class="paragraph">
-<p>With PrioriTask, you can:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Keep track of your tasks and their deadlines, with reminders of approaching deadlines and at-a-glance views of upcoming tasks by day, week or month.</p>
-</li>
-<li>
-<p>Manage your tasks' priorities with our automatic updating and sorting feature, so that you will never have to worry about deciding which task to start working on.</p>
-</li>
-<li>
-<p>Maintain your list of tasks effectively with our easy-to-remember and user-friendly commands, which can help you get your tasks organised faster than traditional GUI applications.</p>
-</li>
-</ul>
+<p>This guide will show you how to get started using PrioriTask, and will introduce you to the different features PrioriTask has.</p>
 </div>
 <div class="paragraph">
 <p>Interested? Jump to <a href="#getting-started">Section 2, &#8220;Getting Started&#8221;</a> to get started. Enjoy!</p>
@@ -146,11 +133,11 @@
 <div class="sect1">
 <h2 id="getting-started"><a class="link" href="#getting-started">2. Getting Started</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><em>This section explains how to download, launch, and start using PrioriTask.</em></p>
-</div>
 <div class="sect2">
 <h3 id="setting-up"><a class="link" href="#setting-up">2.1. Setting Up</a></h3>
+<div class="paragraph">
+<p>Follow the steps to setup PrioriTask:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -170,8 +157,8 @@ It will not work with earlier versions of Java 8 (i.e. Java <code>1.8.0_51</code
 </div>
 </li>
 <li>
-<p>Download the latest <code>organizer.jar</code> <a href="https://github.com/CS2103JAN2018-W13-B4/main/releases">here</a>.</p>
-<div class="imageblock">
+<p>Download the latest <code>organizer.jar</code> <a href="https://github.com/CS2103JAN2018-W13-B4/main/releases">here</a> (Refer to <a href="#fig-UserGuideQuickStart1">Figure 1, &#8220;Downloading the latest <code>organizer.jar</code>&#8221;</a>)..</p>
+<div id="fig-UserGuideQuickStart1" class="imageblock">
 <div class="content">
 <img src="images/UserGuideQuickStart1.png" alt="UserGuideQuickStart1" width="650">
 </div>
@@ -182,34 +169,39 @@ It will not work with earlier versions of Java 8 (i.e. Java <code>1.8.0_51</code
 <p>Copy the file to the folder you want to use as the home folder for PrioriTask.</p>
 </li>
 <li>
-<p>Double-click the file to start the application. The main page should appear in a few seconds (refer to <a href="#fig-Ui">Figure 2, &#8220;PrioriTask&#8217;s main page&#8221;</a>).</p>
+<p>Double-click the file to start the application. The main page should appear in a few seconds (refer to <a href="#fig-Ui">Figure 2, &#8220;PrioriTask&#8217;s main page&#8221;</a>). If the application is unable to start, refer to <a href="#faq">Section 10, &#8220;FAQ&#8221;</a> for the solution.</p>
 <div id="fig-Ui" class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="650">
 </div>
 <div class="title">Figure 2. PrioriTask&#8217;s main page</div>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If the application is unable to start, refer to <a href="#faq">Section 10, &#8220;FAQ&#8221;</a> for the solution.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Proceed to <a href="#signing-up">Section 2.2, &#8220;Signing Up&#8221;</a> for instructions on creating an account on PrioriTask.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
 <h3 id="signing-up"><a class="link" href="#signing-up">2.2. Signing Up</a></h3>
+<div class="paragraph">
+<p>This sections provides instructions on creating an account on PrioriTask.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type the command <span class="example-no-box"><code>signup u/USERNAME p/PASSWORD</code></span> in the command box, replacing the <code>USERNAME</code> and <code>PASSWORD</code> with your own.</p>
-<div class="imageblock">
+<p>Type the command <span class="example-no-box"><code>signup u/USERNAME p/PASSWORD</code></span> in the command box, replacing the <code>USERNAME</code> and <code>PASSWORD</code> with your own (refer to <a href="#fig-QuickStart2">Figure 3, &#8220;Signing up for an account&#8221;</a>).</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <span class="parameters"><code>USERNAME</code></span> and <span class="parameters"><code>PASSWORD</code></span> parameters can only take in alphabetical and numerical values. They will not accept spaces and special symbols (e.g. %, $, etc.), and have to be at least 5 characters long.
+</td>
+</tr>
+</table>
+</div>
+<div id="fig-QuickStart2" class="imageblock">
 <div class="content">
 <img src="images/UserGuideQuickStart2.png" alt="UserGuideQuickStart2" width="650">
 </div>
@@ -225,8 +217,7 @@ It will not work with earlier versions of Java 8 (i.e. Java <code>1.8.0_51</code
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <span class="parameters"><code>USERNAME</code></span> and <span class="parameters"><code>PASSWORD</code></span> parameters can only take in alphabetical and numerical values. They will not accept spaces and special symbols (e.g. %, $, etc.).<br>
-A warning message will be displayed in the result display box if your <span class="parameters"><code>USERNAME</code></span> or <span class="parameters"><code>PASSWORD</code></span> contains characters that are not allowed.
+A warning message will be displayed in the result display box if your <span class="parameters"><code>USERNAME</code></span> or <span class="parameters"><code>PASSWORD</code></span> contain characters that are not allowed, or if your <span class="parameters"><code>USERNAME</code></span> or <span class="parameters"><code>PASSWORD</code></span> do not have a minimum of 5 characters.
 </td>
 </tr>
 </table>
@@ -238,19 +229,19 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="title">Figure 4. Confirmation message upon successful sign up</div>
 </div>
 </li>
-<li>
-<p>Proceed to <a href="#logging-in">Section 2.3, &#8220;Logging In&#8221;</a> for instructions on logging into your account on PrioriTask.</p>
-</li>
 </ol>
 </div>
 </div>
 <div class="sect2">
 <h3 id="logging-in"><a class="link" href="#logging-in">2.3. Logging In</a></h3>
+<div class="paragraph">
+<p>This section will guide you through logging into your account on PrioriTask.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type the command <span class="example-no-box"><code>login u/USERNAME p/PASSWORD</code></span> in the command box, replacing the <code>USERNAME</code> and <code>PASSWORD</code> with your own.</p>
-<div class="imageblock">
+<p>Type the command <span class="example-no-box"><code>login u/USERNAME p/PASSWORD</code></span> in the command box, replacing the <code>USERNAME</code> and <code>PASSWORD</code> with your own (refer to <a href="#fig-QuickStart4">Figure 5, &#8220;Logging into an account&#8221;</a>).</p>
+<div id="fig-QuickStart4" class="imageblock">
 <div class="content">
 <img src="images/UserGuideQuickStart4.png" alt="UserGuideQuickStart4" width="650">
 </div>
@@ -266,9 +257,6 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="title">Figure 6. Confirmation message upon successful login</div>
 </div>
 </li>
-<li>
-<p>Proceed to <a href="#using-prioritask">Section 3, &#8220;Using PrioriTask&#8221;</a> to learn more about using the application, or head straight to <a href="#task-management-features">Section 5, &#8220;Task Management Features&#8221;</a> to start managing your tasks.</p>
-</li>
 </ol>
 </div>
 </div>
@@ -278,10 +266,10 @@ A warning message will be displayed in the result display box if your <span clas
 <h2 id="using-prioritask"><a class="link" href="#using-prioritask">3. Using PrioriTask</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This section explains the functions and usages of PrioriTask&#8217;s different features.</em></p>
+<p>This section explains the functions and usages of PrioriTask&#8217;s different features.</p>
 </div>
 <div class="sect2">
-<h3 id="the-different-sections-of-prioritask"><a class="link" href="#the-different-sections-of-prioritask">3.1. The Different Sections of PrioriTask</a></h3>
+<h3 id="user-interface-of-prioritask"><a class="link" href="#user-interface-of-prioritask">3.1. User Interface of PrioriTask</a></h3>
 <div class="paragraph">
 <p>PrioriTask consists of six different sections (refer to <a href="#fig-DifferentComponents">Figure 7, &#8220;The Different Sections of PrioriTask&#8221;</a>).</p>
 </div>
@@ -310,16 +298,16 @@ A warning message will be displayed in the result display box if your <span clas
 </div>
 </li>
 <li>
-<p><code>Command Box</code>, where you input the command to be executed. Press <kbd>Enter</kbd> to execute the command after you have finished typing.</p>
+<p><code>Task List Panel</code>, which displays the tasks and their respective details. The tasks are organised by their priority levels, with the highest priority level at the top.</p>
+</li>
+<li>
+<p><code>Calendar Panel</code>, which displays the calendar a chronological overview of the deadlines of all your tasks. It will display the current month by default.</p>
 </li>
 <li>
 <p><code>Result Display Box</code>, which displays a successful or warning message depending on the command you execute.</p>
 </li>
 <li>
-<p><code>Task List Panel</code>, which displays the tasks and their respective details. The tasks are organised by their priority levels, with the highest priority level at the top.</p>
-</li>
-<li>
-<p><code>Calendar Panel</code>, which displays the calendar a chronic overview of the deadlines of all your tasks. It will display the current month by default.</p>
+<p><code>Command Box</code>, where you input the command to be executed. Press <kbd>Enter</kbd> to execute the command after you have finished typing.</p>
 </li>
 <li>
 <p><code>Status Bar Footer</code>, which displays,</p>
@@ -329,7 +317,7 @@ A warning message will be displayed in the result display box if your <span clas
 <p>The date and time of the last time you have made changes to the data.</p>
 </li>
 <li>
-<p>The total number of tasks being shown in the <code>Task List Panel</code>.</p>
+<p>The user status.</p>
 </li>
 <li>
 <p>The folder address of where your data file is being stored.</p>
@@ -343,13 +331,20 @@ A warning message will be displayed in the result display box if your <span clas
 <div class="sect2">
 <h3 id="command-format"><a class="link" href="#command-format">3.2. Command Format</a></h3>
 <div class="paragraph">
-<p>PrioriTask is a CLI application. All features are executed primarily via the command box.</p>
-</div>
-<div class="paragraph">
 <p>In the following sections, you will be introduced to several commands and their command formats. Here are a few things to take note of:</p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p>Most command words have aliases.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>a</code> is the alias for the add command. Both <code>add</code> and <code>a</code> executes the same command.</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>The command word and alias are case-sensitive.</p>
 <div class="ulist">
@@ -452,20 +447,7 @@ A warning message will be displayed in the result display box if your <span clas
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
-<div class="paragraph">
-<p>Show all available commands in PrioriTask ..</p>
-</div>
-<div class="exampleblock format">
-<div class="content">
-<div class="paragraph">
-<p><span class="format-title">Format:</span> <code>help</code></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code"><a class="link" href="#signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code">4.2. Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></a></h3>
+<h3 id="signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code"><a class="link" href="#signing-up-code-signup-code-or-code-su-code-code-since-v1-3-code">4.1. Signing up: <code>signup</code> or <code>su</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Sign up for a PrioriTask account.<br></p>
 </div>
@@ -497,7 +479,7 @@ Add user <code>mary</code> with password <code>m4ry</code> to PrioriTask.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-in-code-login-code-or-code-in-code-code-since-v1-4-code"><a class="link" href="#logging-in-code-login-code-or-code-in-code-code-since-v1-4-code">4.3. Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></a></h3>
+<h3 id="logging-in-code-login-code-or-code-in-code-code-since-v1-4-code"><a class="link" href="#logging-in-code-login-code-or-code-in-code-code-since-v1-4-code">4.2. Logging in: <code>login</code> or <code>in</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Login to PrioriTask.<br></p>
 </div>
@@ -529,7 +511,7 @@ Login to user <code>mary</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code"><a class="link" href="#logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code">4.4. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a></h3>
+<h3 id="logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code"><a class="link" href="#logging-out-code-logout-code-or-code-out-code-code-since-v1-4-code">4.3. Logging out: <code>logout</code> or <code>out</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Logout of PrioriTask.<br></p>
 </div>
@@ -542,7 +524,7 @@ Login to user <code>mary</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-question-code-addqa-code-code-since-v1-4-code"><a class="link" href="#adding-question-code-addqa-code-code-since-v1-4-code">4.5. Adding question: <code>addqa</code> <code>[since v1.4]</code></a></h3>
+<h3 id="adding-question-code-addqa-code-code-since-v1-4-code"><a class="link" href="#adding-question-code-addqa-code-code-since-v1-4-code">4.4. Adding question: <code>addqa</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Add a question answer set for password retrieval. If one currently exists, the new question answer set will replace the current set.<br></p>
 </div>
@@ -588,7 +570,7 @@ Add question <code>are you female?</code> with answer <code>yes</code> to curren
 </div>
 </div>
 <div class="sect2">
-<h3 id="retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code"><a class="link" href="#retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code">4.6. Retrieving question for user&#8217;s password: <code>forgotpassword</code> or <code>fp</code> <code>[since v1.4]</code></a></h3>
+<h3 id="retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code"><a class="link" href="#retrieving-question-for-user-s-password-code-forgotpassword-code-or-code-fp-code-code-since-v1-4-code">4.5. Retrieving question for user&#8217;s password: <code>forgotpassword</code> or <code>fp</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Retrieve question for user&#8217;s password.<br></p>
 </div>
@@ -620,7 +602,7 @@ Retrive question for user <code>mary</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code"><a class="link" href="#answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code">4.7. Answering question: <code>answer</code> or <code>ans</code> <code>[since v1.4]</code></a></h3>
+<h3 id="answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code"><a class="link" href="#answering-question-code-answer-code-or-code-ans-code-code-since-v1-4-code">4.6. Answering question: <code>answer</code> or <code>ans</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Answer a user&#8217;s question to retrieve the password. The question need not be retrieved before an attempt at answering the question.<br></p>
 </div>
@@ -652,22 +634,9 @@ Answer password question for user <code>mary</code> with <code>no</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-account-code-coming-in-v2-0-code"><a class="link" href="#deleting-an-account-code-coming-in-v2-0-code">4.8. Deleting an account <code>[coming in v2.0]</code></a></h3>
+<h3 id="deleting-an-account-code-coming-in-v2-0-code"><a class="link" href="#deleting-an-account-code-coming-in-v2-0-code">4.7. Deleting an account <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Delete a user account to stop using PrioriTask.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.9. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exit the program.<br></p>
-</div>
-<div class="exampleblock format">
-<div class="content">
-<div class="paragraph">
-<p><span class="format-title">Format:</span> <code>exit</code></p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1067,19 +1036,44 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>Developer</code> will match <code>developer</code></p>
+<p>The search is case insensitive.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g <code>Developer</code> will match <code>developer</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Keywords for deadlines should be in the format of YYYY-MM-DD.</p>
+<p>The order of the keywords does not matter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>Guide Developer</code> will match <code>Developer Guide</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Guide Developer</code> will match <code>Developer Guide</code></p>
+<p>Only full words will be matched</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>Guide</code> will not match <code>Guides</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Guide</code> will not match <code>Guides</code></p>
-</li>
+<p>Tasks matching at least one keyword will be returned.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>Tasks matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>CS2101 Guide</code> will return <code>CS2101 Script</code>, <code>Developer Guide</code>.</p>
+<p>E.g. <code>find CS2101 Guide</code> will return <code>CS2101 Script</code> and <code>Developer Guide</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1120,11 +1114,18 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 <ul>
 <li>
 <p><span class="example"><code>find Guide</code></span><br>
-Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+Returns tasks whose names and/or descriptions contain <code>User Guide</code> and <code>Developer Guide</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>f CS2101 Developer User</code></span><br>
-Returns any task having names or descriptions <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+Returns any task having names and/or descriptions <code>CS2101</code>, <code>Developer</code>, or <code>User</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
+</li>
+<li>
+<p><span class="example"><code>find User 2018-03-17</code></span><br>
+Returns tasks whose names and/or descriptions containing <code>User</code>, and tasks with deadlines <code>2018-03-17</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
 </div>
@@ -1166,11 +1167,13 @@ Returns any task having names or descriptions <code>CS2101</code>, <code>Develop
 <ul>
 <li>
 <p><span class="example"><code>findn Guide</code></span><br>
-Returns <code>User Guide</code> and <code>Developer Guide</code></p>
+Returns <code>User Guide</code> and <code>Developer Guide</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>fn CS2101 Developer User</code></span><br>
-Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <code>User</code></p>
+Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <code>User</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
 </div>
@@ -1212,11 +1215,13 @@ Returns any task having names <code>CS2101</code>, <code>Developer</code>, or <c
 <ul>
 <li>
 <p><span class="example"><code>finddes Study</code></span><br>
-Returns tasks with descriptions <code>Study midterms</code> and <code>study chapter 2</code>.</p>
+Returns tasks with descriptions <code>Study midterms</code> and <code>study chapter 2</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>fdes Study Update Chapter</code></span><br>
-Returns any task having descriptions containing words <code>Study</code>, <code>Update</code>, or <code>Chapter</code>.</p>
+Returns any task having descriptions containing words <code>Study</code>, <code>Update</code>, or <code>Chapter</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
 </div>
@@ -1243,7 +1248,8 @@ Returns any task having descriptions containing words <code>Study</code>, <code>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Only the deadline is searched.</p>
+<p>Only the deadline is searched.<br>
+Keywords for deadlines should be in the format of YYYY-MM-DD. If the keywords are in the wrong format, the command will still be executed, but will return no results.</p>
 </div>
 </td>
 </tr>
@@ -1258,11 +1264,13 @@ Returns any task having descriptions containing words <code>Study</code>, <code>
 <ul>
 <li>
 <p><span class="example"><code>findd 2018-03-17</code></span><br>
-Returns tasks with deadlines <code>2018-03-17</code>.</p>
+Returns tasks with deadlines <code>2018-03-17</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 <li>
 <p><span class="example"><code>fd 2018-03-17 2018-09-04 2018-03-21</code></span><br>
-Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code>.</p>
+Returns any task having deadlines <code>2018-03-17</code>, <code>2018-09-04</code>, or <code>2018-03-21</code><br>
+The calendar is updated with the new task listing reflected on the <code>Task List Panel</code></p>
 </li>
 </ul>
 </div>
@@ -1621,7 +1629,7 @@ Toggles the fourth subtask of the second task in th result of <code>find homewor
 <h2 id="calendar-features"><a class="link" href="#calendar-features">7. Calendar Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The calendar allows you to have a chronic overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask. The diagram below (refer to <a href="#fig-UserGuideCalendarFeature1">Figure 8, &#8220;PrioriTask&#8217;s main page&#8221;</a>) shows how the calendar would look like when displayed with task entries.</p>
+<p>The calendar allows you to have a chronological overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask. The diagram below (refer to <a href="#fig-UserGuideCalendarFeature1">Figure 8, &#8220;PrioriTask&#8217;s main page&#8221;</a>) shows how the calendar would look like when displayed with task entries.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1630,7 +1638,7 @@ Toggles the fourth subtask of the second task in th result of <code>find homewor
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The calendar is best viewed fully-maximised on a 13” computer screen.<br>
+The calendar is best viewed fully-maximised on a 1280 x 720 screen (usually a 13” computer screen).<br>
 The display of the calendar may differ from pictures on other computer screens.
 </td>
 </tr>
@@ -1648,10 +1656,10 @@ The display of the calendar may differ from pictures on other computer screens.
 <div class="ulist">
 <ul>
 <li>
-<p>Displaying of only the uncompleted tasks on the calendar.</p>
+<p>Displaying of only the completed or uncompleted tasks on the calendar, regardless of the last task listing <code>[coming in v2.0]</code>.</p>
 </li>
 <li>
-<p>Viewing of the calendar by days, weeks and years.</p>
+<p>Viewing of the calendar by days, weeks and years <code>[coming in v2.0]</code>.</p>
 </li>
 </ul>
 </div>
@@ -1752,7 +1760,33 @@ Goes to <code>April 2018</code></p>
 <p><em>This section explains the commands which access and manage PrioriTask data.</em></p>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">8.1. Listing entered commands : <code>history</code></a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">8.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Show all available commands in PrioriTask ..</p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>help</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">8.2. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exit the program.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>exit</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">8.3. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>List all the commands that you have entered in reverse chronological order.<br></p>
 </div>
@@ -1779,7 +1813,7 @@ Goes to <code>April 2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">8.2. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">8.4. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restore PrioriTask to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
@@ -1834,7 +1868,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">8.3. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">8.5. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverse the most recent <code>undo</code> command.<br></p>
 </div>
@@ -1876,14 +1910,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">8.4. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">8.6. Saving the data</a></h3>
 <div class="paragraph">
 <p>PrioriTask data is saved in the hard disk automatically after any data-altering command is called.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="recover-past-data-code-coming-in-v2-0-code"><a class="link" href="#recover-past-data-code-coming-in-v2-0-code">8.5. Recover past data <code>[coming in v2.0]</code></a></h3>
+<h3 id="recover-past-data-code-coming-in-v2-0-code"><a class="link" href="#recover-past-data-code-coming-in-v2-0-code">8.7. Recover past data <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>Restore data from a recent date (coming in v2.0)</em></p>
 </div>
