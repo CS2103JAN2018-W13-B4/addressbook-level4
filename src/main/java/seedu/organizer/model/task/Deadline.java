@@ -6,7 +6,6 @@ import static seedu.organizer.commons.util.AppUtil.checkArgument;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.logging.Logger;
 
 import seedu.organizer.commons.core.LogsCenter;
