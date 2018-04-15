@@ -46,17 +46,17 @@
 <li><a href="#secondary-components">3.1.2. Secondary components</a></li>
 </ul>
 </li>
-<li><a href="#Design-Ui">3.2. UI component</a></li>
-<li><a href="#Design-Logic">3.3. Logic component</a></li>
-<li><a href="#Design-Model">3.4. Model component</a></li>
-<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Ui">3.2. UI Component</a></li>
+<li><a href="#Design-Logic">3.3. Logic Component</a></li>
+<li><a href="#Design-Model">3.4. Model Component</a></li>
+<li><a href="#Design-Storage">3.5. Storage Component</a></li>
 </ul>
 </li>
 <li><a href="#Design-Commons">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a>
+<li><a href="#undo-redo-feature">4.1. Undo/Redo Feature</a>
 <ul class="sectlevel3">
-<li><a href="#current-implementation">4.1.1. Current implementation</a></li>
+<li><a href="#current-implementation">4.1.1. Current Implementation</a></li>
 <li><a href="#scenario">4.1.2. Scenario</a></li>
 <li><a href="#design-considerations">4.1.3. Design Considerations</a></li>
 </ul>
@@ -95,7 +95,7 @@
 <li><a href="#Testing">6. Testing</a>
 <ul class="sectlevel2">
 <li><a href="#running-tests">6.1. Running Tests</a></li>
-<li><a href="#types-of-tests">6.2. Types of tests</a></li>
+<li><a href="#types-of-tests">6.2. Types of Tests</a></li>
 <li><a href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></li>
 </ul>
 </li>
@@ -117,7 +117,7 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#user-management">F.2. User management</a></li>
+<li><a href="#user-management">F.2. User Management</a></li>
 <li><a href="#task-management">F.3. Task Management</a></li>
 <li><a href="#calendar">F.4. Calendar</a></li>
 </ul>
@@ -309,7 +309,7 @@ If you do not see a JDK <code>1.8</code> folder, click on <code>+</code> &gt; <c
 <p>Select <code>File</code> &gt; <code>New</code> &gt; <code>Module from Existing Sources&#8230;&#8203;</code>.</p>
 </li>
 <li>
-<p>Locate the <code>build.gradle</code> file and select it. Click <code>OK</code>. You will be directed to the <code>Import Module from Gradle</code> window (refer to <a href="#fig-GettingStarted6">Figure 6, &#8220;<code>Import Module from Gradle</code> Window&#8221;</a>).</p>
+<p>Locate the <code>build.gradle</code> file and select it. Click <code>OK</code>. You will be directed to the <code>Import Module from Gradle</code> window (refer to <a href="#fig-GettingStarted6">Figure 6, &#8220;<code>Import Module from Gradle</code> window&#8221;</a>).</p>
 </li>
 </ol>
 </div>
@@ -317,7 +317,7 @@ If you do not see a JDK <code>1.8</code> folder, click on <code>+</code> &gt; <c
 <div class="content">
 <img src="images/DeveloperGettingStarted6.png" alt="DeveloperGettingStarted6" width="600">
 </div>
-<div class="title">Figure 6. <code>Import Module from Gradle</code> Window</div>
+<div class="title">Figure 6. <code>Import Module from Gradle</code> window</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="12">
@@ -609,7 +609,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI Component</a></h3>
 <div class="paragraph">
 <p><code>UI</code> consists of a <code>MainWindow</code> that is made up of numerous parts (e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>, <code>StatusBarFooter</code>, <code>CalendarPanel</code>, etc.).
 These parts, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
@@ -648,7 +648,7 @@ The layout of these UI parts are defined in matching <code>.fxml</code> files th
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic Component</a></h3>
 <div class="paragraph">
 <p><code>Logic</code> consists of the commands and their respective parsers (if necessary).
 Parser classes are defined in <code>.java</code> files suffixed with <em>'Parser'</em>, and are found in the <code>src/main/java/logic/parser</code> folder.
@@ -669,7 +669,7 @@ For example, the parser for <code>AddCommand</code> is defined in <code>AddComma
 </div>
 <div class="paragraph">
 <p>There are two types of commands.
-Commands that modify the state of the organizer inherit from the <code>UndoableCommand</code> class, and are used by the undo/redo mechanism (see <a href="#undo-redo-feature">Section 4.1, &#8220;Undo/Redo feature&#8221;</a> for more information).
+Commands that modify the state of the organizer inherit from the <code>UndoableCommand</code> class, and are used by the undo/redo mechanism (see <a href="#Undo/Redo feature">[Undo/Redo feature]</a> for more information).
 Commands that do not modify the state of the organizer, and cannot be undone, inherit from the <code>Command</code> class instead.</p>
 </div>
 <div class="paragraph">
@@ -726,7 +726,7 @@ The command execution can affect the <code>Model</code> (e.g. adding a task) and
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model Component</a></h3>
 <div class="paragraph">
 <p><code>Model</code> consists of a <code>UniqueTaskList</code>, <code>UniqueTagList</code>, and <code>UniqueUserList</code> that contains and manipulates the data within the application using an <code>ObservableList</code>. The component also includes <code>Task</code>, and its respective parameters (e.g. <code>Name</code>, <code>Priority</code>, <code>Date Added</code>, etc.).</p>
 </div>
@@ -769,7 +769,7 @@ The command execution can affect the <code>Model</code> (e.g. adding a task) and
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage Component</a></h3>
 <div class="paragraph">
 <p><code>Storage</code> consists of the <code>XmlOrganizerStorage</code>, which reads data from, and writes data to, the hard disk.
 Data is stored in XML format, and can be retrieved from <code>data</code> &gt; <code>organizer.xml</code>.
@@ -810,7 +810,7 @@ This component also contains the <code>UserPrefsStorage</code>, which stores use
 <p>PrioriTask consists of many different features. This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1. Undo/Redo Feature</a></h3>
 <div class="paragraph">
 <p>The <code>undo</code> feature restores PrioriTask to the state before the previous undoable command was executed. Undoable commands are defined as commands that modify PrioriTask’s content (e.g. <code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
@@ -818,7 +818,7 @@ This component also contains the <code>UserPrefsStorage</code>, which stores use
 <p>The <code>redo</code> feature does the opposite - it reverses the most recent <code>undo</code> command.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the organizer (e.g. <code>add</code>, <code>edit</code>). Such commands inherit from <code>UndoableCommand</code>.</p>
 </div>
@@ -1458,7 +1458,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <p>Drawing the month view of the calendar, and populating the dates.</p>
 </li>
 <li>
-<p>Adding the tasks’ entries onto the calendar, according to the last task listing. The calendar is also updated every time an undoable command is executed (refer to <a href="#undo-redo-feature">Section 4.1, &#8220;Undo/Redo feature&#8221;</a> for more details about an undoable command).</p>
+<p>Adding the tasks’ entries onto the calendar, according to the last task listing. The calendar is also updated every time an undoable command is executed (refer to <a href="#Undo/Redo feature">[Undo/Redo feature]</a> for more details about an undoable command).</p>
 </li>
 <li>
 <p>Aiding the <code>Logic</code> component by switching the month view accordingly when users execute the respective calendar feature commands (e.g. <code>pmonth</code>, <code>nmonth</code>, etc.). A calendar feature command is defined as a command that changes the display of the calendar. For the full list of calendar feature commands, head to <a href="UserGuide.html#calendar-features">User Guide: Calendar Features</a>.</p>
@@ -1980,7 +1980,7 @@ Thanks to the <a href="https://github.com/TestFX/TestFX">TestFX</a> library, GUI
 </div>
 </div>
 <div class="sect2">
-<h3 id="types-of-tests"><a class="link" href="#types-of-tests">6.2. Types of tests</a></h3>
+<h3 id="types-of-tests"><a class="link" href="#types-of-tests">6.2. Types of Tests</a></h3>
 <div class="paragraph">
 <p>There are two types of tests:</p>
 </div>
@@ -1991,7 +1991,7 @@ Thanks to the <a href="https://github.com/TestFX/TestFX">TestFX</a> library, GUI
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>System Tests</em> that tests the entire App by simulating user actions on the GUI. These are found in the <code>systemtests</code> package.</p>
+<p><em>System Tests</em> that tests the entire application by simulating user actions on the GUI. These are found in the <code>systemtests</code> package.</p>
 </li>
 <li>
 <p><em>Unit tests</em> that test individual components. These are found in <code>seedu.organizer.ui</code> package.</p>
@@ -2239,17 +2239,17 @@ b. Requiring developers to download those libraries manually (this creates extra
 <div class="ulist">
 <ul>
 <li>
-<p>Allows users to be able to have a more concise view of task deadlines.</p>
+<p>Allows users to be able to have a chronological overview of the deadlines of all their tasks.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Minor : Find deadline / description command</p>
+<p>Minor : Find deadline / description commands</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allows users to be able to search the organizer for tasks even when they have forgotten the task&#8217;s name.</p>
+<p>Allows users to be search for tasks using keywords in the deadline and / or description parameters.</p>
 </li>
 </ul>
 </div>
@@ -2784,7 +2784,7 @@ If the window size is smaller than the default height and width, the window size
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-management"><a class="link" href="#user-management">F.2. User management</a></h3>
+<h3 id="user-management"><a class="link" href="#user-management">F.2. User Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2792,7 +2792,7 @@ If the window size is smaller than the default height and width, the window size
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: App is not currently logged in.</p>
+<p>Prerequisites: Application is not currently logged in.</p>
 </li>
 <li>
 <p>Test case: <code>signup u/dave p/dave</code><br>
@@ -2832,7 +2832,7 @@ Expected: Login attempt is successful. Username of currently logged in user is s
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: App is currently logged in.</p>
+<p>Prerequisites: Application is currently logged in.</p>
 </li>
 <li>
 <p>Test case: <code>addqa q/ a/</code><br>
@@ -2850,7 +2850,7 @@ Expected: Question answer set is added. Username of the currently logged in user
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: App is not currently logged in. User account with username 'admin' and password 'admin' has been created. UserQuestion answer set has been added to user : 'admin'.</p>
+<p>Prerequisites: Application is not currently logged in. User account with username 'admin' and password 'admin' has been created. UserQuestion answer set has been added to user : 'admin'.</p>
 </li>
 <li>
 <p>Test case: <code>forgotpassword u/admin123</code><br>
@@ -2868,7 +2868,7 @@ Expected: Question retrieval successful. Question of 'admin` shown in the status
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: App is not currently logged in. User account with username 'admin' and password 'admin' has been created. UserQuestion answer set with answer 'yes' has been added to user : 'admin'.</p>
+<p>Prerequisites: Application is not currently logged in. User account with username 'admin' and password 'admin' has been created. UserQuestion answer set with answer 'yes' has been added to user : 'admin'.</p>
 </li>
 <li>
 <p>Test case: <code>answer u/admin123 a/yes</code><br>
@@ -2906,7 +2906,72 @@ Expected: Password retrieval successful. Password of 'admin' shown in the status
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Guek Ling add your calendar testing here.</p>
+<p>Adding a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in.</p>
+</li>
+<li>
+<p>Test case: <code>add n/CS2101 OP1 d/2018-03-23</code><br>
+Expected: Task added successfully. A success message will be shown in the results display box. Task is reflected on the calendar on the <code>2018-03-23</code> date.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in. At least one task is present in the organizer.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 n/Prepare for OP1</code><br>
+Expected: Task updated successfully. A success message will be shown in the results display box. Calendar will be updated with the task&#8217;s new name.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 p/3</code><br>
+Expected: Task updated successfully. A success message will be shown in the results display box. No changes will be made on the calendar because the task&#8217;s name and deadline was not changed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in. At least one task is present in the organizer.</p>
+</li>
+<li>
+<p>Test case: <code>delete 1</code><br>
+Expected: Task deleted successfully. A success message will be shown in the results display box. Calendar will remove the deleted task.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Switching between months</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in.</p>
+</li>
+<li>
+<p>Test case: <code>pmonth</code><br>
+Expected: Calendar view changed successfully. A success message will be shown in the results display box. If the currently viewed month on the application is <code>April 2018</code>, calendar will show <code>March 2018</code> after execution of command.</p>
+</li>
+<li>
+<p>Test case: <code>nmonth</code><br>
+Expected: Calendar view changed successfully. A success message will be shown in the results display box. If the currently viewed month on the application is <code>April 2018</code>, calendar will show <code>May 2018</code> after execution of command.</p>
+</li>
+<li>
+<p>Test case: <code>cmonth</code><br>
+Expected: Calendar view changed successfully. A success message will be shown in the results display box. If the currently viewed month on the application is <code>December 2018</code> and current month is <code>April 2018</code>, calendar will show <code>April 2018</code> after execution of command.</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div>
