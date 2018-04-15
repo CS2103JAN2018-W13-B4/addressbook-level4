@@ -238,7 +238,7 @@ Note how the event is propagated through the `EventsCenter` to the `Storage` and
 The following sections will provide more details on each of the 4 secondary components.
 
 [[Design-Ui]]
-=== UI component
+=== UI Component
 
 `UI` consists of a `MainWindow` that is made up of numerous parts (e.g.`CommandBox`, `ResultDisplay`, `TaskListPanel`, `StatusBarFooter`, `CalendarPanel`, etc.).
 These parts, including the `MainWindow`, inherit from the abstract `UiPart` class.
@@ -261,7 +261,7 @@ The layout of these UI parts are defined in matching `.fxml` files that are in t
 * Responds to events raised from various parts of the application and updates the UI accordingly.
 
 [[Design-Logic]]
-=== Logic component
+=== Logic Component
 
 `Logic` consists of the commands and their respective parsers (if necessary).
 Parser classes are defined in `.java` files suffixed with _'Parser'_, and are found in the `src/main/java/logic/parser` folder.
@@ -303,7 +303,7 @@ The command execution can affect the `Model` (e.g. adding a task) and/or raise e
 .  `CommandResult` object is passed to `UI`.
 
 [[Design-Model]]
-=== Model component
+=== Model Component
 
 `Model` consists of a `UniqueTaskList`, `UniqueTagList`, and `UniqueUserList` that contains and manipulates the data within the application using an `ObservableList`. The component also includes `Task`, and its respective parameters (e.g. `Name`, `Priority`, `Date Added`, etc.).
 
@@ -325,7 +325,7 @@ The `Model`:
 * does not depend on any of the other three components.
 
 [[Design-Storage]]
-=== Storage component
+=== Storage Component
 
 `Storage` consists of the `XmlOrganizerStorage`, which reads data from, and writes data to, the hard disk.
 Data is stored in XML format, and can be retrieved from `data` > `organizer.xml`.
@@ -350,13 +350,13 @@ image::StorageClassDiagram.png[width="800"]
 
 PrioriTask consists of many different features. This section describes some noteworthy details on how certain features are implemented.
 
-=== Undo/Redo feature
+=== Undo/Redo Feature
 
 The `undo` feature restores PrioriTask to the state before the previous undoable command was executed. Undoable commands are defined as commands that modify PrioriTask’s content (e.g. `add`, `delete`, `edit` and `clear`).
 
 The `redo` feature does the opposite - it reverses the most recent `undo` command.
 
-==== Current implementation
+==== Current Implementation
 
 The undo/redo mechanism is facilitated by an `UndoRedoStack`, which resides inside `LogicManager`. It supports undoing and redoing of commands that modifies the state of the organizer (e.g. `add`, `edit`). Such commands inherit from `UndoableCommand`.
 
@@ -954,7 +954,7 @@ Open a console and run the command `gradlew clean headless allTests` (Mac/Linux:
 [NOTE]
 Thanks to the https://github.com/TestFX/TestFX[TestFX] library, GUI tests can be run in the _headless_ mode. In the headless mode, GUI tests do not show up on the screen. This means that the developer is free to do something else while the tests are running.
 
-=== Types of tests
+=== Types of Tests
 
 There are two types of tests:
 
