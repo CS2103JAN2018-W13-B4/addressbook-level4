@@ -23,21 +23,17 @@ By: `CS2103JAN2018-W13-B4`      Since: `March 2018`      Licence: `MIT`
 
 == Introduction
 
-PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of an automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to interact with an application by typing commands instead of clicking on buttons.
 
-With PrioriTask, you can:
-
-- Keep track of your tasks and their deadlines, with reminders of approaching deadlines and at-a-glance views of upcoming tasks by day, week or month.
-- Manage your tasks' priorities with our automatic updating and sorting feature, so that you will never have to worry about deciding which task to start working on.
-- Maintain your list of tasks effectively with our easy-to-remember and user-friendly commands, which can help you get your tasks organised faster than traditional GUI applications.
+This guide will show you how to get started using PrioriTask, and will introduce you to the different features PrioriTask has.
 
 Interested? Jump to <<Getting Started>> to get started. Enjoy!
 
 == Getting Started
 
-_This section explains how to download, launch, and start using PrioriTask._
+=== Setting up
 
-=== Setting Up
+This section provides instructions on setting up PrioriTask.
 
 .  Ensure that you have Java `1.8.0_60` or later installed in your computer. You may download the latest version of Java http://www.oracle.com/technetwork/java/javase/downloads/index.html[here].
 
@@ -47,52 +43,53 @@ PrioriTask works best on Java `1.8.0_60` or later. +
 It will not work with earlier versions of Java 8 (i.e. Java `1.8.0_51` and below).
 +
 
-.  Download the latest `organizer.jar` link:{repoURL}/releases[here].
+.  Download the latest `organizer.jar` link:{repoURL}/releases[here] (Refer to <<fig-UserGuideQuickStart1>>)..
 
 +
+[[fig-UserGuideQuickStart1]]
 .Downloading the latest `organizer.jar`
 image::UserGuideQuickStart1.png[width="650"]
 +
 
 .  Copy the file to the folder you want to use as the home folder for PrioriTask.
-.  Double-click the file to start the application. The main page should appear in a few seconds (refer to <<fig-Ui>>).
+.  Double-click the file to start the application. The main page should appear in a few seconds (refer to <<fig-Ui>>). If the application is unable to start, refer to <<FAQ>> for the solution.
 
 +
 [[fig-Ui]]
 .PrioriTask's main page
 image::Ui.png[width="650"]
+
+
+=== Signing up
+
+This section provides instructions on creating an account on PrioriTask.
+
+. Type the command [example-no-box]#`signup u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own (refer to <<fig-QuickStart2>>).
+[NOTE]
+The [parameters]#`USERNAME`# and [parameters]#`PASSWORD`# parameters can only take in alphabetical and numerical values. They will not accept spaces and special symbols (e.g. %, $, etc.), and have to be at least 5 characters long.
 +
-
-.. If the application is unable to start, refer to <<FAQ>> for the solution.
-
-. Proceed to <<Signing Up>> for instructions on creating an account on PrioriTask.
-
-=== Signing Up
-
-. Type the command [example-no-box]#`signup u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own.
-
-+
+[[fig-QuickStart2]]
 .Signing up for an account
 image::UserGuideQuickStart2.png[width="650"]
 +
 
 . Press kbd:[Enter] to execute the command. Your sign up will be confirmed in the result display box upon a successful registration (refer to <<fig-QuickStart3>>).
 [NOTE]
-The [parameters]#`USERNAME`# and [parameters]#`PASSWORD`# parameters can only take in alphabetical and numerical values. They will not accept spaces and special symbols (e.g. %, $, etc.). +
-A warning message will be displayed in the result display box if your [parameters]#`USERNAME`# or [parameters]#`PASSWORD`# contains characters that are not allowed.
+A warning message will be displayed in the result display box if your [parameters]#`USERNAME`# or [parameters]#`PASSWORD`# contains characters that are not allowed, or if your [parameters]#`USERNAME`# or [parameters]#`PASSWORD`# does not have a minimum of 5 characters.
 +
 [[fig-QuickStart3]]
 .Confirmation message upon successful sign up
 image::UserGuideQuickStart3.png[width="650"]
+
+
+=== Logging in
+
+This section will guide you through logging into your account on PrioriTask.
+
+. Type the command [example-no-box]#`login u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own (refer to <<fig-QuickStart4>>).
+
 +
-
-. Proceed to <<Logging In>> for instructions on logging into your account on PrioriTask.
-
-=== Logging In
-
-. Type the command [example-no-box]#`login u/USERNAME p/PASSWORD`# in the command box, replacing the `USERNAME` and `PASSWORD` with your own.
-
-+
+[[fig-QuickStart4]]
 .Logging into an account
 image::UserGuideQuickStart4.png[width="650"]
 +
@@ -103,15 +100,12 @@ image::UserGuideQuickStart4.png[width="650"]
 [[fig-QuickStart6]]
 .Confirmation message upon successful login
 image::UserGuideQuickStart5.png[width="650"]
-+
-
-. Proceed to <<Using PrioriTask>> to learn more about using the application, or head straight to <<Task Management Features>> to start managing your tasks.
 
 == Using PrioriTask
 
-_This section explains the functions and usages of PrioriTask's different features._
+This section explains the functions and usages of PrioriTask's different features.
 
-=== The Different Sections of PrioriTask
+=== User interface of PrioriTask
 
 PrioriTask consists of six different sections (refer to <<fig-DifferentComponents>>).
 
@@ -121,24 +115,24 @@ image::UserGuideDifferentComponents.png[width="650"]
 
 Given below is a quick overview of each section.
 
-. `Menu Bar`, where you will be able to,
+. `Menu Bar`, where you will be able to:
 .. Exit the application (`File` > `Exit`).
 .. Open the Help Window (`Help` > `Help  F1`).
-. `Command Box`, where you input the command to be executed. Press kbd:[Enter] to execute the command after you have finished typing.
-. `Result Display Box`, which displays a successful or warning message depending on the command you execute.
 . `Task List Panel`, which displays the tasks and their respective details. The tasks are organised by their priority levels, with the highest priority level at the top.
-. `Calendar Panel`, which displays the calendar a chronic overview of the deadlines of all your tasks. It will display the current month by default.
-. `Status Bar Footer`, which displays,
+. `Calendar Panel`, which displays the calendar a chronological overview of the deadlines of all your tasks. It will display the current month by default.
+. `Result Display Box`, which displays a successful or warning message depending on the command you execute.
+. `Command Box`, where you input the command to be executed. Press kbd:[Enter] to execute the command after you have finished typing.
+. `Status Bar Footer`, which displays:
 .. The date and time of the last time you have made changes to the data.
-.. The total number of tasks being shown in the `Task List Panel`.
+.. The user status.
 .. The folder address of where your data file is being stored.
 
-=== Command Format
-
-PrioriTask is a CLI application. All features are executed primarily via the command box.
+=== Command format
 
 In the following sections, you will be introduced to several commands and their command formats. Here are a few things to take note of:
 
+* Most command words have aliases.
+** E.g. `a` is the alias for the add command. Both `add` and `a` executes the same command.
 * The command word and alias are case-sensitive.
 ** icon:check[] Typing `help` executes the command.
 ** icon:times[] Typing `Help`, `heLp` or `HELP` does not execute the command.
@@ -169,15 +163,6 @@ _This section explains the commands specific to command inquiry and *User* accou
 
 ====
 
-=== Viewing help : `help`
-
-Show all available commands in PrioriTask ..
-
-[.format]
-====
-[format-title]#Format:# `help`
-====
-
 === Signing up: `signup` or `su` `[since v1.3]`
 
 Sign up for a PrioriTask account. +
@@ -193,8 +178,8 @@ Sign up for a PrioriTask account. +
 
 * [example]#`signup u/patrick p/pat19503`# +
 Add user `patrick` with password `pat19503` to PrioriTask.
-* [example]#`signup u/mary p/m4ry`# +
-Add user `mary` with password `m4ry` to PrioriTask.
+* [example]#`signup u/mary123 p/m4ry456`# +
+Add user `mary123` with password `m4ry456` to PrioriTask.
 ====
 
 === Logging in: `login` or `in` `[since v1.4]`
@@ -212,8 +197,8 @@ Login to PrioriTask. +
 
 * [example]#`login u/patrick p/pat19503`# +
 Login to user `patrick`.
-* [example]#`login u/mary p/m4ry`# +
-Login to user `mary`.
+* [example]#`login u/mary123 p/m4ry456`# +
+Login to user `mary123`.
 ====
 
 === Logging out: `logout` or `out` `[since v1.4]`
@@ -225,7 +210,7 @@ Logout of PrioriTask. +
 [format-title]#Format:# `logout`
 ====
 
-=== Adding question: `addqa` `[since v1.4]`
+=== Adding question answer set: `addqa` `[since v1.4]`
 
 Add a question answer set for password retrieval. If one currently exists, the new question answer set will replace the current set. +
 
@@ -251,7 +236,7 @@ Add question `are you female?` with answer `yes` to current logged user.
 
 === Retrieving question for user's password: `forgotpassword` or `fp` `[since v1.4]`
 
-Retrieve question for user's password. +
+Retrieve the question for user's password. +
 
 [.format]
 ====
@@ -263,14 +248,17 @@ Retrieve question for user's password. +
 [example-title]#Examples:#
 
 * [example]#`forgotpassword u/patrick`# +
-Retrive question for user `patrick`.
-* [example]#`forgotpassword u/mary`# +
-Retrive question for user `mary`.
+Retrive the question for user `patrick`.
+* [example]#`forgotpassword u/mary123`# +
+Retrive the question for user `mary123`.
 ====
 
 === Answering question: `answer` or `ans` `[since v1.4]`
 
-Answer a user's question to retrieve the password. The question need not be retrieved before an attempt at answering the question. +
+Answer a user's question to retrieve the password.
+
+[NOTE]
+The question need not be retrieved before an attempt at answering the question. +
 
 [.format]
 ====
@@ -283,22 +271,13 @@ Answer a user's question to retrieve the password. The question need not be retr
 
 * [example]#`answer u/patrick a/yes`# +
 Answer password question for user `patrick` with `yes`.
-* [example]#`answer u/mary a/no`# +
-Answer password question for user `mary` with `no`.
+* [example]#`answer u/mary123 a/no`# +
+Answer password question for user `mary123` with `no`.
 ====
 
 === Deleting an account `[coming in v2.0]`
 
 Delete a user account to stop using PrioriTask.
-
-=== Exiting the program : `exit`
-
-Exit the program. +
-
-[.format]
-====
-[format-title]#Format:# `exit`
-====
 
 // end::user[]
 
@@ -314,8 +293,8 @@ _This section explains what a *Task* is, and the commands to manage them._
 ** A name can only be alphanumeric characters and spaces, and should not be blank.
 ** It is *compulsory* to set a name.
 * [parameters]#`STATUS`#
-** A state can only be one of two values : *Done* or *Not Done*.
-** By *default*, every new task is marked as *Not Done*.
+** A state can only be one of two values : *Completed* or *Not Completed*.
+** By *default*, every new task is marked as *Not Completed*.
 // tag::priority[]
 * [parameters]#`PRIORITY LEVEL`#
 ** A priority level can range from *0* (lowest) to *9* (highest).
@@ -385,7 +364,7 @@ Delete the specified task from PrioriTask. +
 [format-title]#Format:# `delete INDEX`
 ====
 
-* Delete the task at the specified `INDEX`.
+* Deletes the task at the specified `INDEX`.
 * The index refers to the index number shown in the most recent listing.
 * The index *must be a positive integer* (i.e. 1, 2, 3, ...).
 
@@ -410,7 +389,7 @@ Edit an existing task in PrioriTask. +
 [format-title]#Format:# `edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​`
 ====
 
-* Edits the task at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
+* Edit the task at the specified `INDEX`. The index refers to the index number shown in the last task listing. The index *must be a positive integer* (i.e. 1, 2, 3, ...).
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the task will be removed (i.e adding of tags is not cumulative).
@@ -454,19 +433,22 @@ Different commands for listing different tasks. +
 [format-title]#Format:# `completed`
 ====
 
+// tag::locate[]
 === Locating tasks `[since v1.2]`
 
 Depending on the suffix (or lack of) at the end of the `find` command, you can find tasks whose names, descriptions and/or deadlines contain any of the given keywords. +
 
 ****
-* The search is case insensitive. e.g `Developer` will match `developer`
-* Keywords for deadlines should be in the format of YYYY-MM-DD.
-* The order of the keywords does not matter. e.g. `Guide Developer` will match `Developer Guide`
-* Only full words will be matched e.g. `Guide` will not match `Guides`
-* Tasks matching at least one keyword will be returned (i.e. `OR` search). e.g. `CS2101 Guide` will return `CS2101 Script`, `Developer Guide`.
+* The search is case insensitive.
+** E.g `Developer` will match `developer`.
+* The order of the keywords does not matter.
+** E.g. `Guide Developer` will match `Developer Guide`.
+* Only full words will be matched
+** E.g. `Guide` will not match `Guides`.
+* Tasks matching at least one keyword will be returned.
+** E.g. `find CS2101 Guide` will return `CS2101 Script` and `Developer Guide`.
 ****
 
-// tag::locate[]
 ==== Locating tasks: `find` or `f`
 
 Find tasks whose names, descriptions or deadlines contain any of the given keywords. +
@@ -486,9 +468,14 @@ Only the name, description and deadline are searched.
 [example-title]#Examples:#
 
 * [example]#`find Guide`# +
-Returns `User Guide` and `Developer Guide`
+Returns tasks whose names and/or descriptions contain `User Guide` and `Developer Guide` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 * [example]#`f CS2101 Developer User`# +
-Returns any task having names or descriptions `CS2101`, `Developer`, or `User`
+Returns any task having names and/or descriptions `CS2101`, `Developer`, or `User` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
+* [example]#`find User 2018-03-17`# +
+Returns tasks whose names and/or descriptions containing `User`, and tasks with deadlines `2018-03-17` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 ====
 
 ==== Locating tasks by name: `findn` or `fn`
@@ -510,9 +497,11 @@ Only the name is searched.
 [example-title]#Examples:#
 
 * [example]#`findn Guide`# +
-Returns `User Guide` and `Developer Guide`
+Returns `User Guide` and `Developer Guide` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 * [example]#`fn CS2101 Developer User`# +
-Returns any task having names `CS2101`, `Developer`, or `User`
+Returns any task having names `CS2101`, `Developer`, or `User` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 ====
 
 ==== Locating tasks by description: `finddes` or `fdes`
@@ -534,9 +523,11 @@ Only the description is searched.
 [example-title]#Examples:#
 
 * [example]#`finddes Study`# +
-Returns tasks with descriptions `Study midterms` and `study chapter 2`.
+Returns tasks with descriptions `Study midterms` and `study chapter 2` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 * [example]#`fdes Study Update Chapter`# +
-Returns any task having descriptions containing words `Study`, `Update`, or `Chapter`.
+Returns any task having descriptions containing words `Study`, `Update`, or `Chapter` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 ====
 
 ==== Locating tasks by deadline: `findd` or `fd`
@@ -550,7 +541,8 @@ Find tasks whose deadlines contain any of the given keywords. +
 
 [NOTE]
 ====
-Only the deadline is searched.
+Only the deadline is searched. +
+Keywords for deadlines should be in the format of YYYY-MM-DD. If the keywords are in the wrong format, the command will still be executed, but will return no results.
 ====
 
 [.example]
@@ -558,9 +550,11 @@ Only the deadline is searched.
 [example-title]#Examples:#
 
 * [example]#`findd 2018-03-17`# +
-Returns tasks with deadlines `2018-03-17`.
+Returns tasks with deadlines `2018-03-17` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 * [example]#`fd 2018-03-17 2018-09-04 2018-03-21`# +
-Returns any task having deadlines `2018-03-17`, `2018-09-04`, or `2018-03-21`.
+Returns any task having deadlines `2018-03-17`, `2018-09-04`, or `2018-03-21` +
+The calendar is updated with the new task listing reflected on the `Task List Panel`
 ====
 // end::locate[]
 
@@ -629,6 +623,56 @@ Recurs an existing task in PrioriTask.
 Recurs the 1st task weekly for 3 times.
 ====
 // end::recurw[]
+
+// tag::deleter{}
+=== Deleting a task and all its recurred versions : `deleter` or `dr` `[since v1.5]`
+
+Deletes the specified task and all its recurred versions from PrioriTask. +
+
+[.format]
+====
+[format-title]#Format:# `deleter INDEX`
+====
+
+* Deletes the task at the specified `INDEX` and all its recurred versions.
+* The task must have been recurred before.
+* The index refers to the index number shown in the most recent listing.
+* The index *must be a positive integer* (i.e. 1, 2, 3, ...).
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`list`# +
+[example]#`deleter 2`# +
+Deletes the 2nd task and all its recurred versions in PrioriTask, if it has been recurred before.
+* [example]#`find Developer`# +
+[example]#`deleter 1`# +
+Deletes the 1st task and all its recurred versions in the results of the `find` command, if it has been recurred before.
+====
+// end::deleter[]
+
+// tag::remove[]
+=== Removing tags from all tasks : `remove` or `r` `[since v1.5]`
+
+Removes specified tags from all tasks in PrioriTask. +
+
+[.format]
+====
+[format-title]#Format:# `remove t/TAG1 [t/TAG2]…​`
+====
+
+* Removes TAG1 and TAG2 (if present) from all tasks.
+* Tags do not have to already exist in PrioriTask.
+
+[.example]
+====
+[example-title]#Examples:#
+
+* [example]#`remove t/friends t/homework`# +
+Removes the tags `friends` and `homework` from all tasks.
+====
+// end::remove[]
 
 // tag::subtaskFeature[]
 == Subtask Management Features
@@ -751,10 +795,10 @@ _Reorder subtasks using a given condition_
 // tag::calendar[]
 == Calendar Features
 
-The calendar allows you to have a chronic overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask. The diagram below (refer to <<fig-UserGuideCalendarFeature1>>) shows how the calendar would look like when displayed with task entries.
+The calendar allows you to have a chronological overview of the deadlines of all your tasks. Tasks on the calendar changes according to the last task listing. By default, you will view the current month when you first open PrioriTask. The diagram below (refer to <<fig-UserGuideCalendarFeature1>>) shows how the calendar would look like when displayed with task entries.
 
 [NOTE]
-The calendar is best viewed fully-maximised on a 13” computer screen. +
+The calendar is best viewed fully-maximised on a 1280 x 720 screen (usually a 13” computer screen). +
 The display of the calendar may differ from pictures on other computer screens.
 
 [[fig-UserGuideCalendarFeature1]]
@@ -763,8 +807,8 @@ image::UserGuideCalendarFeature1.png[width="650"]
 
 In future releases, the calendar will support,
 
-* Displaying of only the uncompleted tasks on the calendar.
-* Viewing of the calendar by days, weeks and years.
+* Displaying of only the completed or uncompleted tasks on the calendar, regardless of the last task listing `[coming in v2.0]`.
+* Viewing of the calendar by days, weeks and years `[coming in v2.0]`.
 
 === Go to current month: `cmonth` or `cm` `[since v1.4]`
 
@@ -825,6 +869,24 @@ Goes to `April 2018`
 == PrioriTask Features
 
 _This section explains the commands which access and manage PrioriTask data._
+
+=== Viewing help : `help`
+
+Show all available commands in PrioriTask ..
+
+[.format]
+====
+[format-title]#Format:# `help`
+====
+
+=== Exiting the program : `exit`
+
+Exit the program. +
+
+[.format]
+====
+[format-title]#Format:# `exit`
+====
 
 === Listing entered commands : `history`
 
@@ -936,22 +998,22 @@ Install the application in the other computer and overwrite the empty data file 
 
 == Command Summary
 
-=== User Features
+=== User features
 * *Help* : [format-no-box]#`help`#
-* *Sign Up* : [format-no-box]#`signup u/USERNAME p/PASSWORD`#
+* *Sign up* : [format-no-box]#`signup u/USERNAME p/PASSWORD`#
 e.g. [example-no-box]#`signup u/patrick p/pat12351`#
 * *Login* : [format-no-box]#`login u/USERNAME p/PASSWORD`#
 e.g. [example-no-box]#`login u/patrick p/pat12351`#
 * *Logout* : [format-no-box]#`logout`#
-* *Add Question* : [format-no-box]#`addqa q/QUESTION a/ANSWER`#
+* *Add question answer set* : [format-no-box]#`addqa q/QUESTION a/ANSWER`#
 e.g. [example-no-box]#`addqa q/are cats cool? a/yes`#
-* *Retrieve Question* : [format-no-box]#`forgotpassword u/USERNAME`#
+* *Retrieve question* : [format-no-box]#`forgotpassword u/USERNAME`#
 e.g. [example-no-box]#`forgotpassword u/david`#
-* *Answer Question* : [format-no-box]#`answer u/USERNAME a/ANSWER`#
+* *Answer question* : [format-no-box]#`answer u/USERNAME a/ANSWER`#
 e.g. [example-no-box]#`answer u/david a/yes`#
 * *Exit* : [format-no-box]#`exit`#
 
-=== Task Management Features
+=== Task management features
 * *Add* : [format-no-box]#`add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…`# +
 e.g. [example-no-box]#`add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA`#
 * *Delete* : [format-no-box]#`delete INDEX`# +
@@ -963,36 +1025,40 @@ e.g. [example-no-box]#`edit 1 p/9 d/2018-12-30`#
 * *List all completed* : [format-no-box]#`completed`#
 * *Find* : [format-no-box]#`find KEYWORD [MORE_KEYWORDS]` or `f KEYWORD [MORE_KEYWORDS]`# +
 e.g. [example-no-box]#`find CS2103 update 2018-03-17`#
-** *Find Name* : [format-no-box]#`findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`# +
+** *Find name* : [format-no-box]#`findn KEYWORD [MORE_KEYWORDS]` or `fn KEYWORD [MORE_KEYWORDS]`# +
 e.g. [example-no-box]#`findn Developer User`#
-** *Find Description* : [format-no-box]#`finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORDS [MORE_KEYWORDS]`# +
+** *Find description* : [format-no-box]#`finddes KEYWORD [MORE_KEYWORDS]` or `fdes KEYWORDS [MORE_KEYWORDS]`# +
 e.g. [example-no-box]#`finddes study update`#
-** *Find Deadline* : [format-no-box]#`findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORDS [MORE_KEYWORDS]`# +
+** *Find deadline* : [format-no-box]#`findd KEYWORD [MORE_KEYWORDS]` or `fd KEYWORDS [MORE_KEYWORDS]`# +
 e.g. [example-no-box]#`findd 2018-03-17 2018-09-07`#
 * *Toggle* : [format-no-box]#`toggle INDEX`# +
 e.g.[example-no-box]#`toggle 3`#
 * *Clear* : [format-no-box]#`clear`#
 * *Recur weekly* : [format-no-box]#`recurw INDEX x/TIMES`# +
 e.g.[example-no-box]#`recurw 2 x/2`#
+* *Delete task and its recurred versions* : [format-no-box]#`deleter INDEX`# +
+e.g. [example-no-box]#`deleter 3`#
+* *Remove tags* : [format-no-box]#`remove t/TAG1 [t/TAG2]…​`# +
+e.g. [example-no-box]#`remove t\friends t\homework`#
 
 // tag::subtaskFeatureSummary[]
-=== Subtask Management Features
-* *Add Subtask* : [format-no-box]#`adds TASK_INDEX n/NAME`# +
+=== Subtask management features
+* *Add subtask* : [format-no-box]#`adds TASK_INDEX n/NAME`# +
 e.g. [example-no-box]#`adds 1 n/Submit Report`#
-* *Delete Subtask* : [format-no-box]#`delete-subtask TASK_INDEX SUBTASK_INDEX`# +
+* *Delete subtask* : [format-no-box]#`delete-subtask TASK_INDEX SUBTASK_INDEX`# +
 e.g. [example-no-box]#`delete-subtask 2 3`#
-* *Toggle Subtask* : [format-no-box]#`toggle-subtask TASK_INDEX SUBTASK_INDEX`# +
+* *Toggle subtask* : [format-no-box]#`toggle-subtask TASK_INDEX SUBTASK_INDEX`# +
 e.g.[example-no-box]#`toggle-subtask 3 2`#
-* *Edit Subtask* : [format-no-box]#`edits TASK_INDEX SUBTASK_INDEX n/NAME`# +
+* *Edit subtask* : [format-no-box]#`edits TASK_INDEX SUBTASK_INDEX n/NAME`# +
 e.g.[example-no-box]#`edits 3 2 n/Feed cats`#
 // end::subtaskFeatureSummary[]
 
-=== Calendar Features
-* *Go To Current Month* : [format-no-box]#`cmonth`#
-* *Go To Previous Month* : [format-no-box]#`pmonth`#
-* *Go To Next Month* : [format-no-box]#`nmonth`#
+=== Calendar features
+* *Go to current month* : [format-no-box]#`cmonth`#
+* *Go to previous month* : [format-no-box]#`pmonth`#
+* *Go to next month* : [format-no-box]#`nmonth`#
 
-=== PrioriTask Features
+=== PrioriTask features
 * *History* : [format-no-box]#`history`#
 * *Undo* : [format-no-box]#`undo`#
 * *Redo* : [format-no-box]#`redo`#

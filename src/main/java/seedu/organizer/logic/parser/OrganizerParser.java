@@ -16,6 +16,7 @@ import seedu.organizer.logic.commands.ClearCommand;
 import seedu.organizer.logic.commands.Command;
 import seedu.organizer.logic.commands.CurrentMonthCommand;
 import seedu.organizer.logic.commands.DeleteCommand;
+import seedu.organizer.logic.commands.DeleteRecurredTasksCommand;
 import seedu.organizer.logic.commands.DeleteSubtaskCommand;
 import seedu.organizer.logic.commands.EditCommand;
 import seedu.organizer.logic.commands.EditSubtaskCommand;
@@ -36,6 +37,7 @@ import seedu.organizer.logic.commands.NextMonthCommand;
 import seedu.organizer.logic.commands.PreviousMonthCommand;
 import seedu.organizer.logic.commands.RecurWeeklyCommand;
 import seedu.organizer.logic.commands.RedoCommand;
+import seedu.organizer.logic.commands.RemoveTagsCommand;
 import seedu.organizer.logic.commands.SignUpCommand;
 import seedu.organizer.logic.commands.ToggleCommand;
 import seedu.organizer.logic.commands.ToggleSubtaskCommand;
@@ -149,6 +151,13 @@ public class OrganizerParser {
         case DeleteCommand.COMMAND_ALIAS:
             return new DeleteCommandParser().parse(arguments);
 
+        //@@author natania
+        case DeleteRecurredTasksCommand.COMMAND_WORD:
+            return new DeleteRecurredTasksCommandParser().parse(arguments);
+
+        case DeleteRecurredTasksCommand.COMMAND_ALIAS:
+            return new DeleteRecurredTasksCommandParser().parse(arguments);
+
         //@@author agus
         case DeleteSubtaskCommand.COMMAND_WORD:
             return new DeleteSubtaskCommandParser().parse(arguments);
@@ -247,11 +256,19 @@ public class OrganizerParser {
         case CurrentMonthCommand.COMMAND_ALIAS:
             return new CurrentMonthCommand();
 
+        //@@author natania
         case RecurWeeklyCommand.COMMAND_WORD:
             return new RecurWeeklyCommandParser().parse(arguments);
 
         case RecurWeeklyCommand.COMMAND_ALIAS:
             return new RecurWeeklyCommandParser().parse(arguments);
+
+        case RemoveTagsCommand.COMMAND_WORD:
+            return new RemoveTagsCommandParser().parse(arguments);
+
+        case RemoveTagsCommand.COMMAND_ALIAS:
+            return new RemoveTagsCommandParser().parse(arguments);
+        //@@author
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
