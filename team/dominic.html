@@ -451,60 +451,6 @@ Answer password question for user <code>mary123</code> with <code>no</code>.</p>
 <div class="paragraph">
 <p>Delete a user account to stop using PrioriTask.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><span class="parameters"><code>PRIORITY LEVEL</code></span></p>
-<div class="ulist">
-<ul>
-<li>
-<p>A priority level can range from <strong>0</strong> (lowest) to <strong>9</strong> (highest).</p>
-</li>
-<li>
-<p>It is <strong>optional</strong> to set a priority level. If the user does not specify a priority level, PrioriTask will automatically set it to its <strong>default level</strong> : <strong>0</strong>.</p>
-</li>
-<li>
-<p>Priority levels are automatically updated by gradual incremental steps, based on the date added, current date, and deadline.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>If the current date is equal to the date added, and the current date is equals or after the deadline.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The priority level remains the same.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>If the current date is past the <code>Deadline</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The priority level is set to its <strong>maximum level : 9</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>If the current date is before the deadline and not equal to the date added.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The priority level is set based on how close the current date is to the deadline, and the time span between the date added and the deadline.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -792,7 +738,7 @@ newPriority = <span class="integer">0</span> + <span class="integer">4</span> = 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 14:04:54 UTC
+Last updated 2018-04-15 14:58:57 UTC
 </div>
 </div>
 </body>
