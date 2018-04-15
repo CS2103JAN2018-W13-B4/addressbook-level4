@@ -2896,7 +2896,60 @@ Expected: Password retrieval successful. Password of 'admin' shown in the status
 <p>Natania add your recurring task testing here</p>
 </li>
 <li>
-<p>Agus add your subtask testing here</p>
+<p>Adding a subtask</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in, and at least a task is added with no subtask.</p>
+</li>
+<li>
+<p>Test case: adds 1 n/Prepare Project Report<br>
+Expected: Subtask added successfully. A success message will be shown in the results display box, and subtask with name <code>Prepare Project Report</code> appears on the first subtask.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing a subtask</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in, and a task is added with a subtask.</p>
+</li>
+<li>
+<p>Test case: edits 1 1 n/Prepare Project Report<br>
+Expected: Subtask edited successfully. A success message will be shown in the results display box, and subtask with name <code>Prepare Project Report</code> appears on the first subtask.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a subtask</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in, and a task is added with a subtask.</p>
+</li>
+<li>
+<p>Test case: delete-subtask 1 1 n/Prepare Project Report<br>
+Expected: Subtask deleted successfully. A success message will be shown in the results display box, and the task will have no subtask.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Toggling a subtask</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in, and a task is added with a subtask.</p>
+</li>
+<li>
+<p>Test case: toggle-subtask 1 1<br>
+Expected: Subtask toggled successfully. A success message will be shown in the results display box, and the subtask status will be changed.</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div>
