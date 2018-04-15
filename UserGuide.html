@@ -73,6 +73,8 @@
 <li><a href="#marking-task-as-complete-code-toggle-code-or-code-t-code-code-since-v1-2-code">5.6. Marking task as complete: <code>toggle</code> or <code>t</code> <code>[since v1.2]</code></a></li>
 <li><a href="#clearing-all-tasks-code-clear-code-or-code-c-code">5.7. Clearing all tasks : <code>clear</code> or <code>c</code></a></li>
 <li><a href="#recurring-a-task-code-recurw-code-or-code-rw-code-code-since-v1-5rc-code">5.8. Recurring a task : <code>recurw</code> or <code>rw</code> <code>[since v1.5rc]</code></a></li>
+<li><a href="#deleting-a-task-and-all-its-recurred-versions-code-deleter-code-or-code-dr-code-code-since-v1-5-code">5.9. Deleting a task and all its recurred versions : <code>deleter</code> or <code>dr</code> <code>[since v1.5]</code></a></li>
+<li><a href="#removing-tags-from-all-tasks-code-remove-code-or-code-r-code-code-since-v1-5-code">5.10. Removing tags from all tasks : <code>remove</code> or <code>r</code> <code>[since v1.5]</code></a></li>
 </ul>
 </li>
 <li><a href="#subtask-management-features">6. Subtask Management Features</a>
@@ -906,7 +908,7 @@ Add a task with name <code>CS2103T Developer Guide</code>, due on 2nd march 2018
 <div class="ulist">
 <ul>
 <li>
-<p>Delete the task at the specified <code>INDEX</code>.</p>
+<p>Deletes the task at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
@@ -953,7 +955,7 @@ Deletes the 1st task in the results of the <code>find</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the task at the specified <code>INDEX</code>. The index refers to the index number shown in the last task listing. The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+<p>Edit the task at the specified <code>INDEX</code>. The index refers to the index number shown in the last task listing. The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -1401,6 +1403,94 @@ Toggle the first task in th result of <code>find homework</code> command.</p>
 <li>
 <p><span class="example">`recurw 1 x/3</span><br>
 Recurs the 1st task weekly for 3 times.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-task-and-all-its-recurred-versions-code-deleter-code-or-code-dr-code-code-since-v1-5-code"><a class="link" href="#deleting-a-task-and-all-its-recurred-versions-code-deleter-code-or-code-dr-code-code-since-v1-5-code">5.9. Deleting a task and all its recurred versions : <code>deleter</code> or <code>dr</code> <code>[since v1.5]</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified task and all its recurred versions from PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>deleter INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the task at the specified <code>INDEX</code> and all its recurred versions.</p>
+</li>
+<li>
+<p>The task must have been recurred before.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>deleter 2</code></span><br>
+Deletes the 2nd task and all its recurred versions in PrioriTask, if it has been recurred before.</p>
+</li>
+<li>
+<p><span class="example"><code>find Developer</code></span><br>
+<span class="example"><code>deleter 1</code></span><br>
+Deletes the 1st task and all its recurred versions in the results of the <code>find</code> command, if it has been recurred before.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-tags-from-all-tasks-code-remove-code-or-code-r-code-code-since-v1-5-code"><a class="link" href="#removing-tags-from-all-tasks-code-remove-code-or-code-r-code-code-since-v1-5-code">5.10. Removing tags from all tasks : <code>remove</code> or <code>r</code> <code>[since v1.5]</code></a></h3>
+<div class="paragraph">
+<p>Removes specified tags from all tasks in PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>remove t/TAG1 [t/TAG2]…​</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Removes TAG1 and TAG2 (if present) from all tasks.</p>
+</li>
+<li>
+<p>Tags do not have to already exist in PrioriTask.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>remove t/friends t/homework</code></span><br>
+Removes the tags <code>friends</code> and <code>homework</code> from all tasks.</p>
 </li>
 </ul>
 </div>
@@ -2097,6 +2187,14 @@ e.g.<span class="example-no-box"><code>toggle 3</code></span></p>
 <li>
 <p><strong>Recur weekly</strong> : <span class="format-no-box"><code>recurw INDEX x/TIMES</code></span><br>
 e.g.<span class="example-no-box"><code>recurw 2 x/2</code></span></p>
+</li>
+<li>
+<p><strong>Delete task and its recurred versions</strong> : <span class="format-no-box"><code>deleter INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>deleter 3</code></span></p>
+</li>
+<li>
+<p><strong>Remove tags</strong> : <span class="format-no-box"><code>remove t/TAG1 [t/TAG2]…​</code></span><br>
+e.g. <span class="example-no-box"><code>remove t\friends t\homework</code></span></p>
 </li>
 </ul>
 </div>
