@@ -106,15 +106,7 @@
 </li>
 <li><a href="#reminders-code-coming-in-v2-0-code">9. Reminders <code>[coming in v2.0]</code></a></li>
 <li><a href="#faq">10. FAQ</a></li>
-<li><a href="#command-summary">11. Command Summary</a>
-<ul class="sectlevel2">
-<li><a href="#user-features-2">11.1. User features</a></li>
-<li><a href="#task-management-features-2">11.2. Task management features</a></li>
-<li><a href="#subtask-management-features-2">11.3. Subtask management features</a></li>
-<li><a href="#calendar-features-2">11.4. Calendar features</a></li>
-<li><a href="#prioritask-features-2">11.5. PrioriTask features</a></li>
-</ul>
-</li>
+<li><a href="#command-summary">11. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -2096,44 +2088,6 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">11. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="user-features-2"><a class="link" href="#user-features-2">11.1. User features</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Help</strong> : <span class="format-no-box"><code>help</code></span></p>
-</li>
-<li>
-<p><strong>Sign up</strong> : <span class="format-no-box"><code>signup u/USERNAME p/PASSWORD</code></span>
-e.g. <span class="example-no-box"><code>signup u/patrick p/pat12351</code></span></p>
-</li>
-<li>
-<p><strong>Login</strong> : <span class="format-no-box"><code>login u/USERNAME p/PASSWORD</code></span>
-e.g. <span class="example-no-box"><code>login u/patrick p/pat12351</code></span></p>
-</li>
-<li>
-<p><strong>Logout</strong> : <span class="format-no-box"><code>logout</code></span></p>
-</li>
-<li>
-<p><strong>Add question answer set</strong> : <span class="format-no-box"><code>addqa q/QUESTION a/ANSWER</code></span>
-e.g. <span class="example-no-box"><code>addqa q/are cats cool? a/yes</code></span></p>
-</li>
-<li>
-<p><strong>Retrieve question</strong> : <span class="format-no-box"><code>forgotpassword u/USERNAME</code></span>
-e.g. <span class="example-no-box"><code>forgotpassword u/david</code></span></p>
-</li>
-<li>
-<p><strong>Answer question</strong> : <span class="format-no-box"><code>answer u/USERNAME a/ANSWER</code></span>
-e.g. <span class="example-no-box"><code>answer u/david a/yes</code></span></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <span class="format-no-box"><code>exit</code></span></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="task-management-features-2"><a class="link" href="#task-management-features-2">11.2. Task management features</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2141,21 +2095,42 @@ e.g. <span class="example-no-box"><code>answer u/david a/yes</code></span></p>
 e.g. <span class="example-no-box"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA</code></span></p>
 </li>
 <li>
+<p><strong>Add question answer set</strong> : <span class="format-no-box"><code>addqa q/QUESTION a/ANSWER</code></span><br>
+e.g. <span class="example-no-box"><code>addqa q/are cats cool? a/yes</code></span></p>
+</li>
+<li>
+<p><strong>Add subtask</strong> : <span class="format-no-box"><code>adds TASK_INDEX n/NAME</code></span><br>
+e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
+</li>
+<li>
+<p><strong>Answer question</strong> : <span class="format-no-box"><code>answer u/USERNAME a/ANSWER</code></span><br>
+e.g. <span class="example-no-box"><code>answer u/david a/yes</code></span></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <span class="format-no-box"><code>clear</code></span></p>
+</li>
+<li>
 <p><strong>Delete</strong> : <span class="format-no-box"><code>delete INDEX</code></span><br>
 e.g. <span class="example-no-box"><code>delete 3</code></span></p>
+</li>
+<li>
+<p><strong>Delete subtask</strong> : <span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span></p>
+</li>
+<li>
+<p><strong>Delete task and its recurred versions</strong> : <span class="format-no-box"><code>deleter INDEX</code></span><br>
+e.g. <span class="example-no-box"><code>deleter 3</code></span></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <span class="format-no-box"><code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></span><br>
 e.g. <span class="example-no-box"><code>edit 1 p/9 d/2018-12-30</code></span></p>
 </li>
 <li>
-<p><strong>List</strong> : <span class="format-no-box"><code>list</code></span></p>
+<p><strong>Edit subtask</strong> : <span class="format-no-box"><code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></span><br>
+e.g.<span class="example-no-box"><code>edits 3 2 n/Feed cats</code></span></p>
 </li>
 <li>
-<p><strong>List all uncompleted</strong> : <span class="format-no-box"><code>uncompleted</code></span></p>
-</li>
-<li>
-<p><strong>List all completed</strong> : <span class="format-no-box"><code>completed</code></span></p>
+<p><strong>Exit</strong> : <span class="format-no-box"><code>exit</code></span></p>
 </li>
 <li>
 <p><strong>Find</strong> : <span class="format-no-box"><code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></span><br>
@@ -2163,12 +2138,12 @@ e.g. <span class="example-no-box"><code>find CS2103 update 2018-03-17</code></sp
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Find name</strong> : <span class="format-no-box"><code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></span><br>
-e.g. <span class="example-no-box"><code>findn Developer User</code></span></p>
-</li>
-<li>
 <p><strong>Find description</strong> : <span class="format-no-box"><code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORDS [MORE_KEYWORDS]</code></span><br>
 e.g. <span class="example-no-box"><code>finddes study update</code></span></p>
+</li>
+<li>
+<p><strong>Find name</strong> : <span class="format-no-box"><code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></span><br>
+e.g. <span class="example-no-box"><code>findn Developer User</code></span></p>
 </li>
 <li>
 <p><strong>Find deadline</strong> : <span class="format-no-box"><code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORDS [MORE_KEYWORDS]</code></span><br>
@@ -2178,55 +2153,6 @@ e.g. <span class="example-no-box"><code>findd 2018-03-17 2018-09-07</code></span
 </div>
 </li>
 <li>
-<p><strong>Toggle</strong> : <span class="format-no-box"><code>toggle INDEX</code></span><br>
-e.g.<span class="example-no-box"><code>toggle 3</code></span></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <span class="format-no-box"><code>clear</code></span></p>
-</li>
-<li>
-<p><strong>Recur weekly</strong> : <span class="format-no-box"><code>recurw INDEX x/TIMES</code></span><br>
-e.g.<span class="example-no-box"><code>recurw 2 x/2</code></span></p>
-</li>
-<li>
-<p><strong>Delete task and its recurred versions</strong> : <span class="format-no-box"><code>deleter INDEX</code></span><br>
-e.g. <span class="example-no-box"><code>deleter 3</code></span></p>
-</li>
-<li>
-<p><strong>Remove tags</strong> : <span class="format-no-box"><code>remove t/TAG1 [t/TAG2]…​</code></span><br>
-e.g. <span class="example-no-box"><code>remove t\friends t\homework</code></span></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="subtask-management-features-2"><a class="link" href="#subtask-management-features-2">11.3. Subtask management features</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add subtask</strong> : <span class="format-no-box"><code>adds TASK_INDEX n/NAME</code></span><br>
-e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
-</li>
-<li>
-<p><strong>Delete subtask</strong> : <span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
-e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span></p>
-</li>
-<li>
-<p><strong>Toggle subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
-e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
-</li>
-<li>
-<p><strong>Edit subtask</strong> : <span class="format-no-box"><code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></span><br>
-e.g.<span class="example-no-box"><code>edits 3 2 n/Feed cats</code></span></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="calendar-features-2"><a class="link" href="#calendar-features-2">11.4. Calendar features</a></h3>
-<div class="ulist">
-<ul>
-<li>
 <p><strong>Go to current month</strong> : <span class="format-no-box"><code>cmonth</code></span></p>
 </li>
 <li>
@@ -2235,24 +2161,63 @@ e.g.<span class="example-no-box"><code>edits 3 2 n/Feed cats</code></span></p>
 <li>
 <p><strong>Go to next month</strong> : <span class="format-no-box"><code>nmonth</code></span></p>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="prioritask-features-2"><a class="link" href="#prioritask-features-2">11.5. PrioriTask features</a></h3>
-<div class="ulist">
-<ul>
+<li>
+<p><strong>Help</strong> : <span class="format-no-box"><code>help</code></span></p>
+</li>
 <li>
 <p><strong>History</strong> : <span class="format-no-box"><code>history</code></span></p>
 </li>
 <li>
-<p><strong>Undo</strong> : <span class="format-no-box"><code>undo</code></span></p>
+<p><strong>List</strong> : <span class="format-no-box"><code>list</code></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>List all completed</strong> : <span class="format-no-box"><code>completed</code></span></p>
+</li>
+<li>
+<p><strong>List all uncompleted</strong> : <span class="format-no-box"><code>uncompleted</code></span></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Login</strong> : <span class="format-no-box"><code>login u/USERNAME p/PASSWORD</code></span><br>
+e.g. <span class="example-no-box"><code>login u/patrick p/pat12351</code></span></p>
+</li>
+<li>
+<p><strong>Logout</strong> : <span class="format-no-box"><code>logout</code></span></p>
+</li>
+<li>
+<p><strong>Recur weekly</strong> : <span class="format-no-box"><code>recurw INDEX x/TIMES</code></span><br>
+e.g.<span class="example-no-box"><code>recurw 2 x/2</code></span></p>
 </li>
 <li>
 <p><strong>Redo</strong> : <span class="format-no-box"><code>redo</code></span></p>
 </li>
+<li>
+<p><strong>Remove tags</strong> : <span class="format-no-box"><code>remove t/TAG1 [t/TAG2]…​</code></span><br>
+e.g. <span class="example-no-box"><code>remove t\friends t\homework</code></span></p>
+</li>
+<li>
+<p><strong>Retrieve question</strong> : <span class="format-no-box"><code>forgotpassword u/USERNAME</code></span><br>
+e.g. <span class="example-no-box"><code>forgotpassword u/david</code></span></p>
+</li>
+<li>
+<p><strong>Sign up</strong> : <span class="format-no-box"><code>signup u/USERNAME p/PASSWORD</code></span><br>
+e.g. <span class="example-no-box"><code>signup u/patrick p/pat12351</code></span></p>
+</li>
+<li>
+<p><strong>Toggle</strong> : <span class="format-no-box"><code>toggle INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>toggle 3</code></span></p>
+</li>
+<li>
+<p><strong>Toggle subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
+e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
+</li>
+<li>
+<p><strong>Undo</strong> : <span class="format-no-box"><code>undo</code></span></p>
+</li>
 </ul>
-</div>
 </div>
 </div>
 </div>
