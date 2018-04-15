@@ -18,7 +18,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>CS2103JAN2018-W13-B4</code>      Since: <code>March 2018</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103JAN2018-W13-B4</code>      Since: <code>April 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -82,15 +82,15 @@
 <li><a href="#adding-a-subtask-to-a-task-code-adds-code-or-code-as-code-code-since-v1-2-code">6.1. Adding a subtask to a task : <code>adds</code> or <code>as</code> <code>[since v1.2]</code></a></li>
 <li><a href="#deleting-a-subtask-from-a-task-code-delete-subtask-code-or-code-ds-code-code-since-v1-3-code">6.2. Deleting a subtask from a task: <code>delete-subtask</code> or <code>ds</code> <code>[since v1.3]</code></a></li>
 <li><a href="#editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code">6.3. Editing a subtask: <code>edits</code> or <code>es</code> <code>[since v1.5]</code></a></li>
-<li><a href="#mark-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code">6.4. Mark subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></li>
-<li><a href="#reorder-subtask-code-coming-in-v2-0-code">6.5. Reorder subtask <code>[coming in v2.0]</code></a></li>
+<li><a href="#marking-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code">6.4. Marking subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></li>
+<li><a href="#reordering-subtask-code-coming-in-v2-0-code">6.5. Reordering subtask <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#calendar-features">7. Calendar Features</a>
 <ul class="sectlevel2">
-<li><a href="#go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code">7.1. Go to current month: <code>cmonth</code> or <code>cm</code> <code>[since v1.4]</code></a></li>
-<li><a href="#go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.2. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></li>
-<li><a href="#go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.3. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#going-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code">7.1. Going to current month: <code>cmonth</code> or <code>cm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#going-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.2. Going to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></li>
+<li><a href="#going-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.3. Going to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></li>
 </ul>
 </li>
 <li><a href="#prioritask-features">8. PrioriTask Features</a>
@@ -114,7 +114,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to interact with an application by typing commands instead of clicking on buttons.</p>
+<p>PrioriTask is a desktop task management application. It is not just any task management application, but a combination of the to-do list, calendar and reminder features, with an added bonus of automatic updating and sorting of your tasks based on priority levels. It helps you keep track of your tasks, while providing you with at-a-glance views of upcoming tasks by day, week or month. PrioriTask is optimized for those who prefer to interact with an application by typing commands instead of clicking using a cursor.</p>
 </div>
 <div class="paragraph">
 <p>This guide will show you how to get started using PrioriTask, and will introduce you to the different features PrioriTask has.</p>
@@ -694,7 +694,7 @@ Answer password question for user <code>mary123</code> with <code>no</code>.</p>
 <p>A priority level can range from <strong>0</strong> (lowest) to <strong>9</strong> (highest).</p>
 </li>
 <li>
-<p>It is <strong>optional</strong> to set a priority level. If the user does not specify a priority level, PrioriTask will automatically set it to its <strong>default level</strong> : <strong>0</strong>.</p>
+<p>It is <strong>optional</strong> to set a priority level. If the user does not specify a priority level, PrioriTask will automatically set it to its <strong>default level|*0</strong>.</p>
 </li>
 <li>
 <p>Priority levels are automatically updated by gradual incremental steps, based on the date added, current date, and deadline.</p>
@@ -1003,6 +1003,9 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 </div>
 <div class="sect3">
 <h4 id="listing-all-tasks-code-list-code-or-code-l-code"><a class="link" href="#listing-all-tasks-code-list-code-or-code-l-code">5.4.1. Listing all tasks : <code>list</code> or <code>l</code></a></h4>
+<div class="paragraph">
+<p>List all tasks in PrioriTask.</p>
+</div>
 <div class="exampleblock format">
 <div class="content">
 <div class="paragraph">
@@ -1013,6 +1016,9 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 </div>
 <div class="sect3">
 <h4 id="listing-all-uncompleted-tasks-code-uncompleted-code-or-code-uncom-code-code-since-v1-5-code"><a class="link" href="#listing-all-uncompleted-tasks-code-uncompleted-code-or-code-uncom-code-code-since-v1-5-code">5.4.2. Listing all uncompleted tasks : <code>uncompleted</code> or <code>uncom</code> <code>[since v1.5]</code></a></h4>
+<div class="paragraph">
+<p>List all uncompleted tasks in PrioriTask.</p>
+</div>
 <div class="exampleblock format">
 <div class="content">
 <div class="paragraph">
@@ -1023,6 +1029,9 @@ Edits the name of the 2nd task to be <code>CS2101 Final Assignment</code> and cl
 </div>
 <div class="sect3">
 <h4 id="listing-all-completed-tasks-code-completed-code-or-code-com-code-code-since-v1-5-code"><a class="link" href="#listing-all-completed-tasks-code-completed-code-or-code-com-code-code-since-v1-5-code">5.4.3. Listing all completed tasks : <code>completed</code> or <code>com</code> <code>[since v1.5]</code></a></h4>
+<div class="paragraph">
+<p>List all completed tasks in PrioriTask.</p>
+</div>
 <div class="exampleblock format">
 <div class="content">
 <div class="paragraph">
@@ -1286,7 +1295,7 @@ The calendar is updated with the new task listing reflected on the <code>Task Li
 <div class="sect3">
 <h4 id="locating-tasks-by-tag-code-coming-in-v2-0-code"><a class="link" href="#locating-tasks-by-tag-code-coming-in-v2-0-code">5.5.5. Locating tasks by tag <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
-<p><em>Locate all tasks with a common tag</em></p>
+<p><em>Locate all tasks with a common tag.</em></p>
 </div>
 </div>
 </div>
@@ -1354,7 +1363,7 @@ Toggle the first task in th result of <code>find homework</code> command.</p>
 <div class="sect2">
 <h3 id="recurring-a-task-code-recurw-code-or-code-rw-code-code-since-v1-5rc-code"><a class="link" href="#recurring-a-task-code-recurw-code-or-code-rw-code-code-since-v1-5rc-code">5.8. Recurring a task : <code>recurw</code> or <code>rw</code> <code>[since v1.5rc]</code></a></h3>
 <div class="paragraph">
-<p>Recurs an existing task in PrioriTask.</p>
+<p>Recur an existing task in PrioriTask.</p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -1404,7 +1413,7 @@ Recurs the 1st task weekly for 3 times.</p>
 <div class="sect2">
 <h3 id="deleting-a-task-and-all-its-recurred-versions-code-deleter-code-or-code-dr-code-code-since-v1-5-code"><a class="link" href="#deleting-a-task-and-all-its-recurred-versions-code-deleter-code-or-code-dr-code-code-since-v1-5-code">5.9. Deleting a task and all its recurred versions : <code>deleter</code> or <code>dr</code> <code>[since v1.5]</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified task and all its recurred versions from PrioriTask.<br></p>
+<p>Delete the specified task and all its recurred versions from PrioriTask.<br></p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -1454,7 +1463,7 @@ Deletes the 1st task and all its recurred versions in the results of the <code>f
 <div class="sect2">
 <h3 id="removing-tags-from-all-tasks-code-remove-code-or-code-r-code-code-since-v1-5-code"><a class="link" href="#removing-tags-from-all-tasks-code-remove-code-or-code-r-code-code-since-v1-5-code">5.10. Removing tags from all tasks : <code>remove</code> or <code>r</code> <code>[since v1.5]</code></a></h3>
 <div class="paragraph">
-<p>Removes specified tags from all tasks in PrioriTask.<br></p>
+<p>Remove specified tags from all tasks in PrioriTask.<br></p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -1619,7 +1628,7 @@ Deletes the fourth subtask of the second task in th result of <code>find cleanin
 <div class="sect2">
 <h3 id="editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code"><a class="link" href="#editing-a-subtask-code-edits-code-or-code-es-code-code-since-v1-5-code">6.3. Editing a subtask: <code>edits</code> or <code>es</code> <code>[since v1.5]</code></a></h3>
 <div class="paragraph">
-<p>Edit name of a subtask</p>
+<p>Edit name of a subtask.</p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -1664,7 +1673,7 @@ Change the fourth subtask of the second task in the result of <code>find cleanin
 </div>
 </div>
 <div class="sect2">
-<h3 id="mark-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code"><a class="link" href="#mark-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code">6.4. Mark subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></h3>
+<h3 id="marking-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code"><a class="link" href="#marking-subtask-as-complete-code-toggle-subtask-code-or-code-ts-code-code-since-v1-3-code">6.4. Marking subtask as complete: <code>toggle-subtask</code> or <code>ts</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Toggle the status of the subtask identified by the index number used in the last subtask listing
 between <code>Completed</code> and <code>Not Completed</code>.<br></p>
@@ -1712,9 +1721,9 @@ Toggles the fourth subtask of the second task in th result of <code>find homewor
 </div>
 </div>
 <div class="sect2">
-<h3 id="reorder-subtask-code-coming-in-v2-0-code"><a class="link" href="#reorder-subtask-code-coming-in-v2-0-code">6.5. Reorder subtask <code>[coming in v2.0]</code></a></h3>
+<h3 id="reordering-subtask-code-coming-in-v2-0-code"><a class="link" href="#reordering-subtask-code-coming-in-v2-0-code">6.5. Reordering subtask <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>Reorder subtasks using a given condition</em></p>
+<p><em>Reorder subtasks using a given condition.</em></p>
 </div>
 </div>
 </div>
@@ -1758,7 +1767,7 @@ The display of the calendar may differ from pictures on other computer screens.
 </ul>
 </div>
 <div class="sect2">
-<h3 id="go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code"><a class="link" href="#go-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code">7.1. Go to current month: <code>cmonth</code> or <code>cm</code> <code>[since v1.4]</code></a></h3>
+<h3 id="going-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code"><a class="link" href="#going-to-current-month-code-cmonth-code-or-code-cm-code-code-since-v1-4-code">7.1. Going to current month: <code>cmonth</code> or <code>cm</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Change the view of the calendar to that of the current month.<br></p>
 </div>
@@ -1788,9 +1797,9 @@ Goes to <code>April 2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code"><a class="link" href="#go-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.2. Go to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></h3>
+<h3 id="going-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code"><a class="link" href="#going-to-previous-month-code-pmonth-code-or-code-pm-code-code-since-v1-4-code">7.2. Going to previous month: <code>pmonth</code> or <code>pm</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
-<p>Chang the view of the calendar to that of the previous month.<br></p>
+<p>Change the view of the calendar to that of the previous month.<br></p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -1817,9 +1826,9 @@ Goes to <code>February 2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code"><a class="link" href="#go-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.3. Go to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></h3>
+<h3 id="going-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code"><a class="link" href="#going-to-next-month-code-nmonth-code-or-code-nm-code-code-since-v1-4-code">7.3. Going to next month: <code>nmonth</code> or <code>nm</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
-<p>Chang the view of the calendar to that of the next month.<br></p>
+<p>Change the view of the calendar to that of the next month.<br></p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -1856,7 +1865,7 @@ Goes to <code>April 2018</code></p>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">8.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Show all available commands in PrioriTask ..</p>
+<p>Show all available commands in PrioriTask .</p>
 </div>
 <div class="exampleblock format">
 <div class="content">
@@ -2088,137 +2097,187 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">11. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> : <span class="format-no-box"><code>add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…</code></span><br>
-e.g. <span class="example-no-box"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA</code></span></p>
-</li>
-<li>
-<p><strong>Add question answer set</strong> : <span class="format-no-box"><code>addqa q/QUESTION a/ANSWER</code></span><br>
-e.g. <span class="example-no-box"><code>addqa q/are cats cool? a/yes</code></span></p>
-</li>
-<li>
-<p><strong>Add subtask</strong> : <span class="format-no-box"><code>adds TASK_INDEX n/NAME</code></span><br>
-e.g. <span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p>
-</li>
-<li>
-<p><strong>Answer question</strong> : <span class="format-no-box"><code>answer u/USERNAME a/ANSWER</code></span><br>
-e.g. <span class="example-no-box"><code>answer u/david a/yes</code></span></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <span class="format-no-box"><code>clear</code></span></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <span class="format-no-box"><code>delete INDEX</code></span><br>
-e.g. <span class="example-no-box"><code>delete 3</code></span></p>
-</li>
-<li>
-<p><strong>Delete subtask</strong> : <span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
-e.g. <span class="example-no-box"><code>delete-subtask 2 3</code></span></p>
-</li>
-<li>
-<p><strong>Delete task and its recurred versions</strong> : <span class="format-no-box"><code>deleter INDEX</code></span><br>
-e.g. <span class="example-no-box"><code>deleter 3</code></span></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <span class="format-no-box"><code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></span><br>
-e.g. <span class="example-no-box"><code>edit 1 p/9 d/2018-12-30</code></span></p>
-</li>
-<li>
-<p><strong>Edit subtask</strong> : <span class="format-no-box"><code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></span><br>
-e.g.<span class="example-no-box"><code>edits 3 2 n/Feed cats</code></span></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <span class="format-no-box"><code>exit</code></span></p>
-</li>
-<li>
-<p><strong>Find</strong> : <span class="format-no-box"><code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></span><br>
-e.g. <span class="example-no-box"><code>find CS2103 update 2018-03-17</code></span></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Find description</strong> : <span class="format-no-box"><code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORDS [MORE_KEYWORDS]</code></span><br>
-e.g. <span class="example-no-box"><code>finddes study update</code></span></p>
-</li>
-<li>
-<p><strong>Find name</strong> : <span class="format-no-box"><code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></span><br>
-e.g. <span class="example-no-box"><code>findn Developer User</code></span></p>
-</li>
-<li>
-<p><strong>Find deadline</strong> : <span class="format-no-box"><code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORDS [MORE_KEYWORDS]</code></span><br>
-e.g. <span class="example-no-box"><code>findd 2018-03-17 2018-09-07</code></span></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Go to current month</strong> : <span class="format-no-box"><code>cmonth</code></span></p>
-</li>
-<li>
-<p><strong>Go to previous month</strong> : <span class="format-no-box"><code>pmonth</code></span></p>
-</li>
-<li>
-<p><strong>Go to next month</strong> : <span class="format-no-box"><code>nmonth</code></span></p>
-</li>
-<li>
-<p><strong>Help</strong> : <span class="format-no-box"><code>help</code></span></p>
-</li>
-<li>
-<p><strong>History</strong> : <span class="format-no-box"><code>history</code></span></p>
-</li>
-<li>
-<p><strong>List</strong> : <span class="format-no-box"><code>list</code></span></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>List all completed</strong> : <span class="format-no-box"><code>completed</code></span></p>
-</li>
-<li>
-<p><strong>List all uncompleted</strong> : <span class="format-no-box"><code>uncompleted</code></span></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Login</strong> : <span class="format-no-box"><code>login u/USERNAME p/PASSWORD</code></span><br>
-e.g. <span class="example-no-box"><code>login u/patrick p/pat12351</code></span></p>
-</li>
-<li>
-<p><strong>Logout</strong> : <span class="format-no-box"><code>logout</code></span></p>
-</li>
-<li>
-<p><strong>Recur weekly</strong> : <span class="format-no-box"><code>recurw INDEX x/TIMES</code></span><br>
-e.g.<span class="example-no-box"><code>recurw 2 x/2</code></span></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <span class="format-no-box"><code>redo</code></span></p>
-</li>
-<li>
-<p><strong>Remove tags</strong> : <span class="format-no-box"><code>remove t/TAG1 [t/TAG2]…​</code></span><br>
-e.g. <span class="example-no-box"><code>remove t\friends t\homework</code></span></p>
-</li>
-<li>
-<p><strong>Retrieve question</strong> : <span class="format-no-box"><code>forgotpassword u/USERNAME</code></span><br>
-e.g. <span class="example-no-box"><code>forgotpassword u/david</code></span></p>
-</li>
-<li>
-<p><strong>Sign up</strong> : <span class="format-no-box"><code>signup u/USERNAME p/PASSWORD</code></span><br>
-e.g. <span class="example-no-box"><code>signup u/patrick p/pat12351</code></span></p>
-</li>
-<li>
-<p><strong>Toggle</strong> : <span class="format-no-box"><code>toggle INDEX</code></span><br>
-e.g.<span class="example-no-box"><code>toggle 3</code></span></p>
-</li>
-<li>
-<p><strong>Toggle subtask</strong> : <span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span><br>
-e.g.<span class="example-no-box"><code>toggle-subtask 3 2</code></span></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <span class="format-no-box"><code>undo</code></span></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 32.4675%;">
+<col style="width: 38.9611%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Command Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>add n/NAME [p/PRIORITY_LEVEL] d/DEADLINE [des/DESCRIPTION] [t/TAG]…</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>add n/CS2101 Script p/8 d/2018-03-05 des/Script should be 500 words long t/CS2101 t/PhaseA</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add question answer set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>addqa q/QUESTION a/ANSWER</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>addqa q/are cats cool? a/yes</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add subtask</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>adds TASK_INDEX n/NAME</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>adds 1 n/Submit Report</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Answer question</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>answer u/USERNAME a/ANSWER</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>answer u/david a/yes</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>clear</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>delete INDEX</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>delete 3</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete subtask</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>delete-subtask TASK_INDEX SUBTASK_INDEX</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>delete-subtask 2 3</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete task and its recurred versions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>deleter INDEX</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>deleter 3</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>edit INDEX [n/NAME] [p/PRIORITY_LEVEL] [d/DEADLINE] [des/DESCRIPTION] [t/TAG]…​</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>edit 1 p/9 d/2018-12-30</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit subtask</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>edits TASK_INDEX SUBTASK_INDEX n/NAME</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>edits 3 2 n/Feed cats</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>exit</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>find CS2103 update 2018-03-17</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>finddes KEYWORD [MORE_KEYWORDS]</code> or <code>fdes KEYWORDS [MORE_KEYWORDS]</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>finddes study update</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>findn KEYWORD [MORE_KEYWORDS]</code> or <code>fn KEYWORD [MORE_KEYWORDS]</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>findn Developer User</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find deadline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>findd KEYWORD [MORE_KEYWORDS]</code> or <code>fd KEYWORDS [MORE_KEYWORDS]</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>findd 2018-03-17 2018-09-07</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go to current month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>cmonth</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go to previous month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>pmonth</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go to next month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>nmonth</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>help</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">History</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>history</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>list</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all completed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>completed</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all uncompleted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>uncompleted</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Login</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>login u/USERNAME p/PASSWORD</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>login u/patrick p/pat12351</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>logout</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recur weekly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>recurw INDEX x/TIMES</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>recurw 2 x/2</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>redo</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>remove t/TAG1 [t/TAG2]…​</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>remove t\friends t\homework</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve question</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>forgotpassword u/USERNAME</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>forgotpassword u/david</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sign up</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>signup u/USERNAME p/PASSWORD</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>signup u/patrick p/pat12351</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>toggle INDEX</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>toggle 3</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle subtask</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>toggle-subtask TASK_INDEX SUBTASK_INDEX</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="example-no-box"><code>toggle-subtask 3 2</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="format-no-box"><code>undo</code></span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
