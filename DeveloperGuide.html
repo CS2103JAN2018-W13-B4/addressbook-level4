@@ -17,7 +17,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>CS2103JAN2018-W13-B4</code>      Since: <code>March 2018</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103JAN2018-W13-B4</code>      Since: <code>April 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -81,8 +81,15 @@
 <li><a href="#design-considerations-4">4.4.2. Design Considerations</a></li>
 </ul>
 </li>
-<li><a href="#logging">4.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
+<li><a href="#recurring-tasks">4.5. Recurring Tasks</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation-5">4.5.1. Current implementation</a></li>
+<li><a href="#scenario-4">4.5.2. Scenario</a></li>
+<li><a href="#design-considerations-5">4.5.3. Design Considerations</a></li>
+</ul>
+</li>
+<li><a href="#logging">4.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -731,7 +738,7 @@ The command execution can affect the <code>Model</code> (e.g. adding a task) and
 <p><code>Model</code> consists of a <code>UniqueTaskList</code>, <code>UniqueTagList</code>, and <code>UniqueUserList</code> that contains and manipulates the data within the application using an <code>ObservableList</code>. The component also includes <code>Task</code>, and its respective parameters (e.g. <code>Name</code>, <code>Priority</code>, <code>Date Added</code>, etc.).</p>
 </div>
 <div class="paragraph">
-<p>The class diagram below (refers to <a href="#fig-ModelComponent">Figure 15, &#8220;Structure of <code>Model</code>&#8221;</a>) gives an overview of the structure of <code>Model</code>.</p>
+<p>The class diagram below (refers to <a href="#fig-ModelComponent">Figure 15, &#8220;Structure of <code>Model</code>&#8221;</a>) gives an overview of the structure of <code>model</code>.</p>
 </div>
 <div id="fig-ModelComponent" class="imageblock">
 <div class="content">
@@ -1704,7 +1711,7 @@ newPriority = <span style="color:#00D">0</span> + <span style="color:#00D">4</sp
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Subtask feature allows user to split their tasks into multiple subtasks. This feature allows user to better
+<p>Subtask feature allows users to split their tasks into multiple subtasks. This feature allows users to better
 manage their task. It is implemented using <code>Subtask</code> class and <code>UniqueSubtaskList</code> class as shown by <a href="#fig-SubtaskComponentDiagram">Figure 34, &#8220;Subtask UML Class Diagram&#8221;</a> below:</p>
 </div>
 <div id="fig-SubtaskComponentDiagram" class="imageblock">
@@ -1795,14 +1802,185 @@ is <code>O(n)</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
+<h3 id="recurring-tasks"><a class="link" href="#recurring-tasks">4.5. Recurring Tasks</a></h3>
+<div class="paragraph">
+<p>Recurring Tasks feature allows users to recur tasks weekly using the <code>RecurWeeklyCommand</code>. It also allows users to delete a task and all its recurred versions using the <code>DeleteRecurredTasksCommand</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current implementation</a></h4>
+<div class="paragraph">
+<p>The recurring task feature is implemented through a <code>Recurrence</code> component, which is a parameter for <code>Task</code>.</p>
+</div>
+<div class="paragraph">
+<p>The first recurred version of the task has a deadline set to be a week after the original task&#8217;s deadline. The second recurred version of the task (if asked for by the user) has a deadline set to be 2 weeks after the original task&#8217;s deadline.</p>
+</div>
+<div class="paragraph">
+<p>The pattern continues for the rest of the recurred versions.</p>
+</div>
+<div class="paragraph">
+<p>The recurred versions of the tasks and all their subtasks are set to be <code>Not Completed</code> by default.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the priorities of the recurred versions of the tasks are set to be the priority of the orginal task, as last set in the <code>AddCommand</code> or <code>EditCommand</code>. This is done instead of taking the priority of the original task as it is, which could have been changed by PrioriTask through its auto-updating feature.</p>
+</div>
+<div class="paragraph">
+<p>Both <code>RecurWeeklyCommand</code> and <code>DeleteRecurredTasksCommand</code> are <code>UndoableCommands</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Recurrence</code> component is implemented using a Recurrence class. The following diagram (refer to <a href="#fig-RecurrenceComponentDiagram">Figure 35, &#8220;Recurrence UML Class Diagram&#8221;</a>) shows the class diagram for <code>Recurrence</code>.</p>
+</div>
+<div id="fig-RecurrenceComponentDiagram" class="imageblock">
+<div class="content">
+<img src="images/RecurrenceComponentDiagram.png" alt="RecurrenceComponentDiagram" width="400">
+</div>
+<div class="title">Figure 35. Recurrence UML Class Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scenario-4"><a class="link" href="#scenario-4">4.5.2. Scenario</a></h4>
+<div class="paragraph">
+<p>Suppose that the user wants to recur a task weekly.</p>
+</div>
+<div class="paragraph">
+<p>The user executes a new <code>RecurWeeklyCommand</code>, <code>recurw 1 x/2</code>, to recur the 1st task in the organizer weekly for 3 times.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that the task has not been recurred before, the following sequence diagram (refer to <a href="#fig-RecurWeeklySequenceDiagram">Figure 36, &#8220;RecurWeekly sequence diagram&#8221;</a>) shows how the recur weekly operation works:</p>
+</div>
+<div id="fig-RecurWeeklySequenceDiagram" class="imageblock">
+<div class="content">
+<img src="images/RecurWeeklySequenceDiagram.png" alt="RecurWeeklySequenceDiagram" width="800">
+</div>
+<div class="title">Figure 36. RecurWeekly sequence diagram</div>
+</div>
+<div class="paragraph">
+<p>The object diagram below (refer to <a href="#fig-RecurredTasksObjectDiagram">Figure 37, &#8220;Recurred tasks object diagram&#8221;</a>) shows the original task and the 2 <code>Tasks</code> created after the execution of the command.</p>
+</div>
+<div id="fig-RecurredTasksObjectDiagram" class="imageblock">
+<div class="content">
+<img src="images/RecurredTasksObjectDiagram.png" alt="RecurredTasksObjectDiagram" width="800">
+</div>
+<div class="title">Figure 37. Recurred tasks object diagram</div>
+</div>
+<div class="paragraph">
+<p>Suppose the user now wants to delete the 1st task in the PrioriTask and all its recurred versions.</p>
+</div>
+<div class="paragraph">
+<p>The user executes a new <code>DeleteRecurredTasksCommand</code>, <code>deleter 1</code>, to delete the task that was just recurred and all its recurred versions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-recurrencegroup-code-in-code-recurrence-code"><a class="link" href="#aspect-implementation-of-code-recurrencegroup-code-in-code-recurrence-code">4.5.3.1. Aspect: Implementation of <code>recurrenceGroup</code> in <code>Recurrence</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Set recurrenceGroup as hash code of the task`</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is guaranteed to be unique, which is needed to identify a group of recurred tasks. It is also easy to implement.</p>
+</li>
+<li>
+<p>Cons: It is not as intuitive to identify the group of recurred tasks using long hash codes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Set recurrenceGroup using a counter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is a more intuitive way of identifying recurrence groups.</p>
+</li>
+<li>
+<p>Cons: There is a need to implement a counter for recurrence groups in <code>Model</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-recurweeklycommand-code"><a class="link" href="#aspect-implementation-of-code-recurweeklycommand-code">4.5.3.2. Aspect: Implementation of <code>RecurWeeklyCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add a new <code>Task</code> for each recurred version of the original task</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: It takes up more memory for Objects that have very similar parameters..</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Maintain a list for each of the parameters that change when recurred within the original <code>Task</code>, such as a list of <code>DateCompleted</code> and a list of <code>Status</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will use less memory.</p>
+</li>
+<li>
+<p>Cons: There is a need to change how certain parameters in <code>Task</code> are implemented.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-deleterecurredtaskscommand-code"><a class="link" href="#aspect-implementation-of-code-deleterecurredtaskscommand-code">4.5.3.3. Aspect: Implementation of <code>DeleteRecurredTasksCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add tasks that are not part of the recurrence group into a new task list and set the new task list to replace the old one.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It only reverts changes that are hard to change back (the view can easily be re-modified as no data are * lost).</p>
+</li>
+<li>
+<p>Cons: A user might think that undo also applies when the list is modified (undoing filtering for example), * only to realize that it does not do that, after executing <code>undo</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Remove tasks that are part of the recurrence group while iterating through the task list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This is a more intuitive way of removing tasks from the list.</p>
+</li>
+<li>
+<p>Cons: There is a need to implement an Iterator to remove tasks, as we cannot use a for loop which can cause undefined behaviour.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>).</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>).</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level.</p>
@@ -1816,7 +1994,7 @@ is <code>O(n)</code>.</p>
 <p><strong>Logging Levels</strong></p>
 </div>
 <div class="paragraph">
-<p>The following are breif descriptions of different logging levels:</p>
+<p>The following are brief descriptions of different logging levels:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1836,7 +2014,7 @@ is <code>O(n)</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application (e.g App name, logging level) can be controlled through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1896,7 +2074,7 @@ Asciidoc was chosen over Markdown as asciidoc provides more flexibility in forma
 <p>Within Chrome, click on the <code>Print</code> option in Chrome&#8217;s menu.</p>
 </li>
 <li>
-<p>Set the destination to <code>Save as PDF</code>, then click <code>Save</code> to save a copy of the file in PDF format. For the best results, use the settings indicated in <a href="#fig-chrome_save_as_pdf">Figure 35, &#8220;Saving documentation as PDF files in Chrome&#8221;</a>.</p>
+<p>Set the destination to <code>Save as PDF</code>, then click <code>Save</code> to save a copy of the file in PDF format. For the best results, use the settings indicated in <a href="#fig-chrome_save_as_pdf">Figure 38, &#8220;Saving documentation as PDF files in Chrome&#8221;</a>.</p>
 </li>
 </ol>
 </div>
@@ -1904,7 +2082,7 @@ Asciidoc was chosen over Markdown as asciidoc provides more flexibility in forma
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 35. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 38. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -2218,11 +2396,11 @@ b. Requiring developers to download those libraries manually (this creates extra
 </div>
 </li>
 <li>
-<p>Minor : Date completed parameter</p>
+<p>Minor : Remove tags command</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allows users to view what date the task has been completed on.</p>
+<p>Allows users to delete multiple tags from all tasks.</p>
 </li>
 </ul>
 </div>
@@ -2543,6 +2721,12 @@ b. Requiring developers to download those libraries manually (this creates extra
 <td class="tableblock halign-left valign-top"><p class="tableblock">user who has a user account</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">retrieve my password</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">login to my account if I forget my password</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who has similar tasks that happen weekly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recur tasks weekly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily create versions of the same task but with different deadlines.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2893,7 +3077,32 @@ Expected: Password retrieval successful. Password of 'admin' shown in the status
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Natania add your recurring task testing here</p>
+<p>Recurring a task weekly</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in, and at least a task is added that has not been recurred yet.</p>
+</li>
+<li>
+<p>Test case: recurw 1 x/2<br>
+Expected: Task recurred successfully. A success message will be shown in the results display box. 2 tasks will have been added to the task list panel and the calendar.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a task and its recurred versions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Application is logged in, and at least a task is added that has been recurred.</p>
+</li>
+<li>
+<p>Test case: deleter 1<br>
+Expected: Task and its recurred versions deleted successfully. A success message will be shown in the results display box. The task and its recurred versions will not be shown in the task list panel or the calendar.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>Adding a subtask</p>

@@ -54,34 +54,21 @@ The user interacts with PrioriTask by using a Command Line Interface (CLI), and 
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a remove tag command that allows the user to remove a specified tag from all entries in PrioriTask.</p>
+<p><strong>Minor enhancement</strong>: added a remove tag command that allows the user to remove specified tags from all entries in PrioriTask.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/natania.md">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/natania.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/test/natania.md">Test code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Added DateCompleted paramater to Task (Pull requests <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/159">#159</a>)</p>
 </li>
 </ul>
 </div>
@@ -91,7 +78,7 @@ The user interacts with PrioriTask by using a Command Line Interface (CLI), and 
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Checked for consistency and language in User Guide and Developer Guide</p>
 </li>
 </ul>
 </div>
@@ -101,29 +88,10 @@ The user interacts with PrioriTask by using a Command Line Interface (CLI), and 
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed : <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/18">#18</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/98">#98</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/127">#127</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/191">#191</a>, <a href="https://github.com/CS2103JAN2018-W13-B4/main/pull/204">#204</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reported bugs and suggestions for other teams in the class</p>
 </li>
 </ul>
 </div>
@@ -132,9 +100,6 @@ The user interacts with PrioriTask by using a Command Line Interface (CLI), and 
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -151,6 +116,44 @@ The user interacts with PrioriTask by using a Command Line Interface (CLI), and 
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="removing-tags-from-all-tasks-code-remove-code-or-code-r-code-code-since-v1-5-code"><a class="link" href="#removing-tags-from-all-tasks-code-remove-code-or-code-r-code-code-since-v1-5-code">Removing tags from all tasks : <code>remove</code> or <code>r</code> <code>[since v1.5]</code></a></h3>
+<div class="paragraph">
+<p>Removes specified tags from all tasks in PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>remove t/TAG1 [t/TAG2]…​</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Removes TAG1 and TAG2 (if present) from all tasks.</p>
+</li>
+<li>
+<p>Tags do not have to already exist in PrioriTask.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>remove t/friends t/homework</code></span><br>
+Removes the tags <code>friends</code> and <code>homework</code> from all tasks.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="recurring-a-task-code-recurw-code-or-code-rw-code-code-since-v1-5rc-code"><a class="link" href="#recurring-a-task-code-recurw-code-or-code-rw-code-code-since-v1-5rc-code">Recurring a task : <code>recurw</code> or <code>rw</code> <code>[since v1.5rc]</code></a></h3>
 <div class="paragraph">
@@ -178,7 +181,7 @@ The user interacts with PrioriTask by using a Command Line Interface (CLI), and 
 <p>Priority of the recurred tasks is set to be the original task&#8217;s priority when it was last edited using <code>edit</code> or when it was first set using <code>add</code>.</p>
 </li>
 <li>
-<p>The recurred tasks will be set set as <code>Not Completed</code> by default.</p>
+<p>The recurred tasks and their subtasks will be set set as <code>Not Completed</code> by default.</p>
 </li>
 <li>
 <p>All subtasks of the recurred tasks will also be set as <code>Not Completed</code> by default.</p>
@@ -201,6 +204,56 @@ Recurs the 1st task weekly for 3 times.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="deleting-a-task-and-all-its-recurred-versions-code-deleter-code-or-code-dr-code-code-since-v1-5-code"><a class="link" href="#deleting-a-task-and-all-its-recurred-versions-code-deleter-code-or-code-dr-code-code-since-v1-5-code">Deleting a task and all its recurred versions : <code>deleter</code> or <code>dr</code> <code>[since v1.5]</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified task and all its recurred versions from PrioriTask.<br></p>
+</div>
+<div class="exampleblock format">
+<div class="content">
+<div class="paragraph">
+<p><span class="format-title">Format:</span> <code>deleter INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the task at the specified <code>INDEX</code> and all its recurred versions.</p>
+</li>
+<li>
+<p>The task must have been recurred before.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (i.e. 1, 2, 3, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock example">
+<div class="content">
+<div class="paragraph">
+<p><span class="example-title">Examples:</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="example"><code>list</code></span><br>
+<span class="example"><code>deleter 2</code></span><br>
+Deletes the 2nd task and all its recurred versions in PrioriTask, if it has been recurred before.</p>
+</li>
+<li>
+<p><span class="example"><code>find Developer</code></span><br>
+<span class="example"><code>deleter 1</code></span><br>
+Deletes the 1st task and all its recurred versions in the results of the <code>find</code> command, if it has been recurred before.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -216,12 +269,183 @@ Recurs the 1st task weekly for 3 times.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="recurring-tasks"><a class="link" href="#recurring-tasks">Recurring Tasks</a></h3>
+<div class="paragraph">
+<p>Recurring Tasks feature allows users to recur tasks weekly using the <code>RecurWeeklyCommand</code>. It also allows users to delete a task and all its recurred versions using the <code>DeleteRecurredTasksCommand</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<div class="paragraph">
+<p>The recurring task feature is implemented through a <code>Recurrence</code> component, which is a parameter for <code>Task</code>.</p>
+</div>
+<div class="paragraph">
+<p>The first recurred version of the task has a deadline set to be a week after the original task&#8217;s deadline. The second recurred version of the task (if asked for by the user) has a deadline set to be 2 weeks after the original task&#8217;s deadline.</p>
+</div>
+<div class="paragraph">
+<p>The pattern continues for the rest of the recurred versions.</p>
+</div>
+<div class="paragraph">
+<p>The recurred versions of the tasks and all their subtasks are set to be <code>Not Completed</code> by default.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the priorities of the recurred versions of the tasks are set to be the priority of the orginal task, as last set in the <code>AddCommand</code> or <code>EditCommand</code>. This is done instead of taking the priority of the original task as it is, which could have been changed by PrioriTask through its auto-updating feature.</p>
+</div>
+<div class="paragraph">
+<p>Both <code>RecurWeeklyCommand</code> and <code>DeleteRecurredTasksCommand</code> are <code>UndoableCommands</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Recurrence</code> component is implemented using a Recurrence class. The following diagram (refer to <a href="#fig-RecurrenceComponentDiagram">Recurrence UML Class Diagram</a>) shows the class diagram for <code>Recurrence</code>.</p>
+</div>
+<div id="fig-RecurrenceComponentDiagram" class="imageblock">
+<div class="content">
+<img src="../images/RecurrenceComponentDiagram.png" alt="RecurrenceComponentDiagram" width="400">
+</div>
+<div class="title">Figure 1. Recurrence UML Class Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scenario"><a class="link" href="#scenario">Scenario</a></h4>
+<div class="paragraph">
+<p>Suppose that the user wants to recur a task weekly.</p>
+</div>
+<div class="paragraph">
+<p>The user executes a new <code>RecurWeeklyCommand</code>, <code>recurw 1 x/2</code>, to recur the 1st task in the organizer weekly for 3 times.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that the task has not been recurred before, the following sequence diagram (refer to <a href="#fig-RecurWeeklySequenceDiagram">RecurWeekly sequence diagram</a>) shows how the recur weekly operation works:</p>
+</div>
+<div id="fig-RecurWeeklySequenceDiagram" class="imageblock">
+<div class="content">
+<img src="../images/RecurWeeklySequenceDiagram.png" alt="RecurWeeklySequenceDiagram" width="800">
+</div>
+<div class="title">Figure 2. RecurWeekly sequence diagram</div>
+</div>
+<div class="paragraph">
+<p>The object diagram below (refer to <a href="#fig-RecurredTasksObjectDiagram">Recurred tasks object diagram</a>) shows the original task and the 2 <code>Tasks</code> created after the execution of the command.</p>
+</div>
+<div id="fig-RecurredTasksObjectDiagram" class="imageblock">
+<div class="content">
+<img src="../images/RecurredTasksObjectDiagram.png" alt="RecurredTasksObjectDiagram" width="800">
+</div>
+<div class="title">Figure 3. Recurred tasks object diagram</div>
+</div>
+<div class="paragraph">
+<p>Suppose the user now wants to delete the 1st task in the PrioriTask and all its recurred versions.</p>
+</div>
+<div class="paragraph">
+<p>The user executes a new <code>DeleteRecurredTasksCommand</code>, <code>deleter 1</code>, to delete the task that was just recurred and all its recurred versions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-recurrencegroup-code-in-code-recurrence-code"><a class="link" href="#aspect-implementation-of-code-recurrencegroup-code-in-code-recurrence-code">Aspect: Implementation of <code>recurrenceGroup</code> in <code>Recurrence</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Set recurrenceGroup as hash code of the task`</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is guaranteed to be unique, which is needed to identify a group of recurred tasks. It is also easy to implement.</p>
+</li>
+<li>
+<p>Cons: It is not as intuitive to identify the group of recurred tasks using long hash codes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Set recurrenceGroup using a counter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is a more intuitive way of identifying recurrence groups.</p>
+</li>
+<li>
+<p>Cons: There is a need to implement a counter for recurrence groups in <code>Model</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-recurweeklycommand-code"><a class="link" href="#aspect-implementation-of-code-recurweeklycommand-code">Aspect: Implementation of <code>RecurWeeklyCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add a new <code>Task</code> for each recurred version of the original task</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: It takes up more memory for Objects that have very similar parameters..</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Maintain a list for each of the parameters that change when recurred within the original <code>Task</code>, such as a list of <code>DateCompleted</code> and a list of <code>Status</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will use less memory.</p>
+</li>
+<li>
+<p>Cons: There is a need to change how certain parameters in <code>Task</code> are implemented.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-deleterecurredtaskscommand-code"><a class="link" href="#aspect-implementation-of-code-deleterecurredtaskscommand-code">Aspect: Implementation of <code>DeleteRecurredTasksCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add tasks that are not part of the recurrence group into a new task list and set the new task list to replace the old one.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It only reverts changes that are hard to change back (the view can easily be re-modified as no data are * lost).</p>
+</li>
+<li>
+<p>Cons: A user might think that undo also applies when the list is modified (undoing filtering for example), * only to realize that it does not do that, after executing <code>undo</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Remove tasks that are part of the recurrence group while iterating through the task list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This is a more intuitive way of removing tasks from the list.</p>
+</li>
+<li>
+<p>Cons: There is a need to implement an Iterator to remove tasks, as we cannot use a for loop which can cause undefined behaviour.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:54:59 UTC
+Last updated 2018-04-15 13:35:56 UTC
 </div>
 </div>
 </body>
