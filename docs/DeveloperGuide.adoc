@@ -9,6 +9,7 @@
 :toc-title:
 :toc-placement: preamble
 :sectnums:
+:sectnumlevels: 5
 :imagesDir: images
 :stylesDir: stylesheets
 :stylesheet: guides-style.css
@@ -103,7 +104,7 @@ image::DeveloperGettingStarted5.png[width="600"]
 . Locate the `build.gradle` file and select it. Click `OK`. You will be directed to the `Import Module from Gradle` window (refer to <<fig-GettingStarted6>>).
 
 [[fig-GettingStarted6]]
-.`Import Module from Gradle` Window
+.`Import Module from Gradle` window
 image::DeveloperGettingStarted6.png[width="600"]
 
 [start=12]
