@@ -1254,7 +1254,7 @@ These instructions only provide a starting point for testers to work on; testers
 [NOTE]
 If the window size is smaller than the default height and width, the window size will be reset to default upon app re-launch.
 
-=== User management
+=== User Management
 
 . Signing up
 .. Prerequisites: Application is not currently logged in.
