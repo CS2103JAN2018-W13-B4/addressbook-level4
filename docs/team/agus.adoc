@@ -28,7 +28,7 @@ PrioriTask used https://github.com/nus-cs2103-AY1718S2/addressbook-level4[Addres
 ** Justification: It helps user to differentiate completed task without actually deleting them.
 ** Highlights: Mainly highlights the immutability of the task. Since I have to preserve the task immutability.
 
-* *Code contributed*: [https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/agus.md[Functional code]] [https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/test/agus.md[Test code]]
+* *Code contributed*: [https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/functional/aguss787.md[Functional code]] [https://github.com/CS2103JAN2018-W13-B4/main/blob/master/collated/test/aguss787.md[Test code]]
 
 * *Other contributions*:
 
